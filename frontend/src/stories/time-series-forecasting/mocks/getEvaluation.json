@@ -1,0 +1,560 @@
+{
+    "columns": [
+        "product_at_store",
+        "non_seasonal_p",
+        "non_seasonal_d",
+        "non_seasonal_q",
+        "has_drift",
+        "log_likelihood",
+        "AIC",
+        "variance",
+        "seasonal_periods",
+        "has_holiday_effect",
+        "has_spikes_and_dips",
+        "has_step_changes",
+        "error_message",
+        "id"
+    ],
+    "rows": [
+        {
+            "product_at_store": "Boat 1 (Flagship)",
+            "non_seasonal_p": 1,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 4,
+            "has_drift": false,
+            "log_likelihood": -740.9784360926545,
+            "AIC": 1495.956872185309,
+            "variance": 0.5401727107861477,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 0
+        },
+        {
+            "product_at_store": "Boat 1 (Outskirts)",
+            "non_seasonal_p": 1,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 4,
+            "has_drift": false,
+            "log_likelihood": -781.8280728042821,
+            "AIC": 1577.6561456085642,
+            "variance": 0.611868129438922,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 1
+        },
+        {
+            "product_at_store": "Boat 1 (Suburbs)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -781.3505001030917,
+            "AIC": 1576.7010002061834,
+            "variance": 0.6105181260867812,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 2
+        },
+        {
+            "product_at_store": "Boat 2 (Flagship)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": false,
+            "log_likelihood": -801.8585747614118,
+            "AIC": 1615.7171495228235,
+            "variance": 0.6616847010148632,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 3
+        },
+        {
+            "product_at_store": "Boat 2 (Outskirts)",
+            "non_seasonal_p": 1,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 4,
+            "has_drift": false,
+            "log_likelihood": -733.8331197988298,
+            "AIC": 1481.6662395976596,
+            "variance": 0.5329194816113394,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 4
+        },
+        {
+            "product_at_store": "Boat 2 (Suburbs)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -780.5909396661513,
+            "AIC": 1575.1818793323025,
+            "variance": 0.22726069835872387,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 5
+        },
+        {
+            "product_at_store": "Skates 1 (Flagship)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 4,
+            "has_drift": false,
+            "log_likelihood": -793.0104640417042,
+            "AIC": 1598.0209280834083,
+            "variance": 0.6417168601604472,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 6
+        },
+        {
+            "product_at_store": "Skates 1 (Outskirts)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": false,
+            "log_likelihood": -810.612354990421,
+            "AIC": 1633.224709980842,
+            "variance": 0.6786660012815757,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 7
+        },
+        {
+            "product_at_store": "Skates 1 (Suburbs)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -764.754613353374,
+            "AIC": 1543.509226706748,
+            "variance": 0.5804976365788421,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 8
+        },
+        {
+            "product_at_store": "Skates 2 (Flagship)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -820.4251500320058,
+            "AIC": 1654.8503000640117,
+            "variance": 0.6990790750246887,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 9
+        },
+        {
+            "product_at_store": "Skates 2 (Outskirts)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 0,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -756.3073733006362,
+            "AIC": 1524.6147466012724,
+            "variance": 0.08129383360136043,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 10
+        },
+        {
+            "product_at_store": "Skates 2 (Suburbs)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -758.1985513180147,
+            "AIC": 1528.3971026360293,
+            "variance": 0.5800292867508072,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 11
+        },
+        {
+            "product_at_store": "Skis 1 (Flagship)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 2,
+            "non_seasonal_q": 3,
+            "has_drift": false,
+            "log_likelihood": -948.7742072405414,
+            "AIC": 1909.5484144810828,
+            "variance": 1.0490226719913067,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 12
+        },
+        {
+            "product_at_store": "Skis 1 (Outskirts)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": true,
+            "log_likelihood": -826.1853152300749,
+            "AIC": 1666.3706304601499,
+            "variance": 0.7140043900236552,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 13
+        },
+        {
+            "product_at_store": "Skis 1 (Suburbs)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": false,
+            "log_likelihood": -911.8190230235123,
+            "AIC": 1835.6380460470245,
+            "variance": 0.9317870860828337,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 14
+        },
+        {
+            "product_at_store": "Skis 2 (Flagship)",
+            "non_seasonal_p": 4,
+            "non_seasonal_d": 2,
+            "non_seasonal_q": 1,
+            "has_drift": false,
+            "log_likelihood": -940.4594559289691,
+            "AIC": 1892.9189118579382,
+            "variance": 1.0229491185305164,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 15
+        },
+        {
+            "product_at_store": "Skis 2 (Outskirts)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -834.1055725245028,
+            "AIC": 1680.2111450490056,
+            "variance": 0.7347702195014187,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 16
+        },
+        {
+            "product_at_store": "Skis 2 (Suburbs)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -884.0957310446245,
+            "AIC": 1780.191462089249,
+            "variance": 0.8520840435408498,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 17
+        },
+        {
+            "product_at_store": "Snowboots 1 (Flagship)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -922.1408414829998,
+            "AIC": 1856.2816829659996,
+            "variance": 0.9558186624639606,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 18
+        },
+        {
+            "product_at_store": "Snowboots 1 (Outskirts)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": true,
+            "log_likelihood": -813.7301427268739,
+            "AIC": 1641.4602854537477,
+            "variance": 0.6892475608970916,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 19
+        },
+        {
+            "product_at_store": "Snowboots 1 (Suburbs)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": true,
+            "log_likelihood": -910.433483302147,
+            "AIC": 1834.866966604294,
+            "variance": 0.9281853582462205,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 20
+        },
+        {
+            "product_at_store": "Swimsuit 1 (Flagship)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -899.701568329513,
+            "AIC": 1811.403136659026,
+            "variance": 0.9040574863241584,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 21
+        },
+        {
+            "product_at_store": "Swimsuit 1 (Outskirts)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -865.0180343850955,
+            "AIC": 1742.036068770191,
+            "variance": 0.8019705994853872,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 22
+        },
+        {
+            "product_at_store": "Swimsuit 1 (Suburbs)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -888.3259191097792,
+            "AIC": 1788.6518382195584,
+            "variance": 0.8714087972485884,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 23
+        },
+        {
+            "product_at_store": "Swimsuit 2 (Flagship)",
+            "non_seasonal_p": 1,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 4,
+            "has_drift": false,
+            "log_likelihood": -905.5294048684073,
+            "AIC": 1823.0588097368145,
+            "variance": 0.9147775794787087,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 24
+        },
+        {
+            "product_at_store": "Swimsuit 2 (Outskirts)",
+            "non_seasonal_p": 2,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 3,
+            "has_drift": false,
+            "log_likelihood": -815.1525701084926,
+            "AIC": 1642.3051402169851,
+            "variance": 0.6904539558460097,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 25
+        },
+        {
+            "product_at_store": "Swimsuit 2 (Suburbs)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -856.8556886665347,
+            "AIC": 1725.7113773330693,
+            "variance": 0.7829863885001223,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 26
+        },
+        {
+            "product_at_store": "Swimsuit 3 (Flagship)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -957.142157509713,
+            "AIC": 1926.284315019426,
+            "variance": 1.074873716622894,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 27
+        },
+        {
+            "product_at_store": "Swimsuit 3 (Outskirts)",
+            "non_seasonal_p": 0,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 5,
+            "has_drift": false,
+            "log_likelihood": -840.0518005388711,
+            "AIC": 1692.1036010777423,
+            "variance": 0.742794406767185,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": false,
+            "error_message": "",
+            "id": 28
+        },
+        {
+            "product_at_store": "Swimsuit 3 (Suburbs)",
+            "non_seasonal_p": 3,
+            "non_seasonal_d": 1,
+            "non_seasonal_q": 2,
+            "has_drift": false,
+            "log_likelihood": -869.8657546036413,
+            "AIC": 1751.7315092072827,
+            "variance": 0.8239099823555103,
+            "seasonal_periods": [
+                "WEEKLY"
+            ],
+            "has_holiday_effect": false,
+            "has_spikes_and_dips": false,
+            "has_step_changes": true,
+            "error_message": "",
+            "id": 29
+        }
+    ]
+}

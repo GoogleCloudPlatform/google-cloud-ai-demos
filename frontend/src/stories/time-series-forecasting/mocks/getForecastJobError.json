@@ -1,0 +1,23 @@
+{
+  "jobId": "02paakhy",
+  "request": {
+    "jobId": "02paakhy",
+    "trainingMethodId": "bqml_arimaplus",
+    "dataset": {
+      "id": "t028rst4",
+      "icon": "storefront",
+      "displayName": "Retail Sales"
+    },
+    "modelParameters": {
+      "timeColumn": "date",
+      "targetColumn": "sales",
+      "timeSeriesIdentifierColumn": "product_at_store"
+    },
+    "predictionParameters": {
+      "forecastHorizon": 10
+    },
+    "startTime": "2022-09-29T13:53:51.001414"
+  },
+  "endTime": "2022-09-29T13:54:53.763688",
+  "errorMessage": "Mistakes were made"
+}

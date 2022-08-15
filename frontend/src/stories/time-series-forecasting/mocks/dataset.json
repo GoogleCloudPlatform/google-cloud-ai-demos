@@ -1,0 +1,94 @@
+{
+  "id": "t028rst4",
+  "displayName": "Retail Sales",
+  "description": "This is sales data from a fictional sporting goods company with several stores across the city. It includes sales data for several products, grouped in several categories.",
+  "icon": "storefront",
+  "startDate": "01/01/2019",
+  "endDate": "10/19/2020",
+  "columns": [
+    "date",
+    "day_of_week",
+    "temperature",
+    "product",
+    "product_type",
+    "product_category",
+    "store",
+    "sales",
+    "product_at_store"
+  ],
+  "dfPreview": [
+    {
+      "date": "2019-01-01T00:00:00+00:00",
+      "day_of_week": 1,
+      "temperature": 4.092156862745098,
+      "product": "Skis 1",
+      "product_type": "Skis",
+      "product_category": "Snow",
+      "store": "Flagship",
+      "sales": 63.0,
+      "product_at_store": "Skis 1 (Flagship)",
+      "id": 0
+    },
+    {
+      "date": "2019-01-01T00:00:00+00:00",
+      "day_of_week": 1,
+      "temperature": 4.092156862745098,
+      "product": "Skis 1",
+      "product_type": "Skis",
+      "product_category": "Snow",
+      "store": "Suburbs",
+      "sales": 31.0,
+      "product_at_store": "Skis 1 (Suburbs)",
+      "id": 1
+    },
+    {
+      "date": "2019-01-01T00:00:00+00:00",
+      "day_of_week": 1,
+      "temperature": 4.092156862745098,
+      "product": "Skis 1",
+      "product_type": "Skis",
+      "product_category": "Snow",
+      "store": "Outskirts",
+      "sales": 16.0,
+      "product_at_store": "Skis 1 (Outskirts)",
+      "id": 2
+    },
+    {
+      "date": "2019-01-01T00:00:00+00:00",
+      "day_of_week": 1,
+      "temperature": 4.092156862745098,
+      "product": "Skis 2",
+      "product_type": "Skis",
+      "product_category": "Snow",
+      "store": "Flagship",
+      "sales": 63.0,
+      "product_at_store": "Skis 2 (Flagship)",
+      "id": 3
+    },
+    {
+      "date": "2019-01-01T00:00:00+00:00",
+      "day_of_week": 1,
+      "temperature": 4.092156862745098,
+      "product": "Skis 2",
+      "product_type": "Skis",
+      "product_category": "Snow",
+      "store": "Suburbs",
+      "sales": 30.0,
+      "product_at_store": "Skis 2 (Suburbs)",
+      "id": 4
+    }
+  ],
+  "recommendedModelParameters": {
+    "bqml_arimaplus": {
+      "targetColumn": "sales",
+      "timeColumn": "date",
+      "timeSeriesIdentifierColumn": "product_and_store",
+      "dataFrequency": "daily"
+    }
+  },
+  "recommendedPredictionParameters": {
+    "bqml_arimaplus": {
+      "forecastHorizon": 120
+    }
+  }
+}

@@ -1,0 +1,4804 @@
+{
+    "groups": [
+        "Skis 1 (Flagship)",
+        "Skis 1 (Outskirts)",
+        "Skis 1 (Suburbs)",
+        "Swimsuit 1 (Flagship)",
+        "Swimsuit 1 (Outskirts)",
+        "Swimsuit 1 (Suburbs)"
+    ],
+    "data": [
+        {
+            "name": "2020-01-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-01-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-01-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 46.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-01-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 82.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-01-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-01-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-01-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-01-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 90.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 44.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-01-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-01-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 55.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-01-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-01-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-01-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.0,
+            "Skis 1 (Outskirts)": 23.0,
+            "Skis 1 (Suburbs)": 42.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-01-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-01-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-01-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-01-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-01-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.0,
+            "Skis 1 (Outskirts)": 24.0,
+            "Skis 1 (Suburbs)": 45.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-01-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 41.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-01-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-01-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-01-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-01-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-01-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-02-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 45.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-02-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 82.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-02-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-02-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-02-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-02-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 35.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-02-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.0,
+            "Skis 1 (Outskirts)": 21.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-02-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 43.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-02-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 82.0,
+            "Skis 1 (Outskirts)": 21.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-02-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-02-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-02-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-02-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 64.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-02-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 77.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 39.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-02-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.0,
+            "Skis 1 (Outskirts)": 23.0,
+            "Skis 1 (Suburbs)": 45.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-02-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-02-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-02-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-02-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-02-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 35.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-02-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 73.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-02-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.0,
+            "Skis 1 (Outskirts)": 21.0,
+            "Skis 1 (Suburbs)": 41.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-02-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 41.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-02-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-02-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-02-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 12.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-02-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-02-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-02-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 41.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-03-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 79.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-03-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 55.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-03-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 60.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-03-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 37.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-03-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 43.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-03-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.0,
+            "Skis 1 (Outskirts)": 21.0,
+            "Skis 1 (Suburbs)": 39.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-03-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 57.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 55.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-03-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-03-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 61.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-03-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 67.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-03-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-03-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 73.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 37.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-03-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-03-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-03-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-03-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-03-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 39.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-03-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 35.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-03-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-03-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-03-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 55.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-03-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-03-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 71.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-03-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 66.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-03-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 54.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-03-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-04-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 64.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-04-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-04-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 67.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 35.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-04-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-04-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-04-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-04-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-04-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-04-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-04-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-04-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-04-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-04-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-04-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-04-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-04-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-04-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-04-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-04-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 57.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-04-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-04-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-04-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-04-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-04-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-04-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-05-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-05-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 42.0
+        },
+        {
+            "name": "2020-05-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-05-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-05-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-05-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 64.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-05-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 70.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-05-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 85.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-05-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-05-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-05-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-05-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-05-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-05-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 83.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-05-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-05-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 60.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-05-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 60.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-05-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-05-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-05-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 83.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-05-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 77.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-05-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 61.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-05-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-05-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-05-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 85.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-05-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-06-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-06-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-06-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-06-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-06-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-06-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 89.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-06-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-06-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-06-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-06-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-06-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-06-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-06-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 91.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 45.0
+        },
+        {
+            "name": "2020-06-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 87.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 44.0
+        },
+        {
+            "name": "2020-06-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-06-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-06-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 7.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-06-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 76.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-06-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 83.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-06-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 95.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 47.0
+        },
+        {
+            "name": "2020-06-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 90.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-06-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-06-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 39.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 66.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-06-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-06-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 76.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-06-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 84.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-06-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 57.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 96.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 50.0
+        },
+        {
+            "name": "2020-06-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 93.0,
+            "Swimsuit 1 (Outskirts)": 24.0,
+            "Swimsuit 1 (Suburbs)": 46.0
+        },
+        {
+            "name": "2020-06-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 70.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-06-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-07-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 87.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 44.0
+        },
+        {
+            "name": "2020-07-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 102.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 51.0
+        },
+        {
+            "name": "2020-07-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 95.0,
+            "Swimsuit 1 (Outskirts)": 24.0,
+            "Swimsuit 1 (Suburbs)": 47.0
+        },
+        {
+            "name": "2020-07-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-07-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-07-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-07-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 86.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-07-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 100.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 51.0
+        },
+        {
+            "name": "2020-07-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 96.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 47.0
+        },
+        {
+            "name": "2020-07-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-07-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 42.0
+        },
+        {
+            "name": "2020-07-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 88.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 42.0
+        },
+        {
+            "name": "2020-07-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 102.0,
+            "Swimsuit 1 (Outskirts)": 26.0,
+            "Swimsuit 1 (Suburbs)": 51.0
+        },
+        {
+            "name": "2020-07-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 95.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 47.0
+        },
+        {
+            "name": "2020-07-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-07-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-07-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-07-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-07-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 86.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 44.0
+        },
+        {
+            "name": "2020-07-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 57.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 101.0,
+            "Swimsuit 1 (Outskirts)": 24.0,
+            "Swimsuit 1 (Suburbs)": 50.0
+        },
+        {
+            "name": "2020-07-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 95.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 46.0
+        },
+        {
+            "name": "2020-07-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-07-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-07-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-07-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-07-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-08-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 97.0,
+            "Swimsuit 1 (Outskirts)": 25.0,
+            "Swimsuit 1 (Suburbs)": 49.0
+        },
+        {
+            "name": "2020-08-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 88.0,
+            "Swimsuit 1 (Outskirts)": 24.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-08-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-08-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 39.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-08-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 39.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-08-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-08-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-08-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 92.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 46.0
+        },
+        {
+            "name": "2020-08-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 85.0,
+            "Swimsuit 1 (Outskirts)": 22.0,
+            "Swimsuit 1 (Suburbs)": 43.0
+        },
+        {
+            "name": "2020-08-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 19.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-08-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 40.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-08-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 8.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 65.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-08-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 45.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 71.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-08-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-08-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 90.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 47.0
+        },
+        {
+            "name": "2020-08-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-08-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-08-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-08-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 41.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-08-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 66.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-08-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 50.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-08-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 86.0,
+            "Swimsuit 1 (Outskirts)": 23.0,
+            "Swimsuit 1 (Suburbs)": 44.0
+        },
+        {
+            "name": "2020-08-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-08-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 60.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-08-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 21.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-08-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 42.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 61.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-08-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 66.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-08-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 72.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-08-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 83.0,
+            "Swimsuit 1 (Outskirts)": 21.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-08-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 76.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-08-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-09-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 43.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 60.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-09-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 11.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 59.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-09-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 48.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 64.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-09-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-09-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 82.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-09-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-09-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 20.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-09-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 46.0,
+            "Skis 1 (Outskirts)": 9.0,
+            "Skis 1 (Suburbs)": 22.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-09-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 44.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-09-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 25.0,
+            "Swimsuit 1 (Flagship)": 64.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-09-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 57.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 70.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-09-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 34.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 39.0
+        },
+        {
+            "name": "2020-09-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 35.0
+        },
+        {
+            "name": "2020-09-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 47.0,
+            "Skis 1 (Outskirts)": 10.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-09-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 49.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 23.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-09-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-09-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 55.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 61.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-09-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-09-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 37.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-09-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 66.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-09-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 51.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-09-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 52.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 26.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-09-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 53.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 24.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-09-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 59.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 61.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-09-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 67.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 33.0
+        },
+        {
+            "name": "2020-09-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.0,
+            "Skis 1 (Outskirts)": 19.0,
+            "Skis 1 (Suburbs)": 38.0,
+            "Swimsuit 1 (Flagship)": 81.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-09-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 71.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 35.0,
+            "Swimsuit 1 (Flagship)": 75.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 37.0
+        },
+        {
+            "name": "2020-09-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 12.0,
+            "Skis 1 (Suburbs)": 28.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-09-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 54.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-09-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 56.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 27.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-10-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 31.0
+        },
+        {
+            "name": "2020-10-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 69.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-10-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.0,
+            "Skis 1 (Outskirts)": 21.0,
+            "Skis 1 (Suburbs)": 39.0,
+            "Swimsuit 1 (Flagship)": 78.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-10-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-10-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-10-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 13.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-10-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 58.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 12.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-10-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 32.0,
+            "Swimsuit 1 (Flagship)": 62.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 32.0
+        },
+        {
+            "name": "2020-10-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 72.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 36.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-10-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 82.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 41.0,
+            "Swimsuit 1 (Flagship)": 80.0,
+            "Swimsuit 1 (Outskirts)": 20.0,
+            "Swimsuit 1 (Suburbs)": 40.0
+        },
+        {
+            "name": "2020-10-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 79.0,
+            "Skis 1 (Outskirts)": 20.0,
+            "Skis 1 (Suburbs)": 40.0,
+            "Swimsuit 1 (Flagship)": 74.0,
+            "Swimsuit 1 (Outskirts)": 18.0,
+            "Swimsuit 1 (Suburbs)": 36.0
+        },
+        {
+            "name": "2020-10-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.0,
+            "Skis 1 (Outskirts)": 14.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 58.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 26.0
+        },
+        {
+            "name": "2020-10-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 13.0,
+            "Skis 1 (Suburbs)": 29.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 29.0
+        },
+        {
+            "name": "2020-10-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 16.0,
+            "Skis 1 (Suburbs)": 30.0,
+            "Swimsuit 1 (Flagship)": 56.0,
+            "Swimsuit 1 (Outskirts)": 14.0,
+            "Swimsuit 1 (Suburbs)": 28.0
+        },
+        {
+            "name": "2020-10-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 66.0,
+            "Skis 1 (Outskirts)": 17.0,
+            "Skis 1 (Suburbs)": 33.0,
+            "Swimsuit 1 (Flagship)": 63.0,
+            "Swimsuit 1 (Outskirts)": 15.0,
+            "Swimsuit 1 (Suburbs)": 30.0
+        },
+        {
+            "name": "2020-10-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 72.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 37.0,
+            "Swimsuit 1 (Flagship)": 68.0,
+            "Swimsuit 1 (Outskirts)": 17.0,
+            "Swimsuit 1 (Suburbs)": 34.0
+        },
+        {
+            "name": "2020-10-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 85.0,
+            "Skis 1 (Outskirts)": 22.0,
+            "Skis 1 (Suburbs)": 44.0,
+            "Swimsuit 1 (Flagship)": 79.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 41.0
+        },
+        {
+            "name": "2020-10-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 79.0,
+            "Skis 1 (Outskirts)": 18.0,
+            "Skis 1 (Suburbs)": 42.0,
+            "Swimsuit 1 (Flagship)": 73.0,
+            "Swimsuit 1 (Outskirts)": 19.0,
+            "Swimsuit 1 (Suburbs)": 38.0
+        },
+        {
+            "name": "2020-10-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 60.0,
+            "Skis 1 (Outskirts)": 15.0,
+            "Skis 1 (Suburbs)": 31.0,
+            "Swimsuit 1 (Flagship)": 57.0,
+            "Swimsuit 1 (Outskirts)": 16.0,
+            "Swimsuit 1 (Suburbs)": 27.0
+        },
+        {
+            "name": "2020-10-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 61.686693005709344,
+            "Skis 1 (Outskirts)": 14.598913146740765,
+            "Skis 1 (Suburbs)": 32.19903631356046,
+            "Swimsuit 1 (Flagship)": 56.86439833553206,
+            "Swimsuit 1 (Outskirts)": 14.195851256354064,
+            "Swimsuit 1 (Suburbs)": 29.198036930510252
+        },
+        {
+            "name": "2020-10-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 62.461238456669435,
+            "Skis 1 (Outskirts)": 15.50173425035291,
+            "Skis 1 (Suburbs)": 32.47244843126265,
+            "Swimsuit 1 (Flagship)": 55.936911148033516,
+            "Swimsuit 1 (Outskirts)": 13.222390139915722,
+            "Swimsuit 1 (Suburbs)": 29.63784253511433
+        },
+        {
+            "name": "2020-10-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 67.98414497696172,
+            "Skis 1 (Outskirts)": 16.92663010462763,
+            "Skis 1 (Suburbs)": 35.70491221653338,
+            "Swimsuit 1 (Flagship)": 61.40226730169346,
+            "Swimsuit 1 (Outskirts)": 16.113900410760987,
+            "Swimsuit 1 (Suburbs)": 31.760312931465535
+        },
+        {
+            "name": "2020-10-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.35763829377728,
+            "Skis 1 (Outskirts)": 17.678983457571686,
+            "Skis 1 (Suburbs)": 38.66627129648126,
+            "Swimsuit 1 (Flagship)": 67.38698467063752,
+            "Swimsuit 1 (Outskirts)": 17.945919862659366,
+            "Swimsuit 1 (Suburbs)": 34.11616608421192
+        },
+        {
+            "name": "2020-10-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 84.47969982736235,
+            "Skis 1 (Outskirts)": 21.376330951190376,
+            "Skis 1 (Suburbs)": 43.407461446899525,
+            "Swimsuit 1 (Flagship)": 78.94709633366797,
+            "Swimsuit 1 (Outskirts)": 19.899352603839027,
+            "Swimsuit 1 (Suburbs)": 40.181723209439184
+        },
+        {
+            "name": "2020-10-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.3831299463756,
+            "Skis 1 (Outskirts)": 18.953942721029797,
+            "Skis 1 (Suburbs)": 40.84482256114332,
+            "Swimsuit 1 (Flagship)": 73.13072700248384,
+            "Swimsuit 1 (Outskirts)": 18.87314078354868,
+            "Swimsuit 1 (Suburbs)": 37.11156667356155
+        },
+        {
+            "name": "2020-10-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.0587222187507,
+            "Skis 1 (Outskirts)": 14.56624348638034,
+            "Skis 1 (Suburbs)": 32.51993818804503,
+            "Swimsuit 1 (Flagship)": 56.834438289672306,
+            "Swimsuit 1 (Outskirts)": 15.03790414631984,
+            "Swimsuit 1 (Suburbs)": 27.555222622010778
+        },
+        {
+            "name": "2020-10-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.41956580989554,
+            "Skis 1 (Outskirts)": 14.518989158254938,
+            "Skis 1 (Suburbs)": 32.51444476003234,
+            "Swimsuit 1 (Flagship)": 56.709512850305345,
+            "Swimsuit 1 (Outskirts)": 14.08882228913852,
+            "Swimsuit 1 (Suburbs)": 28.874050764337
+        },
+        {
+            "name": "2020-10-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 63.99076579200995,
+            "Skis 1 (Outskirts)": 15.583028074977731,
+            "Skis 1 (Suburbs)": 31.917469126643773,
+            "Swimsuit 1 (Flagship)": 55.894548836578224,
+            "Swimsuit 1 (Outskirts)": 13.431932849177366,
+            "Swimsuit 1 (Suburbs)": 29.02434000912403
+        },
+        {
+            "name": "2020-10-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.54009284681659,
+            "Skis 1 (Outskirts)": 16.935423643700286,
+            "Skis 1 (Suburbs)": 35.07518123875869,
+            "Swimsuit 1 (Flagship)": 61.48523960860202,
+            "Swimsuit 1 (Outskirts)": 15.929595489123605,
+            "Swimsuit 1 (Suburbs)": 31.524630256522173
+        },
+        {
+            "name": "2020-10-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.86255174245166,
+            "Skis 1 (Outskirts)": 17.5936119211781,
+            "Skis 1 (Suburbs)": 38.60024762652999,
+            "Swimsuit 1 (Flagship)": 67.48039683762468,
+            "Swimsuit 1 (Outskirts)": 17.662235313808267,
+            "Swimsuit 1 (Suburbs)": 34.36101419561632
+        },
+        {
+            "name": "2020-10-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.00357835669948,
+            "Skis 1 (Outskirts)": 21.380115481572844,
+            "Skis 1 (Suburbs)": 43.788080791454725,
+            "Swimsuit 1 (Flagship)": 78.95613257779696,
+            "Swimsuit 1 (Outskirts)": 19.89913317513455,
+            "Swimsuit 1 (Suburbs)": 40.17835160855041
+        },
+        {
+            "name": "2020-11-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.89638053677228,
+            "Skis 1 (Outskirts)": 18.962783888742518,
+            "Skis 1 (Suburbs)": 41.174610388150654,
+            "Swimsuit 1 (Flagship)": 73.0685096004574,
+            "Swimsuit 1 (Outskirts)": 18.878665390388917,
+            "Swimsuit 1 (Suburbs)": 37.11926231205819
+        },
+        {
+            "name": "2020-11-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.61171499650266,
+            "Skis 1 (Outskirts)": 14.518362330019112,
+            "Skis 1 (Suburbs)": 32.50103208402032,
+            "Swimsuit 1 (Flagship)": 56.7869487220719,
+            "Swimsuit 1 (Outskirts)": 15.04898268516652,
+            "Swimsuit 1 (Suburbs)": 27.55101757447922
+        },
+        {
+            "name": "2020-11-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 64.94900960391156,
+            "Skis 1 (Outskirts)": 14.494815337492561,
+            "Skis 1 (Suburbs)": 32.26292926121286,
+            "Swimsuit 1 (Flagship)": 56.71704347611531,
+            "Swimsuit 1 (Outskirts)": 14.07854781125731,
+            "Swimsuit 1 (Suburbs)": 28.880081182064558
+        },
+        {
+            "name": "2020-11-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 65.54451195642696,
+            "Skis 1 (Outskirts)": 15.595393970376634,
+            "Skis 1 (Suburbs)": 31.747477734293348,
+            "Swimsuit 1 (Flagship)": 55.92966153905679,
+            "Swimsuit 1 (Outskirts)": 13.41631148396389,
+            "Swimsuit 1 (Suburbs)": 29.023110528847422
+        },
+        {
+            "name": "2020-11-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 71.05828911654498,
+            "Skis 1 (Outskirts)": 16.934502887881475,
+            "Skis 1 (Suburbs)": 35.12800514414362,
+            "Swimsuit 1 (Flagship)": 61.510920718689796,
+            "Swimsuit 1 (Outskirts)": 15.927423365975834,
+            "Swimsuit 1 (Suburbs)": 31.52238794699713
+        },
+        {
+            "name": "2020-11-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 77.39890352397386,
+            "Skis 1 (Outskirts)": 17.55573540644765,
+            "Skis 1 (Suburbs)": 38.76710357494801,
+            "Swimsuit 1 (Flagship)": 67.47470686360334,
+            "Swimsuit 1 (Outskirts)": 17.674014592113036,
+            "Swimsuit 1 (Suburbs)": 34.35795767943321
+        },
+        {
+            "name": "2020-11-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.49963063038018,
+            "Skis 1 (Outskirts)": 21.37232936050281,
+            "Skis 1 (Suburbs)": 43.86066207696705,
+            "Swimsuit 1 (Flagship)": 78.93076119428912,
+            "Swimsuit 1 (Outskirts)": 19.898913746430075,
+            "Swimsuit 1 (Suburbs)": 40.17498000766163
+        },
+        {
+            "name": "2020-11-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.4340754132348,
+            "Skis 1 (Outskirts)": 18.945725250529488,
+            "Skis 1 (Suburbs)": 41.113442396234554,
+            "Swimsuit 1 (Flagship)": 73.05106630141188,
+            "Swimsuit 1 (Outskirts)": 18.884189997229154,
+            "Swimsuit 1 (Suburbs)": 37.126957950554825
+        },
+        {
+            "name": "2020-11-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 66.14321486840768,
+            "Skis 1 (Outskirts)": 14.487525225483335,
+            "Skis 1 (Suburbs)": 32.41026540263737,
+            "Swimsuit 1 (Flagship)": 56.79818103702935,
+            "Swimsuit 1 (Outskirts)": 15.0600612240132,
+            "Swimsuit 1 (Suburbs)": 27.546812526947665
+        },
+        {
+            "name": "2020-11-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 66.49734918795409,
+            "Skis 1 (Outskirts)": 14.480752824289302,
+            "Skis 1 (Suburbs)": 32.23324302094125,
+            "Swimsuit 1 (Flagship)": 56.73721101119578,
+            "Swimsuit 1 (Outskirts)": 14.068273333376101,
+            "Swimsuit 1 (Suburbs)": 28.886111599792116
+        },
+        {
+            "name": "2020-11-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 67.08164540002514,
+            "Skis 1 (Outskirts)": 15.593134068638646,
+            "Skis 1 (Suburbs)": 31.791649202463564,
+            "Swimsuit 1 (Flagship)": 55.93234311469854,
+            "Swimsuit 1 (Outskirts)": 13.400690118750413,
+            "Swimsuit 1 (Suburbs)": 29.021881048570812
+        },
+        {
+            "name": "2020-11-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 72.5910908643623,
+            "Skis 1 (Outskirts)": 16.93261434506941,
+            "Skis 1 (Suburbs)": 35.18287287571184,
+            "Swimsuit 1 (Flagship)": 61.502865764074905,
+            "Swimsuit 1 (Outskirts)": 15.925251242828063,
+            "Swimsuit 1 (Suburbs)": 31.520145637472094
+        },
+        {
+            "name": "2020-11-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.92241454122498,
+            "Skis 1 (Outskirts)": 17.527528125430486,
+            "Skis 1 (Suburbs)": 38.784911124057516,
+            "Swimsuit 1 (Flagship)": 67.46656052370771,
+            "Swimsuit 1 (Outskirts)": 17.685793870417804,
+            "Swimsuit 1 (Suburbs)": 34.35490116325011
+        },
+        {
+            "name": "2020-11-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.00697217663019,
+            "Skis 1 (Outskirts)": 21.36154496941709,
+            "Skis 1 (Suburbs)": 43.82185251239002,
+            "Swimsuit 1 (Flagship)": 78.92767824694674,
+            "Swimsuit 1 (Outskirts)": 19.898694317725596,
+            "Swimsuit 1 (Suburbs)": 40.17160840677285
+        },
+        {
+            "name": "2020-11-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 84.96184504904755,
+            "Skis 1 (Outskirts)": 18.923634037657514,
+            "Skis 1 (Suburbs)": 41.07488138074784,
+            "Swimsuit 1 (Flagship)": 73.05234812310323,
+            "Swimsuit 1 (Outskirts)": 18.88971460406939,
+            "Swimsuit 1 (Suburbs)": 37.13465358905147
+        },
+        {
+            "name": "2020-11-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 67.68344075886809,
+            "Skis 1 (Outskirts)": 14.460477211124434,
+            "Skis 1 (Suburbs)": 32.41448363265094,
+            "Swimsuit 1 (Flagship)": 56.807706409856756,
+            "Swimsuit 1 (Outskirts)": 15.071139762859879,
+            "Swimsuit 1 (Suburbs)": 27.54260747941611
+        },
+        {
+            "name": "2020-11-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.03801707893439,
+            "Skis 1 (Outskirts)": 14.468476639264516,
+            "Skis 1 (Suburbs)": 32.257735144384604,
+            "Swimsuit 1 (Flagship)": 56.74267023560494,
+            "Swimsuit 1 (Outskirts)": 14.057998855494892,
+            "Swimsuit 1 (Suburbs)": 28.892142017519678
+        },
+        {
+            "name": "2020-11-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 68.62552360058983,
+            "Skis 1 (Outskirts)": 15.587795193449843,
+            "Skis 1 (Suburbs)": 31.80901418847524,
+            "Swimsuit 1 (Flagship)": 55.92505094520039,
+            "Swimsuit 1 (Outskirts)": 13.385068753536936,
+            "Swimsuit 1 (Suburbs)": 29.020651568294202
+        },
+        {
+            "name": "2020-11-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.1179627937984,
+            "Skis 1 (Outskirts)": 16.930739879290314,
+            "Skis 1 (Suburbs)": 35.17987797649393,
+            "Swimsuit 1 (Flagship)": 61.49775127235805,
+            "Swimsuit 1 (Outskirts)": 15.923079119680292,
+            "Swimsuit 1 (Suburbs)": 31.517903327947053
+        },
+        {
+            "name": "2020-11-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.45113890362875,
+            "Skis 1 (Outskirts)": 17.501274965444676,
+            "Skis 1 (Suburbs)": 38.77887792046593,
+            "Swimsuit 1 (Flagship)": 67.46779463992503,
+            "Swimsuit 1 (Outskirts)": 17.697573148722572,
+            "Swimsuit 1 (Suburbs)": 34.351844647067004
+        },
+        {
+            "name": "2020-11-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 90.50973028272571,
+            "Skis 1 (Outskirts)": 21.35002121281953,
+            "Skis 1 (Suburbs)": 43.80613279402819,
+            "Swimsuit 1 (Flagship)": 78.92963012251684,
+            "Swimsuit 1 (Outskirts)": 19.89847488902112,
+            "Swimsuit 1 (Suburbs)": 40.168236805884064
+        },
+        {
+            "name": "2020-11-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.49364432859917,
+            "Skis 1 (Outskirts)": 18.90057562886971,
+            "Skis 1 (Suburbs)": 41.07011391637814,
+            "Swimsuit 1 (Flagship)": 73.05074518879783,
+            "Swimsuit 1 (Outskirts)": 18.895239210909622,
+            "Swimsuit 1 (Suburbs)": 37.14234922754811
+        },
+        {
+            "name": "2020-11-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.22012388928098,
+            "Skis 1 (Outskirts)": 14.434261227178164,
+            "Skis 1 (Suburbs)": 32.42739947649215,
+            "Swimsuit 1 (Flagship)": 56.81143047070144,
+            "Swimsuit 1 (Outskirts)": 15.082218301706558,
+            "Swimsuit 1 (Suburbs)": 27.538402431884553
+        },
+        {
+            "name": "2020-11-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 69.58179967423341,
+            "Skis 1 (Outskirts)": 14.456504959278302,
+            "Skis 1 (Suburbs)": 32.264886746492365,
+            "Swimsuit 1 (Flagship)": 56.7457792175322,
+            "Swimsuit 1 (Outskirts)": 14.047724377613683,
+            "Swimsuit 1 (Suburbs)": 28.898172435247236
+        },
+        {
+            "name": "2020-11-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.16666343252066,
+            "Skis 1 (Outskirts)": 15.581813017390212,
+            "Skis 1 (Suburbs)": 31.80747254253349,
+            "Swimsuit 1 (Flagship)": 55.92012404611886,
+            "Swimsuit 1 (Outskirts)": 13.36944738832346,
+            "Swimsuit 1 (Suburbs)": 29.019422088017592
+        },
+        {
+            "name": "2020-11-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.6472422271286,
+            "Skis 1 (Outskirts)": 16.92891208566185,
+            "Skis 1 (Suburbs)": 35.17512588145252,
+            "Swimsuit 1 (Flagship)": 61.49612024046248,
+            "Swimsuit 1 (Outskirts)": 15.920906996532521,
+            "Swimsuit 1 (Suburbs)": 31.515661018422016
+        },
+        {
+            "name": "2020-11-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.97774664998332,
+            "Skis 1 (Outskirts)": 17.475413741238416,
+            "Skis 1 (Suburbs)": 38.78483975290757,
+            "Swimsuit 1 (Flagship)": 67.46998663307778,
+            "Swimsuit 1 (Outskirts)": 17.70935242702734,
+            "Swimsuit 1 (Suburbs)": 34.348788130883904
+        },
+        {
+            "name": "2020-11-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.0143492636931,
+            "Skis 1 (Outskirts)": 21.338321258288563,
+            "Skis 1 (Suburbs)": 43.80049720321649,
+            "Swimsuit 1 (Flagship)": 78.92981665169538,
+            "Swimsuit 1 (Outskirts)": 19.89825546031664,
+            "Swimsuit 1 (Suburbs)": 40.16486520499529
+        },
+        {
+            "name": "2020-11-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.02380757440272,
+            "Skis 1 (Outskirts)": 18.8773336607165,
+            "Skis 1 (Suburbs)": 41.064353092319124,
+            "Swimsuit 1 (Flagship)": 73.04711252802547,
+            "Swimsuit 1 (Outskirts)": 18.90076381774986,
+            "Swimsuit 1 (Suburbs)": 37.150044866044745
+        },
+        {
+            "name": "2020-11-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 70.75824537885802,
+            "Skis 1 (Outskirts)": 14.40822598168039,
+            "Skis 1 (Suburbs)": 32.43249338662532,
+            "Swimsuit 1 (Flagship)": 56.81487364470941,
+            "Swimsuit 1 (Outskirts)": 15.093296840553238,
+            "Swimsuit 1 (Suburbs)": 27.534197384352996
+        },
+        {
+            "name": "2020-12-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 71.12431770082338,
+            "Skis 1 (Outskirts)": 14.444582535906095,
+            "Skis 1 (Suburbs)": 32.266966383808665,
+            "Swimsuit 1 (Flagship)": 56.750127864088064,
+            "Swimsuit 1 (Outskirts)": 14.037449899732474,
+            "Swimsuit 1 (Suburbs)": 28.904202852974798
+        },
+        {
+            "name": "2020-12-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 71.70891504102299,
+            "Skis 1 (Outskirts)": 15.575697412809337,
+            "Skis 1 (Suburbs)": 31.80768807952472,
+            "Swimsuit 1 (Flagship)": 55.91634193101313,
+            "Swimsuit 1 (Outskirts)": 13.353826023109983,
+            "Swimsuit 1 (Suburbs)": 29.018192607740986
+        },
+        {
+            "name": "2020-12-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 77.1755442148396,
+            "Skis 1 (Outskirts)": 16.92710281897099,
+            "Skis 1 (Suburbs)": 35.1752356555499,
+            "Swimsuit 1 (Flagship)": 61.49447290871624,
+            "Swimsuit 1 (Outskirts)": 15.91873487338475,
+            "Swimsuit 1 (Suburbs)": 31.513418708896975
+        },
+        {
+            "name": "2020-12-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.50521374160836,
+            "Skis 1 (Outskirts)": 17.44963050269041,
+            "Skis 1 (Suburbs)": 38.79315292336186,
+            "Swimsuit 1 (Flagship)": 67.47134644409181,
+            "Swimsuit 1 (Outskirts)": 17.72113170533211,
+            "Swimsuit 1 (Suburbs)": 34.345731614700796
+        },
+        {
+            "name": "2020-12-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 93.51821273020595,
+            "Skis 1 (Outskirts)": 21.32658036435697,
+            "Skis 1 (Suburbs)": 43.7931783247229,
+            "Swimsuit 1 (Flagship)": 78.92938138971334,
+            "Swimsuit 1 (Outskirts)": 19.898036031612165,
+            "Swimsuit 1 (Suburbs)": 40.16149360410651
+        },
+        {
+            "name": "2020-12-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.55463504925447,
+            "Skis 1 (Outskirts)": 18.85405736665784,
+            "Skis 1 (Suburbs)": 41.0556975083832,
+            "Swimsuit 1 (Flagship)": 73.04360247688814,
+            "Swimsuit 1 (Outskirts)": 18.906288424590095,
+            "Swimsuit 1 (Suburbs)": 37.15774050454139
+        },
+        {
+            "name": "2020-12-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 72.2957828951891,
+            "Skis 1 (Outskirts)": 14.382229619271298,
+            "Skis 1 (Suburbs)": 32.43663516072455,
+            "Swimsuit 1 (Flagship)": 56.81885541191477,
+            "Swimsuit 1 (Outskirts)": 15.104375379399917,
+            "Swimsuit 1 (Suburbs)": 27.52999233682144
+        },
+        {
+            "name": "2020-12-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 72.66734914180418,
+            "Skis 1 (Outskirts)": 14.43266742305412,
+            "Skis 1 (Suburbs)": 32.27037863523858,
+            "Swimsuit 1 (Flagship)": 56.754798691706554,
+            "Swimsuit 1 (Outskirts)": 14.027175421851265,
+            "Swimsuit 1 (Suburbs)": 28.910233270702356
+        },
+        {
+            "name": "2020-12-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 73.25071526868156,
+            "Skis 1 (Outskirts)": 15.569554331479631,
+            "Skis 1 (Suburbs)": 31.80955604533085,
+            "Swimsuit 1 (Flagship)": 55.91241937847191,
+            "Swimsuit 1 (Outskirts)": 13.338204657896508,
+            "Swimsuit 1 (Suburbs)": 29.016963127464376
+        },
+        {
+            "name": "2020-12-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.70424304508168,
+            "Skis 1 (Outskirts)": 16.92529917024667,
+            "Skis 1 (Suburbs)": 35.17562761234374,
+            "Swimsuit 1 (Flagship)": 61.492487962534945,
+            "Swimsuit 1 (Outskirts)": 15.91656275023698,
+            "Swimsuit 1 (Suburbs)": 31.511176399371937
+        },
+        {
+            "name": "2020-12-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 85.03233193939703,
+            "Skis 1 (Outskirts)": 17.423862649795556,
+            "Skis 1 (Suburbs)": 38.80051260717822,
+            "Swimsuit 1 (Flagship)": 67.47254982702063,
+            "Swimsuit 1 (Outskirts)": 17.732910983636874,
+            "Swimsuit 1 (Suburbs)": 34.342675098517695
+        },
+        {
+            "name": "2020-12-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.02238293528568,
+            "Skis 1 (Outskirts)": 21.314830144473145,
+            "Skis 1 (Suburbs)": 43.78495767850851,
+            "Swimsuit 1 (Flagship)": 78.92906881762873,
+            "Swimsuit 1 (Outskirts)": 19.897816602907685,
+            "Swimsuit 1 (Suburbs)": 40.15812200321773
+        },
+        {
+            "name": "2020-12-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 91.08519284737814,
+            "Skis 1 (Outskirts)": 18.830774767383964,
+            "Skis 1 (Suburbs)": 41.047046983673376,
+            "Swimsuit 1 (Flagship)": 73.0402978356753,
+            "Swimsuit 1 (Outskirts)": 18.91181303143033,
+            "Swimsuit 1 (Suburbs)": 37.16543614303802
+        },
+        {
+            "name": "2020-12-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 73.83355750442487,
+            "Skis 1 (Outskirts)": 14.356241548418065,
+            "Skis 1 (Suburbs)": 32.44141460829758,
+            "Swimsuit 1 (Flagship)": 56.82290568105153,
+            "Swimsuit 1 (Outskirts)": 15.115453918246597,
+            "Swimsuit 1 (Suburbs)": 27.525787289289884
+        },
+        {
+            "name": "2020-12-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.21017213674749,
+            "Skis 1 (Outskirts)": 14.420753223485232,
+            "Skis 1 (Suburbs)": 32.274257746209315,
+            "Swimsuit 1 (Flagship)": 56.759374570412,
+            "Swimsuit 1 (Outskirts)": 14.016900943970056,
+            "Swimsuit 1 (Suburbs)": 28.916263688429915
+        },
+        {
+            "name": "2020-12-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 74.79269875678247,
+            "Skis 1 (Outskirts)": 15.56340563224338,
+            "Skis 1 (Suburbs)": 31.811320133256544,
+            "Swimsuit 1 (Flagship)": 55.90837549617216,
+            "Swimsuit 1 (Outskirts)": 13.322583292683031,
+            "Swimsuit 1 (Suburbs)": 29.015733647187766
+        },
+        {
+            "name": "2020-12-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.23278075741477,
+            "Skis 1 (Outskirts)": 16.923497040180784,
+            "Skis 1 (Suburbs)": 35.175614736199584,
+            "Swimsuit 1 (Flagship)": 61.49047865169572,
+            "Swimsuit 1 (Outskirts)": 15.91439062708921,
+            "Swimsuit 1 (Suburbs)": 31.508934089846896
+        },
+        {
+            "name": "2020-12-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.55959178794402,
+            "Skis 1 (Outskirts)": 17.39809780435683,
+            "Skis 1 (Suburbs)": 38.80764666889475,
+            "Swimsuit 1 (Flagship)": 67.47382154707049,
+            "Swimsuit 1 (Outskirts)": 17.744690261941642,
+            "Swimsuit 1 (Suburbs)": 34.33961858233459
+        },
+        {
+            "name": "2020-12-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 96.52642860462996,
+            "Skis 1 (Outskirts)": 21.303077834031978,
+            "Skis 1 (Suburbs)": 43.77685518619748,
+            "Swimsuit 1 (Flagship)": 78.92882571170342,
+            "Swimsuit 1 (Outskirts)": 19.89759717420321,
+            "Swimsuit 1 (Suburbs)": 40.15475040232895
+        },
+        {
+            "name": "2020-12-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.61586013414589,
+            "Skis 1 (Outskirts)": 18.807491035643352,
+            "Skis 1 (Suburbs)": 41.03864223389285,
+            "Swimsuit 1 (Flagship)": 73.03699713673453,
+            "Swimsuit 1 (Outskirts)": 18.917337638270567,
+            "Swimsuit 1 (Suburbs)": 37.173131781534664
+        },
+        {
+            "name": "2020-12-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.37123585403629,
+            "Skis 1 (Outskirts)": 14.330255231234968,
+            "Skis 1 (Suburbs)": 32.446292303747185,
+            "Swimsuit 1 (Flagship)": 56.82690920667707,
+            "Swimsuit 1 (Outskirts)": 15.126532457093276,
+            "Swimsuit 1 (Suburbs)": 27.52158224175833
+        },
+        {
+            "name": "2020-12-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 75.75307976069902,
+            "Skis 1 (Outskirts)": 14.408839089107106,
+            "Skis 1 (Suburbs)": 32.27803655594646,
+            "Swimsuit 1 (Flagship)": 56.76391204455618,
+            "Swimsuit 1 (Outskirts)": 14.006626466088846,
+            "Swimsuit 1 (Suburbs)": 28.922294106157477
+        },
+        {
+            "name": "2020-12-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.3346078412173,
+            "Skis 1 (Outskirts)": 15.55725579264788,
+            "Skis 1 (Suburbs)": 31.81294116016461,
+            "Swimsuit 1 (Flagship)": 55.904335852841186,
+            "Swimsuit 1 (Outskirts)": 13.306961927469555,
+            "Swimsuit 1 (Suburbs)": 29.01450416691116
+        },
+        {
+            "name": "2020-12-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.76138388355488,
+            "Skis 1 (Outskirts)": 16.921695294870187,
+            "Skis 1 (Suburbs)": 35.17556683454984,
+            "Swimsuit 1 (Flagship)": 61.488500068922555,
+            "Swimsuit 1 (Outskirts)": 15.912218503941439,
+            "Swimsuit 1 (Suburbs)": 31.50669178032186
+        },
+        {
+            "name": "2020-12-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.08679412634005,
+            "Skis 1 (Outskirts)": 17.372333540801574,
+            "Skis 1 (Suburbs)": 38.81485546371528,
+            "Swimsuit 1 (Flagship)": 67.47511362205312,
+            "Swimsuit 1 (Outskirts)": 17.75646954024641,
+            "Swimsuit 1 (Suburbs)": 34.33656206615149
+        },
+        {
+            "name": "2020-12-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.0305248354334,
+            "Skis 1 (Outskirts)": 21.291325061246862,
+            "Skis 1 (Suburbs)": 43.76883244789215,
+            "Swimsuit 1 (Flagship)": 78.9285760958811,
+            "Swimsuit 1 (Outskirts)": 19.89737774549873,
+            "Swimsuit 1 (Suburbs)": 40.15137880144017
+        },
+        {
+            "name": "2020-12-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 94.14648296856821,
+            "Skis 1 (Outskirts)": 18.78420710642041,
+            "Skis 1 (Suburbs)": 41.030243781947426,
+            "Swimsuit 1 (Flagship)": 73.03367690633611,
+            "Swimsuit 1 (Outskirts)": 18.9228622451108,
+            "Swimsuit 1 (Suburbs)": 37.18082742003131
+        },
+        {
+            "name": "2020-12-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 76.90895328501706,
+            "Skis 1 (Outskirts)": 14.304269282090676,
+            "Skis 1 (Suburbs)": 32.451118578216814,
+            "Swimsuit 1 (Flagship)": 56.83090252651512,
+            "Swimsuit 1 (Outskirts)": 15.137610995939957,
+            "Swimsuit 1 (Suburbs)": 27.517377194226775
+        },
+        {
+            "name": "2020-12-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 77.29595302530734,
+            "Skis 1 (Outskirts)": 14.3969249428371,
+            "Skis 1 (Suburbs)": 32.28177300470022,
+            "Swimsuit 1 (Flagship)": 56.768455736364324,
+            "Swimsuit 1 (Outskirts)": 13.996351988207637,
+            "Swimsuit 1 (Suburbs)": 28.928324523885035
+        },
+        {
+            "name": "2020-12-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 77.87654713351111,
+            "Skis 1 (Outskirts)": 15.551105723286483,
+            "Skis 1 (Suburbs)": 31.814567085945484,
+            "Swimsuit 1 (Flagship)": 55.900308250761285,
+            "Swimsuit 1 (Outskirts)": 13.291340562256078,
+            "Swimsuit 1 (Suburbs)": 29.01327468663455
+        },
+        {
+            "name": "2020-12-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.28996045171571,
+            "Skis 1 (Outskirts)": 16.9198936430087,
+            "Skis 1 (Suburbs)": 35.17555232653547,
+            "Swimsuit 1 (Flagship)": 61.48652619960108,
+            "Swimsuit 1 (Outskirts)": 15.910046380793668,
+            "Swimsuit 1 (Suburbs)": 31.504449470796818
+        },
+        {
+            "name": "2021-01-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.61401981383463,
+            "Skis 1 (Outskirts)": 17.346569388534448,
+            "Skis 1 (Suburbs)": 38.822085449353864,
+            "Swimsuit 1 (Flagship)": 67.47640066226639,
+            "Swimsuit 1 (Outskirts)": 17.76824881855118,
+            "Swimsuit 1 (Suburbs)": 34.33350554996838
+        },
+        {
+            "name": "2021-01-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 99.53460053830484,
+            "Skis 1 (Outskirts)": 21.279572187396,
+            "Skis 1 (Suburbs)": 43.7608018665295,
+            "Swimsuit 1 (Flagship)": 78.92831927227263,
+            "Swimsuit 1 (Outskirts)": 19.897158316794254,
+            "Swimsuit 1 (Suburbs)": 40.14800720055139
+        },
+        {
+            "name": "2021-01-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.67712385062521,
+            "Skis 1 (Outskirts)": 18.760923144152585,
+            "Skis 1 (Suburbs)": 41.02182464701314,
+            "Swimsuit 1 (Flagship)": 73.03035479469105,
+            "Swimsuit 1 (Outskirts)": 18.928386851951036,
+            "Swimsuit 1 (Suburbs)": 37.18852305852794
+        },
+        {
+            "name": "2021-01-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.44665484897769,
+            "Skis 1 (Outskirts)": 14.278283409613575,
+            "Skis 1 (Suburbs)": 32.455935108357934,
+            "Swimsuit 1 (Flagship)": 56.8348995757965,
+            "Swimsuit 1 (Outskirts)": 15.148689534786635,
+            "Swimsuit 1 (Suburbs)": 27.51317214669522
+        },
+        {
+            "name": "2021-01-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 78.83884023979549,
+            "Skis 1 (Outskirts)": 14.385010788939532,
+            "Skis 1 (Suburbs)": 32.28551680510254,
+            "Swimsuit 1 (Flagship)": 56.77300361420538,
+            "Swimsuit 1 (Outskirts)": 13.986077510326428,
+            "Swimsuit 1 (Suburbs)": 28.934354941612597
+        },
+        {
+            "name": "2021-01-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 79.4184741614265,
+            "Skis 1 (Outskirts)": 15.544955607986992,
+            "Skis 1 (Suburbs)": 31.816205285335933,
+            "Swimsuit 1 (Flagship)": 55.89628116448435,
+            "Swimsuit 1 (Outskirts)": 13.275719197042601,
+            "Swimsuit 1 (Suburbs)": 29.01204520635794
+        },
+        {
+            "name": "2021-01-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 84.81854780240579,
+            "Skis 1 (Outskirts)": 16.91809201317184,
+            "Skis 1 (Suburbs)": 35.17554170465144,
+            "Swimsuit 1 (Flagship)": 61.48454972531375,
+            "Swimsuit 1 (Outskirts)": 15.907874257645897,
+            "Swimsuit 1 (Suburbs)": 31.502207161271777
+        },
+        {
+            "name": "2021-01-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 91.14123602160478,
+            "Skis 1 (Outskirts)": 17.32080525726887,
+            "Skis 1 (Suburbs)": 38.82930967349023,
+            "Swimsuit 1 (Flagship)": 67.47768535019561,
+            "Swimsuit 1 (Outskirts)": 17.780028096855947,
+            "Swimsuit 1 (Suburbs)": 34.33044903378527
+        },
+        {
+            "name": "2021-01-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.03868457550874,
+            "Skis 1 (Outskirts)": 21.267819291679285,
+            "Skis 1 (Suburbs)": 43.75276430292315,
+            "Swimsuit 1 (Flagship)": 78.92806252349169,
+            "Swimsuit 1 (Outskirts)": 19.896938888089778,
+            "Swimsuit 1 (Suburbs)": 40.14463559966261
+        },
+        {
+            "name": "2021-01-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 97.20775740534997,
+            "Skis 1 (Outskirts)": 18.73763917669287,
+            "Skis 1 (Suburbs)": 41.01340441155572,
+            "Swimsuit 1 (Flagship)": 73.02703442446511,
+            "Swimsuit 1 (Outskirts)": 18.933911458791272,
+            "Swimsuit 1 (Suburbs)": 37.196218697024584
+        },
+        {
+            "name": "2021-01-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 79.98436285494233,
+            "Skis 1 (Outskirts)": 14.25229755299198,
+            "Skis 1 (Suburbs)": 32.46075573514146,
+            "Swimsuit 1 (Flagship)": 56.83889789707582,
+            "Swimsuit 1 (Outskirts)": 15.159768073633316,
+            "Swimsuit 1 (Suburbs)": 27.508967099163662
+        },
+        {
+            "name": "2021-01-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.38172179063812,
+            "Skis 1 (Outskirts)": 14.373096632419523,
+            "Skis 1 (Suburbs)": 32.289264401292535,
+            "Swimsuit 1 (Flagship)": 56.777551213278706,
+            "Swimsuit 1 (Outskirts)": 13.975803032445219,
+            "Swimsuit 1 (Suburbs)": 28.940385359340155
+        },
+        {
+            "name": "2021-01-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 80.96040616867471,
+            "Skis 1 (Outskirts)": 15.53880548357766,
+            "Skis 1 (Suburbs)": 31.817843404972425,
+            "Swimsuit 1 (Flagship)": 55.89225295513539,
+            "Swimsuit 1 (Outskirts)": 13.260097831829125,
+            "Swimsuit 1 (Suburbs)": 29.01081572608133
+        },
+        {
+            "name": "2021-01-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.34713077539335,
+            "Skis 1 (Outskirts)": 16.916290388408896,
+            "Skis 1 (Suburbs)": 35.175528355499765,
+            "Swimsuit 1 (Flagship)": 61.4825725957597,
+            "Swimsuit 1 (Outskirts)": 15.905702134498126,
+            "Swimsuit 1 (Suburbs)": 31.49996485174674
+        },
+        {
+            "name": "2021-01-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.6684560781393,
+            "Skis 1 (Outskirts)": 17.295041129904053,
+            "Skis 1 (Suburbs)": 38.836531941769145,
+            "Swimsuit 1 (Flagship)": 67.47897034355752,
+            "Swimsuit 1 (Outskirts)": 17.791807375160715,
+            "Swimsuit 1 (Suburbs)": 34.32739251760217
+        },
+        {
+            "name": "2021-01-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 102.542765228977,
+            "Skis 1 (Outskirts)": 21.256066391275642,
+            "Skis 1 (Suburbs)": 43.744727213731835,
+            "Swimsuit 1 (Flagship)": 78.92780647644194,
+            "Swimsuit 1 (Outskirts)": 19.8967194593853,
+            "Swimsuit 1 (Suburbs)": 40.14126399877383
+        },
+        {
+            "name": "2021-01-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.73839393496874,
+            "Skis 1 (Outskirts)": 18.71435520850267,
+            "Skis 1 (Suburbs)": 41.004985901042204,
+            "Swimsuit 1 (Flagship)": 73.02371436968339,
+            "Swimsuit 1 (Outskirts)": 18.939436065631504,
+            "Swimsuit 1 (Suburbs)": 37.20391433552122
+        },
+        {
+            "name": "2021-01-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.52206824545603,
+            "Skis 1 (Outskirts)": 14.226311699626066,
+            "Skis 1 (Suburbs)": 32.465577300915136,
+            "Swimsuit 1 (Flagship)": 56.84289595596718,
+            "Swimsuit 1 (Outskirts)": 15.170846612479995,
+            "Swimsuit 1 (Suburbs)": 27.504762051632106
+        },
+        {
+            "name": "2021-01-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 81.92460564091874,
+            "Skis 1 (Outskirts)": 14.361182475147473,
+            "Skis 1 (Suburbs)": 32.29301147754932,
+            "Swimsuit 1 (Flagship)": 56.78209838673217,
+            "Swimsuit 1 (Outskirts)": 13.96552855456401,
+            "Swimsuit 1 (Suburbs)": 28.946415777067713
+        },
+        {
+            "name": "2021-01-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 82.50233615431597,
+            "Skis 1 (Outskirts)": 15.532655357377593,
+            "Skis 1 (Suburbs)": 31.81948048094203,
+            "Swimsuit 1 (Flagship)": 55.88822460969616,
+            "Swimsuit 1 (Outskirts)": 13.244476466615648,
+            "Swimsuit 1 (Suburbs)": 29.009586245804723
+        },
+        {
+            "name": "2021-01-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.8757155257266,
+            "Skis 1 (Outskirts)": 16.914488764793877,
+            "Skis 1 (Suburbs)": 35.17551460193995,
+            "Swimsuit 1 (Flagship)": 61.48059566739715,
+            "Swimsuit 1 (Outskirts)": 15.903530011350355,
+            "Swimsuit 1 (Suburbs)": 31.497722542221698
+        },
+        {
+            "name": "2021-01-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 94.19567457207728,
+            "Skis 1 (Outskirts)": 17.269277003249748,
+            "Skis 1 (Suburbs)": 38.84375464540948,
+            "Swimsuit 1 (Flagship)": 67.48025558752155,
+            "Swimsuit 1 (Outskirts)": 17.80358665346548,
+            "Swimsuit 1 (Suburbs)": 34.32433600141906
+        },
+        {
+            "name": "2021-01-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.04684725624087,
+            "Skis 1 (Outskirts)": 21.244313489875918,
+            "Skis 1 (Suburbs)": 43.736690730007965,
+            "Swimsuit 1 (Flagship)": 78.92755047608016,
+            "Swimsuit 1 (Outskirts)": 19.896500030680823,
+            "Swimsuit 1 (Suburbs)": 40.13789239788505
+        },
+        {
+            "name": "2021-01-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 100.26902925678202,
+            "Skis 1 (Outskirts)": 18.69107124023264,
+            "Skis 1 (Suburbs)": 40.99656753112785,
+            "Swimsuit 1 (Flagship)": 73.02039417098587,
+            "Swimsuit 1 (Outskirts)": 18.94496067247174,
+            "Swimsuit 1 (Suburbs)": 37.21160997401786
+        },
+        {
+            "name": "2021-01-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.05977469784203,
+            "Skis 1 (Outskirts)": 14.200325846923876,
+            "Skis 1 (Suburbs)": 32.470398544767164,
+            "Swimsuit 1 (Flagship)": 56.84689387187568,
+            "Swimsuit 1 (Outskirts)": 15.181925151326674,
+            "Swimsuit 1 (Suburbs)": 27.50055700410055
+        },
+        {
+            "name": "2021-01-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 83.4674885576287,
+            "Skis 1 (Outskirts)": 14.349268317678142,
+            "Skis 1 (Suburbs)": 32.29675821748128,
+            "Swimsuit 1 (Flagship)": 56.78664555440344,
+            "Swimsuit 1 (Outskirts)": 13.9552540766828,
+            "Swimsuit 1 (Suburbs)": 28.952446194795275
+        },
+        {
+            "name": "2021-01-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 84.04426696072909,
+            "Skis 1 (Outskirts)": 15.52650523082888,
+            "Skis 1 (Suburbs)": 31.821117535112855,
+            "Swimsuit 1 (Flagship)": 55.884196362244836,
+            "Swimsuit 1 (Outskirts)": 13.228855101402171,
+            "Swimsuit 1 (Suburbs)": 29.008356765528113
+        },
+        {
+            "name": "2021-01-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.40429955445845,
+            "Skis 1 (Outskirts)": 16.912687141434716,
+            "Skis 1 (Suburbs)": 35.17550106873483,
+            "Swimsuit 1 (Flagship)": 61.47861881776432,
+            "Swimsuit 1 (Outskirts)": 15.901357888202584,
+            "Swimsuit 1 (Suburbs)": 31.49548023269666
+        },
+        {
+            "name": "2021-01-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.72289370042905,
+            "Skis 1 (Outskirts)": 17.243512876721685,
+            "Skis 1 (Suburbs)": 38.85097752693153,
+            "Swimsuit 1 (Flagship)": 67.48154082124657,
+            "Swimsuit 1 (Outskirts)": 17.81536593177025,
+            "Swimsuit 1 (Suburbs)": 34.32127948523596
+        },
+        {
+            "name": "2021-01-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 105.55092872574444,
+            "Skis 1 (Outskirts)": 21.23256058826619,
+            "Skis 1 (Suburbs)": 43.72865422259967,
+            "Swimsuit 1 (Flagship)": 78.92729441154634,
+            "Swimsuit 1 (Outskirts)": 19.896280601976343,
+            "Swimsuit 1 (Suburbs)": 40.13452079699627
+        },
+        {
+            "name": "2021-01-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.799665068964,
+            "Skis 1 (Outskirts)": 18.66778727196077,
+            "Skis 1 (Suburbs)": 40.9881490186908,
+            "Swimsuit 1 (Flagship)": 73.0170739307722,
+            "Swimsuit 1 (Outskirts)": 18.950485279311977,
+            "Swimsuit 1 (Suburbs)": 37.2193056125145
+        },
+        {
+            "name": "2021-02-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 84.59748071910843,
+            "Skis 1 (Outskirts)": 14.174339994356023,
+            "Skis 1 (Suburbs)": 32.475219700129315,
+            "Swimsuit 1 (Flagship)": 56.85089180213508,
+            "Swimsuit 1 (Outskirts)": 15.193003690173354,
+            "Swimsuit 1 (Suburbs)": 27.496351956568994
+        },
+        {
+            "name": "2021-02-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 85.01037185336807,
+            "Skis 1 (Outskirts)": 14.337354160159778,
+            "Skis 1 (Suburbs)": 32.30050499232688,
+            "Swimsuit 1 (Flagship)": 56.791192762728244,
+            "Swimsuit 1 (Outskirts)": 13.944979598801591,
+            "Swimsuit 1 (Suburbs)": 28.958476612522833
+        },
+        {
+            "name": "2021-02-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 85.58619743390922,
+            "Skis 1 (Outskirts)": 15.52035510421302,
+            "Skis 1 (Suburbs)": 31.82275467724795,
+            "Swimsuit 1 (Flagship)": 55.880168135462675,
+            "Swimsuit 1 (Outskirts)": 13.213233736188695,
+            "Swimsuit 1 (Suburbs)": 29.007127285251503
+        },
+        {
+            "name": "2021-02-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 90.9328838761602,
+            "Skis 1 (Outskirts)": 16.910885518131867,
+            "Skis 1 (Suburbs)": 35.17548757587734,
+            "Swimsuit 1 (Flagship)": 61.47664195475323,
+            "Swimsuit 1 (Outskirts)": 15.899185765054813,
+            "Swimsuit 1 (Suburbs)": 31.49323792317162
+        },
+        {
+            "name": "2021-02-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 97.25011257120909,
+            "Skis 1 (Outskirts)": 17.217748750215303,
+            "Skis 1 (Suburbs)": 38.858200376379564,
+            "Swimsuit 1 (Flagship)": 67.48282602998687,
+            "Swimsuit 1 (Outskirts)": 17.827145210075017,
+            "Swimsuit 1 (Suburbs)": 34.318222969052854
+        },
+        {
+            "name": "2021-02-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.05501042169848,
+            "Skis 1 (Outskirts)": 21.22080768661252,
+            "Skis 1 (Suburbs)": 43.720617663165825,
+            "Swimsuit 1 (Flagship)": 78.92703833757409,
+            "Swimsuit 1 (Outskirts)": 19.896061173271868,
+            "Swimsuit 1 (Suburbs)": 40.131149196107486
+        },
+        {
+            "name": "2021-02-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 103.33030068205647,
+            "Skis 1 (Outskirts)": 18.644503303691522,
+            "Skis 1 (Suburbs)": 40.9797304904221,
+            "Swimsuit 1 (Flagship)": 73.01375370126539,
+            "Swimsuit 1 (Outskirts)": 18.956009886152213,
+            "Swimsuit 1 (Suburbs)": 37.22700125101114
+        },
+        {
+            "name": "2021-02-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.13518691540922,
+            "Skis 1 (Outskirts)": 14.148354141815146,
+            "Skis 1 (Suburbs)": 32.48004088038622,
+            "Swimsuit 1 (Flagship)": 56.85488974730347,
+            "Swimsuit 1 (Outskirts)": 15.204082229020033,
+            "Swimsuit 1 (Suburbs)": 27.492146909037437
+        },
+        {
+            "name": "2021-02-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 86.55325499522166,
+            "Skis 1 (Outskirts)": 14.325440002629655,
+            "Skis 1 (Suburbs)": 32.30425179666712,
+            "Swimsuit 1 (Flagship)": 56.79573997473475,
+            "Swimsuit 1 (Outskirts)": 13.934705120920384,
+            "Swimsuit 1 (Suburbs)": 28.964507030250395
+        },
+        {
+            "name": "2021-02-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.12812804238183,
+            "Skis 1 (Outskirts)": 15.514204977584383,
+            "Skis 1 (Suburbs)": 31.82439182364047,
+            "Swimsuit 1 (Flagship)": 55.87613990080682,
+            "Swimsuit 1 (Outskirts)": 13.197612370975218,
+            "Swimsuit 1 (Suburbs)": 29.005897804974897
+        },
+        {
+            "name": "2021-02-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.46146807891634,
+            "Skis 1 (Outskirts)": 16.90908389484127,
+            "Skis 1 (Suburbs)": 35.175474065425895,
+            "Swimsuit 1 (Flagship)": 61.47466508311218,
+            "Swimsuit 1 (Outskirts)": 15.897013641907042,
+            "Swimsuit 1 (Suburbs)": 31.490995613646582
+        },
+        {
+            "name": "2021-02-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.77733154656318,
+            "Skis 1 (Outskirts)": 17.191984623712475,
+            "Skis 1 (Suburbs)": 38.865423209855436,
+            "Swimsuit 1 (Flagship)": 67.48411123779628,
+            "Swimsuit 1 (Outskirts)": 17.838924488379785,
+            "Swimsuit 1 (Suburbs)": 34.315166452869754
+        },
+        {
+            "name": "2021-02-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 108.55909202571377,
+            "Skis 1 (Outskirts)": 21.209054784949725,
+            "Skis 1 (Suburbs)": 43.712581104317735,
+            "Swimsuit 1 (Flagship)": 78.92678226907313,
+            "Swimsuit 1 (Outskirts)": 19.895841744567388,
+            "Swimsuit 1 (Suburbs)": 40.12777759521871
+        },
+        {
+            "name": "2021-02-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.86093637597926,
+            "Skis 1 (Outskirts)": 18.621219335423426,
+            "Skis 1 (Suburbs)": 40.971311973813926,
+            "Swimsuit 1 (Flagship)": 73.01043347658997,
+            "Swimsuit 1 (Outskirts)": 18.96153449299245,
+            "Swimsuit 1 (Suburbs)": 37.23469688950778
+        },
+        {
+            "name": "2021-02-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 87.67289304064614,
+            "Skis 1 (Outskirts)": 14.122368289279647,
+            "Skis 1 (Suburbs)": 32.48486206883338,
+            "Swimsuit 1 (Flagship)": 56.858887692231576,
+            "Swimsuit 1 (Outskirts)": 15.215160767866713,
+            "Swimsuit 1 (Suburbs)": 27.48794186150588
+        },
+        {
+            "name": "2021-02-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.09613819955284,
+            "Skis 1 (Outskirts)": 14.313525845096787,
+            "Skis 1 (Suburbs)": 32.30799859885204,
+            "Swimsuit 1 (Flagship)": 56.80028718309862,
+            "Swimsuit 1 (Outskirts)": 13.924430643039173,
+            "Swimsuit 1 (Suburbs)": 28.970537447977954
+        },
+        {
+            "name": "2021-02-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 88.67005859592574,
+            "Skis 1 (Outskirts)": 15.508054850953343,
+            "Skis 1 (Suburbs)": 31.826028962685257,
+            "Swimsuit 1 (Flagship)": 55.87211166355022,
+            "Swimsuit 1 (Outskirts)": 13.181991005761741,
+            "Swimsuit 1 (Suburbs)": 29.004668324698287
+        },
+        {
+            "name": "2021-02-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 93.99005232996429,
+            "Skis 1 (Outskirts)": 16.907282271553306,
+            "Skis 1 (Suburbs)": 35.17546055106915,
+            "Swimsuit 1 (Flagship)": 61.47268821209989,
+            "Swimsuit 1 (Outskirts)": 15.894841518759272,
+            "Swimsuit 1 (Suburbs)": 31.48875330412154
+        },
+        {
+            "name": "2021-02-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 100.30455047946013,
+            "Skis 1 (Outskirts)": 17.16622049721018,
+            "Skis 1 (Suburbs)": 38.87264604561579,
+            "Swimsuit 1 (Flagship)": 67.4853964479467,
+            "Swimsuit 1 (Outskirts)": 17.850703766684553,
+            "Swimsuit 1 (Suburbs)": 34.312109936686646
+        },
+        {
+            "name": "2021-02-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.063173667056,
+            "Skis 1 (Outskirts)": 21.19730188328505,
+            "Skis 1 (Suburbs)": 43.70454454990033,
+            "Swimsuit 1 (Flagship)": 78.92652620190388,
+            "Swimsuit 1 (Outskirts)": 19.895622315862912,
+            "Swimsuit 1 (Suburbs)": 40.124405994329926
+        },
+        {
+            "name": "2021-02-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 106.39157203708479,
+            "Skis 1 (Outskirts)": 18.597935367155692,
+            "Skis 1 (Suburbs)": 40.96289345886831,
+            "Swimsuit 1 (Flagship)": 73.00711325125187,
+            "Swimsuit 1 (Outskirts)": 18.96705909983268,
+            "Swimsuit 1 (Suburbs)": 37.242392528004416
+        },
+        {
+            "name": "2021-02-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.21059919473475,
+            "Skis 1 (Outskirts)": 14.096382436745209,
+            "Skis 1 (Suburbs)": 32.48968325539227,
+            "Swimsuit 1 (Flagship)": 56.86288563570159,
+            "Swimsuit 1 (Outskirts)": 15.226239306713392,
+            "Swimsuit 1 (Suburbs)": 27.483736813974325
+        },
+        {
+            "name": "2021-02-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 89.63902137851788,
+            "Skis 1 (Outskirts)": 14.301611687563296,
+            "Skis 1 (Suburbs)": 32.311745398475196,
+            "Swimsuit 1 (Flagship)": 56.804834390827104,
+            "Swimsuit 1 (Outskirts)": 13.914156165157966,
+            "Swimsuit 1 (Suburbs)": 28.976567865705512
+        },
+        {
+            "name": "2021-02-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 90.21198917177038,
+            "Skis 1 (Outskirts)": 15.50190472432187,
+            "Skis 1 (Suburbs)": 31.827666101167672,
+            "Swimsuit 1 (Flagship)": 55.868083426854085,
+            "Swimsuit 1 (Outskirts)": 13.166369640548265,
+            "Swimsuit 1 (Suburbs)": 29.003438844421677
+        },
+        {
+            "name": "2021-02-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.51863656140546,
+            "Skis 1 (Outskirts)": 16.905480648265915,
+            "Skis 1 (Suburbs)": 35.17544703809846,
+            "Swimsuit 1 (Flagship)": 61.4707113419692,
+            "Swimsuit 1 (Outskirts)": 15.8926693956115,
+            "Swimsuit 1 (Suburbs)": 31.486510994596504
+        },
+        {
+            "name": "2021-02-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.83176942959435,
+            "Skis 1 (Outskirts)": 17.14045637070796,
+            "Skis 1 (Suburbs)": 38.87986888279401,
+            "Swimsuit 1 (Flagship)": 67.48668165836683,
+            "Swimsuit 1 (Outskirts)": 17.862483044989318,
+            "Swimsuit 1 (Suburbs)": 34.309053420503545
+        },
+        {
+            "name": "2021-02-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 111.56725529324316,
+            "Skis 1 (Outskirts)": 21.185548981619984,
+            "Skis 1 (Suburbs)": 43.69650799555451,
+            "Swimsuit 1 (Flagship)": 78.92627013430864,
+            "Swimsuit 1 (Outskirts)": 19.895402887158433,
+            "Swimsuit 1 (Suburbs)": 40.12103439344115
+        },
+        {
+            "name": "2021-02-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.92220771151374,
+            "Skis 1 (Outskirts)": 18.574651398888058,
+            "Skis 1 (Suburbs)": 40.95447494297874,
+            "Swimsuit 1 (Flagship)": 73.00379302539635,
+            "Swimsuit 1 (Outskirts)": 18.972583706672918,
+            "Swimsuit 1 (Suburbs)": 37.25008816650106
+        },
+        {
+            "name": "2021-03-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 90.74830533710922,
+            "Skis 1 (Outskirts)": 14.070396584210982,
+            "Skis 1 (Suburbs)": 32.494504441204484,
+            "Swimsuit 1 (Flagship)": 56.86688357908278,
+            "Swimsuit 1 (Outskirts)": 15.237317845560073,
+            "Swimsuit 1 (Suburbs)": 27.47953176644277
+        },
+        {
+            "name": "2021-03-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 91.18190456778117,
+            "Skis 1 (Outskirts)": 14.289697530029663,
+            "Skis 1 (Suburbs)": 32.31549219821112,
+            "Swimsuit 1 (Flagship)": 56.80938159885852,
+            "Swimsuit 1 (Outskirts)": 13.903881687276755,
+            "Swimsuit 1 (Suburbs)": 28.982598283433074
+        },
+        {
+            "name": "2021-03-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 91.75391973856057,
+            "Skis 1 (Outskirts)": 15.495754597690311,
+            "Skis 1 (Suburbs)": 31.829303240258188,
+            "Swimsuit 1 (Flagship)": 55.864055190452156,
+            "Swimsuit 1 (Outskirts)": 13.150748275334788,
+            "Swimsuit 1 (Suburbs)": 29.002209364145067
+        },
+        {
+            "name": "2021-03-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 97.04722080080661,
+            "Skis 1 (Outskirts)": 16.903679024978643,
+            "Skis 1 (Suburbs)": 35.175433525497105,
+            "Swimsuit 1 (Flagship)": 61.46873447184556,
+            "Swimsuit 1 (Outskirts)": 15.89049727246373,
+            "Swimsuit 1 (Suburbs)": 31.484268685071463
+        },
+        {
+            "name": "2021-03-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 103.35898837272988,
+            "Skis 1 (Outskirts)": 17.11469224420574,
+            "Skis 1 (Suburbs)": 38.88709171981717,
+            "Swimsuit 1 (Flagship)": 67.4879668685817,
+            "Swimsuit 1 (Outskirts)": 17.874262323294086,
+            "Swimsuit 1 (Suburbs)": 34.30599690432044
+        },
+        {
+            "name": "2021-03-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 113.07133692558293,
+            "Skis 1 (Outskirts)": 21.17379607995484,
+            "Skis 1 (Suburbs)": 43.68847144083467,
+            "Swimsuit 1 (Flagship)": 78.9260140665521,
+            "Swimsuit 1 (Outskirts)": 19.895183458453957,
+            "Swimsuit 1 (Suburbs)": 40.117662792552366
+        },
+        {
+            "name": "2021-03-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 109.45284338053304,
+            "Skis 1 (Outskirts)": 18.55136743062044,
+            "Skis 1 (Suburbs)": 40.946056426922254,
+            "Swimsuit 1 (Flagship)": 73.00047279956506,
+            "Swimsuit 1 (Outskirts)": 18.978108313513154,
+            "Swimsuit 1 (Suburbs)": 37.2577838049977
+        },
+        {
+            "name": "2021-03-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.28601148423927,
+            "Skis 1 (Outskirts)": 14.044410731676791,
+            "Skis 1 (Suburbs)": 32.49932562715649,
+            "Swimsuit 1 (Flagship)": 56.870881522597976,
+            "Swimsuit 1 (Outskirts)": 15.248396384406751,
+            "Swimsuit 1 (Suburbs)": 27.475326718911212
+        },
+        {
+            "name": "2021-03-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 92.72478775286307,
+            "Skis 1 (Outskirts)": 14.277783372496,
+            "Skis 1 (Suburbs)": 32.319238998167506,
+            "Swimsuit 1 (Flagship)": 56.81392880697458,
+            "Swimsuit 1 (Outskirts)": 13.893607209395547,
+            "Swimsuit 1 (Suburbs)": 28.988628701160632
+        },
+        {
+            "name": "2021-03-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 93.29585030902656,
+            "Skis 1 (Outskirts)": 15.489604471058742,
+            "Skis 1 (Suburbs)": 31.830940379413065,
+            "Swimsuit 1 (Flagship)": 55.86002695401871,
+            "Swimsuit 1 (Outskirts)": 13.135126910121311,
+            "Swimsuit 1 (Suburbs)": 29.00097988386846
+        },
+        {
+            "name": "2021-03-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.57580503697574,
+            "Skis 1 (Outskirts)": 16.901877401691397,
+            "Skis 1 (Suburbs)": 35.17542001278824,
+            "Swimsuit 1 (Flagship)": 61.46675760163732,
+            "Swimsuit 1 (Outskirts)": 15.888325149315959,
+            "Swimsuit 1 (Suburbs)": 31.482026375546425
+        },
+        {
+            "name": "2021-03-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.88620731870662,
+            "Skis 1 (Outskirts)": 17.088928117703524,
+            "Skis 1 (Suburbs)": 38.894314556715784,
+            "Swimsuit 1 (Flagship)": 67.4892520787547,
+            "Swimsuit 1 (Outskirts)": 17.886041601598855,
+            "Swimsuit 1 (Suburbs)": 34.30294038813734
+        },
+        {
+            "name": "2021-03-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 114.57541855542452,
+            "Skis 1 (Outskirts)": 21.16204317828969,
+            "Skis 1 (Suburbs)": 43.68043488609852,
+            "Swimsuit 1 (Flagship)": 78.92575799882428,
+            "Swimsuit 1 (Outskirts)": 19.89496402974948,
+            "Swimsuit 1 (Suburbs)": 40.11429119166359
+        },
+        {
+            "name": "2021-03-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.98347905174849,
+            "Skis 1 (Outskirts)": 18.528083462352843,
+            "Skis 1 (Suburbs)": 40.9376379109413,
+            "Swimsuit 1 (Flagship)": 72.9971525737856,
+            "Swimsuit 1 (Outskirts)": 18.98363292035339,
+            "Swimsuit 1 (Suburbs)": 37.265479443494335
+        },
+        {
+            "name": "2021-03-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 93.82371762943845,
+            "Skis 1 (Outskirts)": 14.01842487914261,
+            "Skis 1 (Suburbs)": 32.50414681317567,
+            "Swimsuit 1 (Flagship)": 56.874879466132015,
+            "Swimsuit 1 (Outskirts)": 15.259474923253432,
+            "Swimsuit 1 (Suburbs)": 27.471121671379656
+        },
+        {
+            "name": "2021-03-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 94.26767093964254,
+            "Skis 1 (Outskirts)": 14.265869214962327,
+            "Skis 1 (Suburbs)": 32.32298579812036,
+            "Swimsuit 1 (Flagship)": 56.81847601506786,
+            "Swimsuit 1 (Outskirts)": 13.883332731514338,
+            "Swimsuit 1 (Suburbs)": 28.994659118888194
+        },
+        {
+            "name": "2021-03-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 94.83778087800013,
+            "Skis 1 (Outskirts)": 15.483454344427166,
+            "Skis 1 (Suburbs)": 31.832577518518107,
+            "Swimsuit 1 (Flagship)": 55.8559987175544,
+            "Swimsuit 1 (Outskirts)": 13.119505544907835,
+            "Swimsuit 1 (Suburbs)": 28.99975040359185
+        },
+        {
+            "name": "2021-03-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 100.10438927445706,
+            "Skis 1 (Outskirts)": 16.900075778404155,
+            "Skis 1 (Suburbs)": 35.17540650004509,
+            "Swimsuit 1 (Flagship)": 61.46478073142189,
+            "Swimsuit 1 (Outskirts)": 15.886153026168188,
+            "Swimsuit 1 (Suburbs)": 31.479784066021384
+        },
+        {
+            "name": "2021-03-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 106.41342626352986,
+            "Skis 1 (Outskirts)": 17.06316399120131,
+            "Skis 1 (Suburbs)": 38.901537393624146,
+            "Swimsuit 1 (Flagship)": 67.49053728894432,
+            "Swimsuit 1 (Outskirts)": 17.897820879903623,
+            "Swimsuit 1 (Suburbs)": 34.29988387195423
+        },
+        {
+            "name": "2021-03-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 116.07950018628041,
+            "Skis 1 (Outskirts)": 21.150290276624524,
+            "Skis 1 (Suburbs)": 43.67239833139365,
+            "Swimsuit 1 (Flagship)": 78.92550193111425,
+            "Swimsuit 1 (Outskirts)": 19.894744601045,
+            "Swimsuit 1 (Suburbs)": 40.110919590774806
+        },
+        {
+            "name": "2021-03-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 112.51411472207238,
+            "Skis 1 (Outskirts)": 18.504799494085237,
+            "Skis 1 (Suburbs)": 40.92921939497658,
+            "Swimsuit 1 (Flagship)": 72.99383234800779,
+            "Swimsuit 1 (Outskirts)": 18.989157527193626,
+            "Swimsuit 1 (Suburbs)": 37.27317508199098
+        },
+        {
+            "name": "2021-03-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.36142377542163,
+            "Skis 1 (Outskirts)": 13.992439026608434,
+            "Skis 1 (Suburbs)": 32.50896799918484,
+            "Swimsuit 1 (Flagship)": 56.878877409654564,
+            "Swimsuit 1 (Outskirts)": 15.27055346210011,
+            "Swimsuit 1 (Suburbs)": 27.4669166238481
+        },
+        {
+            "name": "2021-03-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 95.81055412573286,
+            "Skis 1 (Outskirts)": 14.253955057428655,
+            "Skis 1 (Suburbs)": 32.326732598054406,
+            "Swimsuit 1 (Flagship)": 56.82302322315123,
+            "Swimsuit 1 (Outskirts)": 13.873058253633129,
+            "Swimsuit 1 (Suburbs)": 29.000689536615752
+        },
+        {
+            "name": "2021-03-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 96.37971144757972,
+            "Skis 1 (Outskirts)": 15.47730421779559,
+            "Skis 1 (Suburbs)": 31.834214657616325,
+            "Swimsuit 1 (Flagship)": 55.8519704810908,
+            "Swimsuit 1 (Outskirts)": 13.103884179694358,
+            "Swimsuit 1 (Suburbs)": 28.99852092331524
+        },
+        {
+            "name": "2021-03-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.63297351140572,
+            "Skis 1 (Outskirts)": 16.89827415511691,
+            "Skis 1 (Suburbs)": 35.17539298731013,
+            "Swimsuit 1 (Flagship)": 61.46280386121409,
+            "Swimsuit 1 (Outskirts)": 15.883980903020417,
+            "Swimsuit 1 (Suburbs)": 31.477541756496347
+        },
+        {
+            "name": "2021-03-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.94064520882155,
+            "Skis 1 (Outskirts)": 17.03739986469909,
+            "Skis 1 (Suburbs)": 38.90876023054335,
+            "Swimsuit 1 (Flagship)": 67.49182249913927,
+            "Swimsuit 1 (Outskirts)": 17.90960015820839,
+            "Swimsuit 1 (Suburbs)": 34.29682735577113
+        },
+        {
+            "name": "2021-03-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 117.58358181672466,
+            "Skis 1 (Outskirts)": 21.138537374959366,
+            "Skis 1 (Suburbs)": 43.664361776691045,
+            "Swimsuit 1 (Flagship)": 78.92524586340282,
+            "Swimsuit 1 (Outskirts)": 19.894525172340526,
+            "Swimsuit 1 (Suburbs)": 40.10754798988603
+        },
+        {
+            "name": "2021-03-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 114.04475039275839,
+            "Skis 1 (Outskirts)": 18.48151552581764,
+            "Skis 1 (Suburbs)": 40.9208008790059,
+            "Swimsuit 1 (Flagship)": 72.99051212222508,
+            "Swimsuit 1 (Outskirts)": 18.99468213403386,
+            "Swimsuit 1 (Suburbs)": 37.28087072048761
+        },
+        {
+            "name": "2021-03-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 96.89912992108667,
+            "Skis 1 (Outskirts)": 13.966453174074253,
+            "Skis 1 (Suburbs)": 32.51378918518804,
+            "Swimsuit 1 (Flagship)": 56.88287535317441,
+            "Swimsuit 1 (Outskirts)": 15.28163200094679,
+            "Swimsuit 1 (Suburbs)": 27.462711576316543
+        },
+        {
+            "name": "2021-03-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 97.35343731210317,
+            "Skis 1 (Outskirts)": 14.242040899894981,
+            "Skis 1 (Suburbs)": 32.330479397988256,
+            "Swimsuit 1 (Flagship)": 56.82757043123604,
+            "Swimsuit 1 (Outskirts)": 13.86278377575192,
+            "Swimsuit 1 (Suburbs)": 29.00671995434331
+        },
+        {
+            "name": "2021-03-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 97.92164201691348,
+            "Skis 1 (Outskirts)": 15.471154091164017,
+            "Skis 1 (Suburbs)": 31.835851796718593,
+            "Swimsuit 1 (Flagship)": 55.84794224463022,
+            "Swimsuit 1 (Outskirts)": 13.088262814480881,
+            "Swimsuit 1 (Suburbs)": 28.997291443038634
+        },
+        {
+            "name": "2021-04-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 103.16155774857089,
+            "Skis 1 (Outskirts)": 16.89647253182967,
+            "Skis 1 (Suburbs)": 35.17537947457831,
+            "Swimsuit 1 (Flagship)": 61.46082699100757,
+            "Swimsuit 1 (Outskirts)": 15.881808779872646,
+            "Swimsuit 1 (Suburbs)": 31.475299446971306
+        },
+        {
+            "name": "2021-04-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 109.46786415392327,
+            "Skis 1 (Outskirts)": 17.011635738196873,
+            "Skis 1 (Suburbs)": 38.91598306746202,
+            "Swimsuit 1 (Flagship)": 67.49310770933302,
+            "Swimsuit 1 (Outskirts)": 17.92137943651316,
+            "Swimsuit 1 (Suburbs)": 34.29377083958802
+        },
+        {
+            "name": "2021-04-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 119.08766344733624,
+            "Skis 1 (Outskirts)": 21.126784473294205,
+            "Skis 1 (Suburbs)": 43.65632522198584,
+            "Swimsuit 1 (Flagship)": 78.92498979568956,
+            "Swimsuit 1 (Outskirts)": 19.894305743636046,
+            "Swimsuit 1 (Suburbs)": 40.104176388997246
+        },
+        {
+            "name": "2021-04-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 115.5753860632976,
+            "Skis 1 (Outskirts)": 18.458231557550032,
+            "Skis 1 (Suburbs)": 40.912382363033686,
+            "Swimsuit 1 (Flagship)": 72.98719189644184,
+            "Swimsuit 1 (Outskirts)": 19.000206740874095,
+            "Swimsuit 1 (Suburbs)": 37.288566358984255
+        },
+        {
+            "name": "2021-04-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.43683606688111,
+            "Skis 1 (Outskirts)": 13.940467321540075,
+            "Skis 1 (Suburbs)": 32.51861037119193,
+            "Swimsuit 1 (Flagship)": 56.886873296695164,
+            "Swimsuit 1 (Outskirts)": 15.29271053979347,
+            "Swimsuit 1 (Suburbs)": 27.458506528784987
+        },
+        {
+            "name": "2021-04-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 98.89632049836003,
+            "Skis 1 (Outskirts)": 14.230126742361309,
+            "Skis 1 (Suburbs)": 32.334226197923684,
+            "Swimsuit 1 (Flagship)": 56.832117639321915,
+            "Swimsuit 1 (Outskirts)": 13.85250929787071,
+            "Swimsuit 1 (Suburbs)": 29.012750372070872
+        },
+        {
+            "name": "2021-04-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 99.46357258634723,
+            "Skis 1 (Outskirts)": 15.46500396453244,
+            "Skis 1 (Suburbs)": 31.837488935821547,
+            "Swimsuit 1 (Flagship)": 55.8439140081698,
+            "Swimsuit 1 (Outskirts)": 13.072641449267405,
+            "Swimsuit 1 (Suburbs)": 28.996061962762024
+        },
+        {
+            "name": "2021-04-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.69014198564831,
+            "Skis 1 (Outskirts)": 16.894670908542427,
+            "Skis 1 (Suburbs)": 35.17536596184588,
+            "Swimsuit 1 (Flagship)": 61.4588501208004,
+            "Swimsuit 1 (Outskirts)": 15.879636656724875,
+            "Swimsuit 1 (Suburbs)": 31.473057137446265
+        },
+        {
+            "name": "2021-04-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.99508309910227,
+            "Skis 1 (Outskirts)": 16.985871611694655,
+            "Skis 1 (Suburbs)": 38.92320590437976,
+            "Swimsuit 1 (Flagship)": 67.49439291952615,
+            "Swimsuit 1 (Outskirts)": 17.933158714817928,
+            "Swimsuit 1 (Suburbs)": 34.29071432340492
+        },
+        {
+            "name": "2021-04-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 120.59174507788002,
+            "Skis 1 (Outskirts)": 21.115031571629046,
+            "Skis 1 (Suburbs)": 43.64828866728037,
+            "Swimsuit 1 (Flagship)": 78.9247337279763,
+            "Swimsuit 1 (Outskirts)": 19.89408631493157,
+            "Swimsuit 1 (Suburbs)": 40.10080478810847
+        },
+        {
+            "name": "2021-04-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 117.10602173389653,
+            "Skis 1 (Outskirts)": 18.43494758928243,
+            "Skis 1 (Suburbs)": 40.903963847061924,
+            "Swimsuit 1 (Flagship)": 72.98387167065904,
+            "Swimsuit 1 (Outskirts)": 19.00573134771433,
+            "Swimsuit 1 (Suburbs)": 37.2962619974809
+        },
+        {
+            "name": "2021-04-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 99.9745422126231,
+            "Skis 1 (Outskirts)": 13.914481469005894,
+            "Skis 1 (Suburbs)": 32.52343155719634,
+            "Swimsuit 1 (Flagship)": 56.890871240216256,
+            "Swimsuit 1 (Outskirts)": 15.303789078640149,
+            "Swimsuit 1 (Suburbs)": 27.45430148125343
+        },
+        {
+            "name": "2021-04-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 100.43920368466303,
+            "Skis 1 (Outskirts)": 14.218212584827633,
+            "Skis 1 (Suburbs)": 32.337972997859175,
+            "Swimsuit 1 (Flagship)": 56.83666484740775,
+            "Swimsuit 1 (Outskirts)": 13.842234819989502,
+            "Swimsuit 1 (Suburbs)": 29.01878078979843
+        },
+        {
+            "name": "2021-04-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.00550315574046,
+            "Skis 1 (Outskirts)": 15.458853837900868,
+            "Skis 1 (Suburbs)": 31.839126074924177,
+            "Swimsuit 1 (Flagship)": 55.83988577170912,
+            "Swimsuit 1 (Outskirts)": 13.057020084053928,
+            "Swimsuit 1 (Suburbs)": 28.994832482485414
+        },
+        {
+            "name": "2021-04-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 106.2187262227614,
+            "Skis 1 (Outskirts)": 16.892869285255184,
+            "Skis 1 (Suburbs)": 35.17535244911316,
+            "Swimsuit 1 (Flagship)": 61.456873250593084,
+            "Swimsuit 1 (Outskirts)": 15.877464533577104,
+            "Swimsuit 1 (Suburbs)": 31.470814827921227
+        },
+        {
+            "name": "2021-04-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 112.52230204424991,
+            "Skis 1 (Outskirts)": 16.960107485192434,
+            "Skis 1 (Suburbs)": 38.93042874129752,
+            "Swimsuit 1 (Flagship)": 67.49567812971937,
+            "Swimsuit 1 (Outskirts)": 17.944937993122693,
+            "Swimsuit 1 (Suburbs)": 34.28765780722181
+        },
+        {
+            "name": "2021-04-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 122.09582670845133,
+            "Skis 1 (Outskirts)": 21.103278669963885,
+            "Skis 1 (Suburbs)": 43.64025211257512,
+            "Swimsuit 1 (Flagship)": 78.92447766026322,
+            "Swimsuit 1 (Outskirts)": 19.89386688622709,
+            "Swimsuit 1 (Suburbs)": 40.097433187219686
+        },
+        {
+            "name": "2021-04-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 118.63665740447118,
+            "Skis 1 (Outskirts)": 18.411663621014828,
+            "Skis 1 (Suburbs)": 40.89554533109032,
+            "Swimsuit 1 (Flagship)": 72.98055144487634,
+            "Swimsuit 1 (Outskirts)": 19.011255954554564,
+            "Swimsuit 1 (Suburbs)": 37.30395763597753
+        },
+        {
+            "name": "2021-04-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.51224835838632,
+            "Skis 1 (Outskirts)": 13.888495616471717,
+            "Skis 1 (Suburbs)": 32.52825274320071,
+            "Swimsuit 1 (Flagship)": 56.894869183737285,
+            "Swimsuit 1 (Outskirts)": 15.31486761748683,
+            "Swimsuit 1 (Suburbs)": 27.450096433721875
+        },
+        {
+            "name": "2021-04-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 101.98208687094716,
+            "Skis 1 (Outskirts)": 14.206298427293959,
+            "Skis 1 (Suburbs)": 32.34171979779454,
+            "Swimsuit 1 (Flagship)": 56.841212055493465,
+            "Swimsuit 1 (Outskirts)": 13.831960342108292,
+            "Swimsuit 1 (Suburbs)": 29.024811207525993
+        },
+        {
+            "name": "2021-04-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 102.54743372514999,
+            "Skis 1 (Outskirts)": 15.452703711269294,
+            "Skis 1 (Suburbs)": 31.840763214026737,
+            "Swimsuit 1 (Flagship)": 55.83585753524839,
+            "Swimsuit 1 (Outskirts)": 13.041398718840451,
+            "Swimsuit 1 (Suburbs)": 28.993603002208804
+        },
+        {
+            "name": "2021-04-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.74731045985986,
+            "Skis 1 (Outskirts)": 16.891067661967945,
+            "Skis 1 (Suburbs)": 35.17533893638049,
+            "Swimsuit 1 (Flagship)": 61.4548963803858,
+            "Swimsuit 1 (Outskirts)": 15.875292410429333,
+            "Swimsuit 1 (Suburbs)": 31.468572518396186
+        },
+        {
+            "name": "2021-04-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 114.04952098941013,
+            "Skis 1 (Outskirts)": 16.93434335869022,
+            "Skis 1 (Suburbs)": 38.93765157821536,
+            "Swimsuit 1 (Flagship)": 67.49696333991265,
+            "Swimsuit 1 (Outskirts)": 17.95671727142746,
+            "Swimsuit 1 (Suburbs)": 34.28460129103871
+        },
+        {
+            "name": "2021-04-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 123.59990833901131,
+            "Skis 1 (Outskirts)": 21.09152576829872,
+            "Skis 1 (Suburbs)": 43.63221555786989,
+            "Swimsuit 1 (Flagship)": 78.92422159255014,
+            "Swimsuit 1 (Outskirts)": 19.893647457522615,
+            "Swimsuit 1 (Suburbs)": 40.09406158633091
+        },
+        {
+            "name": "2021-04-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 120.16729307505554,
+            "Skis 1 (Outskirts)": 18.388379652747226,
+            "Skis 1 (Suburbs)": 40.88712681511867,
+            "Swimsuit 1 (Flagship)": 72.97723121909357,
+            "Swimsuit 1 (Outskirts)": 19.0167805613948,
+            "Swimsuit 1 (Suburbs)": 37.311653274474175
+        },
+        {
+            "name": "2021-04-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 103.04995450414083,
+            "Skis 1 (Outskirts)": 13.862509763937537,
+            "Skis 1 (Suburbs)": 32.53307392920503,
+            "Swimsuit 1 (Flagship)": 56.89886712725826,
+            "Swimsuit 1 (Outskirts)": 15.325946156333508,
+            "Swimsuit 1 (Suburbs)": 27.44589138619032
+        },
+        {
+            "name": "2021-04-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 103.52497005723892,
+            "Skis 1 (Outskirts)": 14.194384269760286,
+            "Skis 1 (Suburbs)": 32.34546659772989,
+            "Swimsuit 1 (Flagship)": 56.84575926357917,
+            "Swimsuit 1 (Outskirts)": 13.821685864227083,
+            "Swimsuit 1 (Suburbs)": 29.03084162525355
+        },
+        {
+            "name": "2021-04-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.08936429455287,
+            "Skis 1 (Outskirts)": 15.446553584637716,
+            "Skis 1 (Suburbs)": 31.842400353129328,
+            "Swimsuit 1 (Flagship)": 55.83182929878768,
+            "Swimsuit 1 (Outskirts)": 13.025777353626975,
+            "Swimsuit 1 (Suburbs)": 28.992373521932198
+        },
+        {
+            "name": "2021-04-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 109.27589469696426,
+            "Skis 1 (Outskirts)": 16.8892660386807,
+            "Skis 1 (Suburbs)": 35.17532542364784,
+            "Swimsuit 1 (Flagship)": 61.452919510178525,
+            "Swimsuit 1 (Outskirts)": 15.873120287281562,
+            "Swimsuit 1 (Suburbs)": 31.46633020887115
+        },
+        {
+            "name": "2021-04-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 115.57673993456525,
+            "Skis 1 (Outskirts)": 16.908579232188,
+            "Skis 1 (Suburbs)": 38.94487441513319,
+            "Swimsuit 1 (Flagship)": 67.49824855010591,
+            "Swimsuit 1 (Outskirts)": 17.96849654973223,
+            "Swimsuit 1 (Suburbs)": 34.281544774855604
+        },
+        {
+            "name": "2021-05-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 125.1039899695759,
+            "Skis 1 (Outskirts)": 21.07977286663356,
+            "Skis 1 (Suburbs)": 43.62417900316464,
+            "Swimsuit 1 (Flagship)": 78.92396552483704,
+            "Swimsuit 1 (Outskirts)": 19.893428028818136,
+            "Swimsuit 1 (Suburbs)": 40.090689985442125
+        },
+        {
+            "name": "2021-05-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 121.697928745636,
+            "Skis 1 (Outskirts)": 18.365095684479623,
+            "Skis 1 (Suburbs)": 40.878708299147,
+            "Swimsuit 1 (Flagship)": 72.97391099331081,
+            "Swimsuit 1 (Outskirts)": 19.022305168235036,
+            "Swimsuit 1 (Suburbs)": 37.31934891297081
+        },
+        {
+            "name": "2021-05-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 104.58766064989888,
+            "Skis 1 (Outskirts)": 13.836523911403354,
+            "Skis 1 (Suburbs)": 32.53789511520935,
+            "Swimsuit 1 (Flagship)": 56.90286507077925,
+            "Swimsuit 1 (Outskirts)": 15.337024695180187,
+            "Swimsuit 1 (Suburbs)": 27.441686338658762
+        },
+        {
+            "name": "2021-05-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 105.0678532435276,
+            "Skis 1 (Outskirts)": 14.18247011222661,
+            "Skis 1 (Suburbs)": 32.34921339766525,
+            "Swimsuit 1 (Flagship)": 56.85030647166488,
+            "Swimsuit 1 (Outskirts)": 13.811411386345874,
+            "Swimsuit 1 (Suburbs)": 29.03687204298111
+        },
+        {
+            "name": "2021-05-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 105.63129486395847,
+            "Skis 1 (Outskirts)": 15.440403458006145,
+            "Skis 1 (Suburbs)": 31.844037492231916,
+            "Swimsuit 1 (Flagship)": 55.82780106232698,
+            "Swimsuit 1 (Outskirts)": 13.010155988413498,
+            "Swimsuit 1 (Suburbs)": 28.991144041655588
+        },
+        {
+            "name": "2021-05-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.80447893406627,
+            "Skis 1 (Outskirts)": 16.88746441539346,
+            "Skis 1 (Suburbs)": 35.175311910915184,
+            "Swimsuit 1 (Flagship)": 61.45094263997125,
+            "Swimsuit 1 (Outskirts)": 15.870948164133791,
+            "Swimsuit 1 (Suburbs)": 31.464087899346108
+        },
+        {
+            "name": "2021-05-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 117.10395887972246,
+            "Skis 1 (Outskirts)": 16.882815105685783,
+            "Skis 1 (Suburbs)": 38.95209725205102,
+            "Swimsuit 1 (Flagship)": 67.49953376029917,
+            "Swimsuit 1 (Outskirts)": 17.980275828036998,
+            "Swimsuit 1 (Suburbs)": 34.2784882586725
+        },
+        {
+            "name": "2021-05-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 126.60807160013862,
+            "Skis 1 (Outskirts)": 21.0680199649684,
+            "Skis 1 (Suburbs)": 43.61614244845939,
+            "Swimsuit 1 (Flagship)": 78.92370945712395,
+            "Swimsuit 1 (Outskirts)": 19.89320860011366,
+            "Swimsuit 1 (Suburbs)": 40.08731838455335
+        },
+        {
+            "name": "2021-05-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 123.228564416218,
+            "Skis 1 (Outskirts)": 18.341811716212018,
+            "Skis 1 (Suburbs)": 40.87028978317534,
+            "Swimsuit 1 (Flagship)": 72.97059076752805,
+            "Swimsuit 1 (Outskirts)": 19.027829775075272,
+            "Swimsuit 1 (Suburbs)": 37.32704455146745
+        },
+        {
+            "name": "2021-05-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 106.12536679565547,
+            "Skis 1 (Outskirts)": 13.810538058869177,
+            "Skis 1 (Suburbs)": 32.54271630121367,
+            "Swimsuit 1 (Flagship)": 56.906863014300235,
+            "Swimsuit 1 (Outskirts)": 15.348103234026867,
+            "Swimsuit 1 (Suburbs)": 27.437481291127206
+        },
+        {
+            "name": "2021-05-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 106.61073642981748,
+            "Skis 1 (Outskirts)": 14.17055595469294,
+            "Skis 1 (Suburbs)": 32.35296019760061,
+            "Swimsuit 1 (Flagship)": 56.854853679750605,
+            "Swimsuit 1 (Outskirts)": 13.801136908464665,
+            "Swimsuit 1 (Suburbs)": 29.04290246070867
+        },
+        {
+            "name": "2021-05-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.17322543336293,
+            "Skis 1 (Outskirts)": 15.434253331374569,
+            "Skis 1 (Suburbs)": 31.845674631334504,
+            "Swimsuit 1 (Flagship)": 55.82377282586627,
+            "Swimsuit 1 (Outskirts)": 12.994534623200021,
+            "Swimsuit 1 (Suburbs)": 28.989914561378978
+        },
+        {
+            "name": "2021-05-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 112.33306317116919,
+            "Skis 1 (Outskirts)": 16.885662792106217,
+            "Skis 1 (Suburbs)": 35.175298398182534,
+            "Swimsuit 1 (Flagship)": 61.44896576976398,
+            "Swimsuit 1 (Outskirts)": 15.86877604098602,
+            "Swimsuit 1 (Suburbs)": 31.46184558982107
+        },
+        {
+            "name": "2021-05-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 118.63117782487878,
+            "Skis 1 (Outskirts)": 16.857050979183565,
+            "Skis 1 (Suburbs)": 38.95932008896885,
+            "Swimsuit 1 (Flagship)": 67.50081897049245,
+            "Swimsuit 1 (Outskirts)": 17.992055106341766,
+            "Swimsuit 1 (Suburbs)": 34.275431742489396
+        },
+        {
+            "name": "2021-05-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 128.1121532307021,
+            "Skis 1 (Outskirts)": 21.05626706330324,
+            "Skis 1 (Suburbs)": 43.60810589375414,
+            "Swimsuit 1 (Flagship)": 78.92345338941085,
+            "Swimsuit 1 (Outskirts)": 19.89298917140918,
+            "Swimsuit 1 (Suburbs)": 40.083946783664565
+        },
+        {
+            "name": "2021-05-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 124.7592000867994,
+            "Skis 1 (Outskirts)": 18.318527747944415,
+            "Skis 1 (Suburbs)": 40.86187126720368,
+            "Swimsuit 1 (Flagship)": 72.9672705417453,
+            "Swimsuit 1 (Outskirts)": 19.033354381915508,
+            "Swimsuit 1 (Suburbs)": 37.334740189964094
+        },
+        {
+            "name": "2021-05-17T00:00:00+00:00",
+            "Skis 1 (Flagship)": 107.66307294141268,
+            "Skis 1 (Outskirts)": 13.784552206334997,
+            "Skis 1 (Suburbs)": 32.547537487217994,
+            "Swimsuit 1 (Flagship)": 56.91086095782123,
+            "Swimsuit 1 (Outskirts)": 15.359181772873546,
+            "Swimsuit 1 (Suburbs)": 27.43327624359565
+        },
+        {
+            "name": "2021-05-18T00:00:00+00:00",
+            "Skis 1 (Flagship)": 108.1536196161069,
+            "Skis 1 (Outskirts)": 14.158641797159264,
+            "Skis 1 (Suburbs)": 32.356706997535966,
+            "Swimsuit 1 (Flagship)": 56.859400887836316,
+            "Swimsuit 1 (Outskirts)": 13.790862430583456,
+            "Swimsuit 1 (Suburbs)": 29.04893287843623
+        },
+        {
+            "name": "2021-05-19T00:00:00+00:00",
+            "Skis 1 (Flagship)": 108.71515600276788,
+            "Skis 1 (Outskirts)": 15.428103204742996,
+            "Skis 1 (Suburbs)": 31.847311770437095,
+            "Swimsuit 1 (Flagship)": 55.819744589405566,
+            "Swimsuit 1 (Outskirts)": 12.978913257986544,
+            "Swimsuit 1 (Suburbs)": 28.988685081102368
+        },
+        {
+            "name": "2021-05-20T00:00:00+00:00",
+            "Skis 1 (Flagship)": 113.86164740827178,
+            "Skis 1 (Outskirts)": 16.883861168818978,
+            "Skis 1 (Suburbs)": 35.17528488544988,
+            "Swimsuit 1 (Flagship)": 61.44698889955671,
+            "Swimsuit 1 (Outskirts)": 15.86660391783825,
+            "Swimsuit 1 (Suburbs)": 31.45960328029603
+        },
+        {
+            "name": "2021-05-21T00:00:00+00:00",
+            "Skis 1 (Flagship)": 120.15839677003551,
+            "Skis 1 (Outskirts)": 16.831286852681348,
+            "Skis 1 (Suburbs)": 38.96654292588668,
+            "Swimsuit 1 (Flagship)": 67.5021041806857,
+            "Swimsuit 1 (Outskirts)": 18.00383438464653,
+            "Swimsuit 1 (Suburbs)": 34.272375226306295
+        },
+        {
+            "name": "2021-05-22T00:00:00+00:00",
+            "Skis 1 (Flagship)": 129.61623486126533,
+            "Skis 1 (Outskirts)": 21.044514161638077,
+            "Skis 1 (Suburbs)": 43.6000693390489,
+            "Swimsuit 1 (Flagship)": 78.92319732169776,
+            "Swimsuit 1 (Outskirts)": 19.892769742704704,
+            "Swimsuit 1 (Suburbs)": 40.08057518277579
+        },
+        {
+            "name": "2021-05-23T00:00:00+00:00",
+            "Skis 1 (Flagship)": 126.28983575738116,
+            "Skis 1 (Outskirts)": 18.295243779676813,
+            "Skis 1 (Suburbs)": 40.85345275123202,
+            "Swimsuit 1 (Flagship)": 72.96395031596252,
+            "Swimsuit 1 (Outskirts)": 19.03887898875574,
+            "Swimsuit 1 (Suburbs)": 37.34243582846073
+        },
+        {
+            "name": "2021-05-24T00:00:00+00:00",
+            "Skis 1 (Flagship)": 109.20077908716976,
+            "Skis 1 (Outskirts)": 13.75856635380082,
+            "Skis 1 (Suburbs)": 32.55235867322232,
+            "Swimsuit 1 (Flagship)": 56.914858901342214,
+            "Swimsuit 1 (Outskirts)": 15.370260311720227,
+            "Swimsuit 1 (Suburbs)": 27.429071196064093
+        },
+        {
+            "name": "2021-05-25T00:00:00+00:00",
+            "Skis 1 (Flagship)": 109.69650280239668,
+            "Skis 1 (Outskirts)": 14.146727639625588,
+            "Skis 1 (Suburbs)": 32.36045379747133,
+            "Swimsuit 1 (Flagship)": 56.863948095922034,
+            "Swimsuit 1 (Outskirts)": 13.780587952702247,
+            "Swimsuit 1 (Suburbs)": 29.05496329616379
+        },
+        {
+            "name": "2021-05-26T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.25708657217287,
+            "Skis 1 (Outskirts)": 15.42195307811142,
+            "Skis 1 (Suburbs)": 31.848948909539683,
+            "Swimsuit 1 (Flagship)": 55.81571635294486,
+            "Swimsuit 1 (Outskirts)": 12.963291892773068,
+            "Swimsuit 1 (Suburbs)": 28.98745560082576
+        },
+        {
+            "name": "2021-05-27T00:00:00+00:00",
+            "Skis 1 (Flagship)": 115.39023164537478,
+            "Skis 1 (Outskirts)": 16.882059545531735,
+            "Skis 1 (Suburbs)": 35.175271372717226,
+            "Swimsuit 1 (Flagship)": 61.445012029349435,
+            "Swimsuit 1 (Outskirts)": 15.864431794690478,
+            "Swimsuit 1 (Suburbs)": 31.457360970770992
+        },
+        {
+            "name": "2021-05-28T00:00:00+00:00",
+            "Skis 1 (Flagship)": 121.68561571519237,
+            "Skis 1 (Outskirts)": 16.80552272617913,
+            "Skis 1 (Suburbs)": 38.973765762804504,
+            "Swimsuit 1 (Flagship)": 67.50338939087897,
+            "Swimsuit 1 (Outskirts)": 18.0156136629513,
+            "Swimsuit 1 (Suburbs)": 34.26931871012319
+        },
+        {
+            "name": "2021-05-29T00:00:00+00:00",
+            "Skis 1 (Flagship)": 131.12031649182896,
+            "Skis 1 (Outskirts)": 21.03276125997292,
+            "Skis 1 (Suburbs)": 43.59203278434365,
+            "Swimsuit 1 (Flagship)": 78.92294125398467,
+            "Swimsuit 1 (Outskirts)": 19.892550314000225,
+            "Swimsuit 1 (Suburbs)": 40.077203581887005
+        },
+        {
+            "name": "2021-05-30T00:00:00+00:00",
+            "Skis 1 (Flagship)": 127.82047142796308,
+            "Skis 1 (Outskirts)": 18.27195981140921,
+            "Skis 1 (Suburbs)": 40.84503423526036,
+            "Swimsuit 1 (Flagship)": 72.96063009017976,
+            "Swimsuit 1 (Outskirts)": 19.044403595595977,
+            "Swimsuit 1 (Suburbs)": 37.35013146695737
+        },
+        {
+            "name": "2021-05-31T00:00:00+00:00",
+            "Skis 1 (Flagship)": 110.73848523292723,
+            "Skis 1 (Outskirts)": 13.73258050126664,
+            "Skis 1 (Suburbs)": 32.55717985922664,
+            "Swimsuit 1 (Flagship)": 56.91885684486321,
+            "Swimsuit 1 (Outskirts)": 15.381338850566905,
+            "Swimsuit 1 (Suburbs)": 27.424866148532537
+        },
+        {
+            "name": "2021-06-01T00:00:00+00:00",
+            "Skis 1 (Flagship)": 111.23938598868665,
+            "Skis 1 (Outskirts)": 14.134813482091918,
+            "Skis 1 (Suburbs)": 32.364200597406686,
+            "Swimsuit 1 (Flagship)": 56.86849530400775,
+            "Swimsuit 1 (Outskirts)": 13.770313474821037,
+            "Swimsuit 1 (Suburbs)": 29.06099371389135
+        },
+        {
+            "name": "2021-06-02T00:00:00+00:00",
+            "Skis 1 (Flagship)": 111.79901714157813,
+            "Skis 1 (Outskirts)": 15.415802951479847,
+            "Skis 1 (Suburbs)": 31.850586048642274,
+            "Swimsuit 1 (Flagship)": 55.81168811648415,
+            "Swimsuit 1 (Outskirts)": 12.947670527559591,
+            "Swimsuit 1 (Suburbs)": 28.98622612054915
+        },
+        {
+            "name": "2021-06-03T00:00:00+00:00",
+            "Skis 1 (Flagship)": 116.9188158824779,
+            "Skis 1 (Outskirts)": 16.88025792224449,
+            "Skis 1 (Suburbs)": 35.17525785998457,
+            "Swimsuit 1 (Flagship)": 61.44303515914216,
+            "Swimsuit 1 (Outskirts)": 15.862259671542708,
+            "Swimsuit 1 (Suburbs)": 31.45511866124595
+        },
+        {
+            "name": "2021-06-04T00:00:00+00:00",
+            "Skis 1 (Flagship)": 123.21283466034946,
+            "Skis 1 (Outskirts)": 16.77975859967691,
+            "Skis 1 (Suburbs)": 38.98098859972234,
+            "Swimsuit 1 (Flagship)": 67.50467460107222,
+            "Swimsuit 1 (Outskirts)": 18.027392941256068,
+            "Swimsuit 1 (Suburbs)": 34.266262193940086
+        },
+        {
+            "name": "2021-06-05T00:00:00+00:00",
+            "Skis 1 (Flagship)": 132.6243981223927,
+            "Skis 1 (Outskirts)": 21.021008358307753,
+            "Skis 1 (Suburbs)": 43.5839962296384,
+            "Swimsuit 1 (Flagship)": 78.92268518627158,
+            "Swimsuit 1 (Outskirts)": 19.89233088529575,
+            "Swimsuit 1 (Suburbs)": 40.07383198099823
+        },
+        {
+            "name": "2021-06-06T00:00:00+00:00",
+            "Skis 1 (Flagship)": 129.35110709854516,
+            "Skis 1 (Outskirts)": 18.24867584314161,
+            "Skis 1 (Suburbs)": 40.836615719288694,
+            "Swimsuit 1 (Flagship)": 72.957309864397,
+            "Swimsuit 1 (Outskirts)": 19.049928202436213,
+            "Swimsuit 1 (Suburbs)": 37.35782710545401
+        },
+        {
+            "name": "2021-06-07T00:00:00+00:00",
+            "Skis 1 (Flagship)": 112.27619137868471,
+            "Skis 1 (Outskirts)": 13.706594648732462,
+            "Skis 1 (Suburbs)": 32.56200104523097,
+            "Swimsuit 1 (Flagship)": 56.92285478838419,
+            "Swimsuit 1 (Outskirts)": 15.392417389413586,
+            "Swimsuit 1 (Suburbs)": 27.42066110100098
+        },
+        {
+            "name": "2021-06-08T00:00:00+00:00",
+            "Skis 1 (Flagship)": 112.78226917497666,
+            "Skis 1 (Outskirts)": 14.122899324558242,
+            "Skis 1 (Suburbs)": 32.36794739734204,
+            "Swimsuit 1 (Flagship)": 56.87304251209347,
+            "Swimsuit 1 (Outskirts)": 13.76003899693983,
+            "Swimsuit 1 (Suburbs)": 29.067024131618908
+        },
+        {
+            "name": "2021-06-09T00:00:00+00:00",
+            "Skis 1 (Flagship)": 113.34094771098339,
+            "Skis 1 (Outskirts)": 15.409652824848271,
+            "Skis 1 (Suburbs)": 31.852223187744862,
+            "Swimsuit 1 (Flagship)": 55.80765988002345,
+            "Swimsuit 1 (Outskirts)": 12.932049162346114,
+            "Swimsuit 1 (Suburbs)": 28.98499664027254
+        },
+        {
+            "name": "2021-06-10T00:00:00+00:00",
+            "Skis 1 (Flagship)": 118.44740011958102,
+            "Skis 1 (Outskirts)": 16.87845629895725,
+            "Skis 1 (Suburbs)": 35.17524434725191,
+            "Swimsuit 1 (Flagship)": 61.44105828893489,
+            "Swimsuit 1 (Outskirts)": 15.860087548394937,
+            "Swimsuit 1 (Suburbs)": 31.452876351720914
+        },
+        {
+            "name": "2021-06-11T00:00:00+00:00",
+            "Skis 1 (Flagship)": 124.74005360550646,
+            "Skis 1 (Outskirts)": 16.753994473174696,
+            "Skis 1 (Suburbs)": 38.988211436640164,
+            "Swimsuit 1 (Flagship)": 67.5059598112655,
+            "Swimsuit 1 (Outskirts)": 18.039172219560836,
+            "Swimsuit 1 (Suburbs)": 34.26320567775698
+        },
+        {
+            "name": "2021-06-12T00:00:00+00:00",
+            "Skis 1 (Flagship)": 134.12847975295637,
+            "Skis 1 (Outskirts)": 21.00925545664259,
+            "Skis 1 (Suburbs)": 43.57595967493315,
+            "Swimsuit 1 (Flagship)": 78.92242911855848,
+            "Swimsuit 1 (Outskirts)": 19.892111456591273,
+            "Swimsuit 1 (Suburbs)": 40.070460380109445
+        },
+        {
+            "name": "2021-06-13T00:00:00+00:00",
+            "Skis 1 (Flagship)": 130.8817427691271,
+            "Skis 1 (Outskirts)": 18.225391874874006,
+            "Skis 1 (Suburbs)": 40.82819720331703,
+            "Swimsuit 1 (Flagship)": 72.95398963861425,
+            "Swimsuit 1 (Outskirts)": 19.05545280927645,
+            "Swimsuit 1 (Suburbs)": 37.36552274395065
+        },
+        {
+            "name": "2021-06-14T00:00:00+00:00",
+            "Skis 1 (Flagship)": 113.81389752444213,
+            "Skis 1 (Outskirts)": 13.68060879619828,
+            "Skis 1 (Suburbs)": 32.56682223123529,
+            "Swimsuit 1 (Flagship)": 56.926852731905186,
+            "Swimsuit 1 (Outskirts)": 15.403495928260265,
+            "Swimsuit 1 (Suburbs)": 27.416456053469425
+        },
+        {
+            "name": "2021-06-15T00:00:00+00:00",
+            "Skis 1 (Flagship)": 114.32515236126659,
+            "Skis 1 (Outskirts)": 14.11098516702457,
+            "Skis 1 (Suburbs)": 32.37169419727741,
+            "Swimsuit 1 (Flagship)": 56.87758972017919,
+            "Swimsuit 1 (Outskirts)": 13.749764519058619,
+            "Swimsuit 1 (Suburbs)": 29.07305454934647
+        },
+        {
+            "name": "2021-06-16T00:00:00+00:00",
+            "Skis 1 (Flagship)": 114.88287828038857,
+            "Skis 1 (Outskirts)": 15.403502698216698,
+            "Skis 1 (Suburbs)": 31.853860326847453,
+            "Swimsuit 1 (Flagship)": 55.80363164356274,
+            "Swimsuit 1 (Outskirts)": 12.91642779713264,
+            "Swimsuit 1 (Suburbs)": 28.983767159995935
+        }
+    ],
+    "historyMinDate": "2020-01-02T00:00:00+00:00",
+    "historyMaxDate": "2020-10-19T00:00:00+00:00",
+    "predictionsMinDate": "2020-10-20T00:00:00+00:00",
+    "predictionsMaxDate": "2021-06-16T00:00:00+00:00"
+}
