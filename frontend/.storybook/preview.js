@@ -20,7 +20,7 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { DemoTheming } from 'DemoWrapper';
+import { DemoTheming } from 'common/components/DemoWrapper';
 
 import 'index.css';
 
