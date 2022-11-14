@@ -29,7 +29,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as VertexAIIcon } from 'demos/time-series-forecasting/static/vertex-ai-36-color.svg';
+import { ReactComponent as VertexAIIcon } from 'static/vertex-ai-36-color.svg';
 
 const pages = [
   { displayName: 'More demos', to: '/' },

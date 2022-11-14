@@ -23,17 +23,28 @@ In the project directory, you can run:
 
 ### Deployment
 
+#### Pre-requisite: Environment variables
+
+1. Deploy the backend by following the instructions in the backend folder. Note the URI that the backend is deployed to.
+2. Create a file in this folder (i.e. frontend) called `env.production`.
+3. In this file, add the following with the appropriate value for `<BACKEND_URI>`:
+
+```
+REACT_APP_API_SERVER=<BACKEND_URI>
+```
+
 Here are a few options on how to deploy the web app to your own Google Cloud project.
 
-#### 1. Build and deploy to Google Cloud Run in one step
+#### Option 1. Build and deploy to Google Cloud Run in one step
 
 ```
-gcloud run deploy forecasting-live-demo --source . --region=us-central1 --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated
+gcloud run deploy built-on-vertex-ai-frontend --source . --region=us-central1 --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated
 ```
 
-Package the frontend into a container using the Dockerfile, save it in the Google Container Registry and deploy it on Google Cloud Run.
+This packages the frontend into an image using the Dockerfile and saves it in the Google Container Registry.
+You can then take this image and deploy it on Google Cloud Run.
 
-#### 2. Build a container using Google Cloud Build
+#### Option 2. Build a container using Google Cloud Build
 
 ```
 gcloud builds submit --tag gcr.io/your-project-name/built-on-vertex-ai-frontend
