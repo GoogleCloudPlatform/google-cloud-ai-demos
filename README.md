@@ -4,6 +4,8 @@ This repository contains the frontend and backend code for the "Built of Vertex 
 
 There are multiple demos covering multiple products and use cases.
 
+See the hosted demo at https://built-on-vertex-ai.dev/
+
 ## Demos
 
 This is the list of demos included.
