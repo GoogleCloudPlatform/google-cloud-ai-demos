@@ -140,16 +140,19 @@ const ModelParametersForm = ({ control, errors, selectedDataset }: ModelParamete
 
 interface PredictionFormValues extends ParameterDict {
   forecastHorizon: number;
+  contextWindow: number;
 }
 
 const predictionValidationSchema = Yup.object().shape({
   forecastHorizon: Yup.number().required('This is required'),
+  contextWindow: Yup.number().required('This is required'),
 });
 
 interface PredictionParametersFormProps {
   control: Control<PredictionFormValues>;
   errors: FieldErrorsImpl<{
     forecastHorizon: number;
+    contextWindow: number;
   }>;
   selectedDataset: DatasetFull;
 }
@@ -169,6 +172,18 @@ const PredictionParametersForm = ({ control, errors }: PredictionParametersFormP
           control={control}
           label="Forecast horizon"
           errorMessage={errors.forecastHorizon?.message}
+        />
+      </Grid>
+      <Grid xs={12} lg={6}>
+        <CustomSlider
+          step={1}
+          minValue={0}
+          maxValue={30}
+          description="The amount of time into the past training and prediction data is used for model training and prediction respectively. Expressed in number of units defined by the `data_granularity` field."
+          name="contextWindow"
+          control={control}
+          label="Context window"
+          errorMessage={errors.contextWindow?.message}
         />
       </Grid>
     </Grid>
