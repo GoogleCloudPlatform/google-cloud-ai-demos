@@ -61,7 +61,7 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
             }}
           >
-            Built on Vertex AI
+            Built on Vertex AI (alpha)
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
