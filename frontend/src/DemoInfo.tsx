@@ -1,4 +1,5 @@
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
+import * as React from 'react';
 
 export const forecastingDemoInfo = {
   title: 'Time-series Forecasting',
