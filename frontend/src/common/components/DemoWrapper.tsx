@@ -95,7 +95,7 @@ const DemoWrapper = ({ initialTabIndex, title, subtitle, sections }: DemoWrapper
           <Typography variant="body2">{sections[tab].title}</Typography>
         </Divider>
         <Box padding={3} marginTop={3}>
-          <DemoTheming>{sections[tab].element}</DemoTheming>;
+          <DemoTheming>{sections[tab].element}</DemoTheming>
         </Box>
       </Box>
     </Stack>

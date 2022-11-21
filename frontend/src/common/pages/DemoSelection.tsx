@@ -117,7 +117,7 @@ const sectionInfos = [
         description:
           'Learn how to create a forecasting web app to predict future sales with Cloud Run, BigQuery ML and Vertex AI.',
         image: retailImage,
-        destination: '/demos/forecasting/time-series',
+        destination: '/demos/time-series-forecasting',
       },
     ],
   },
@@ -131,14 +131,14 @@ const sectionInfos = [
         description:
           'A classification model analyzes image data and returns a list of content categories that apply to the image. For example, you can train a model that classifies images as containing a cat or not containing a cat, or you could train a model to classify images of dogs by breed.',
         image: retailImage,
-        destination: '/image-classification',
+        destination: '/demos/image-classification',
       },
       {
         title: 'Object detection',
         description:
           'An object detection model analyzes your image data and returns annotations for all objects found in an image, consisting of a label and bounding box location for each object. For example, you can train a model to find the location of the cats in image data.',
         image: retailImage,
-        destination: '/examples/retail',
+        destination: '/demos/todo',
       },
     ],
   },
@@ -151,13 +151,13 @@ const sectionInfos = [
         title: 'Product recommendation',
         description: 'Deliver highly personalized product recommendations to users on a shopping website.',
         image: retailImage,
-        destination: '/todo',
+        destination: '/demos/todo',
       },
       {
         title: 'Image search',
         description: 'Search for relevant image based on a text prompt',
         image: retailImage,
-        destination: '/todo',
+        destination: '/demos/todo',
       },
     ],
   },
