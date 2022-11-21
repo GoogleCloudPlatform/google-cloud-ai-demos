@@ -17,7 +17,7 @@
 import { StyledEngineProvider } from '@mui/material';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
-import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
+import { forecastingDemoInfo } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -28,21 +28,10 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<DemoSelection />} />
-      <Route
-        path="/demos/forecasting/time-series"
-        element={
-          <DemoWrapper initialTab="learn">
-            <NewForecastFlow />
-          </DemoWrapper>
-        }
-      />
+      <Route path="/demos/forecasting/time-series" element={<DemoWrapper {...forecastingDemoInfo} />} />
       <Route
         path="/demos/forecasting/time-series/time-series-forecasting/new-forecast"
-        element={
-          <DemoWrapper initialTab="demo">
-            <NewForecastFlow />
-          </DemoWrapper>
-        }
+        element={<DemoWrapper {...forecastingDemoInfo} />}
       />
       {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>

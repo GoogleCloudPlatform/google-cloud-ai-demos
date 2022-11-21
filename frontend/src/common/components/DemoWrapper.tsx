@@ -29,6 +29,15 @@ interface DemoThemingProps {
   children: React.ReactNode;
 }
 
+interface DemoSection {
+  buttonText: string;
+  title: string;
+  element: React.ReactElement;
+  // description: string;
+  // image: string;
+  // element?: React.ReactElement;
+}
+
 // The theme wrapper for the demos
 export const DemoTheming = ({ children }: DemoThemingProps) => {
   return (
@@ -40,14 +49,14 @@ export const DemoTheming = ({ children }: DemoThemingProps) => {
 };
 
 interface DemoContentProps {
-  tab: string;
+  tab: number;
   children: React.ReactNode;
 }
 
 const DemoContent = ({ tab, children }: DemoContentProps) => {
-  if (tab == 'demo') {
+  if (tab == 0) {
     return <DemoTheming>{children}</DemoTheming>;
-  } else if (tab == 'how') {
+  } else if (tab == 1) {
     return (
       <DemoTheming>
         <Container maxWidth="xl">
@@ -110,49 +119,41 @@ const DemoContent = ({ tab, children }: DemoContentProps) => {
 };
 
 interface DemoWrapperProps {
-  initialTab?: string;
-  children: React.ReactElement;
+  initialTab?: number;
+  title: string;
+  subtitle: string;
+  sections: DemoSection[];
 }
 
-const DemoWrapper = ({ initialTab, children }: DemoWrapperProps) => {
-  const [tab, setTab] = React.useState(initialTab ?? 'learn');
+const DemoWrapper = ({ initialTab, title, subtitle, sections }: DemoWrapperProps) => {
+  const [tab, setTab] = React.useState<number>(initialTab ?? 0);
 
-  const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: string) => {
+  const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: number) => {
     if (newTab !== null) {
       setTab(newTab);
     }
   };
 
-  const getHeaderText = (tab: string): string => {
-    switch (tab) {
-      case 'learn':
-        return 'Follow along these scenarios to see how forecasting is used in a variety of industries';
-        break;
-      case 'demo':
-        return 'This is a demo web app for forecasting';
-        break;
-      case 'how':
-        return 'This shows the architecture for the demo web app';
-      default:
-        return '';
-    }
-  };
+  if (sections.length == 0) {
+    return null;
+  }
 
   return (
     <Stack spacing={0} height="100%" direction="column">
       <Stack spacing={3} padding={4} flex="none" sx={{ marginBottom: '24px' }}>
         <Typography variant="h2" align="center">
-          Time-series Forecasting
+          {title}
         </Typography>
         <Typography variant="subtitle1" align="center">
-          This live demo showcases a forecasting app built with React, Material UI, Google Cloud Run, Google Cloud
-          BigQuery and Google Cloud Vertex AI.
+          {subtitle}
         </Typography>
         <Box alignSelf="center">
           <ToggleButtonGroup color="primary" value={tab} exclusive onChange={handleChange}>
-            <ToggleButton value="learn">Learn about forecasting</ToggleButton>
-            <ToggleButton value="demo">Try the demo</ToggleButton>
-            <ToggleButton value="how">How we built it</ToggleButton>
+            {sections.map((section, index) => (
+              <ToggleButton key={index} value={index}>
+                {section.buttonText}
+              </ToggleButton>
+            ))}
           </ToggleButtonGroup>
         </Box>
       </Stack>
@@ -169,10 +170,10 @@ const DemoWrapper = ({ initialTab, children }: DemoWrapperProps) => {
             paddingRight: 3,
           }}
         >
-          <Typography variant="body2">{getHeaderText(tab)}</Typography>
+          <Typography variant="body2">{sections[tab].title}</Typography>
         </Divider>
         <Box padding={3} marginTop={3}>
-          <DemoContent tab={tab}>{children}</DemoContent>
+          <DemoContent tab={tab}>{sections[tab].element}</DemoContent>
         </Box>
       </Box>
     </Stack>

@@ -18,8 +18,8 @@
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DemoWrapper from 'common/components/DemoWrapper';
+import { forecastingDemoInfo } from 'DemoInfo';
 import Introduction2 from 'demos/time-series-forecasting/pages/Introduction2';
-import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
 import React from 'react';
 
 export default {
@@ -27,9 +27,5 @@ export default {
   component: Introduction2,
 } as ComponentMeta<typeof Introduction2>;
 
-const Template: ComponentStory<typeof Introduction2> = () => (
-  <DemoWrapper initialTab="learn">
-    <NewForecastFlow />
-  </DemoWrapper>
-);
+const Template: ComponentStory<typeof Introduction2> = () => <DemoWrapper {...forecastingDemoInfo} />;
 export const Default = Template.bind({});

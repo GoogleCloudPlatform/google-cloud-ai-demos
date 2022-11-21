@@ -28,10 +28,10 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import CustomCard from 'common/components/CustomCard';
-import * as React from 'react';
 import energyImage from 'demos/time-series-forecasting/static/energy.png';
 import financeImage from 'demos/time-series-forecasting/static/finance.jpeg';
 import retailImage from 'demos/time-series-forecasting/static/retail.jpeg';
+import * as React from 'react';
 
 interface ScenarioCardProps {
   title: string;
