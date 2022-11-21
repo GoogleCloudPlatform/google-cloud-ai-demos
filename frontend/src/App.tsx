@@ -31,7 +31,7 @@ const AppRoutes = () => {
       <Route path="/demos/forecasting/time-series" element={<DemoWrapper {...forecastingDemoInfo} />} />
       <Route
         path="/demos/forecasting/time-series/time-series-forecasting/new-forecast"
-        element={<DemoWrapper {...forecastingDemoInfo} />}
+        element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       />
       {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>

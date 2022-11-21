@@ -1,3 +1,5 @@
+import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
+import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
 import * as React from 'react';
 
@@ -9,7 +11,7 @@ export const forecastingDemoInfo = {
     {
       buttonText: 'Learn about forecasting',
       title: 'Follow along these scenarios to see how forecasting is used in a variety of industries',
-      element: <NewForecastFlow />,
+      element: <ForecastingExamples />,
     },
     {
       buttonText: 'Try the demo',
@@ -19,7 +21,7 @@ export const forecastingDemoInfo = {
     {
       buttonText: 'How we built it',
       title: 'This shows the architecture for the demo web app',
-      element: <NewForecastFlow />,
+      element: <ForecastingArchitecture />,
     },
   ],
 };
