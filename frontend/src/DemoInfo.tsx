@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
@@ -34,13 +35,13 @@ export const imageClassificationDemoInfo = {
   sections: [
     {
       buttonText: 'Learn about image classification',
-      title: 'Follow along these scenarios to see how forecasting is used in a variety of industries',
+      title: 'Follow along these scenarios to see how image classification is used in a variety of industries',
       element: <Typography>TODO</Typography>,
     },
     {
       buttonText: 'Try the demo',
-      title: 'This is a demo web app for forecasting',
-      element: <NewForecastFlow />,
+      title: 'This is a demo web app for image classification',
+      element: <ImageClassificationFlow />,
     },
     {
       buttonText: 'How we built it',
