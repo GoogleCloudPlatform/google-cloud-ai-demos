@@ -1,4 +1,15 @@
-import { Container, Typography } from '@mui/material';
+import {
+  Container,
+  Slider,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import ButtonBase from '@mui/material/ButtonBase';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -55,6 +66,17 @@ const itemData = [
     img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
     title: 'Bike',
   },
+];
+
+interface ClassificationResult {
+  class: string;
+  score: number;
+}
+
+const CLASSIFICATION_RESULTS: ClassificationResult[] = [
+  { class: 'bird', score: 0.6 },
+  { class: 'dolphin', score: 0.2 },
+  { class: 'cat', score: 0.3 },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
@@ -155,6 +177,65 @@ const ImageSelectionList = ({ selectedImage, onImageSelected }: ImageListProps) 
     </ImageList>
   );
 };
+
+interface ClassificationResultsTableProps {
+  results: ClassificationResult[];
+}
+
+const ClassificationResultsTable = ({ results }: ClassificationResultsTableProps) => {
+  const theme = useTheme();
+
+  return (
+    <TableContainer
+      sx={{
+        border: '1px solid',
+        borderRadius: 2,
+        borderColor: theme.palette.grey[300],
+        '& pre': {
+          m: 0,
+          p: '16px !important',
+          fontFamily: theme.typography.fontFamily,
+          fontSize: '0.75rem',
+        },
+        boxShadow: null,
+      }}
+    >
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Class</TableCell>
+            <TableCell align="right">Score</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {results.map((result) => (
+            <TableRow key={result.class} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell component="th" scope="row">
+                {result.class}
+              </TableCell>
+              <TableCell align="right">
+                <Slider
+                  valueLabelDisplay="off"
+                  value={result.score}
+                  min={0}
+                  max={1}
+                  step={0.1}
+                  marks={[
+                    {
+                      value: result.score,
+                      label: `${result.score}`,
+                    },
+                  ]}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
 export default () => {
   const [selectedImage, setSelectedImage] = React.useState<number>();
 
@@ -170,7 +251,11 @@ export default () => {
           <ImageSelectionList selectedImage={selectedImage} onImageSelected={onImageSelected} />
         </Grid>
         <Grid xs={12} md={8}>
-          <Typography variant="h6">Classification results</Typography>
+          <Typography variant="h4">Classification results</Typography>
+          <Typography variant="body1">
+            These results describe how confident the model is for each of these classes
+          </Typography>
+          <ClassificationResultsTable results={CLASSIFICATION_RESULTS} />
         </Grid>
       </Grid>
     </Container>
