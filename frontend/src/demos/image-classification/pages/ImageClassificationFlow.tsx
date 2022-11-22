@@ -1,4 +1,6 @@
 import {
+  Alert,
+  CircularProgress,
   Container,
   Slider,
   Table,
@@ -15,56 +17,71 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
+import { AxiosError } from 'axios';
+import { classifyImage, ImageClassificationResponse } from 'demos/image-classification/queries';
 import * as React from 'react';
+import { useQuery } from 'react-query';
 
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Breakfast',
+    id: 'Breakfast',
   },
   {
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
     title: 'Burger',
+    id: 'Burger',
   },
   {
     img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
     title: 'Camera',
+    id: 'Camera',
   },
   {
     img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
     title: 'Coffee',
+    id: 'Coffee',
   },
   {
     img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
     title: 'Hats',
+    id: 'Hats',
   },
   {
     img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
     title: 'Honey',
+    id: 'Honey',
   },
   {
     img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
     title: 'Basketball',
+    id: 'Basketball',
   },
   {
     img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
     title: 'Fern',
+    id: 'Fern',
   },
   {
     img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
     title: 'Mushrooms',
+    id: 'Mushrooms',
   },
   {
     img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
     title: 'Tomato basil',
+    id: 'Tomato basil',
   },
   {
     img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
     title: 'Sea star',
+    id: 'Sea star',
   },
   {
     img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
     title: 'Bike',
+    id: 'Bike',
   },
 ];
 
@@ -141,20 +158,20 @@ const ImageMarked = styled('span')(({ theme }) => ({
 }));
 
 interface ImageListProps {
-  selectedImage?: number;
-  onImageSelected: (index: number) => void;
+  selectedImageId?: string;
+  onImageSelected: (imageId: string) => void;
 }
 
-const ImageSelectionList = ({ selectedImage, onImageSelected }: ImageListProps) => {
+const ImageSelectionList = ({ selectedImageId, onImageSelected }: ImageListProps) => {
   return (
     <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item, index) => (
-        <ImageListItem key={index}>
-          <ImageButton focusRipple key={item.title} onClick={() => onImageSelected(index)}>
+      {itemData.map((item) => (
+        <ImageListItem key={item.id}>
+          <ImageButton focusRipple key={item.title} onClick={() => onImageSelected(item.id)}>
             <ImageSrc style={{ backgroundImage: `url(${item.img}?w=164&h=164&fit=crop&auto=format)` }} />
             <ImageBackdrop className="MuiImageBackdrop-root" />
             <Image>
-              {selectedImage == index ? (
+              {selectedImageId == item.id ? (
                 <Typography
                   component="span"
                   variant="subtitle1"
@@ -236,11 +253,70 @@ const ClassificationResultsTable = ({ results }: ClassificationResultsTableProps
   );
 };
 
-export default () => {
-  const [selectedImage, setSelectedImage] = React.useState<number>();
+interface ClassificationResultsForImageProps {
+  selectedImageId: string;
+}
 
-  const onImageSelected = (index: number) => {
-    setSelectedImage(index);
+const ClassificationResultsForImage = ({ selectedImageId }: ClassificationResultsForImageProps) => {
+  const {
+    isLoading,
+    error,
+    data: classificationResults,
+    isError,
+  } = useQuery<ImageClassificationResponse, Error>(
+    ['submitForecast', selectedImageId],
+    () => {
+      return classifyImage(selectedImageId);
+    },
+    {
+      // The query will not execute until the jobId exists
+      enabled: !!selectedImageId,
+    }
+  );
+
+  if (isLoading) {
+    return (
+      <Alert icon={<CircularProgress size={3} />} severity="info">
+        Loading...
+      </Alert>
+    );
+  } else if (selectedImageId != null) {
+    if (isLoading) {
+      return (
+        <Alert icon={<CircularProgress size={3} />} severity="info">
+          Loading...
+        </Alert>
+      );
+    } else if (classificationResults != null) {
+      return (
+        <>
+          <Typography variant="body1">
+            These results describe how confident the model is for each of these classes
+          </Typography>
+          <ClassificationResultsTable results={CLASSIFICATION_RESULTS} />
+        </>
+      );
+    } else if (isError && error) {
+      return (
+        <Alert icon={<CircularProgress size={3} />} severity="error">
+          {(error as AxiosError).message}
+        </Alert>
+      );
+    } else {
+      return null;
+    }
+  } else if (isError && error != null) {
+    return <Alert severity="error">{error.message}</Alert>;
+  } else {
+    return <Alert severity="error">Unknown error</Alert>;
+  }
+};
+
+export default () => {
+  const [selectedImageId, setSelectedImageId] = React.useState<string>();
+
+  const onImageSelected = (imageId: string) => {
+    setSelectedImageId(imageId);
   };
 
   return (
@@ -248,14 +324,15 @@ export default () => {
       <Grid container spacing={7}>
         <Grid xs={12} md={4}>
           <Typography variant="h3">Select an image</Typography>
-          <ImageSelectionList selectedImage={selectedImage} onImageSelected={onImageSelected} />
+          <ImageSelectionList selectedImageId={selectedImageId} onImageSelected={onImageSelected} />
         </Grid>
         <Grid xs={12} md={8}>
-          <Typography variant="h4">Classification results</Typography>
-          <Typography variant="body1">
-            These results describe how confident the model is for each of these classes
-          </Typography>
-          <ClassificationResultsTable results={CLASSIFICATION_RESULTS} />
+          {selectedImageId != null ? (
+            <>
+              <Typography variant="h4">Classification results</Typography>
+              <ClassificationResultsForImage selectedImageId={selectedImageId} />
+            </>
+          ) : null}
         </Grid>
       </Grid>
     </Container>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Alert, CircularProgress, Typography } from '@mui/material';
+import { Alert, CircularProgress } from '@mui/material';
 import { AxiosError } from 'axios';
 import { ParameterDict } from 'demos/time-series-forecasting/models';
 import { ForecastJob, SubmitForecastJobResponse } from 'demos/time-series-forecasting/models';
@@ -93,7 +93,11 @@ export default ({ trainingMethodId, datasetId, modelParameters, predictionParame
         />
       );
     } else if (isForecastJobError && forecastJobError) {
-      return <Typography>{(forecastJobError as AxiosError).message}</Typography>;
+      return (
+        <Alert icon={<CircularProgress size={3} />} severity="error">
+          {(error as AxiosError).message}
+        </Alert>
+      );
     } else {
       return null;
     }
