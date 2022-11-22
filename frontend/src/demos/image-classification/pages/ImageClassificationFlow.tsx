@@ -72,9 +72,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     '& .MuiImageMarked-root': {
       opacity: 0,
     },
-    '& .MuiTypography-root': {
-      border: '4px solid currentColor',
-    },
   },
 }));
 
@@ -121,31 +118,61 @@ const ImageMarked = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }));
 
-const StandardImageList = () => {
+interface ImageListProps {
+  selectedImage?: number;
+  onImageSelected: (index: number) => void;
+}
+
+const ImageSelectionList = ({ selectedImage, onImageSelected }: ImageListProps) => {
   return (
     <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <ImageButton focusRipple key={item.title}>
+      {itemData.map((item, index) => (
+        <ImageListItem key={index}>
+          <ImageButton focusRipple key={item.title} onClick={() => onImageSelected(index)}>
             <ImageSrc style={{ backgroundImage: `url(${item.img}?w=164&h=164&fit=crop&auto=format)` }} />
             <ImageBackdrop className="MuiImageBackdrop-root" />
-            <Image />
+            <Image>
+              {selectedImage == index ? (
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  sx={{
+                    position: 'relative',
+                    p: 4,
+                    pt: 2,
+                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                  }}
+                >
+                  Selected
+                  <ImageMarked className="MuiImageMarked-root" />
+                </Typography>
+              ) : null}
+            </Image>
           </ImageButton>
         </ImageListItem>
       ))}
     </ImageList>
   );
 };
-export default () => (
-  <Container maxWidth="xl">
-    <Grid container spacing={7}>
-      <Grid xs={12} md={4}>
-        <Typography variant="h3">Select an image</Typography>
-        <StandardImageList />
+export default () => {
+  const [selectedImage, setSelectedImage] = React.useState<number>();
+
+  const onImageSelected = (index: number) => {
+    setSelectedImage(index);
+  };
+
+  return (
+    <Container maxWidth="xl">
+      <Grid container spacing={7}>
+        <Grid xs={12} md={4}>
+          <Typography variant="h3">Select an image</Typography>
+          <ImageSelectionList selectedImage={selectedImage} onImageSelected={onImageSelected} />
+        </Grid>
+        <Grid xs={12} md={8}>
+          <Typography variant="h6">Classification results</Typography>
+        </Grid>
       </Grid>
-      <Grid xs={12} md={8}>
-        <Typography variant="h6">Classification results</Typography>
-      </Grid>
-    </Grid>
-  </Container>
-);
+    </Container>
+  );
+};
