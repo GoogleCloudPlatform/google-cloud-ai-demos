@@ -22,7 +22,7 @@ import { classifyImage, ImageClassificationResponse } from 'demos/image-classifi
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
-const itemData = [
+const images = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Breakfast',
@@ -157,21 +157,35 @@ const ImageMarked = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }));
 
+interface Image {
+  id: string;
+  img: string;
+  title: string;
+}
 interface ImageListProps {
+  images: Image[];
   selectedImageId?: string;
-  onImageSelected: (imageId: string) => void;
+  onImageSelected?: (imageId: string) => void;
 }
 
-const ImageSelectionList = ({ selectedImageId, onImageSelected }: ImageListProps) => {
+const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageListProps) => {
   return (
     <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.id}>
-          <ImageButton focusRipple key={item.title} onClick={() => onImageSelected(item.id)}>
-            <ImageSrc style={{ backgroundImage: `url(${item.img}?w=164&h=164&fit=crop&auto=format)` }} />
+      {images.map((image) => (
+        <ImageListItem key={image.id}>
+          <ImageButton
+            focusRipple
+            key={image.title}
+            onClick={() => {
+              if (onImageSelected != null) {
+                onImageSelected(image.id);
+              }
+            }}
+          >
+            <ImageSrc style={{ backgroundImage: `url(${image.img}?w=164&h=164&fit=crop&auto=format)` }} />
             <ImageBackdrop className="MuiImageBackdrop-root" />
             <Image>
-              {selectedImageId == item.id ? (
+              {selectedImageId == image.id ? (
                 <Typography
                   component="span"
                   variant="subtitle1"
@@ -324,7 +338,7 @@ export default () => {
       <Grid container spacing={7}>
         <Grid xs={12} md={4}>
           <Typography variant="h3">Select an image</Typography>
-          <ImageSelectionList selectedImageId={selectedImageId} onImageSelected={onImageSelected} />
+          <ImageSelectionList images={images} selectedImageId={selectedImageId} onImageSelected={onImageSelected} />
         </Grid>
         <Grid xs={12} md={8}>
           {selectedImageId != null ? (
