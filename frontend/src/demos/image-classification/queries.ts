@@ -18,8 +18,27 @@ import axios from 'axios';
 
 const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_IMAGE_CLASSIFICATION });
 
+export interface ImageInfo {
+  id: string;
+  img: string;
+  title: string;
+}
+
+export interface ImageInfosResponse {
+  images: ImageInfo[];
+}
+
+export async function getImages(): Promise<ImageInfosResponse> {
+  return client.get('/images').then((response) => response.data);
+}
+
+export interface ClassificationResult {
+  class: string;
+  score: number;
+}
+
 export interface ImageClassificationResponse {
-  results: { class: string; score: number };
+  results: ClassificationResult[];
 }
 
 export async function classifyImage(imageId: string): Promise<ImageClassificationResponse> {

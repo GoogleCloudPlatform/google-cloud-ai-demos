@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-// ForecastCompletedJobCard.stories.tsx
+// ImageClassificationFlow.stories.tsx
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
 import React from 'react';
-import {
-  getDatasets,
-  getEvaluation,
-  getForecastJob,
-  getPrediction,
-  submitForecast,
-} from 'stories/time-series-forecasting/mocks/handlers';
+import { getImageClassificationResults, getImages } from 'stories/image/mocks/handlers';
 
 export default {
-  title: 'time-series-forecasting/New Forecast/NewForecastFlow',
+  title: 'image/image-classification/ImageClassificationFlow',
   component: ImageClassificationFlow,
 } as ComponentMeta<typeof ImageClassificationFlow>;
 
 const Template: ComponentStory<typeof ImageClassificationFlow> = () => <ImageClassificationFlow />;
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
-  msw: { handlers: [getDatasets, submitForecast, getForecastJob, getPrediction, getEvaluation] },
+  msw: { handlers: [getImages, getImageClassificationResults] },
 };

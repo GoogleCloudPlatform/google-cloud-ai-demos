@@ -1,5 +1,6 @@
 import {
   Alert,
+  AlertTitle,
   CircularProgress,
   Container,
   Slider,
@@ -18,83 +19,16 @@ import ImageListItem from '@mui/material/ImageListItem';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
-import { classifyImage, ImageClassificationResponse } from 'demos/image-classification/queries';
+import {
+  ClassificationResult,
+  classifyImage,
+  getImages,
+  ImageClassificationResponse,
+  ImageInfo,
+  ImageInfosResponse,
+} from 'demos/image-classification/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
-
-const images = [
-  {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    id: 'Breakfast',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-    id: 'Burger',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-    id: 'Camera',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    id: 'Coffee',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
-    id: 'Hats',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-    title: 'Honey',
-    id: 'Honey',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-    title: 'Basketball',
-    id: 'Basketball',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-    title: 'Fern',
-    id: 'Fern',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-    title: 'Mushrooms',
-    id: 'Mushrooms',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-    title: 'Tomato basil',
-    id: 'Tomato basil',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-    title: 'Sea star',
-    id: 'Sea star',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-    title: 'Bike',
-    id: 'Bike',
-  },
-];
-
-interface ClassificationResult {
-  class: string;
-  score: number;
-}
-
-const CLASSIFICATION_RESULTS: ClassificationResult[] = [
-  { class: 'bird', score: 0.6 },
-  { class: 'dolphin', score: 0.2 },
-  { class: 'cat', score: 0.3 },
-];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
@@ -157,13 +91,8 @@ const ImageMarked = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }));
 
-interface Image {
-  id: string;
-  img: string;
-  title: string;
-}
 interface ImageListProps {
-  images: Image[];
+  images: ImageInfo[];
   selectedImageId?: string;
   onImageSelected?: (imageId: string) => void;
 }
@@ -307,12 +236,13 @@ const ClassificationResultsForImage = ({ selectedImageId }: ClassificationResult
           <Typography variant="body1">
             These results describe how confident the model is for each of these classes
           </Typography>
-          <ClassificationResultsTable results={CLASSIFICATION_RESULTS} />
+          <ClassificationResultsTable results={classificationResults.results} />
         </>
       );
     } else if (isError && error) {
       return (
         <Alert icon={<CircularProgress size={3} />} severity="error">
+          <AlertTitle>Could not load results</AlertTitle>
           {(error as AxiosError).message}
         </Alert>
       );
@@ -326,7 +256,11 @@ const ClassificationResultsForImage = ({ selectedImageId }: ClassificationResult
   }
 };
 
-export default () => {
+interface ImageClassificationFlowForImagesProps {
+  images: ImageInfo[];
+}
+
+const ImageClassificationFlowForImages = ({ images }: ImageClassificationFlowForImagesProps) => {
   const [selectedImageId, setSelectedImageId] = React.useState<string>();
 
   const onImageSelected = (imageId: string) => {
@@ -351,4 +285,34 @@ export default () => {
       </Grid>
     </Container>
   );
+};
+
+export default () => {
+  const {
+    isLoading,
+    error,
+    data: imagesResponse,
+    isError,
+  } = useQuery<ImageInfosResponse, Error>(['getImages'], () => {
+    return getImages();
+  });
+
+  if (isLoading) {
+    return (
+      <Alert icon={<CircularProgress size={3} />} severity="info">
+        Loading...
+      </Alert>
+    );
+  } else if (imagesResponse != null) {
+    return <ImageClassificationFlowForImages images={imagesResponse.images} />;
+  } else if (isError && error) {
+    return (
+      <Alert icon={<CircularProgress size={3} />} severity="error">
+        <AlertTitle>Could not load images</AlertTitle>
+        {(error as AxiosError).message}
+      </Alert>
+    );
+  } else {
+    return null;
+  }
 };

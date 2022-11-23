@@ -1,0 +1,7 @@
+{
+  "results": [
+    { "class": "bird", "score": 0.6 },
+    { "class": "dolphin", "score": 0.2 },
+    { "class": "cat", "score": 0.3 }
+  ]
+}
