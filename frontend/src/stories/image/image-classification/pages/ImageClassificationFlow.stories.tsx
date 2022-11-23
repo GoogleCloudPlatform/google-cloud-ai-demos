@@ -22,7 +22,7 @@ import React from 'react';
 import { getImageClassificationResults, getImages } from 'stories/image/mocks/handlers';
 
 export default {
-  title: 'image/image-classification/ImageClassificationFlow',
+  title: 'image/image-classification/pages/ImageClassificationFlow',
   component: ImageClassificationFlow,
 } as ComponentMeta<typeof ImageClassificationFlow>;
 

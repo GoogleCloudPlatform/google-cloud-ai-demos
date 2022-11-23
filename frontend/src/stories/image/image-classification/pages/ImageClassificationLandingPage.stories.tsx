@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 
-// Introduction.stories.tsx
+// ImageClassificationLandingPage.stories.tsx
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Introduction from 'demos/time-series-forecasting/pages/Introduction';
+import DemoWrapper from 'common/components/DemoWrapper';
+import { imageClassificationDemoInfo } from 'DemoInfo';
 import React from 'react';
+import { getImageClassificationResults, getImages } from 'stories/image/mocks/handlers';
 
 export default {
-  title: 'time-series-forecasting/pages/Introduction1',
-  component: Introduction,
-} as ComponentMeta<typeof Introduction>;
+  title: 'image/image-classification/pages/ImageClassificationLandingPage',
+  component: DemoWrapper,
+} as ComponentMeta<typeof DemoWrapper>;
 
-const Template: ComponentStory<typeof Introduction> = () => <Introduction />;
-export const Default = Template.bind({});
+const Template: ComponentStory<typeof DemoWrapper> = () => (
+  <DemoWrapper {...imageClassificationDemoInfo} initialTabIndex={1} />
+);
+export const MockedSuccess = Template.bind({});
+MockedSuccess.parameters = {
+  msw: { handlers: [getImages, getImageClassificationResults] },
+};

@@ -27,5 +27,7 @@ export default {
   component: Introduction2,
 } as ComponentMeta<typeof Introduction2>;
 
-const Template: ComponentStory<typeof Introduction2> = () => <DemoWrapper {...forecastingDemoInfo} />;
+const Template: ComponentStory<typeof Introduction2> = () => (
+  <DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />
+);
 export const Default = Template.bind({});

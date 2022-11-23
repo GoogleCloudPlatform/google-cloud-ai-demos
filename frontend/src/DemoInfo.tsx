@@ -1,4 +1,5 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
@@ -36,7 +37,21 @@ export const imageClassificationDemoInfo = {
     {
       buttonText: 'Learn about image classification',
       title: 'Follow along these scenarios to see how image classification is used in a variety of industries',
-      element: <Typography>TODO</Typography>,
+      element: (
+        <Container>
+          <Box>
+            <Typography variant="h1">Image Classification</Typography>
+            <Typography variant="body1">
+              Image classification is a supervised learning problem: define a set of target classes (objects to identify
+              in images), and train a model to recognize them using labeled example photos.
+            </Typography>
+            TODO: Show illustration here
+            <Typography variant="h3">Industry use cases</Typography>
+            <Typography variant="body1">Here are a few use cases for image classification.</Typography>
+            TODO
+          </Box>
+        </Container>
+      ),
     },
     {
       buttonText: 'Try the demo',

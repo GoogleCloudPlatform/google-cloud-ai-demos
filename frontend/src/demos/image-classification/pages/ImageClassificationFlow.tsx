@@ -99,7 +99,7 @@ interface ImageListProps {
 
 const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageListProps) => {
   return (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+    <ImageList sx={{ width: '100%', maxHeight: '800px' }} cols={3}>
       {images.map((image) => (
         <ImageListItem key={image.id}>
           <ImageButton
@@ -112,7 +112,7 @@ const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageL
             }}
           >
             <ImageSrc style={{ backgroundImage: `url(${image.img}?w=164&h=164&fit=crop&auto=format)` }} />
-            <ImageBackdrop className="MuiImageBackdrop-root" />
+            {selectedImageId == image.id ? <ImageBackdrop className="MuiImageBackdrop-root" /> : null}
             <Image>
               {selectedImageId == image.id ? (
                 <Typography
@@ -234,7 +234,7 @@ const ClassificationResultsForImage = ({ selectedImageId }: ClassificationResult
       return (
         <>
           <Typography variant="body1">
-            These results describe how confident the model is for each of these classes
+            These results describe how confident the model is for each of these classes.
           </Typography>
           <ClassificationResultsTable results={classificationResults.results} />
         </>
@@ -270,14 +270,15 @@ const ImageClassificationFlowForImages = ({ images }: ImageClassificationFlowFor
   return (
     <Container maxWidth="xl">
       <Grid container spacing={7}>
-        <Grid xs={12} md={4}>
+        <Grid sx={{ width: '800px' }}>
           <Typography variant="h3">Select an image</Typography>
           <ImageSelectionList images={images} selectedImageId={selectedImageId} onImageSelected={onImageSelected} />
         </Grid>
-        <Grid xs={12} md={8}>
+        <Grid>
           {selectedImageId != null ? (
             <>
-              <Typography variant="h4">Classification results</Typography>
+              <Typography variant="h6">Classification results</Typography>
+              <br />
               <ClassificationResultsForImage selectedImageId={selectedImageId} />
             </>
           ) : null}

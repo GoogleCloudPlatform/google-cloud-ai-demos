@@ -21,7 +21,7 @@ import Introduction2 from 'demos/time-series-forecasting/pages/Introduction2';
 import React from 'react';
 
 export default {
-  title: 'time-series-forecasting/demos/time-series-forecasting/pages/Introduction2',
+  title: 'time-series-forecasting/pages/Introduction2',
   component: Introduction2,
 } as ComponentMeta<typeof Introduction2>;
 
