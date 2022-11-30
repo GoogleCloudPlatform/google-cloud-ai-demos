@@ -1,0 +1,10 @@
+fastapi
+humanize
+uvicorn[standard]
+pandas
+prophet
+google-cloud-bigquery[pandas]
+google-cloud-aiplatform
+pyarrow
+numpy
+
