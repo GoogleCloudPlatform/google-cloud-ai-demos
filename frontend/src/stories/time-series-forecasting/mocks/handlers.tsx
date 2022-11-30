@@ -26,7 +26,7 @@ import getPredictionJSON from 'stories/time-series-forecasting/mocks/getPredicti
 import getPredictionNoHistoryMaxJSON from 'stories/time-series-forecasting/mocks/getPredictionNoHistoryMax.json';
 
 const backendApi = (path: string) => {
-  return new URL(path, process.env.REACT_APP_API_SERVER).toString();
+  return new URL(path, process.env.REACT_APP_API_SERVER_TIME_SERIES_FORECASTING).toString();
 };
 
 export const getDatasets = rest.get(backendApi('datasets'), (req, res, ctx) => {

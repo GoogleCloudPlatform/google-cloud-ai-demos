@@ -25,7 +25,7 @@ import {
   SubmitForecastJobResponse,
 } from 'demos/time-series-forecasting/models';
 
-const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER });
+const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_TIME_SERIES_FORECASTING });
 
 export async function getForecastJob(jobId?: string): Promise<ForecastJob> {
   return typeof jobId == null

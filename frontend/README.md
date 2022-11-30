@@ -25,13 +25,15 @@ In the project directory, you can run:
 
 #### Pre-requisite: Environment variables
 
-1. Deploy the backend by following the instructions in the backend folder. Note the URI that the backend is deployed to.
+1. Deploy the desired backend by following the instructions in the relevant backend folder. Note the URI that the backend is deployed to.
 2. Create a file in this folder (i.e. frontend) called `env.production`.
-3. In this file, add the following with the appropriate value for `<BACKEND_URI>`:
+3. In this file, add the following with the appropriate value for `<BACKEND_URI>`. Repeat this for each backend service:
 
 ```
-REACT_APP_API_SERVER=<BACKEND_URI>
+REACT_APP_API_SERVER_TIME_SERIES_FORECASTING=<BACKEND_URI>
 ```
+
+TODO: List the other envvars for the other backend services here.
 
 Here are a few options on how to deploy the web app to your own Google Cloud project.
 
