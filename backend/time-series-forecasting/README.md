@@ -1,4 +1,4 @@
-# Built on Vertex AI: Backend
+# Built on Vertex AI: Time-series Forecasting Backend
 
 This is the backend code for "Built on Vertex AI".
 
@@ -20,7 +20,7 @@ Run these commands from the same folder as this README.md file.
 #### 1. Build and deploy to Google Cloud Run in one step
 
 ```
-gcloud beta run deploy built-on-vertex-ai-backend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1
+gcloud beta run deploy time-series-forecasting-backend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1
 ```
 
 Package the backend app into a container using the Dockerfile, save it in the Google Container Registry and deploy it on Google Cloud Run.
@@ -28,7 +28,7 @@ Package the backend app into a container using the Dockerfile, save it in the Go
 #### 2. Build a container using Google Cloud Build
 
 ```
-gcloud builds submit --tag gcr.io/your-project-name/built-on-vertex-ai-backend
+gcloud builds submit --tag gcr.io/your-project-name/time-series-forecasting-backend
 ```
 
 This uses the Dockerfile to build the container and save it in the Google Container Registry.
