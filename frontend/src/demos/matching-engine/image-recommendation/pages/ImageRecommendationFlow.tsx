@@ -17,18 +17,13 @@
 import {
   Alert,
   AlertTitle,
-  Card,
+  CardContent,
   CardMedia,
   CircularProgress,
   Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
+  List,
+  ListItem,
   Typography,
-  useTheme,
 } from '@mui/material';
 import ButtonBase from '@mui/material/ButtonBase';
 import ImageList from '@mui/material/ImageList';
@@ -36,6 +31,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
+import CustomCard from 'common/components/CustomCard';
 import {
   fetchRecommendations,
   getImages,
@@ -160,44 +156,21 @@ interface RecommendationResultsTableProps {
 }
 
 const RecommendationResultsTable = ({ results }: RecommendationResultsTableProps) => {
-  const theme = useTheme();
-
   return (
-    <TableContainer
-      sx={{
-        border: '1px solid',
-        borderRadius: 2,
-        borderColor: theme.palette.grey[300],
-        '& pre': {
-          m: 0,
-          p: '16px !important',
-          fontFamily: theme.typography.fontFamily,
-          fontSize: '0.75rem',
-        },
-        boxShadow: null,
-      }}
-    >
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Image</TableCell>
-            <TableCell align="right">Distance</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {results.map((result) => (
-            <TableRow key={result.image} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              <TableCell component="th" scope="row">
-                <Card>
-                  <CardMedia component="img" height="140" image={result.image} />
-                </Card>
-              </TableCell>
-              <TableCell align="right">{result.distance}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <List>
+      {results.map((result) => (
+        <ListItem key={result.image}>
+          <CustomCard sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <CardMedia component="img" height="140" image={result.image} />
+            <CardContent>
+              <Typography gutterBottom variant="subtitle1" component="div">
+                Distance: {result.distance}
+              </Typography>
+            </CardContent>
+          </CustomCard>
+        </ListItem>
+      ))}
+    </List>
   );
 };
 
@@ -239,6 +212,10 @@ const RecommendationResultsForImage = ({ selectedImageId }: RecommendationResult
       return (
         <>
           <Typography variant="body1">These are the closest recommendations for your selected image.</Typography>
+          <Typography variant="subtitle2">
+            {recommendationResults.results.length} results retrieved from a total of{' '}
+            {recommendationResults.totalImageCount} images.
+          </Typography>
           <RecommendationResultsTable results={recommendationResults.results} />
         </>
       );

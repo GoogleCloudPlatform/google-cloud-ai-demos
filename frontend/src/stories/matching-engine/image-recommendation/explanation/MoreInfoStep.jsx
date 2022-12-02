@@ -42,7 +42,7 @@ export const MoreInfoStep = () => {
   return (
     <Grid container spacing={4} padding={0}>
       <Grid xs={12}>
-        <Typography variant="body2">Here are additional resources for forecasting.</Typography>
+        <Typography variant="body2">Here are additional resources.</Typography>
       </Grid>
     </Grid>
   );

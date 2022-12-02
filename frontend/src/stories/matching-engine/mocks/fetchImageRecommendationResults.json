@@ -1,4 +1,5 @@
 {
+  "totalImageCount": 4359430943,
   "results": [
     { "class": "bird", "distance": 0.1 },
     { "class": "dolphin", "distance": 0.2 },
