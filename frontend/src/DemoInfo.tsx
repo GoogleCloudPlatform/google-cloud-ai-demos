@@ -23,6 +23,7 @@ import ForecastingArchitecture from 'demos/time-series-forecasting/pages/Forecas
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
 import * as React from 'react';
+import ExplanationFlow from 'stories/matching-engine/image-recommendation/explanation/ExplanationFlow';
 
 export const forecastingDemoInfo = {
   title: 'Time-series Forecasting',
@@ -127,18 +128,7 @@ export const imageRecommendationDemoInfo = {
     {
       buttonText: 'Learn about Vertex AI Matching Engine',
       title: 'Follow along these scenarios to see how matching engine is used in a variety of industries',
-      element: (
-        <Container>
-          <Box>
-            <Typography variant="h1">Image Recommendation with Vertex AI Matching Engine</Typography>
-            <Typography variant="body1">Use Vertex AI Matching Enginea to find similar images.</Typography>
-            TODO: Show illustration here
-            <Typography variant="h3">Industry use cases</Typography>
-            <Typography variant="body1">Here are a few use cases:</Typography>
-            TODO
-          </Box>
-        </Container>
-      ),
+      element: <ExplanationFlow />,
     },
     {
       buttonText: 'Try the demo',

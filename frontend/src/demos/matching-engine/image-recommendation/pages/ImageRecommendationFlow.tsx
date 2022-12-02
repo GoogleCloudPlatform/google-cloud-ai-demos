@@ -17,9 +17,10 @@
 import {
   Alert,
   AlertTitle,
+  Card,
+  CardMedia,
   CircularProgress,
   Container,
-  Slider,
   Table,
   TableBody,
   TableCell,
@@ -179,31 +180,19 @@ const RecommendationResultsTable = ({ results }: RecommendationResultsTableProps
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Class</TableCell>
-            <TableCell align="right">Score</TableCell>
+            <TableCell>Image</TableCell>
+            <TableCell align="right">Distance</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {results.map((result) => (
-            <TableRow key={result.class} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableRow key={result.image} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell component="th" scope="row">
-                {result.class}
+                <Card>
+                  <CardMedia component="img" height="140" image={result.image} />
+                </Card>
               </TableCell>
-              <TableCell align="right">
-                <Slider
-                  valueLabelDisplay="off"
-                  value={result.distance}
-                  min={0}
-                  max={1}
-                  step={0.1}
-                  marks={[
-                    {
-                      value: result.distance,
-                      label: `${result.distance}`,
-                    },
-                  ]}
-                />
-              </TableCell>
+              <TableCell align="right">{result.distance}</TableCell>
             </TableRow>
           ))}
         </TableBody>

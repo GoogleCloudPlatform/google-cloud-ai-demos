@@ -33,11 +33,12 @@ export async function getImages(): Promise<ImageInfosResponse> {
 }
 
 export interface RecommendationResult {
-  class: string;
+  image: string;
   distance: number;
 }
 
 export interface ImageRecommendationResponse {
+  totalImageCount: number;
   results: RecommendationResult[];
 }
 

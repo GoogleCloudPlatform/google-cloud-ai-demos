@@ -17,7 +17,7 @@
 import BackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Button, Container, Divider, Toolbar } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import { ExplanationFlowStep, TabbedFlow } from 'demos/time-series-forecasting/pages/explanations/TabbedFlow';
+import { ExplanationFlowStep, TabbedFlow } from 'common/components/TabbedFlow';
 import * as React from 'react';
 
 import { DatasetStep } from './DatasetStep';
