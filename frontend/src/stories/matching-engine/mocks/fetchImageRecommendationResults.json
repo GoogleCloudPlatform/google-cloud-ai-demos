@@ -1,0 +1,7 @@
+{
+  "results": [
+    { "class": "bird", "distance": 0.1 },
+    { "class": "dolphin", "distance": 0.2 },
+    { "class": "cat", "distance": 12 }
+  ]
+}

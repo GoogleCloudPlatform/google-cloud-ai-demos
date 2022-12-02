@@ -151,17 +151,16 @@ const sectionInfos = [
         title: 'Product recommendation',
         description: 'Deliver highly personalized product recommendations to users on a shopping website.',
         image: retailImage,
-        destination: '/demos/todo',
+        destination: '/demos/matching-engine/product-recommendation',
       },
       {
-        title: 'Image search',
-        description: 'Search for relevant image based on a text prompt',
+        title: 'Image recommendation',
+        description: 'Search for relevant image based on a text or image prompt',
         image: retailImage,
-        destination: '/demos/todo',
+        destination: '/demos/matching-engine/image-recommendation',
       },
     ],
   },
-
   {
     title: 'Speech-to-text',
     description:
@@ -171,7 +170,7 @@ const sectionInfos = [
         title: 'Chess by voice',
         description: 'Play chess using your voice',
         image: retailImage,
-        destination: '/demos/speech-to-text-chess',
+        destination: '/demos/speech-to-text/chess',
       },
     ],
   },

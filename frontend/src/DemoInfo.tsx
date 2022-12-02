@@ -17,6 +17,7 @@
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
+import ImageRecommendationFlow from 'demos/matching-engine/image-recommendation/pages/ImageRecommendationFlow';
 import SpeechToTextFlow from 'demos/speech-to-text/chess/pages/ChessFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
@@ -110,6 +111,39 @@ export const speechToTextDemoInfo = {
       buttonText: 'Try the demo',
       title: 'Play chess using your voice.',
       element: <SpeechToTextFlow />,
+    },
+    {
+      buttonText: 'How we built it',
+      title: 'This shows the architecture for the demo web app',
+      element: <Typography>TODO</Typography>,
+    },
+  ],
+};
+
+export const imageRecommendationDemoInfo = {
+  title: 'Vertex AI Matching Engine',
+  subtitle: 'TODO',
+  sections: [
+    {
+      buttonText: 'Learn about Vertex AI Matching Engine',
+      title: 'Follow along these scenarios to see how matching engine is used in a variety of industries',
+      element: (
+        <Container>
+          <Box>
+            <Typography variant="h1">Image Recommendation with Vertex AI Matching Engine</Typography>
+            <Typography variant="body1">Use Vertex AI Matching Enginea to find similar images.</Typography>
+            TODO: Show illustration here
+            <Typography variant="h3">Industry use cases</Typography>
+            <Typography variant="body1">Here are a few use cases:</Typography>
+            TODO
+          </Box>
+        </Container>
+      ),
+    },
+    {
+      buttonText: 'Try the demo',
+      title: 'Get image recommendations for a selected image.',
+      element: <ImageRecommendationFlow />,
     },
     {
       buttonText: 'How we built it',

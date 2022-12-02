@@ -32,18 +32,18 @@ export async function getImages(): Promise<ImageInfosResponse> {
   return client.get('/images').then((response) => response.data);
 }
 
-export interface ClassificationResult {
+export interface RecommendationResult {
   class: string;
-  score: number;
+  distance: number;
 }
 
-export interface ImageClassificationResponse {
-  results: ClassificationResult[];
+export interface ImageRecommendationResponse {
+  results: RecommendationResult[];
 }
 
-export async function classifyImage(imageId: string): Promise<ImageClassificationResponse> {
+export async function fetchRecommendations(imageId: string): Promise<ImageRecommendationResponse> {
   return client
-    .post('/classify-image', {
+    .post('/fetch-recommendations', {
       imageId: imageId,
     })
     .then((response) => response.data);
