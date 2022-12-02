@@ -17,7 +17,7 @@
 import { StyledEngineProvider } from '@mui/material';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
-import { forecastingDemoInfo, imageClassificationDemoInfo } from 'DemoInfo';
+import { forecastingDemoInfo, imageClassificationDemoInfo, speechToTextDemoInfo } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -35,6 +35,7 @@ const AppRoutes = () => {
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       />
       <Route path="/demos/image-classification" element={<DemoWrapper {...imageClassificationDemoInfo} />} />
+      <Route path="/demos/speech-to-text-chess" element={<DemoWrapper {...speechToTextDemoInfo} />} />
       {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>
   );

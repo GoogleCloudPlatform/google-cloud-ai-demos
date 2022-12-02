@@ -17,6 +17,7 @@
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
+import SpeechToTextFlow from 'demos/speech-to-text/chess/pages/ChessFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
@@ -73,6 +74,42 @@ export const imageClassificationDemoInfo = {
       buttonText: 'Try the demo',
       title: 'This is a demo web app for image classification',
       element: <ImageClassificationFlow />,
+    },
+    {
+      buttonText: 'How we built it',
+      title: 'This shows the architecture for the demo web app',
+      element: <Typography>TODO</Typography>,
+    },
+  ],
+};
+
+export const speechToTextDemoInfo = {
+  title: 'Speech to Text',
+  subtitle: 'Use Google Cloud Speech-to-Text to play chess with your voice',
+  sections: [
+    {
+      buttonText: 'Learn about Speech-to-Text',
+      title: 'Follow along these scenarios to see how Speech-to-Text is used in a variety of industries',
+      element: (
+        <Container>
+          <Box>
+            <Typography variant="h1">Speech-to-text</Typography>
+            <Typography variant="body1">
+              Accurately convert speech into text with an API powered by the best of Google&#39;s AI research and
+              technology.
+            </Typography>
+            TODO: Show illustration here
+            <Typography variant="h3">Industry use cases</Typography>
+            <Typography variant="body1">Here are a few use cases for speech-to-text</Typography>
+            TODO
+          </Box>
+        </Container>
+      ),
+    },
+    {
+      buttonText: 'Try the demo',
+      title: 'Play chess using your voice.',
+      element: <SpeechToTextFlow />,
     },
     {
       buttonText: 'How we built it',
