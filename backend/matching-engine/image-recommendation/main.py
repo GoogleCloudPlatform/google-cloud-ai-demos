@@ -18,6 +18,7 @@ import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from services import dataset_service, match_service
 
 logger = logging.getLogger(__name__)
 from typing import Any, Dict, List, Optional, Tuple
@@ -25,6 +26,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from pydantic import BaseModel
 
 app = FastAPI()
+dataset_service_instance = dataset_service.DatasetService()
+match_service_instance = match_service.MatchService()
 
 origins = ["*"]
 app.add_middleware(
@@ -39,24 +42,25 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 @app.get("/images")
 async def images():
-    return [dataset.as_response() for dataset in dataset_service.get_datasets()]
+    return dataset_service_instance.get_images()
 
 
 class FetchImageRecommendationRequest(BaseModel):
     imageId: str
+    numNeighbors: int = 10
 
 @app.post("/fetch-image-recommendations")
 def fetchImageRecommendations(
     request: FetchImageRecommendationRequest,
 ):
     # Get image
-    image = dataset_service.get_image(image_id=request.imageId)
+    image = dataset_service_instance.get_image_by_id(id=request.imageId)
 
     if image is None:
         raise HTTPException(
             status_code=404, detail=f"Image not found: {request.datasetId}"
         )
 
-    results = match_service.match(image=image)
+    results = match_service_instance.match(image=image, num_neighbors=request.numNeighbors)
 
     return results
