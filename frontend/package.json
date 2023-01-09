@@ -26,7 +26,7 @@
     "http-proxy-middleware": "^2.0.6",
     "install": "^0.13.0",
     "is-plain-object": "^5.0.0",
-    "luxon": "^3.0.4",
+    "luxon": "^3.2.1",
     "moment": "^2.29.4",
     "npm": "^8.19.2",
     "plotly.js": "^2.16.1",
