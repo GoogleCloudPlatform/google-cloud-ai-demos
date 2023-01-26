@@ -27,7 +27,16 @@ from pydantic import BaseModel
 
 app = FastAPI()
 dataset_service_instance = dataset_service.DatasetService()
-match_service_instance = match_service.MatchService()
+image_match_service_instance = match_service.ImageMatchService(
+    index_endpoint_name="index_endpoint_name",
+    deployed_index_id="deployed_index_id",
+    name="name",
+)
+text_match_service_instance = match_service.TextMatchService(
+    index_endpoint_name="index_endpoint_name",
+    deployed_index_id="deployed_index_id",
+    name="name",
+)
 
 origins = ["*"]
 app.add_middleware(
@@ -49,8 +58,14 @@ class FetchImageRecommendationRequest(BaseModel):
     imageId: str
     numNeighbors: int = 10
 
+
+class FetchTextRecommendationRequest(BaseModel):
+    text: str
+    numNeighbors: int = 10
+
+
 @app.post("/fetch-image-recommendations")
-def fetchImageRecommendations(
+def fetch_image_recommendations(
     request: FetchImageRecommendationRequest,
 ):
     # Get image
@@ -58,9 +73,22 @@ def fetchImageRecommendations(
 
     if image is None:
         raise HTTPException(
-            status_code=404, detail=f"Image not found: {request.datasetId}"
+            status_code=404, detail=f"Image not found: {request.imageId}"
         )
 
-    results = match_service_instance.match(image=image, num_neighbors=request.numNeighbors)
+    results = image_match_service_instance.match(
+        target=image, num_neighbors=request.numNeighbors
+    )
+
+    return results
+
+
+@app.post("/fetch-image-recommendations")
+def fetch_text_recommendations(
+    request: FetchTextRecommendationRequest,
+):
+    results = text_match_service_instance.match(
+        target=request.text, num_neighbors=request.numNeighbors
+    )
 
     return results
