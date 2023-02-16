@@ -24,9 +24,7 @@ class MatchService(abc.ABC, Generic[T]):
 
 
 class ImageMatchService(MatchService[models.Image]):
-    def __init__(
-        self, index_endpoint_name: str, deployed_index_id: str, name: str
-    ) -> None:
+    def __init__(self, index_endpoint_name: str, deployed_index_id: str) -> None:
         self.index_endpoint = (
             matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
                 index_endpoint_name=index_endpoint_name
@@ -54,9 +52,7 @@ class ImageMatchService(MatchService[models.Image]):
 
 
 class TextMatchService(MatchService[str]):
-    def __init__(
-        self, index_endpoint_name: str, deployed_index_id: str, name: str
-    ) -> None:
+    def __init__(self, index_endpoint_name: str, deployed_index_id: str) -> None:
         self.nlp = spacy.load("en_core_web_md")
 
         self.index_endpoint = (

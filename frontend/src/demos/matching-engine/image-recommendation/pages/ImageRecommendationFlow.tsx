@@ -33,12 +33,12 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
 import CustomCard from 'common/components/CustomCard';
 import {
-  fetchRecommendations,
+  fetchMatchs,
   getImages,
-  ImageInfo,
-  ImageInfosResponse,
-  ImageRecommendationResponse,
-  RecommendationResult,
+  ItemInfo,
+  ItemInfosResponse,
+  MatchResponse,
+  MatchResult,
 } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
@@ -105,29 +105,29 @@ const ImageMarked = styled('span')(({ theme }) => ({
 }));
 
 interface ImageListProps {
-  images: ImageInfo[];
+  items: ItemInfo[];
   selectedImageId?: string;
-  onImageSelected?: (imageId: string) => void;
+  onSelected?: (imageId: string) => void;
 }
 
-const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageListProps) => {
+const ImageSelectionList = ({ items, selectedImageId: selectedId, onSelected }: ImageListProps) => {
   return (
     <ImageList sx={{ width: '100%', maxHeight: '800px' }} cols={3}>
-      {images.map((image) => (
-        <ImageListItem key={image.id}>
+      {items.map((item) => (
+        <ImageListItem key={item.id}>
           <ImageButton
             focusRipple
-            key={image.title}
+            key={item.title}
             onClick={() => {
-              if (onImageSelected != null) {
-                onImageSelected(image.id);
+              if (onSelected != null) {
+                onSelected(item.id);
               }
             }}
           >
-            <ImageSrc style={{ backgroundImage: `url(${image.img}?w=164&h=164&fit=crop&auto=format)` }} />
-            {selectedImageId == image.id ? <ImageBackdrop className="MuiImageBackdrop-root" /> : null}
+            <ImageSrc style={{ backgroundImage: `url(${item.img}?w=164&h=164&fit=crop&auto=format)` }} />
+            {selectedId == item.id ? <ImageBackdrop className="MuiImageBackdrop-root" /> : null}
             <Image>
-              {selectedImageId == image.id ? (
+              {selectedId == item.id ? (
                 <Typography
                   component="span"
                   variant="subtitle1"
@@ -151,11 +151,11 @@ const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageL
   );
 };
 
-interface RecommendationResultsTableProps {
-  results: RecommendationResult[];
+interface MatchResultsTableProps {
+  results: MatchResult[];
 }
 
-const RecommendationResultsTable = ({ results }: RecommendationResultsTableProps) => {
+const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
   return (
     <List>
       {results.map((result) => (
@@ -174,20 +174,20 @@ const RecommendationResultsTable = ({ results }: RecommendationResultsTableProps
   );
 };
 
-interface RecommendationResultsForImageProps {
+interface MatchResultsForImageProps {
   selectedImageId: string;
 }
 
-const RecommendationResultsForImage = ({ selectedImageId }: RecommendationResultsForImageProps) => {
+const MatchResultsForImage = ({ selectedImageId }: MatchResultsForImageProps) => {
   const {
     isLoading,
     error,
-    data: recommendationResults,
+    data: matchResults,
     isError,
-  } = useQuery<ImageRecommendationResponse, Error>(
+  } = useQuery<MatchResponse, Error>(
     ['submitForecast', selectedImageId],
     () => {
-      return fetchRecommendations(selectedImageId);
+      return fetchMatchs(selectedImageId);
     },
     {
       // The query will not execute until the jobId exists
@@ -208,15 +208,14 @@ const RecommendationResultsForImage = ({ selectedImageId }: RecommendationResult
           Loading...
         </Alert>
       );
-    } else if (recommendationResults != null) {
+    } else if (matchResults != null) {
       return (
         <>
-          <Typography variant="body1">These are the closest recommendations for your selected image.</Typography>
+          <Typography variant="body1">These are the closest matchs for your selected image.</Typography>
           <Typography variant="subtitle2">
-            {recommendationResults.results.length} results retrieved from a total of{' '}
-            {recommendationResults.totalImageCount} images.
+            {matchResults.results.length} results retrieved from a total of {matchResults.totalImageCount} images.
           </Typography>
-          <RecommendationResultsTable results={recommendationResults.results} />
+          <MatchResultsTable results={matchResults.results} />
         </>
       );
     } else if (isError && error) {
@@ -236,14 +235,14 @@ const RecommendationResultsForImage = ({ selectedImageId }: RecommendationResult
   }
 };
 
-interface ImageRecommendationFlowForImagesProps {
-  images: ImageInfo[];
+interface ImageMatchFlowForImagesProps {
+  items: ItemInfo[];
 }
 
-const ImageRecommendationFlowForImages = ({ images }: ImageRecommendationFlowForImagesProps) => {
+const MatchFlow = ({ items }: ImageMatchFlowForImagesProps) => {
   const [selectedImageId, setSelectedImageId] = React.useState<string>();
 
-  const onImageSelected = (imageId: string) => {
+  const onSelected = (imageId: string) => {
     setSelectedImageId(imageId);
   };
 
@@ -252,14 +251,14 @@ const ImageRecommendationFlowForImages = ({ images }: ImageRecommendationFlowFor
       <Grid container spacing={7}>
         <Grid sx={{ width: '800px' }}>
           <Typography variant="h3">Select an image</Typography>
-          <ImageSelectionList images={images} selectedImageId={selectedImageId} onImageSelected={onImageSelected} />
+          <ImageSelectionList items={items} selectedImageId={selectedImageId} onSelected={onSelected} />
         </Grid>
         <Grid>
           {selectedImageId != null ? (
             <>
-              <Typography variant="h6">Recommendation results</Typography>
+              <Typography variant="h6">Match results</Typography>
               <br />
-              <RecommendationResultsForImage selectedImageId={selectedImageId} />
+              <MatchResultsForImage selectedImageId={selectedImageId} />
             </>
           ) : null}
         </Grid>
@@ -272,9 +271,9 @@ export default () => {
   const {
     isLoading,
     error,
-    data: imagesResponse,
+    data: itemsResponse,
     isError,
-  } = useQuery<ImageInfosResponse, Error>(['getImages'], () => {
+  } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
     return getImages();
   });
 
@@ -284,8 +283,8 @@ export default () => {
         Loading...
       </Alert>
     );
-  } else if (imagesResponse != null) {
-    return <ImageRecommendationFlowForImages images={imagesResponse.images} />;
+  } else if (itemsResponse != null) {
+    return <MatchFlow items={itemsResponse.items} />;
   } else if (isError && error) {
     return (
       <Alert icon={<CircularProgress size={3} />} severity="error">

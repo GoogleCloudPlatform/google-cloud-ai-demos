@@ -18,31 +18,31 @@ import axios from 'axios';
 
 const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_IMAGE_CLASSIFICATION });
 
-export interface ImageInfo {
+export interface ItemInfo {
   id: string;
   img: string;
   title: string;
 }
 
-export interface ImageInfosResponse {
-  images: ImageInfo[];
+export interface ItemInfosResponse {
+  items: ItemInfo[];
 }
 
-export async function getImages(): Promise<ImageInfosResponse> {
+export async function getImages(): Promise<ItemInfosResponse> {
   return client.get('/images').then((response) => response.data);
 }
 
-export interface RecommendationResult {
+export interface MatchResult {
   image: string;
   distance: number;
 }
 
-export interface ImageRecommendationResponse {
+export interface MatchResponse {
   totalImageCount: number;
-  results: RecommendationResult[];
+  results: MatchResult[];
 }
 
-export async function fetchRecommendations(imageId: string): Promise<ImageRecommendationResponse> {
+export async function fetchMatchs(imageId: string): Promise<MatchResponse> {
   return client
     .post('/fetch-recommendations', {
       imageId: imageId,

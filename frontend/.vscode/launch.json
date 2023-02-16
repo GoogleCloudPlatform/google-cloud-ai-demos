@@ -4,7 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {            
+        {
             "name": "npm run storybook",
             "request": "launch",
             "type": "node-terminal",
@@ -13,12 +13,12 @@
                 "DEBUG": "* npm test"
             }
         },
-        {            
+        {
             "name": "Add licenses",
             "request": "launch",
             "type": "node-terminal",
             "command": "docker run -it -v ${PWD}:/src ghcr.io/google/addlicense src",
-        },        
+        },
         {
             "name": "Cloud Build: Build docker image",
             "request": "launch",

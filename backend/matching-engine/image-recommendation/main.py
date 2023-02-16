@@ -26,16 +26,17 @@ from typing import Any, Dict, List, Optional, Tuple
 from pydantic import BaseModel
 
 app = FastAPI()
-dataset_service_instance = dataset_service.DatasetService()
-image_match_service_instance = match_service.ImageMatchService(
-    index_endpoint_name="index_endpoint_name",
-    deployed_index_id="deployed_index_id",
-    name="name",
+text_dataset_service_instance = dataset_service.TextDatasetService(
+    words_file="words.txt"
 )
+
+# image_match_service_instance = match_service.ImageMatchService(
+#     index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3118505247442468864",
+#     deployed_index_id="tree_ah_glove_deployed_unique_3",
+# )
 text_match_service_instance = match_service.TextMatchService(
-    index_endpoint_name="index_endpoint_name",
-    deployed_index_id="deployed_index_id",
-    name="name",
+    index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3118505247442468864",
+    deployed_index_id="tree_ah_glove_deployed_unique_3",
 )
 
 origins = ["*"]
@@ -49,14 +50,42 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
-@app.get("/images")
-async def images():
-    return dataset_service_instance.get_images()
+@app.get("/text/words")
+async def words():
+    return text_dataset_service_instance.get_all()
 
 
-class FetchImageRecommendationRequest(BaseModel):
-    imageId: str
+class FetchRecommendationRequest(BaseModel):
+    id: str
     numNeighbors: int = 10
+
+
+@app.post("/text/match")
+def text_match(
+    request: FetchRecommendationRequest,
+):
+    text = text_dataset_service_instance.get_by_id(id=request.id)
+
+    if text is not None:
+        results = text_match_service_instance.match(
+            target=text, num_neighbors=request.numNeighbors
+        )
+    else:
+        raise HTTPException(
+            status_code=404, detail=f"Word not found for id: {request.id}"
+        )
+
+    return results
+
+
+# @app.get("/images")
+# async def images():
+#     return dataset_service_instance.get_images()
+
+
+# class FetchImageRecommendationRequest(BaseModel):
+#     imageId: str
+#     numNeighbors: int = 10
 
 
 class FetchTextRecommendationRequest(BaseModel):
@@ -64,31 +93,31 @@ class FetchTextRecommendationRequest(BaseModel):
     numNeighbors: int = 10
 
 
-@app.post("/fetch-image-recommendations")
-def fetch_image_recommendations(
-    request: FetchImageRecommendationRequest,
-):
-    # Get image
-    image = dataset_service_instance.get_image_by_id(id=request.imageId)
+# @app.post("/fetch-image-recommendations")
+# def fetch_image_recommendations(
+#     request: FetchImageRecommendationRequest,
+# ):
+#     # Get image
+#     image = text_match_service_instance.get_image_by_id(id=request.imageId)
 
-    if image is None:
-        raise HTTPException(
-            status_code=404, detail=f"Image not found: {request.imageId}"
-        )
+#     if image is None:
+#         raise HTTPException(
+#             status_code=404, detail=f"Image not found: {request.imageId}"
+#         )
 
-    results = image_match_service_instance.match(
-        target=image, num_neighbors=request.numNeighbors
-    )
+#     results = image_match_service_instance.match(
+#         target=image, num_neighbors=request.numNeighbors
+#     )
 
-    return results
+#     return results
 
 
-@app.post("/fetch-image-recommendations")
-def fetch_text_recommendations(
-    request: FetchTextRecommendationRequest,
-):
-    results = text_match_service_instance.match(
-        target=request.text, num_neighbors=request.numNeighbors
-    )
+# @app.post("/fetch-image-recommendations")
+# def fetch_text_recommendations(
+#     request: FetchTextRecommendationRequest,
+# ):
+#     results = text_match_service_instance.match(
+#         target=request.text, num_neighbors=request.numNeighbors
+#     )
 
-    return results
+#     return results
