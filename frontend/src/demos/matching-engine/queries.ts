@@ -28,8 +28,12 @@ export interface ItemInfosResponse {
   items: ItemInfo[];
 }
 
+export async function getWords(): Promise<ItemInfosResponse> {
+  return client.get('/text/items').then((response) => response.data);
+}
+
 export async function getImages(): Promise<ItemInfosResponse> {
-  return client.get('/images').then((response) => response.data);
+  return client.get('/images/items').then((response) => response.data);
 }
 
 export interface MatchResult {
@@ -38,14 +42,22 @@ export interface MatchResult {
 }
 
 export interface MatchResponse {
-  totalImageCount: number;
+  totalItems: number;
   results: MatchResult[];
 }
 
-export async function fetchMatchs(imageId: string): Promise<MatchResponse> {
+export async function matchWord(id: string): Promise<MatchResponse> {
   return client
-    .post('/fetch-recommendations', {
-      imageId: imageId,
+    .post('/text/match', {
+      id: id,
+    })
+    .then((response) => response.data);
+}
+
+export async function matchImage(id: string): Promise<MatchResponse> {
+  return client
+    .post('/text/image', {
+      id: id,
     })
     .then((response) => response.data);
 }

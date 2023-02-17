@@ -20,7 +20,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DemoWrapper from 'common/components/DemoWrapper';
 import { imageRecommendationDemoInfo } from 'DemoInfo';
 import React from 'react';
-import { fetchImageRecommendationResults, getImages } from 'stories/matching-engine/mocks/handlers';
+import { getImages, getWords, matchWord } from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/image-recommendation/pages/ImageRecommendationLandingPage',
@@ -32,5 +32,5 @@ const Template: ComponentStory<typeof DemoWrapper> = () => (
 );
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
-  msw: { handlers: [getImages, fetchImageRecommendationResults] },
+  msw: { handlers: [getImages, getWords, matchWord] },
 };

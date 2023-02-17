@@ -25,131 +25,20 @@ import {
   ListItem,
   Typography,
 } from '@mui/material';
-import ButtonBase from '@mui/material/ButtonBase';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
 import CustomCard from 'common/components/CustomCard';
+import { SelectionList } from 'demos/matching-engine/image-recommendation/pages/SelectionList';
 import {
-  fetchMatchs,
-  getImages,
+  getWords,
   ItemInfo,
   ItemInfosResponse,
   MatchResponse,
   MatchResult,
+  matchWord,
 } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
-
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
-  height: 200,
-  [theme.breakpoints.down('sm')]: {
-    width: '100% !important', // Overrides inline-style
-    height: 100,
-  },
-  '&:hover, &.Mui-focusVisible': {
-    zIndex: 1,
-    '& .MuiImageBackdrop-root': {
-      opacity: 0.15,
-    },
-    '& .MuiImageMarked-root': {
-      opacity: 0,
-    },
-  },
-}));
-
-const ImageSrc = styled('span')({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center 40%',
-});
-
-const Image = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.common.white,
-}));
-
-const ImageBackdrop = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundColor: theme.palette.common.black,
-  opacity: 0.4,
-  transition: theme.transitions.create('opacity'),
-}));
-
-const ImageMarked = styled('span')(({ theme }) => ({
-  height: 3,
-  width: 18,
-  backgroundColor: theme.palette.common.white,
-  position: 'absolute',
-  bottom: -2,
-  left: 'calc(50% - 9px)',
-  transition: theme.transitions.create('opacity'),
-}));
-
-interface ImageListProps {
-  items: ItemInfo[];
-  selectedImageId?: string;
-  onSelected?: (imageId: string) => void;
-}
-
-const ImageSelectionList = ({ items, selectedImageId: selectedId, onSelected }: ImageListProps) => {
-  return (
-    <ImageList sx={{ width: '100%', maxHeight: '800px' }} cols={3}>
-      {items.map((item) => (
-        <ImageListItem key={item.id}>
-          <ImageButton
-            focusRipple
-            key={item.title}
-            onClick={() => {
-              if (onSelected != null) {
-                onSelected(item.id);
-              }
-            }}
-          >
-            <ImageSrc style={{ backgroundImage: `url(${item.img}?w=164&h=164&fit=crop&auto=format)` }} />
-            {selectedId == item.id ? <ImageBackdrop className="MuiImageBackdrop-root" /> : null}
-            <Image>
-              {selectedId == item.id ? (
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  sx={{
-                    position: 'relative',
-                    p: 4,
-                    pt: 2,
-                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                  }}
-                >
-                  Selected
-                  <ImageMarked className="MuiImageMarked-root" />
-                </Typography>
-              ) : null}
-            </Image>
-          </ImageButton>
-        </ImageListItem>
-      ))}
-    </ImageList>
-  );
-};
 
 interface MatchResultsTableProps {
   results: MatchResult[];
@@ -174,24 +63,24 @@ const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
   );
 };
 
-interface MatchResultsForImageProps {
-  selectedImageId: string;
+interface MatchResultsProps {
+  selectedId: string;
 }
 
-const MatchResultsForImage = ({ selectedImageId }: MatchResultsForImageProps) => {
+const MatchResults = ({ selectedId }: MatchResultsProps) => {
   const {
     isLoading,
     error,
     data: matchResults,
     isError,
   } = useQuery<MatchResponse, Error>(
-    ['submitForecast', selectedImageId],
+    ['submitForecast', selectedId],
     () => {
-      return fetchMatchs(selectedImageId);
+      return matchWord(selectedId);
     },
     {
       // The query will not execute until the jobId exists
-      enabled: !!selectedImageId,
+      enabled: !!selectedId,
     }
   );
 
@@ -201,7 +90,7 @@ const MatchResultsForImage = ({ selectedImageId }: MatchResultsForImageProps) =>
         Loading...
       </Alert>
     );
-  } else if (selectedImageId != null) {
+  } else if (selectedId != null) {
     if (isLoading) {
       return (
         <Alert icon={<CircularProgress size={3} />} severity="info">
@@ -213,7 +102,7 @@ const MatchResultsForImage = ({ selectedImageId }: MatchResultsForImageProps) =>
         <>
           <Typography variant="body1">These are the closest matchs for your selected image.</Typography>
           <Typography variant="subtitle2">
-            {matchResults.results.length} results retrieved from a total of {matchResults.totalImageCount} images.
+            {matchResults.results.length} results retrieved from a total of {matchResults.totalItems} images.
           </Typography>
           <MatchResultsTable results={matchResults.results} />
         </>
@@ -235,30 +124,30 @@ const MatchResultsForImage = ({ selectedImageId }: MatchResultsForImageProps) =>
   }
 };
 
-interface ImageMatchFlowForImagesProps {
+interface MatchFlowProps {
   items: ItemInfo[];
 }
 
-const MatchFlow = ({ items }: ImageMatchFlowForImagesProps) => {
-  const [selectedImageId, setSelectedImageId] = React.useState<string>();
+const MatchFlow = ({ items }: MatchFlowProps) => {
+  const [selectedId, setSelectedId] = React.useState<string>();
 
-  const onSelected = (imageId: string) => {
-    setSelectedImageId(imageId);
+  const onSelected = (id: string) => {
+    setSelectedId(id);
   };
 
   return (
     <Container maxWidth="xl">
       <Grid container spacing={7}>
         <Grid sx={{ width: '800px' }}>
-          <Typography variant="h3">Select an image</Typography>
-          <ImageSelectionList items={items} selectedImageId={selectedImageId} onSelected={onSelected} />
+          <Typography variant="h3">Select an item</Typography>
+          <SelectionList items={items} selectedId={selectedId} onSelected={onSelected} />
         </Grid>
         <Grid>
-          {selectedImageId != null ? (
+          {selectedId != null ? (
             <>
-              <Typography variant="h6">Match results</Typography>
+              <Typography variant="h6">Nearest neighbors</Typography>
               <br />
-              <MatchResultsForImage selectedImageId={selectedImageId} />
+              <MatchResults selectedId={selectedId} />
             </>
           ) : null}
         </Grid>
@@ -268,13 +157,22 @@ const MatchFlow = ({ items }: ImageMatchFlowForImagesProps) => {
 };
 
 export default () => {
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: itemsResponse,
+  //   isError,
+  // } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
+  //   return getImages();
+  // });
+
   const {
     isLoading,
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
-    return getImages();
+  } = useQuery<ItemInfosResponse, Error>(['getWords'], () => {
+    return getWords();
   });
 
   if (isLoading) {

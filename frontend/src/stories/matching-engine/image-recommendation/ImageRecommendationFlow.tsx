@@ -19,7 +19,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ImageRecommendationFlow from 'demos/matching-engine/image-recommendation/pages/ImageRecommendationFlow';
 import React from 'react';
-import { fetchImageRecommendationResults, getImages } from 'stories/matching-engine/mocks/handlers';
+import { matchWord, getImages } from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/image-recommendation/pages/ImageRecommmendationFlow',
@@ -29,5 +29,5 @@ export default {
 const Template: ComponentStory<typeof ImageRecommendationFlow> = () => <ImageRecommendationFlow />;
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
-  msw: { handlers: [getImages, fetchImageRecommendationResults] },
+  msw: { handlers: [getImages, matchWord] },
 };

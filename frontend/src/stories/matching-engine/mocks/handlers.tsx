@@ -18,15 +18,20 @@ import { rest } from 'msw';
 
 import fetchImageRecommendationResultsJSON from './fetchImageRecommendationResults.json';
 import getImagesJSON from './getImages.json';
+import getWordsJSON from './getWords.json';
 
 const backendApi = (path: string) => {
   return new URL(path, process.env.REACT_APP_API_SERVER_IMAGE_RECOMMENDATION).toString();
 };
 
-export const getImages = rest.get(backendApi('images'), (req, res, ctx) => {
+export const getWords = rest.get(backendApi('text/items'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(getWordsJSON));
+});
+
+export const getImages = rest.get(backendApi('images/items'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getImagesJSON));
 });
 
-export const fetchImageRecommendationResults = rest.post(backendApi('fetch-recommendations'), (req, res, ctx) => {
+export const matchWord = rest.post(backendApi('text/match'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(fetchImageRecommendationResultsJSON));
 });

@@ -35,7 +35,7 @@ text_dataset_service_instance = dataset_service.TextDatasetService(
 #     deployed_index_id="tree_ah_glove_deployed_unique_3",
 # )
 text_match_service_instance = match_service.TextMatchService(
-    index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3118505247442468864",
+    index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3521155201627062272",
     deployed_index_id="tree_ah_glove_deployed_unique_3",
 )
 
@@ -50,7 +50,7 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
-@app.get("/text/words")
+@app.get("/text/items")
 async def words():
     return text_dataset_service_instance.get_all()
 
@@ -67,9 +67,15 @@ def text_match(
     text = text_dataset_service_instance.get_by_id(id=request.id)
 
     if text is not None:
-        results = text_match_service_instance.match(
-            target=text, num_neighbors=request.numNeighbors
-        )
+        try:
+            results = text_match_service_instance.match(
+                target=text, num_neighbors=request.numNeighbors
+            )
+        except Exception:
+            raise HTTPException(
+                status_code=500, detail=f"There was an error getting matches"
+            )
+
     else:
         raise HTTPException(
             status_code=404, detail=f"Word not found for id: {request.id}"

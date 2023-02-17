@@ -72,7 +72,7 @@ class TextMatchService(MatchService[str]):
 
         response = self.index_endpoint.match(
             deployed_index_id=self.deployed_index_id,
-            queries=[embeddings.tolist()],
+            queries=[embeddings],
             num_neighbors=num_neighbors,
         )
 
