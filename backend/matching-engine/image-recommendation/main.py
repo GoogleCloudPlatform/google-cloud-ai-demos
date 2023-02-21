@@ -26,18 +26,23 @@ from typing import Any, Dict, List, Optional, Tuple
 from pydantic import BaseModel
 
 app = FastAPI()
-text_dataset_service_instance = dataset_service.TextDatasetService(
-    words_file="words.txt"
-)
+# text_dataset_service_instance = dataset_service.TextDatasetService(
+#     words_file="words.txt"
+# )
 
 # image_match_service_instance = match_service.ImageMatchService(
 #     index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3118505247442468864",
 #     deployed_index_id="tree_ah_glove_deployed_unique_3",
 # )
 text_match_service_instance = match_service.TextMatchService(
+    words_file="words.txt",
     index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3521155201627062272",
     deployed_index_id="tree_ah_glove_deployed_unique_3",
 )
+
+match_service_registry: Dict[str, match_service.MatchService] = {
+    text_match_service_instance.id: text_match_service_instance
+}
 
 origins = ["*"]
 app.add_middleware(
@@ -50,27 +55,41 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
-@app.get("/text/items")
-async def words():
-    return text_dataset_service_instance.get_all()
+@app.get("/{match_service_id}/items")
+async def get_items(match_service_id: str):
+    service = match_service_registry.get(match_service_id)
+    if service:
+        return service.get_all()
+    else:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Match service not found for id: {match_service_id}",
+        )
 
 
-class FetchRecommendationRequest(BaseModel):
+class MatchRequest(BaseModel):
     id: str
     numNeighbors: int = 10
 
 
-@app.post("/text/match")
+@app.post("/{match_service_id}/match")
 def text_match(
-    request: FetchRecommendationRequest,
+    match_service_id: str,
+    request: MatchRequest,
 ):
-    text = text_dataset_service_instance.get_by_id(id=request.id)
+    service = match_service_registry.get(match_service_id)
 
-    if text is not None:
+    if not service:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Match service not found for id: {match_service_id}",
+        )
+
+    item = service.get_by_id(id=request.id)
+
+    if item is not None:
         try:
-            results = text_match_service_instance.match(
-                target=text, num_neighbors=request.numNeighbors
-            )
+            results = service.match(target=item, num_neighbors=request.numNeighbors)
         except Exception:
             raise HTTPException(
                 status_code=500, detail=f"There was an error getting matches"
@@ -92,11 +111,6 @@ def text_match(
 # class FetchImageRecommendationRequest(BaseModel):
 #     imageId: str
 #     numNeighbors: int = 10
-
-
-class FetchTextRecommendationRequest(BaseModel):
-    text: str
-    numNeighbors: int = 10
 
 
 # @app.post("/fetch-image-recommendations")
