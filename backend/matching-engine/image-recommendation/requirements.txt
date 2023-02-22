@@ -2,3 +2,4 @@ fastapi
 uvicorn[standard]
 google-cloud-aiplatform
 google-cloud-storage
+spacy

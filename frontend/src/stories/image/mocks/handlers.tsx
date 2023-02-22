@@ -20,7 +20,7 @@ import getImageClassificationResultsJSON from './getImageClassificationResults.j
 import getImagesJSON from './getImages.json';
 
 const backendApi = (path: string) => {
-  return new URL(path, process.env.REACT_APP_API_SERVER_IMAGE_CLASSIFICATION).toString();
+  return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
 
 export const getImages = rest.get(backendApi('images'), (req, res, ctx) => {

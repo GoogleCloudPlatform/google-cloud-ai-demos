@@ -28,16 +28,22 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-text_match_service_instance = match_service.TextMatchService(
-    id="words",
-    words_file="data/google-10000-english-no-swears.txt",
-    index_endpoint_name="projects/800183786022/locations/us-central1/indexEndpoints/255130678109143040",
-    deployed_index_id="tree_ah_glove_deployed_unique",
-)
+match_service_registry: Dict[str, match_service.MatchService] = {}
 
-match_service_registry: Dict[str, match_service.MatchService] = {
-    text_match_service_instance.id: text_match_service_instance
-}
+
+try:
+    text_match_service_instance = match_service.TextMatchService(
+        id="words",
+        words_file="data/google-10000-english-no-swears.txt",
+        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/7775016155911028736",
+        deployed_index_id="tree_ah_glove_deployed_unique",
+    )
+
+    match_service_registry[text_match_service_instance.id] = text_match_service_instance
+except Exception as ex:
+    print(ex)
+    logging.error(ex)
+
 
 origins = ["*"]
 app.add_middleware(
@@ -50,11 +56,20 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
+@app.get("/ping")
+async def ping():
+    return "pong"
+
+
+class GetItemsResponse(BaseModel):
+    items: List[match_service.Item]
+
+
 @app.get("/items/{match_service_id}")
 async def get_items(match_service_id: str):
     service = match_service_registry.get(match_service_id)
     if service:
-        return service.get_all()
+        return GetItemsResponse(items=service.get_all())
     else:
         raise HTTPException(
             status_code=400,

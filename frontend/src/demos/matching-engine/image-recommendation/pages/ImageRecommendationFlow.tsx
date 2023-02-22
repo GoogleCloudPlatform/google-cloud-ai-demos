@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
 import { SelectionList } from 'demos/matching-engine/image-recommendation/pages/SelectionList';
-import { getWords, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
+import { getImages, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
@@ -61,7 +61,7 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
         <Stack spacing={2}>
           <Typography variant="body1">These are the closest matches for your selected item.</Typography>
           <Typography variant="subtitle2">
-            {matchResults.results.length} results retrieved from a total of {matchResults.totalImageCount} images.
+            {matchResults.results.length} results retrieved from a total of {matchResults.totalIndexCount} images.
           </Typography>
           <MatchResultsTable results={matchResults.results} />
         </Stack>
@@ -99,6 +99,7 @@ const MatchFlow = ({ items }: MatchFlowProps) => {
       <Grid container spacing={7}>
         <Grid xs={12} md={8}>
           <Typography variant="h3">Select an item</Typography>
+          <TextField id="filled-basic" label="Search..." variant="filled" />
           <SelectionList items={items} selectedId={selectedId} onSelected={onSelected} />
         </Grid>
         <Grid xs={12} md={4}>
@@ -116,23 +117,23 @@ const MatchFlow = ({ items }: MatchFlowProps) => {
 };
 
 export default () => {
-  // const {
-  //   isLoading,
-  //   error,
-  //   data: itemsResponse,
-  //   isError,
-  // } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
-  //   return getImages();
-  // });
-
   const {
     isLoading,
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(['getWords'], () => {
-    return getWords();
+  } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
+    return getImages();
   });
+
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: itemsResponse,
+  //   isError,
+  // } = useQuery<ItemInfosResponse, Error>(['getWords'], () => {
+  //   return getWords();
+  // });
 
   if (isLoading) {
     return (

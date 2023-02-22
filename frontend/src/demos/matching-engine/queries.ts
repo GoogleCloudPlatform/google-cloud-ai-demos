@@ -16,7 +16,7 @@
 
 import axios from 'axios';
 
-const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_IMAGE_CLASSIFICATION });
+const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_MATCHING_ENGINE });
 
 export interface ItemInfo {
   id: string;
@@ -43,7 +43,7 @@ export interface MatchResult {
 }
 
 export interface MatchResponse {
-  totalImageCount: number;
+  totalIndexCount: number;
   results: MatchResult[];
 }
 

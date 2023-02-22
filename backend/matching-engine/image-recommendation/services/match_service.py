@@ -162,7 +162,7 @@ class TextMatchService(VertexAIMatchingEngineMatchService[str]):
         return 0
 
     def convert_to_embeddings(self, target: str) -> List[float]:
-        return self.nlp.vocab["target"].vector.tolist()
+        return self.nlp.vocab[target].vector.tolist()
 
     def convert_match_neighbor_to_result(
         self, match: matching_engine_index_endpoint.MatchNeighbor

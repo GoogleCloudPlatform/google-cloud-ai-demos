@@ -21,7 +21,7 @@ import getImagesJSON from './getImages.json';
 import getWordsJSON from './getWords.json';
 
 const backendApi = (path: string) => {
-  return new URL(path, process.env.REACT_APP_API_SERVER_IMAGE_RECOMMENDATION).toString();
+  return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
 
 export const getWords = rest.get(backendApi('text/items'), (req, res, ctx) => {
