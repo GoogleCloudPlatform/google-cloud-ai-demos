@@ -29,7 +29,7 @@ app = FastAPI()
 
 text_match_service_instance = match_service.TextMatchService(
     id="words",
-    words_file="words.txt",
+    words_file="data/google-10000-english-no-swears.txt",
     index_endpoint_name="projects/800183786022/locations/us-central1/indexEndpoints/255130678109143040",
     deployed_index_id="tree_ah_glove_deployed_unique",
 )
