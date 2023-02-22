@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import logging
+import dataclasses
 import datetime
 
 from fastapi import FastAPI, HTTPException
@@ -66,8 +67,14 @@ class MatchRequest(BaseModel):
     numNeighbors: int = 10
 
 
+@dataclasses.dataclass
+class MatchResponse:
+    totalIndexCount: int
+    results: List[match_service.MatchResult]
+
+
 @app.post("/match/{match_service_id}")
-async def match(match_service_id: str, request: MatchRequest):
+async def match(match_service_id: str, request: MatchRequest) -> MatchResponse:
     service = match_service_registry.get(match_service_id)
 
     if not service:
@@ -88,7 +95,9 @@ async def match(match_service_id: str, request: MatchRequest):
 
     else:
         raise HTTPException(
-            status_code=404, detail=f"Word not found for id: {request.id}"
+            status_code=404, detail=f"Item not found for id: {request.id}"
         )
 
-    return results
+    return MatchResponse(
+        totalIndexCount=service.get_total_index_count(), results=results
+    )

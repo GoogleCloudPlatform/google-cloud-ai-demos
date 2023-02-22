@@ -13,6 +13,13 @@ T = TypeVar("T")
 
 
 @dataclasses.dataclass
+class MatchResult:
+    text: str
+    distance: float
+    image: Optional[str] = None
+
+
+@dataclasses.dataclass
 class Item:
     id: str
     text: str
@@ -36,15 +43,50 @@ class MatchService(abc.ABC, Generic[T]):
         pass
 
     @abc.abstractmethod
+    def get_total_index_count(self) -> int:
+        """Get total index count."""
+        pass
+
+    @abc.abstractmethod
     def convert_to_embeddings(self, target: str) -> List[float]:
         """Convert a given item to an embedding representation."""
         pass
 
     @abc.abstractmethod
-    def match(
-        self, target: T, num_neighbors: int
-    ) -> List[matching_engine_index_endpoint.MatchNeighbor]:
+    def convert_match_neighbor_to_result(
+        self, match: matching_engine_index_endpoint.MatchNeighbor
+    ) -> Optional[MatchResult]:
         pass
+
+    @abc.abstractmethod
+    def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
+        pass
+
+
+class VertexAIMatchingEngineMatchService(MatchService[T]):
+    index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
+    deployed_index_id: str
+
+    def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
+        embeddings = self.convert_to_embeddings(target=target)
+
+        response = self.index_endpoint.match(
+            deployed_index_id=self.deployed_index_id,
+            queries=[embeddings],
+            num_neighbors=num_neighbors,
+        )
+
+        matches_all = [
+            self.convert_match_neighbor_to_result(match=match)
+            for matches in response
+            for match in matches
+        ]
+
+        matches_all_nonoptional: List[MatchResult] = [
+            match for match in matches_all if match is not None
+        ]
+
+        return sorted(matches_all_nonoptional, key=lambda x: x.distance, reverse=True)
 
 
 # class ImageMatchService(MatchService[models.Image]):
@@ -71,7 +113,7 @@ class MatchService(abc.ABC, Generic[T]):
 
 #     def match(
 #         self, target: models.Image, num_neighbors: int
-#     ) -> List[matching_engine_index_endpoint.MatchNeighbor]:
+#     ) -> List[MatchResult]:
 #         embeddings = self.convert_to_embeddings(target=target)
 
 #         response = self.index_endpoint.match(
@@ -85,7 +127,7 @@ class MatchService(abc.ABC, Generic[T]):
 #         return sorted(matches_all, key=lambda x: x.distance, reverse=True)
 
 
-class TextMatchService(MatchService[str]):
+class TextMatchService(VertexAIMatchingEngineMatchService[str]):
     @property
     def id(self) -> str:
         return self._id
@@ -116,20 +158,17 @@ class TextMatchService(MatchService[str]):
         """Get an item by id."""
         return id
 
+    def get_total_index_count(self) -> int:
+        return 0
+
     def convert_to_embeddings(self, target: str) -> List[float]:
         return self.nlp.vocab["target"].vector.tolist()
 
-    def match(
-        self, target: str, num_neighbors: int
-    ) -> List[matching_engine_index_endpoint.MatchNeighbor]:
-        embeddings = self.convert_to_embeddings(target=target)
-
-        response = self.index_endpoint.match(
-            deployed_index_id=self.deployed_index_id,
-            queries=[embeddings],
-            num_neighbors=num_neighbors,
-        )
-
-        matches_all = [match for matches in response for match in matches]
-
-        return sorted(matches_all, key=lambda x: x.distance, reverse=True)
+    def convert_match_neighbor_to_result(
+        self, match: matching_engine_index_endpoint.MatchNeighbor
+    ) -> Optional[MatchResult]:
+        item = self.get_by_id(match.id)
+        if item is not None:
+            return MatchResult(text=item, distance=match.distance)
+        else:
+            return None
