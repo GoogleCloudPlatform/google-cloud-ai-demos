@@ -27,7 +27,7 @@ export default ({ parameters }: ParametersTableProps) => {
   if (entries.length > 0) {
     return (
       <TableContainer>
-        <Table aria-label="simple table">
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell key="name">Name</TableCell>

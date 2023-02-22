@@ -18,7 +18,7 @@ import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from services import dataset_service, match_service
+from services import match_service
 
 logger = logging.getLogger(__name__)
 from typing import Any, Dict, List, Optional, Tuple
@@ -26,14 +26,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from pydantic import BaseModel
 
 app = FastAPI()
-# text_dataset_service_instance = dataset_service.TextDatasetService(
-#     words_file="words.txt"
-# )
 
-# image_match_service_instance = match_service.ImageMatchService(
-#     index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3118505247442468864",
-#     deployed_index_id="tree_ah_glove_deployed_unique_3",
-# )
 text_match_service_instance = match_service.TextMatchService(
     words_file="words.txt",
     index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3521155201627062272",
@@ -55,7 +48,7 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
-@app.get("/{match_service_id}/items")
+@app.get("/items/{match_service_id}")
 async def get_items(match_service_id: str):
     service = match_service_registry.get(match_service_id)
     if service:
@@ -72,8 +65,8 @@ class MatchRequest(BaseModel):
     numNeighbors: int = 10
 
 
-@app.post("/{match_service_id}/match")
-def text_match(
+@app.post("match/{match_service_id}")
+def match(
     match_service_id: str,
     request: MatchRequest,
 ):

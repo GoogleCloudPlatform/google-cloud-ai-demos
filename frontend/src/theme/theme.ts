@@ -28,6 +28,22 @@ declare module '@mui/material/Typography' {
 }
 
 const theme = createTheme({
+  components: {
+    // MuiTable: {
+    //   styleOverrides: {
+    //     root: {
+    //       // '& tbody > tr:not(:last-of-type) > td': {
+    //       borderBottomColor: 'red', // Change this to the color you want
+    //       // },
+    //       borderBottom: '2px solid black',
+    //     },
+    //     divider: {
+    //       // Theme Color, or use css color in quote
+    //       background: 'red',
+    //     },
+    //   },
+    // },
+  },
   direction: 'ltr',
   mixins: {
     toolbar: {

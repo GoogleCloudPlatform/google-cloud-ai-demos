@@ -19,7 +19,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ImageRecommendationFlow from 'demos/matching-engine/image-recommendation/pages/ImageRecommendationFlow';
 import React from 'react';
-import { matchWord, getImages } from 'stories/matching-engine/mocks/handlers';
+import { getImages, matchWord } from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/image-recommendation/pages/ImageRecommmendationFlow',

@@ -1,8 +1,18 @@
 {
   "totalImageCount": 4359430943,
   "results": [
-    { "class": "bird", "distance": 0.1 },
-    { "class": "dolphin", "distance": 0.2 },
-    { "class": "cat", "distance": 12 }
+    {
+      "text": "bird",
+      "distance": 0.1
+    },
+    {
+      "text": "mushrooms",
+      "image": "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+      "distance": 0.2
+    },
+    {
+      "text": "cat",
+      "distance": 12
+    }
   ]
 }

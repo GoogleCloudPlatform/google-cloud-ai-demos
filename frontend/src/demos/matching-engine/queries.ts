@@ -37,12 +37,13 @@ export async function getImages(): Promise<ItemInfosResponse> {
 }
 
 export interface MatchResult {
-  image: string;
+  text: string;
+  image?: string;
   distance: number;
 }
 
 export interface MatchResponse {
-  totalItems: number;
+  totalImageCount: number;
   results: MatchResult[];
 }
 

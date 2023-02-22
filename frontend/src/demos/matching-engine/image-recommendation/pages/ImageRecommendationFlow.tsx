@@ -13,55 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {
-  Alert,
-  AlertTitle,
-  CardContent,
-  CardMedia,
-  CircularProgress,
-  Container,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
-import CustomCard from 'common/components/CustomCard';
+import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
 import { SelectionList } from 'demos/matching-engine/image-recommendation/pages/SelectionList';
-import {
-  getWords,
-  ItemInfo,
-  ItemInfosResponse,
-  MatchResponse,
-  MatchResult,
-  matchWord,
-} from 'demos/matching-engine/queries';
+import { getWords, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
-
-interface MatchResultsTableProps {
-  results: MatchResult[];
-}
-
-const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
-  return (
-    <List>
-      {results.map((result) => (
-        <ListItem key={result.image}>
-          <CustomCard sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <CardMedia component="img" height="140" image={result.image} />
-            <CardContent>
-              <Typography gutterBottom variant="subtitle1" component="div">
-                Distance: {result.distance}
-              </Typography>
-            </CardContent>
-          </CustomCard>
-        </ListItem>
-      ))}
-    </List>
-  );
-};
 
 interface MatchResultsProps {
   selectedId: string;
@@ -100,9 +59,9 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
     } else if (matchResults != null) {
       return (
         <>
-          <Typography variant="body1">These are the closest matchs for your selected image.</Typography>
+          <Typography variant="body1">These are the closest matchs for your selected item.</Typography>
           <Typography variant="subtitle2">
-            {matchResults.results.length} results retrieved from a total of {matchResults.totalItems} images.
+            {matchResults.results.length} results retrieved from a total of {matchResults.totalImageCount} images.
           </Typography>
           <MatchResultsTable results={matchResults.results} />
         </>
@@ -138,11 +97,11 @@ const MatchFlow = ({ items }: MatchFlowProps) => {
   return (
     <Container maxWidth="xl">
       <Grid container spacing={7}>
-        <Grid sx={{ width: '800px' }}>
+        <Grid xs={12} md={8}>
           <Typography variant="h3">Select an item</Typography>
           <SelectionList items={items} selectedId={selectedId} onSelected={onSelected} />
         </Grid>
-        <Grid>
+        <Grid xs={12} md={4}>
           {selectedId != null ? (
             <>
               <Typography variant="h6">Nearest neighbors</Typography>
