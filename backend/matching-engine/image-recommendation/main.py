@@ -28,9 +28,10 @@ from pydantic import BaseModel
 app = FastAPI()
 
 text_match_service_instance = match_service.TextMatchService(
+    id="words",
     words_file="words.txt",
-    index_endpoint_name="projects/1012616486416/locations/us-central1/indexEndpoints/3521155201627062272",
-    deployed_index_id="tree_ah_glove_deployed_unique_3",
+    index_endpoint_name="projects/800183786022/locations/us-central1/indexEndpoints/255130678109143040",
+    deployed_index_id="tree_ah_glove_deployed_unique",
 )
 
 match_service_registry: Dict[str, match_service.MatchService] = {
@@ -65,11 +66,8 @@ class MatchRequest(BaseModel):
     numNeighbors: int = 10
 
 
-@app.post("match/{match_service_id}")
-def match(
-    match_service_id: str,
-    request: MatchRequest,
-):
+@app.post("/match/{match_service_id}")
+async def match(match_service_id: str, request: MatchRequest):
     service = match_service_registry.get(match_service_id)
 
     if not service:
@@ -94,43 +92,3 @@ def match(
         )
 
     return results
-
-
-# @app.get("/images")
-# async def images():
-#     return dataset_service_instance.get_images()
-
-
-# class FetchImageRecommendationRequest(BaseModel):
-#     imageId: str
-#     numNeighbors: int = 10
-
-
-# @app.post("/fetch-image-recommendations")
-# def fetch_image_recommendations(
-#     request: FetchImageRecommendationRequest,
-# ):
-#     # Get image
-#     image = text_match_service_instance.get_image_by_id(id=request.imageId)
-
-#     if image is None:
-#         raise HTTPException(
-#             status_code=404, detail=f"Image not found: {request.imageId}"
-#         )
-
-#     results = image_match_service_instance.match(
-#         target=image, num_neighbors=request.numNeighbors
-#     )
-
-#     return results
-
-
-# @app.post("/fetch-image-recommendations")
-# def fetch_text_recommendations(
-#     request: FetchTextRecommendationRequest,
-# ):
-#     results = text_match_service_instance.match(
-#         target=request.text, num_neighbors=request.numNeighbors
-#     )
-
-#     return results

@@ -36,7 +36,7 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
   return (
     <TableContainer
       sx={{
-        border: '1px solid',
+        border: '2px solid',
         borderRadius: 2,
         borderColor: theme.palette.grey[300],
         '& pre': {
@@ -49,11 +49,17 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
       }}
     >
       <Table>
-        <TableHead>
+        <TableHead sx={{ borderBottom: `2px solid ${theme.palette.grey[300]}` }}>
           <TableRow>
-            <TableCell>Rank</TableCell>
-            <TableCell>Item</TableCell>
-            <TableCell align="right">Distance</TableCell>
+            <TableCell>
+              <Typography variant="overline">Rank</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography variant="overline">Item</Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="overline">Distance</Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,7 +67,7 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
             <TableRow
               key={result.text}
               sx={{
-                borderBottom: `2px solid ${theme.palette.grey[200]}`,
+                borderBottom: `2px solid ${theme.palette.grey[300]}`,
                 '&:last-child, &:last-child': { borderBottom: 0 },
               }}
             >

@@ -123,7 +123,8 @@ export const speechToTextDemoInfo = {
 
 export const imageRecommendationDemoInfo = {
   title: 'Vertex AI Matching Engine',
-  subtitle: 'TODO',
+  subtitle:
+    'Vertex AI Matching Engine provides high-scale low latency vector database (a.k.a, vector similarity-matching or approximate nearest neighbor service). Matching Engine provides tooling to build use cases that match semantically similar items.',
   sections: [
     {
       buttonText: 'Learn about Vertex AI Matching Engine',

@@ -77,14 +77,17 @@ class ImageMatchService(MatchService[models.Image]):
 
 
 class TextMatchService(MatchService[str]):
-    id = "Words"
+    @property
+    def id(self) -> str:
+        return self._id
 
     def __init__(
-        self, words_file: str, index_endpoint_name: str, deployed_index_id: str
+        self, id: str, words_file: str, index_endpoint_name: str, deployed_index_id: str
     ) -> None:
+        self._id = id
         with open(words_file, "r") as f:
             words = f.readlines()
-            self.words = [(word, word) for word in words]
+            self.words = [(word.strip(), word.strip()) for word in words]
 
         self.nlp = spacy.load("en_core_web_md")
 

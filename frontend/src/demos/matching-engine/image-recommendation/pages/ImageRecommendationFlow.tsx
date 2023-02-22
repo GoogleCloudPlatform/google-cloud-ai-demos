@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
@@ -58,13 +58,13 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
       );
     } else if (matchResults != null) {
       return (
-        <>
-          <Typography variant="body1">These are the closest matchs for your selected item.</Typography>
+        <Stack spacing={2}>
+          <Typography variant="body1">These are the closest matches for your selected item.</Typography>
           <Typography variant="subtitle2">
             {matchResults.results.length} results retrieved from a total of {matchResults.totalImageCount} images.
           </Typography>
           <MatchResultsTable results={matchResults.results} />
-        </>
+        </Stack>
       );
     } else if (isError && error) {
       return (
