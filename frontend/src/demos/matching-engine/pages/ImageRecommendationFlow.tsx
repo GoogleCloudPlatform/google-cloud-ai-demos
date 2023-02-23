@@ -33,7 +33,7 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
     data: matchResults,
     isError,
   } = useQuery<MatchResponse, Error>(
-    ['submitForecast', selectedId],
+    ['matchWord', selectedId],
     () => {
       return matchWord(selectedId);
     },
@@ -122,10 +122,14 @@ export default () => {
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(['getItems'], () => {
-    // return getImages();
-    return getWords();
-  });
+  } = useQuery<ItemInfosResponse, Error>(
+    ['getItems'],
+    () => {
+      // return getImages();
+      return getWords();
+    },
+    { refetchOnWindowFocus: false }
+  );
 
   if (isLoading) {
     return (

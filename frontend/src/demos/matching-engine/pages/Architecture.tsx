@@ -43,7 +43,16 @@ export default () => (
         </Typography>
         <br />
         <Typography variant="overline">Similarity Search</Typography>
-        <Typography variant="body2">The demo uses Matching Engine to do vector similarity search at scale.</Typography>
+        <Typography variant="body2">
+          The demo uses Matching Engine to do vector similarity search at scale. Matching Engine requires a{' '}
+          <a href="https://cloud.google.com/vpc/docs/vpc" target="_blank" rel="noreferrer">
+            VPC network
+          </a>{' '}
+          to perform search. Cloud Run connects to the VPC network by using a{' '}
+          <a href="https://cloud.google.com/vpc/docs/serverless-vpc-access" target="_blank" rel="noreferrer">
+            Serverless VPC connector
+          </a>
+        </Typography>
         <br />
         <Typography variant="h6">Deploy</Typography>
         <Typography variant="body1">See the Github repo for deployment instructions</Typography>
