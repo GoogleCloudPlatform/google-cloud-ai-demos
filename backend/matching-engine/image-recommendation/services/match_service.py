@@ -1,8 +1,10 @@
 import abc
 import dataclasses
+import functools
 import numpy as np
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 from google.cloud.aiplatform.matching_engine import (
+    matching_engine_index,
     matching_engine_index_endpoint,
 )
 import random
@@ -164,8 +166,16 @@ class TextMatchService(VertexAIMatchingEngineMatchService[str]):
         """Get an item by id."""
         return id
 
+    @functools.lru_cache
     def get_total_index_count(self) -> int:
-        return 0
+        return sum(
+            [
+                matching_engine_index.MatchingEngineIndex(
+                    deployed_index.index
+                )._gca_resource.index_stats.vectors_count
+                for deployed_index in self.index_endpoint.deployed_indexes
+            ]
+        )
 
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = np.array(self.nlp.vocab[target].vector.tolist())

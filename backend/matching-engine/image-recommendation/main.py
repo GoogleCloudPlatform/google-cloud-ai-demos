@@ -45,6 +45,22 @@ except Exception as ex:
     logging.error(ex)
 
 
+try:
+    bruteforce_text_match_service_instance = match_service.TextMatchService(
+        id="words_bruteforce",
+        words_file="data/popular-english-words.txt",
+        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/8658847582782488576",
+        deployed_index_id="spacy_brute_force_cosine",
+    )
+
+    match_service_registry[
+        bruteforce_text_match_service_instance.id
+    ] = bruteforce_text_match_service_instance
+except Exception as ex:
+    print(ex)
+    logging.error(ex)
+
+
 origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
