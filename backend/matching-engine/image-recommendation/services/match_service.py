@@ -1,13 +1,15 @@
 import abc
 import dataclasses
-import functools
+import numpy as np
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 from google.cloud.aiplatform.matching_engine import (
     matching_engine_index_endpoint,
 )
-import models
+import random
 
 import spacy
+
+NUM_ITEMS = 60
 
 T = TypeVar("T")
 
@@ -48,7 +50,7 @@ class MatchService(abc.ABC, Generic[T]):
         pass
 
     @abc.abstractmethod
-    def convert_to_embeddings(self, target: str) -> List[float]:
+    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         """Convert a given item to an embedding representation."""
         pass
 
@@ -70,6 +72,9 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
     def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
         embeddings = self.convert_to_embeddings(target=target)
 
+        if embeddings is None:
+            raise ValueError("Embeddings could not be generated for: {target}")
+
         response = self.index_endpoint.match(
             deployed_index_id=self.deployed_index_id,
             queries=[embeddings],
@@ -86,7 +91,7 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
             match for match in matches_all if match is not None
         ]
 
-        return sorted(matches_all_nonoptional, key=lambda x: x.distance, reverse=True)
+        return sorted(matches_all_nonoptional, key=lambda x: x.distance, reverse=False)
 
 
 # class ImageMatchService(MatchService[models.Image]):
@@ -149,10 +154,11 @@ class TextMatchService(VertexAIMatchingEngineMatchService[str]):
         )
         self.deployed_index_id = deployed_index_id
 
-    @functools.lru_cache
     def get_all(self) -> List[Item]:
         """Get all existing ids and items."""
-        return [Item(id=word, text=word, image=None) for word in self.words]
+        return random.sample(
+            [Item(id=word, text=word, image=None) for word in self.words], NUM_ITEMS
+        )
 
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
@@ -161,8 +167,13 @@ class TextMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_total_index_count(self) -> int:
         return 0
 
-    def convert_to_embeddings(self, target: str) -> List[float]:
-        return self.nlp.vocab[target].vector.tolist()
+    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+        vector = np.array(self.nlp.vocab[target].vector.tolist())
+
+        if np.any(vector):
+            return vector.tolist()
+        else:
+            return None
 
     def convert_match_neighbor_to_result(
         self, match: matching_engine_index_endpoint.MatchNeighbor
