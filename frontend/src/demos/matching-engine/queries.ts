@@ -29,11 +29,11 @@ export interface ItemInfosResponse {
 }
 
 export async function getWords(): Promise<ItemInfosResponse> {
-  return client.get('/text/items').then((response) => response.data);
+  return client.get('items/words').then((response) => response.data);
 }
 
 export async function getImages(): Promise<ItemInfosResponse> {
-  return client.get('/images/items').then((response) => response.data);
+  return client.get('items/images').then((response) => response.data);
 }
 
 export interface MatchResult {
@@ -49,7 +49,7 @@ export interface MatchResponse {
 
 export async function matchWord(id: string): Promise<MatchResponse> {
   return client
-    .post('/text/match', {
+    .post('/match/words', {
       id: id,
     })
     .then((response) => response.data);

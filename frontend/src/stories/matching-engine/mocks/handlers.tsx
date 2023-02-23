@@ -24,14 +24,14 @@ const backendApi = (path: string) => {
   return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
 
-export const getWords = rest.get(backendApi('text/items'), (req, res, ctx) => {
+export const getWords = rest.get(backendApi('items/words'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getWordsJSON));
 });
 
-export const getImages = rest.get(backendApi('images/items'), (req, res, ctx) => {
+export const getImages = rest.get(backendApi('items/images'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getImagesJSON));
 });
 
-export const matchWord = rest.post(backendApi('text/match'), (req, res, ctx) => {
+export const matchWord = rest.post(backendApi('match/words'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(fetchImageRecommendationResultsJSON));
 });

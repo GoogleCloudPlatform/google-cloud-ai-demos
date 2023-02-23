@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
-import { SelectionList } from 'demos/matching-engine/image-recommendation/pages/SelectionList';
-import { getImages, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
+import { SelectionList } from 'demos/matching-engine/pages/SelectionList';
+import { getWords, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
@@ -99,7 +99,7 @@ const MatchFlow = ({ items }: MatchFlowProps) => {
       <Grid container spacing={7}>
         <Grid xs={12} md={8}>
           <Typography variant="h3">Select an item</Typography>
-          <TextField id="filled-basic" label="Search..." variant="filled" />
+          {/* <TextField id="filled-basic" label="Search..." variant="filled" /> */}
           <SelectionList items={items} selectedId={selectedId} onSelected={onSelected} />
         </Grid>
         <Grid xs={12} md={4}>
@@ -122,18 +122,10 @@ export default () => {
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(['getImages'], () => {
-    return getImages();
+  } = useQuery<ItemInfosResponse, Error>(['getItems'], () => {
+    // return getImages();
+    return getWords();
   });
-
-  // const {
-  //   isLoading,
-  //   error,
-  //   data: itemsResponse,
-  //   isError,
-  // } = useQuery<ItemInfosResponse, Error>(['getWords'], () => {
-  //   return getWords();
-  // });
 
   if (isLoading) {
     return (
@@ -141,7 +133,7 @@ export default () => {
         Loading...
       </Alert>
     );
-  } else if (itemsResponse != null) {
+  } else if (itemsResponse != null && itemsResponse.items != null) {
     return <MatchFlow items={itemsResponse.items} />;
   } else if (isError && error) {
     return (

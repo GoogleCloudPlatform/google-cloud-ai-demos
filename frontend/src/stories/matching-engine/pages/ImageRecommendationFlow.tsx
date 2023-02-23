@@ -17,12 +17,12 @@
 // ImageClassificationFlow.stories.tsx
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ImageRecommendationFlow from 'demos/matching-engine/image-recommendation/pages/ImageRecommendationFlow';
+import ImageRecommendationFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
 import React from 'react';
 import { getImages, matchWord } from 'stories/matching-engine/mocks/handlers';
 
 export default {
-  title: 'matching-engine/image-recommendation/pages/ImageRecommmendationFlow',
+  title: 'matching-engine/pages/MatchingEngineFlow',
   component: ImageRecommendationFlow,
 } as ComponentMeta<typeof ImageRecommendationFlow>;
 

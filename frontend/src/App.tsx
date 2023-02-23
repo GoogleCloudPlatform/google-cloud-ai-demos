@@ -41,10 +41,7 @@ const AppRoutes = () => {
       />
       <Route path="/demos/image-classification" element={<DemoWrapper {...imageClassificationDemoInfo} />} />
       <Route path="/demos/speech-to-text/chess" element={<DemoWrapper {...speechToTextDemoInfo} />} />
-      <Route
-        path="/demos/matching-engine/image-recommendation"
-        element={<DemoWrapper {...imageRecommendationDemoInfo} />}
-      />
+      <Route path="/demos/matching-engine" element={<DemoWrapper {...imageRecommendationDemoInfo} />} />
       {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>
   );

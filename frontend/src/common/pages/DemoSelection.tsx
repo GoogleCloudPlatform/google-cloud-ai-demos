@@ -157,7 +157,7 @@ const sectionInfos = [
         title: 'Image recommendation',
         description: 'Search for relevant image based on a text or image prompt',
         image: retailImage,
-        destination: '/demos/matching-engine/image-recommendation',
+        destination: '/demos/matching-engine',
       },
     ],
   },

@@ -23,14 +23,17 @@ import React from 'react';
 import { getImages, getWords, matchWord } from 'stories/matching-engine/mocks/handlers';
 
 export default {
-  title: 'matching-engine/image-recommendation/pages/ImageRecommendationLandingPage',
+  title: 'matching-engine/pages/MatchingEngineLandingPage',
   component: DemoWrapper,
 } as ComponentMeta<typeof DemoWrapper>;
 
 const Template: ComponentStory<typeof DemoWrapper> = () => (
   <DemoWrapper {...imageRecommendationDemoInfo} initialTabIndex={1} />
 );
-export const MockedSuccess = Template.bind({});
-MockedSuccess.parameters = {
+
+export const Mocked = Template.bind({});
+Mocked.parameters = {
   msw: { handlers: [getImages, getWords, matchWord] },
 };
+
+export const Default = Template.bind({});

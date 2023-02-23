@@ -17,13 +17,13 @@
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
-import ImageRecommendationFlow from 'demos/matching-engine/image-recommendation/pages/ImageRecommendationFlow';
+import ImageRecommendationFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
 import SpeechToTextFlow from 'demos/speech-to-text/chess/pages/ChessFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
 import * as React from 'react';
-import ExplanationFlow from 'stories/matching-engine/image-recommendation/explanation/ExplanationFlow';
+import ExplanationFlow from 'stories/matching-engine/pages/explanation/ExplanationFlow';
 
 export const forecastingDemoInfo = {
   title: 'Time-series Forecasting',
