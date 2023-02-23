@@ -98,7 +98,7 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
                   <Typography variant="body1">{result.text}</Typography>
                 </TableCell>
               )}
-              <TableCell align="right">{result.distance}</TableCell>
+              <TableCell align="right">{result.distance.toFixed(1)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

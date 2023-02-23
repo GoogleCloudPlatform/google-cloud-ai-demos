@@ -20,7 +20,7 @@ import DemoSelection from 'common/pages/DemoSelection';
 import {
   forecastingDemoInfo,
   imageClassificationDemoInfo,
-  imageRecommendationDemoInfo,
+  matchingEngineDemoInfo,
   speechToTextDemoInfo,
 } from 'DemoInfo';
 import * as React from 'react';
@@ -41,7 +41,7 @@ const AppRoutes = () => {
       />
       <Route path="/demos/image-classification" element={<DemoWrapper {...imageClassificationDemoInfo} />} />
       <Route path="/demos/speech-to-text/chess" element={<DemoWrapper {...speechToTextDemoInfo} />} />
-      <Route path="/demos/matching-engine" element={<DemoWrapper {...imageRecommendationDemoInfo} />} />
+      <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
       {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>
   );

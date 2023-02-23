@@ -17,13 +17,13 @@
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
-import ImageRecommendationFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
+import MatchingEngineArchitecture from 'demos/matching-engine/pages/Architecture';
+import MatchingEngineFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
 import SpeechToTextFlow from 'demos/speech-to-text/chess/pages/ChessFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
 import * as React from 'react';
-import ExplanationFlow from 'stories/matching-engine/pages/explanation/ExplanationFlow';
 
 export const forecastingDemoInfo = {
   title: 'Time-series Forecasting',
@@ -121,25 +121,25 @@ export const speechToTextDemoInfo = {
   ],
 };
 
-export const imageRecommendationDemoInfo = {
+export const matchingEngineDemoInfo = {
   title: 'Vertex AI Matching Engine',
   subtitle:
     'Vertex AI Matching Engine provides high-scale low latency vector database (a.k.a, vector similarity-matching or approximate nearest neighbor service). Matching Engine provides tooling to build use cases that match semantically similar items.',
   sections: [
-    {
-      buttonText: 'Learn about Vertex AI Matching Engine',
-      title: 'Follow along these scenarios to see how matching engine is used in a variety of industries',
-      element: <ExplanationFlow />,
-    },
+    // {
+    //   buttonText: 'Learn about Vertex AI Matching Engine',
+    //   title: 'Follow along these scenarios to see how matching engine is used in a variety of industries',
+    //   element: <ExplanationFlow />,
+    // },
     {
       buttonText: 'Try the demo',
-      title: 'Get image recommendations for a selected image.',
-      element: <ImageRecommendationFlow />,
+      title: 'Get the closest matches based on your selected item.',
+      element: <MatchingEngineFlow />,
     },
     {
       buttonText: 'How we built it',
       title: 'This shows the architecture for the demo web app',
-      element: <Typography>TODO</Typography>,
+      element: <MatchingEngineArchitecture />,
     },
   ],
 };

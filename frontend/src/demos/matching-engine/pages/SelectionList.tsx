@@ -94,7 +94,7 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
   return (
     <ImageButton
       focusRipple
-      key={item.title}
+      key={item.text}
       onClick={() => {
         if (onSelected != null) {
           onSelected(item.id);
@@ -123,7 +123,7 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
             pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
           }}
         >
-          {item.title}
+          {item.text}
           {isSelected ? <ImageMarked className="MuiImageMarked-root" /> : null}
         </Typography>
       </Image>

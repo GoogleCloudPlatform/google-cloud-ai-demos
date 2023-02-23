@@ -18,7 +18,7 @@
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DemoWrapper from 'common/components/DemoWrapper';
-import { imageRecommendationDemoInfo } from 'DemoInfo';
+import { matchingEngineDemoInfo } from 'DemoInfo';
 import React from 'react';
 import { getImages, getWords, matchWord } from 'stories/matching-engine/mocks/handlers';
 
@@ -28,7 +28,7 @@ export default {
 } as ComponentMeta<typeof DemoWrapper>;
 
 const Template: ComponentStory<typeof DemoWrapper> = () => (
-  <DemoWrapper {...imageRecommendationDemoInfo} initialTabIndex={1} />
+  <DemoWrapper {...matchingEngineDemoInfo} initialTabIndex={1} />
 );
 
 export const Mocked = Template.bind({});
