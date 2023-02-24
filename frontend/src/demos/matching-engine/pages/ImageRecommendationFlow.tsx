@@ -27,21 +27,34 @@ interface MatchResultsProps {
 }
 
 const MatchResults = ({ selectedId }: MatchResultsProps) => {
+  const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
+
   const {
     isLoading,
     error,
     data: matchResults,
     isError,
+    isFetching,
+    isFetched,
+    dataUpdatedAt,
   } = useQuery<MatchResponse, Error>(
     ['matchWord', selectedId],
     () => {
+      setStartTime(Date.now());
+
       return matchWord(selectedId);
     },
     {
       // The query will not execute until the jobId exists
       enabled: !!selectedId,
+      refetchOnWindowFocus: false,
     }
   );
+
+  let latency = 0;
+  if (matchResults != null && !isLoading && !isFetching && startTime != null) {
+    latency = dataUpdatedAt - (startTime as number);
+  }
 
   if (isLoading) {
     return (
@@ -61,7 +74,9 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
         <Stack spacing={2}>
           <Typography variant="body1">These are the closest matches for your selected item.</Typography>
           <Typography variant="subtitle2">
-            {matchResults.results.length} results retrieved from a total of {matchResults.totalIndexCount} images.
+            {`${matchResults.results.length} results retrieved from a total of ${
+              matchResults.totalIndexCount
+            } images in ${latency.toFixed(0)} ms.`}
           </Typography>
           <MatchResultsTable results={matchResults.results} />
         </Stack>
