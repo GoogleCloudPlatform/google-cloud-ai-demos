@@ -18,7 +18,7 @@ import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
 import MatchingEngineArchitecture from 'demos/matching-engine/pages/Architecture';
-import MatchingEngineFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
+import MatchingEngineFlow from 'demos/matching-engine/pages/MatchingEngineFlow';
 import SpeechToTextFlow from 'demos/speech-to-text/chess/pages/ChessFlow';
 import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';

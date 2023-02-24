@@ -17,16 +17,16 @@
 // ImageClassificationFlow.stories.tsx
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ImageRecommendationFlow from 'demos/matching-engine/pages/ImageRecommendationFlow';
+import MatchingEngineFlow from 'demos/matching-engine/pages/MatchingEngineFlow';
 import React from 'react';
 import { getImages, matchWord } from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/pages/MatchingEngineFlow',
-  component: ImageRecommendationFlow,
-} as ComponentMeta<typeof ImageRecommendationFlow>;
+  component: MatchingEngineFlow,
+} as ComponentMeta<typeof MatchingEngineFlow>;
 
-const Template: ComponentStory<typeof ImageRecommendationFlow> = () => <ImageRecommendationFlow />;
+const Template: ComponentStory<typeof MatchingEngineFlow> = () => <MatchingEngineFlow />;
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
   msw: { handlers: [getImages, matchWord] },

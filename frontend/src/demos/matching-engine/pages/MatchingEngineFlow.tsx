@@ -76,7 +76,7 @@ const MatchResults = ({ selectedId }: MatchResultsProps) => {
           <Typography variant="subtitle2">
             {`${matchResults.results.length} results retrieved from a total of ${
               matchResults.totalIndexCount
-            } images in ${latency.toFixed(0)} ms.`}
+            } items in ${latency.toFixed(0)} ms.`}
           </Typography>
           <MatchResultsTable results={matchResults.results} />
         </Stack>
