@@ -35,8 +35,8 @@ try:
     text_match_service_instance = match_service.TextMatchService(
         id="words",
         words_file="data/popular-english-words.txt",
-        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/7775016155911028736",
-        deployed_index_id="tree_ah_glove_deployed_unique",
+        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/852983528642576384",
+        deployed_index_id="spacy_tree_ah_cosine",
     )
 
     match_service_registry[text_match_service_instance.id] = text_match_service_instance
