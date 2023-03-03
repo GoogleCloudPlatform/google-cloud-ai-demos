@@ -1,6 +1,7 @@
 import abc
 import dataclasses
 import functools
+import logging
 
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
@@ -10,6 +11,8 @@ from google.cloud.aiplatform.matching_engine import (
 )
 
 T = TypeVar("T")
+
+logger = logging.getLogger(__name__)
 
 
 @dataclasses.dataclass
@@ -69,16 +72,22 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
     deployed_index_id: str
 
     def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
+        logger.info(f"match(target={target}, num_neighbors={num_neighbors}")
+
         embeddings = self.convert_to_embeddings(target=target)
 
         if embeddings is None:
             raise ValueError("Embeddings could not be generated for: {target}")
+
+        logger.info(f"len(embeddings) = {len(embeddings)}")
 
         response = self.index_endpoint.match(
             deployed_index_id=self.deployed_index_id,
             queries=[embeddings],
             num_neighbors=num_neighbors,
         )
+
+        logger.info(f"index_endpoint.match completed")
 
         matches_all = [
             self.convert_match_neighbor_to_result(match=match)

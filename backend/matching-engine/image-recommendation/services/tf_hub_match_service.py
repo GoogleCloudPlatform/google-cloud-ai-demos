@@ -7,9 +7,9 @@ from google.cloud.aiplatform.matching_engine import (
     matching_engine_index_endpoint,
 )
 
-# import tensorflow as tf
-# import tensorflow_hub as hub
-# import tensorflow_text as text  # Registers the ops.
+import tensorflow as tf
+import tensorflow_hub as hub
+import tensorflow_text as text  # Registers the ops.
 from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
 
 
@@ -34,7 +34,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
             questions = f.readlines()
             self.questions = [question.strip() for question in questions]
 
-        # self.encoder = hub.KerasLayer(tf_hub_url)
+        self.encoder = hub.KerasLayer(tf_hub_url)
 
         self.index_endpoint = (
             matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
@@ -67,12 +67,10 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
             return None
 
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
-        return [0, 1, 2]
-
         vector = self.encoder(tf.constant([target]))[0]
 
         if np.any(vector):
-            return vector.tolist()
+            return vector.numpy()[0].tolist()
         else:
             return None
 

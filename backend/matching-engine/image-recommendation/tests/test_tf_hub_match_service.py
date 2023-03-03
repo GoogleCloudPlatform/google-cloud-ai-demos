@@ -12,24 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Use the official lightweight Python image.
-# https://hub.docker.com/_/python
-FROM tiangolo/uvicorn-gunicorn:python3.9
+import logging
+import numpy as np
 
-WORKDIR app
+import register_services
+from services import match_service, spacy_match_service, tf_hub_match_service
 
-COPY requirements.txt .
-COPY main.py .
-COPY models.py .
-COPY register_services.py .
-COPY data data
-COPY services services
-COPY tests tests
+logger = logging.getLogger(__name__)
+from typing import Dict, List
 
 
-# Install dependencies.
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python -m spacy download en_core_web_md
-RUN python -c "import register_services; register_services.register_services()"
-RUN python -m pytest tests/test_tf_hub_match_service.py
+def test_convert_to_embeddings():
+    service_registry = register_services.register_services()
+    embeddings = service_registry["stackoverflow_questions"].convert_to_embeddings(
+        target="Hello world"
+    )
+
+    assert embeddings is not None, "No embeddings found"
+
+    assert np.any(embeddings), "Empty embeddings found"
