@@ -12,14 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import logging
 import dataclasses
 import datetime
+import logging
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+
 from services import match_service
+import register_services
 
 logger = logging.getLogger(__name__)
 from typing import Any, Dict, List, Optional, Tuple
@@ -28,38 +30,10 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-match_service_registry: Dict[str, match_service.MatchService] = {}
 
-
-try:
-    text_match_service_instance = match_service.TextMatchService(
-        id="words",
-        words_file="data/popular-english-words.txt",
-        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/852983528642576384",
-        deployed_index_id="spacy_tree_ah_cosine",
-    )
-
-    match_service_registry[text_match_service_instance.id] = text_match_service_instance
-except Exception as ex:
-    print(ex)
-    logging.error(ex)
-
-
-try:
-    bruteforce_text_match_service_instance = match_service.TextMatchService(
-        id="words_bruteforce",
-        words_file="data/popular-english-words.txt",
-        index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/8658847582782488576",
-        deployed_index_id="spacy_brute_force_cosine",
-    )
-
-    match_service_registry[
-        bruteforce_text_match_service_instance.id
-    ] = bruteforce_text_match_service_instance
-except Exception as ex:
-    print(ex)
-    logging.error(ex)
-
+match_service_registry: Dict[
+    str, match_service.MatchService
+] = register_services.register_services()
 
 origins = ["*"]
 app.add_middleware(
@@ -70,11 +44,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.add_middleware(GZipMiddleware, minimum_size=1000)
-
-
-@app.get("/ping")
-async def ping():
-    return "pong"
 
 
 class GetItemsResponse(BaseModel):
@@ -93,8 +62,13 @@ async def get_items(match_service_id: str):
         )
 
 
-class MatchRequest(BaseModel):
+class MatchByIdRequest(BaseModel):
     id: str
+    numNeighbors: int = 10
+
+
+class MatchByTextRequest(BaseModel):
+    text: str
     numNeighbors: int = 10
 
 
@@ -104,8 +78,10 @@ class MatchResponse:
     results: List[match_service.MatchResult]
 
 
-@app.post("/match/{match_service_id}")
-async def match(match_service_id: str, request: MatchRequest) -> MatchResponse:
+@app.post("/match-by-id/{match_service_id}")
+async def match_by_id(
+    match_service_id: str, request: MatchByIdRequest
+) -> MatchResponse:
     service = match_service_registry.get(match_service_id)
 
     if not service:
@@ -119,7 +95,8 @@ async def match(match_service_id: str, request: MatchRequest) -> MatchResponse:
     if item is not None:
         try:
             results = service.match(target=item, num_neighbors=request.numNeighbors)
-        except Exception:
+        except Exception as ex:
+            logger.error(ex)
             raise HTTPException(
                 status_code=500, detail=f"There was an error getting matches"
             )
@@ -132,3 +109,28 @@ async def match(match_service_id: str, request: MatchRequest) -> MatchResponse:
     return MatchResponse(
         totalIndexCount=service.get_total_index_count(), results=results
     )
+
+
+@app.post("/match-by-text/{match_service_id}")
+async def match_by_text(
+    match_service_id: str, request: MatchByTextRequest
+) -> MatchResponse:
+    service = match_service_registry.get(match_service_id)
+
+    if not service:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Match service not found for id: {match_service_id}",
+        )
+
+    try:
+        results = service.match(target=request.text, num_neighbors=request.numNeighbors)
+
+        return MatchResponse(
+            totalIndexCount=service.get_total_index_count(), results=results
+        )
+    except Exception as ex:
+        logger.error(ex)
+        raise HTTPException(
+            status_code=500, detail=f"There was an error getting matches"
+        )

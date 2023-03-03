@@ -29,3 +29,4 @@ COPY services services
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_md
+RUN python -m register_services.py

@@ -3,3 +3,8 @@ uvicorn[standard]
 google-cloud-aiplatform
 google-cloud-storage
 spacy
+tensorflow
+tensorflow_hub
+tensorflow_text
+pandas
+db-dtypes
