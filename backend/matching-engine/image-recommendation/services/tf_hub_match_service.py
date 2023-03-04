@@ -1,3 +1,4 @@
+import logging
 import random
 from typing import List, Optional
 
@@ -12,11 +13,15 @@ import tensorflow_hub as hub
 import tensorflow_text as text  # Registers the ops.
 from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
 
+logger = logging.getLogger(__name__)
+
 
 client = bigquery.Client()
 
 
 class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
+    reverse_scores: bool = True
+
     @property
     def id(self) -> str:
         return self._id
@@ -52,9 +57,9 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
         # Get question from Bigquery
-        query = """
-            SELECT distinct id, title
-            FROM `bigquery-public-data.stackoverflow.posts_questions` where id = 30013009
+        query = f"""
+            SELECT id, title
+            FROM `bigquery-public-data.stackoverflow.posts_questions` where id = {id}
         """
 
         query_job = client.query(query)
@@ -66,6 +71,29 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         else:
             return None
 
+    def get_by_ids(self, ids: List[str]) -> List[Optional[str]]:
+        """Get an item by id."""
+        # Get question from Bigquery
+        ids_string = ",".join(ids)
+        query = f"""
+            SELECT id, title
+            FROM `bigquery-public-data.stackoverflow.posts_questions`
+            WHERE id IN ({ids_string})
+        """
+
+        query_job = client.query(query)
+        rows = query_job.result()
+        df = rows.to_dataframe()
+        df.id = df.id.astype(str)
+
+        # Create a boolean mask for the names in the DataFrame that match the names in the list
+        mask = df["id"].isin(ids)
+
+        # Filter the DataFrame using the mask and preserve the order of the names in the list
+        filtered_df = df[mask].set_index("id").reindex(ids)
+
+        return filtered_df.title.fillna(np.nan).replace([np.nan], [None]).tolist()
+
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = self.encoder(tf.constant([target]))[0]
 
@@ -74,13 +102,16 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         else:
             return None
 
-    def convert_match_neighbor_to_result(
-        self, match: matching_engine_index_endpoint.MatchNeighbor
-    ) -> Optional[MatchResult]:
-        item = self.get_by_id(match.id)
-        if item is not None:
-            # Get StackOverflow url
-            url = f"https://stackoverflow.com/questions/{match.id}"
-            return MatchResult(text=item, distance=match.distance, url=url)
-        else:
-            return None
+    def convert_match_neighbors_to_result(
+        self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
+    ) -> List[Optional[MatchResult]]:
+        items = self.get_by_ids(ids=[match.id for match in matches])
+
+        return [
+            MatchResult(
+                text=item,
+                distance=match.distance,
+                url=f"https://stackoverflow.com/questions/{match.id}",
+            )
+            for item, match in zip(items, matches)
+        ]

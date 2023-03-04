@@ -1,0 +1,83 @@
+import random
+from typing import List, Optional
+
+import numpy as np
+from google.cloud.aiplatform.matching_engine import (
+    matching_engine_index_endpoint,
+)
+
+from transformers import CLIPTokenizerFast, CLIPModel
+import torch
+from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+
+
+class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
+    @property
+    def id(self) -> str:
+        return self._id
+
+    def __init__(
+        self,
+        id: str,
+        prompts_file: str,
+        model_id: str,  # "openai/clip-vit-base-patch32"
+        index_endpoint_name: str,
+        deployed_index_id: str,
+    ) -> None:
+        self._id = id
+        with open(prompts_file, "r") as f:
+            prompts = f.readlines()
+            self.prompts = [prompt.strip() for prompt in prompts]
+
+        self.index_endpoint = (
+            matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
+                index_endpoint_name=index_endpoint_name
+            )
+        )
+        self.deployed_index_id = deployed_index_id
+
+        # if you have CUDA or MPS, set it to the active device like this
+        device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else ("mps" if torch.backends.mps.is_available() else "cpu")
+        )
+
+        # we initialize a tokenizer, image processor, and the model itself
+        self.tokenizer = CLIPTokenizerFast.from_pretrained(model_id)
+        # self.processor = CLIPProcessor.from_pretrained(model_id)
+        self.model = CLIPModel.from_pretrained(model_id).to(device)
+
+    def get_all(self, num_items: int = 60) -> List[Item]:
+        """Get all existing ids and items."""
+        return random.sample(
+            [Item(id=word, text=word, image=None) for word in self.prompts], num_items
+        )
+
+    def get_by_id(self, id: str) -> Optional[str]:
+        """Get an item by id."""
+        return f"https://TODO/{id}"
+
+    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+        # create transformer-readable tokens
+        inputs = self.tokenizer(target, return_tensors="pt")
+
+        # use CLIP to encode tokens into a meaningful embedding
+        text_emb = self.model.get_text_features(**inputs)
+        text_emb = text_emb.cpu().detach().numpy()
+
+        if np.any(text_emb):
+            return text_emb.tolist()
+        else:
+            return None
+
+    def convert_match_neighbors_to_result(
+        self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
+    ) -> List[Optional[MatchResult]]:
+        items = [self.get_by_id(match.id) for match in matches]
+        return [
+            MatchResult(text=None, distance=match.distance, image=item)
+            if item is not None
+            else None
+            for item, match in zip(items, matches)
+        ]

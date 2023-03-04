@@ -9,3 +9,5 @@ tensorflow_text
 pandas
 db-dtypes
 pytest
+transformers
+torch

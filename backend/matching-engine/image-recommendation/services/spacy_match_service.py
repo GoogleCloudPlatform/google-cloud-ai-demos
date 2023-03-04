@@ -50,11 +50,13 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         else:
             return None
 
-    def convert_match_neighbor_to_result(
-        self, match: matching_engine_index_endpoint.MatchNeighbor
-    ) -> Optional[MatchResult]:
-        item = self.get_by_id(match.id)
-        if item is not None:
-            return MatchResult(text=item, distance=match.distance)
-        else:
-            return None
+    def convert_match_neighbors_to_result(
+        self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
+    ) -> List[Optional[MatchResult]]:
+        items = [self.get_by_id(match.id) for match in matches]
+        return [
+            MatchResult(text=item, distance=match.distance)
+            if item is not None
+            else None
+            for item, match in zip(items, matches)
+        ]

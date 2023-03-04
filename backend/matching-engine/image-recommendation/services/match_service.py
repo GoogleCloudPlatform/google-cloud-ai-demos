@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 
 @dataclasses.dataclass
 class MatchResult:
-    text: str
     distance: float
+    text: Optional[str] = None
     url: Optional[str] = None
     image: Optional[str] = None
 
@@ -57,9 +57,9 @@ class MatchService(abc.ABC, Generic[T]):
         pass
 
     @abc.abstractmethod
-    def convert_match_neighbor_to_result(
-        self, match: matching_engine_index_endpoint.MatchNeighbor
-    ) -> Optional[MatchResult]:
+    def convert_match_neighbors_to_result(
+        self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
+    ) -> List[Optional[MatchResult]]:
         pass
 
     @abc.abstractmethod
@@ -70,9 +70,10 @@ class MatchService(abc.ABC, Generic[T]):
 class VertexAIMatchingEngineMatchService(MatchService[T]):
     index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
     deployed_index_id: str
+    reverse_scores: bool = False
 
     def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
-        logger.info(f"match(target={target}, num_neighbors={num_neighbors}")
+        logger.info(f"match(target={target}, num_neighbors={num_neighbors})")
 
         embeddings = self.convert_to_embeddings(target=target)
 
@@ -89,17 +90,27 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
 
         logger.info(f"index_endpoint.match completed")
 
-        matches_all = [
-            self.convert_match_neighbor_to_result(match=match)
-            for matches in response
-            for match in matches
-        ]
+        matches_all = self.convert_match_neighbors_to_result(
+            matches=[match for matches in response for match in matches]
+        )
+
+        logger.info(f"matches converted")
 
         matches_all_nonoptional: List[MatchResult] = [
             match for match in matches_all if match is not None
         ]
 
-        return sorted(matches_all_nonoptional, key=lambda x: x.distance, reverse=False)
+        logger.info(f"matches none filtered")
+
+        matches_sorted = sorted(
+            matches_all_nonoptional,
+            key=lambda x: x.distance,
+            reverse=self.reverse_scores,
+        )
+
+        logger.info(f"matches sorted")
+
+        return matches_sorted
 
     @functools.lru_cache
     def get_total_index_count(self) -> int:
