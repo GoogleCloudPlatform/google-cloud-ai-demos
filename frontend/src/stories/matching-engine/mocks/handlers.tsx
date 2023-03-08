@@ -16,22 +16,26 @@
 
 import { rest } from 'msw';
 
-import fetchImageRecommendationResultsJSON from './fetchImageRecommendationResults.json';
-import getImagesJSON from './getImages.json';
-import getWordsJSON from './getWords.json';
+import getItemsImagesJSON from './getItemsImages.json';
+import getItemsWordsJSON from './getItemsWords.json';
+import matchResultsImagesJSON from './matchResultsImages.json';
 
 const backendApi = (path: string) => {
   return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
 
-export const getWords = rest.get(backendApi('items/words'), (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(getWordsJSON));
+export const getItemsWords = rest.get(backendApi('items/words'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(getItemsWordsJSON));
 });
 
-export const getImages = rest.get(backendApi('items/images'), (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(getImagesJSON));
+export const getItemsImages = rest.get(backendApi('items/images'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(getItemsImagesJSON));
 });
 
-export const matchWord = rest.post(backendApi('match/words'), (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(fetchImageRecommendationResultsJSON));
+export const matchByIdWords = rest.post(backendApi('match-by-id/words'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(matchResultsImagesJSON));
+});
+
+export const matchByTextWords = rest.post(backendApi('match-by-text/words'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(matchResultsImagesJSON));
 });

@@ -13,100 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { AxiosError } from 'axios';
-import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
+import DebouncedTextField from 'demos/matching-engine/components/DebouncedTextField';
+import { MatchResults } from 'demos/matching-engine/components/MatchResults';
 import { SelectionList } from 'demos/matching-engine/pages/SelectionList';
-import { getWords, ItemInfo, ItemInfosResponse, MatchResponse, matchWord } from 'demos/matching-engine/queries';
+import { getItems, ItemInfo, ItemInfosResponse } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
-
-interface MatchResultsProps {
-  selectedId: string;
-}
-
-const MatchResults = ({ selectedId }: MatchResultsProps) => {
-  const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
-
-  const {
-    isLoading,
-    error,
-    data: matchResults,
-    isError,
-    isFetching,
-    isFetched,
-    dataUpdatedAt,
-  } = useQuery<MatchResponse, Error>(
-    ['matchWord', selectedId],
-    () => {
-      setStartTime(Date.now());
-
-      return matchWord(selectedId);
-    },
-    {
-      // The query will not execute until the jobId exists
-      enabled: !!selectedId,
-      refetchOnWindowFocus: false,
-    }
-  );
-
-  let latency = 0;
-  if (matchResults != null && !isLoading && !isFetching && startTime != null) {
-    latency = dataUpdatedAt - (startTime as number);
-  }
-
-  if (isLoading) {
-    return (
-      <Alert icon={<CircularProgress size={3} />} severity="info">
-        Loading...
-      </Alert>
-    );
-  } else if (selectedId != null) {
-    if (isLoading) {
-      return (
-        <Alert icon={<CircularProgress size={3} />} severity="info">
-          Loading...
-        </Alert>
-      );
-    } else if (matchResults != null) {
-      return (
-        <Stack spacing={2}>
-          <Typography variant="body1">These are the closest matches for your selected item.</Typography>
-          <Typography variant="subtitle2">
-            {`${matchResults.results.length} results retrieved from a total of ${
-              matchResults.totalIndexCount
-            } items in ${latency.toFixed(0)} ms.`}
-          </Typography>
-          <MatchResultsTable results={matchResults.results} />
-        </Stack>
-      );
-    } else if (isError && error) {
-      return (
-        <Alert icon={<CircularProgress size={3} />} severity="error">
-          <AlertTitle>Could not load results</AlertTitle>
-          {(error as AxiosError).message}
-        </Alert>
-      );
-    } else {
-      return null;
-    }
-  } else if (isError && error != null) {
-    return <Alert severity="error">{error.message}</Alert>;
-  } else {
-    return <Alert severity="error">Unknown error</Alert>;
-  }
-};
 
 interface MatchFlowProps {
   items: ItemInfo[];
 }
 
-const MatchFlow = ({ items }: MatchFlowProps) => {
-  const [selectedId, setSelectedId] = React.useState<string>();
+// const matchServiceId = 'stackoverflow_questions';
+const matchServiceId = 'words';
+const textInputAllowed = true;
 
-  const onSelected = (id: string) => {
-    setSelectedId(id);
+const MatchFlow = ({ items }: MatchFlowProps) => {
+  const [selectedId, setSelectedId] = React.useState<string | undefined>(undefined);
+
+  // const onSelected = (id: string) => {
+  //   setSelectedId(id);
+  // };
+
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const handleSearch = (text: string) => {
+    setSearchQuery(text);
   };
 
   return (
@@ -114,15 +48,25 @@ const MatchFlow = ({ items }: MatchFlowProps) => {
       <Grid container spacing={7}>
         <Grid xs={12} md={8}>
           <Typography variant="h3">Select an item</Typography>
-          {/* <TextField id="filled-basic" label="Search..." variant="filled" /> */}
-          <SelectionList items={items} selectedId={selectedId} onSelected={onSelected} />
+          {textInputAllowed ? <DebouncedTextField textChanged={handleSearch} /> : null}
+          <SelectionList
+            items={items}
+            selectedId={selectedId}
+            onSelected={(item: ItemInfo) => {
+              if (item.id != null) {
+                setSelectedId(item.id);
+              } else if (item.text != null) {
+                setSearchQuery(item.text);
+              }
+            }}
+          />
         </Grid>
         <Grid xs={12} md={4}>
-          {selectedId != null ? (
+          {selectedId != null || searchQuery.length > 0 ? (
             <>
               <Typography variant="h6">Nearest neighbors</Typography>
               <br />
-              <MatchResults selectedId={selectedId} />
+              <MatchResults matchServiceId={matchServiceId} selectedId={selectedId} searchQuery={searchQuery} />
             </>
           ) : null}
         </Grid>
@@ -140,8 +84,7 @@ export default () => {
   } = useQuery<ItemInfosResponse, Error>(
     ['getItems'],
     () => {
-      // return getImages();
-      return getWords();
+      return getItems(matchServiceId);
     },
     { refetchOnWindowFocus: false }
   );

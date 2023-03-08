@@ -19,21 +19,17 @@ import axios from 'axios';
 const client = axios.create({ baseURL: process.env.REACT_APP_API_SERVER_MATCHING_ENGINE });
 
 export interface ItemInfo {
-  id: string;
-  img: string;
-  text: string;
+  id?: string;
+  img?: string;
+  text?: string;
 }
 
 export interface ItemInfosResponse {
   items: ItemInfo[];
 }
 
-export async function getWords(): Promise<ItemInfosResponse> {
-  return client.get('items/words').then((response) => response.data);
-}
-
-export async function getImages(): Promise<ItemInfosResponse> {
-  return client.get('items/images').then((response) => response.data);
+export async function getItems(match_service_id: string): Promise<ItemInfosResponse> {
+  return client.get(`items/${match_service_id}`).then((response) => response.data);
 }
 
 export interface MatchResult {
@@ -47,18 +43,20 @@ export interface MatchResponse {
   results: MatchResult[];
 }
 
-export async function matchWord(id: string): Promise<MatchResponse> {
+export async function matchById(matchServiceId: string, id: string): Promise<MatchResponse> {
   return client
-    .post('/match/words', {
+    .post(`/match-by-id/${matchServiceId}`, {
       id: id,
+      numNeighbors: 50,
     })
     .then((response) => response.data);
 }
 
-export async function matchImage(id: string): Promise<MatchResponse> {
+export async function matchByText(matchServiceId: string, text: string): Promise<MatchResponse> {
   return client
-    .post('/text/image', {
-      id: id,
+    .post(`/match-by-text/${matchServiceId}`, {
+      text: text,
+      numNeighbors: 50,
     })
     .then((response) => response.data);
 }

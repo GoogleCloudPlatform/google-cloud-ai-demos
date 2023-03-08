@@ -19,7 +19,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MatchingEngineFlow from 'demos/matching-engine/pages/MatchingEngineFlow';
 import React from 'react';
-import { getImages, matchWord } from 'stories/matching-engine/mocks/handlers';
+import {
+  getItemsImages,
+  getItemsWords,
+  matchByIdWords,
+  matchByTextWords,
+} from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/pages/MatchingEngineFlow',
@@ -29,5 +34,5 @@ export default {
 const Template: ComponentStory<typeof MatchingEngineFlow> = () => <MatchingEngineFlow />;
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
-  msw: { handlers: [getImages, matchWord] },
+  msw: { handlers: [getItemsImages, getItemsWords, matchByIdWords, matchByTextWords] },
 };

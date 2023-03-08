@@ -20,7 +20,12 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DemoWrapper from 'common/components/DemoWrapper';
 import { matchingEngineDemoInfo } from 'DemoInfo';
 import React from 'react';
-import { getImages, getWords, matchWord } from 'stories/matching-engine/mocks/handlers';
+import {
+  getItemsImages,
+  getItemsWords,
+  matchByIdWords,
+  matchByTextWords,
+} from 'stories/matching-engine/mocks/handlers';
 
 export default {
   title: 'matching-engine/pages/MatchingEngineLandingPage',
@@ -33,7 +38,7 @@ const Template: ComponentStory<typeof DemoWrapper> = () => (
 
 export const Mocked = Template.bind({});
 Mocked.parameters = {
-  msw: { handlers: [getImages, getWords, matchWord] },
+  msw: { handlers: [getItemsImages, getItemsWords, matchByIdWords, matchByTextWords] },
 };
 
 export const Default = Template.bind({});

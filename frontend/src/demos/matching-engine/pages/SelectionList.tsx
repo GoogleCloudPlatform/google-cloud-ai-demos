@@ -87,7 +87,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 interface ImageSelectionButtonProps {
   item: ItemInfo;
   isSelected: boolean;
-  onSelected?: (imageId: string) => void;
+  onSelected?: (item: ItemInfo) => void;
 }
 
 export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
@@ -97,7 +97,7 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
       key={item.text}
       onClick={() => {
         if (onSelected != null) {
-          onSelected(item.id);
+          onSelected(item);
         }
       }}
     >
@@ -133,7 +133,7 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
 interface SelectionListProps {
   items: ItemInfo[];
   selectedId?: string;
-  onSelected?: (imageId: string) => void;
+  onSelected?: (item: ItemInfo) => void;
 }
 
 export const SelectionList = ({ items, selectedId, onSelected }: SelectionListProps) => {
