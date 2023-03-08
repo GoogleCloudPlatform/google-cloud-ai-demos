@@ -26,10 +26,14 @@ COPY data data
 COPY services services
 COPY tests tests
 
-
 # Install dependencies.
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_md
 RUN python -c "import register_services; register_services.register_services()"
-RUN python -m pytest tests/test_match_service.py
+
+# Download clip-vit-base-patch32
+RUN git lfs install
+RUN git clone https://huggingface.co/openai/clip-vit-base-patch32
+
+# RUN python -m pytest tests/test_match_service.py

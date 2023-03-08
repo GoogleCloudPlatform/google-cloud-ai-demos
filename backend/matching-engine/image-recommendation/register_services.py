@@ -33,7 +33,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
             id="words",
             words_file="data/popular-english-words.txt",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1907670266377404416",
-            deployed_index_id="10000_common_words_spacy",
+            deployed_index_id="spacy_common_words",
         )
 
         services.append(text_match_service_instance)
@@ -47,7 +47,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
             words_file="data/stackoverflow_questions.txt",
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/780081509674516480",
-            deployed_index_id="stack_overflow_questions",
+            deployed_index_id="stackoverflow_questions",
         )
 
         services.append(stackoverflow_questions_match_service_instance)
@@ -59,7 +59,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
         text_to_image_match_service_instance = text_to_image_match_service.TextToImageMatchService(
             id="text_to_image",
             prompts_file="data/text_to_image.txt",
-            model_id="openai/clip-vit-base-patch32",
+            model_id="clip-vit-base-patch32",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/453570536690155520",
             deployed_index_id="image_to_text_diffusiondb",
         )

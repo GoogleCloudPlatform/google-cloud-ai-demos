@@ -56,7 +56,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
         return random.sample(
-            [Item(id=word, text=word, image=None) for word in self.questions], num_items
+            [Item(id=None, text=word, image=None) for word in self.questions], num_items
         )
 
     def get_by_id(self, id: str) -> Optional[str]:

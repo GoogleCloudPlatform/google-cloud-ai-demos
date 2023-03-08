@@ -25,8 +25,8 @@ class MatchResult:
 
 @dataclasses.dataclass
 class Item:
-    id: str
     text: str
+    id: Optional[str]
     image: Optional[str]
 
 

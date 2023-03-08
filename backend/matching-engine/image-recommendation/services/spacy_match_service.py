@@ -15,6 +15,11 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     def id(self) -> str:
         return self._id
 
+    @property
+    def allows_text_input(self) -> bool:
+        """If true, this service allows text input."""
+        return False
+
     def __init__(
         self, id: str, words_file: str, index_endpoint_name: str, deployed_index_id: str
     ) -> None:
