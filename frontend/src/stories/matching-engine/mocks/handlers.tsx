@@ -18,11 +18,16 @@ import { rest } from 'msw';
 
 import getItemsImagesJSON from './getItemsImages.json';
 import getItemsWordsJSON from './getItemsWords.json';
+import getMatchRegistryJSON from './getMatchRegistry.json';
 import matchResultsImagesJSON from './matchResultsImages.json';
 
 const backendApi = (path: string) => {
   return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
+
+export const getMatchRegistry = rest.get(backendApi('match-registry'), (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json(getMatchRegistryJSON));
+});
 
 export const getItemsWords = rest.get(backendApi('items/words'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getItemsWordsJSON));

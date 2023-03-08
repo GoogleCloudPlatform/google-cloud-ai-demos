@@ -13,81 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Typography } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
-import { AxiosError } from 'axios';
-import DebouncedTextField from 'demos/matching-engine/components/DebouncedTextField';
-import { MatchResults } from 'demos/matching-engine/components/MatchResults';
-import { SelectionList } from 'demos/matching-engine/pages/SelectionList';
-import { getItems, ItemInfo, ItemInfosResponse } from 'demos/matching-engine/queries';
+import { Alert, AlertTitle, CircularProgress, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { getMatchServiceInfo, MatchServiceInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
-interface MatchFlowProps {
-  items: ItemInfo[];
-}
-
-// const matchServiceId = 'stackoverflow_questions';
-const matchServiceId = 'words';
-const textInputAllowed = true;
-
-const MatchFlow = ({ items }: MatchFlowProps) => {
-  const [selectedId, setSelectedId] = React.useState<string | undefined>(undefined);
-
-  // const onSelected = (id: string) => {
-  //   setSelectedId(id);
-  // };
-
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const handleSearch = (text: string) => {
-    setSearchQuery(text);
-  };
-
-  return (
-    <Container maxWidth="xl">
-      <Grid container spacing={7}>
-        <Grid xs={12} md={8}>
-          <Typography variant="h3">Select an item</Typography>
-          {textInputAllowed ? <DebouncedTextField textChanged={handleSearch} /> : null}
-          <SelectionList
-            items={items}
-            selectedId={selectedId}
-            onSelected={(item: ItemInfo) => {
-              if (item.id != null) {
-                setSelectedId(item.id);
-              } else if (item.text != null) {
-                setSearchQuery(item.text);
-              }
-            }}
-          />
-        </Grid>
-        <Grid xs={12} md={4}>
-          {selectedId != null || searchQuery.length > 0 ? (
-            <>
-              <Typography variant="h6">Nearest neighbors</Typography>
-              <br />
-              <MatchResults matchServiceId={matchServiceId} selectedId={selectedId} searchQuery={searchQuery} />
-            </>
-          ) : null}
-        </Grid>
-      </Grid>
-    </Container>
-  );
-};
+import MatchSelectionAndResults from '../components/MatchSelectionAndResults';
 
 export default () => {
   const {
     isLoading,
     error,
-    data: itemsResponse,
+    data: matchServiceInfos,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(
-    ['getItems'],
+  } = useQuery<MatchServiceInfo[], Error>(
+    ['getMatchServiceInfo'],
     () => {
-      return getItems(matchServiceId);
+      return getMatchServiceInfo();
     },
     { refetchOnWindowFocus: false }
   );
+
+  // Selected tab state
+  const [selectedTabIndex, setTab] = React.useState<number>(0);
+  const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: number) => {
+    if (newTab !== null) {
+      setTab(newTab);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -95,13 +48,24 @@ export default () => {
         Loading...
       </Alert>
     );
-  } else if (itemsResponse != null && itemsResponse.items != null) {
-    return <MatchFlow items={itemsResponse.items} />;
+  } else if (matchServiceInfos != null && matchServiceInfos.length > 0) {
+    return (
+      <>
+        <ToggleButtonGroup color="primary" value={selectedTabIndex} exclusive onChange={handleChange}>
+          {matchServiceInfos.map((matchServiceInfo, index) => (
+            <ToggleButton key={index} value={index}>
+              {matchServiceInfo.name}
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
+        <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />;
+      </>
+    );
   } else if (isError && error) {
     return (
       <Alert icon={<CircularProgress size={3} />} severity="error">
-        <AlertTitle>Could not load images</AlertTitle>
-        {(error as AxiosError).message}
+        <AlertTitle>Could not load match service info</AlertTitle>
+        {error.message}
       </Alert>
     );
   } else {

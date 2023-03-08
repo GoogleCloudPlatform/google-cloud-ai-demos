@@ -22,6 +22,7 @@ import React from 'react';
 import {
   getItemsImages,
   getItemsWords,
+  getMatchRegistry,
   matchByIdWords,
   matchByTextWords,
 } from 'stories/matching-engine/mocks/handlers';
@@ -34,5 +35,5 @@ export default {
 const Template: ComponentStory<typeof MatchingEngineFlow> = () => <MatchingEngineFlow />;
 export const MockedSuccess = Template.bind({});
 MockedSuccess.parameters = {
-  msw: { handlers: [getItemsImages, getItemsWords, matchByIdWords, matchByTextWords] },
+  msw: { handlers: [getMatchRegistry, getItemsImages, getItemsWords, matchByIdWords, matchByTextWords] },
 };

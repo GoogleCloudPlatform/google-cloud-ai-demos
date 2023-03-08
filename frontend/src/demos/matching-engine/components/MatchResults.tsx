@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
+import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
 import { matchById, matchByText, MatchResponse } from 'demos/matching-engine/queries';
 import * as React from 'react';
@@ -37,7 +38,7 @@ export const MatchResults = ({ matchServiceId, selectedId, searchQuery }: MatchR
     isFetched,
     dataUpdatedAt,
   } = useQuery<MatchResponse, Error>(
-    ['match', selectedId, searchQuery],
+    ['match', matchServiceId, selectedId, searchQuery],
     () => {
       setStartTime(Date.now());
 
@@ -84,7 +85,7 @@ export const MatchResults = ({ matchServiceId, selectedId, searchQuery }: MatchR
       </Stack>
     );
   } else if (isError && error != null) {
-    return <Alert severity="error">{error.message}</Alert>;
+    return <Alert severity="error">{(error as AxiosError).message}</Alert>;
   } else {
     return <Alert severity="error">Unknown error</Alert>;
   }

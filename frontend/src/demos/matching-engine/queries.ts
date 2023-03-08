@@ -32,6 +32,17 @@ export async function getItems(match_service_id: string): Promise<ItemInfosRespo
   return client.get(`items/${match_service_id}`).then((response) => response.data);
 }
 
+export interface MatchServiceInfo {
+  id: string;
+  name: string;
+  description: string;
+  allowsTextInput: boolean;
+}
+
+export async function getMatchServiceInfo(): Promise<MatchServiceInfo[]> {
+  return client.get(`match-registry`).then((response) => response.data);
+}
+
 export interface MatchResult {
   text: string;
   image?: string;

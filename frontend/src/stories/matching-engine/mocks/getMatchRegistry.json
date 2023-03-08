@@ -1,0 +1,20 @@
+[
+    {
+        "id": "words",
+        "name": "English words",
+        "description": "Common English words encoded using spaCy embeddings",
+        "allowsTextInput": false
+    },
+    {
+        "id": "stackoverflow_questions",
+        "name": "StackOverflow",
+        "description": "StackOverflow questions encoded using sentence-t5. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
+        "allowsTextInput": true
+    },    
+    {
+        "id": "text_to_image",
+        "name": "Text to image",
+        "description": "DiffusionDB images encoded using CLIP. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
+        "allowsTextInput": true
+    }
+]
