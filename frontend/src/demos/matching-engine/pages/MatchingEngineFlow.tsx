@@ -13,7 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  Alert,
+  AlertTitle,
+  Box,
+  CircularProgress,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from '@mui/material';
 import { getMatchServiceInfo, MatchServiceInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
@@ -50,16 +59,21 @@ export default () => {
     );
   } else if (matchServiceInfos != null && matchServiceInfos.length > 0) {
     return (
-      <>
-        <ToggleButtonGroup color="primary" value={selectedTabIndex} exclusive onChange={handleChange}>
-          {matchServiceInfos.map((matchServiceInfo, index) => (
-            <ToggleButton key={index} value={index}>
-              {matchServiceInfo.name}
-            </ToggleButton>
-          ))}
-        </ToggleButtonGroup>
-        <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />;
-      </>
+      <Stack spacing={2} flex="none">
+        <Box alignSelf="center">
+          <ToggleButtonGroup color="primary" value={selectedTabIndex} exclusive onChange={handleChange}>
+            {matchServiceInfos.map((matchServiceInfo, index) => (
+              <ToggleButton key={index} value={index}>
+                {matchServiceInfo.name}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Box>
+        <Typography variant="body2" align="center">
+          {matchServiceInfos[selectedTabIndex].description}
+        </Typography>
+        <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />
+      </Stack>
     );
   } else if (isError && error) {
     return (

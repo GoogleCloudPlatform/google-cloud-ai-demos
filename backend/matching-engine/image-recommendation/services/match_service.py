@@ -36,6 +36,16 @@ class MatchService(abc.ABC, Generic[T]):
         """Unique identifier for this service."""
         pass
 
+    @abc.abstractproperty
+    def name(self) -> str:
+        """Name for this service that is shown on the frontend."""
+        pass
+
+    @abc.abstractproperty
+    def description(self) -> str:
+        """Description for this service that is shown on the frontend."""
+        pass
+
     @property
     def allows_text_input(self) -> bool:
         """If true, this service allows text input."""

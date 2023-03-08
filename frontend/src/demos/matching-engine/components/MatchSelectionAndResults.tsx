@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, Box, CircularProgress, Container, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import DebouncedTextField from 'demos/matching-engine/components/DebouncedTextField';
 import { MatchResults } from 'demos/matching-engine/components/MatchResults';
@@ -39,19 +39,22 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
     <Container maxWidth="xl">
       <Grid container spacing={7}>
         <Grid xs={12} md={8}>
-          <Typography variant="h3">Select an item</Typography>
+          <Typography variant="h3">Search for an item</Typography>
           {textInputAllowed ? <DebouncedTextField textChanged={handleSearch} /> : null}
-          <SelectionList
-            items={items}
-            selectedId={selectedId}
-            onSelected={(item: ItemInfo) => {
-              if (item.id != null) {
-                setSelectedId(item.id);
-              } else if (item.text != null) {
-                setSearchQuery(item.text);
-              }
-            }}
-          />
+          <Stack spacing={0} marginTop={2}>
+            <Typography variant="overline">Suggestions</Typography>
+            <SelectionList
+              items={items}
+              selectedId={selectedId}
+              onSelected={(item: ItemInfo) => {
+                if (item.id != null) {
+                  setSelectedId(item.id);
+                } else if (item.text != null) {
+                  setSearchQuery(item.text);
+                }
+              }}
+            />
+          </Stack>
         </Grid>
         <Grid xs={12} md={4}>
           {selectedId != null || searchQuery.length > 0 ? (
@@ -89,14 +92,11 @@ export default ({ matchServiceInfo }: { matchServiceInfo: MatchServiceInfo }) =>
     );
   } else if (itemsResponse != null && itemsResponse.items != null) {
     return (
-      <Box>
-        <Typography>{matchServiceInfo.description}</Typography>
-        <MatchSelectionAndResults
-          matchServiceId={matchServiceInfo.id}
-          allowsTextInput={matchServiceInfo.allowsTextInput}
-          items={itemsResponse.items}
-        />
-      </Box>
+      <MatchSelectionAndResults
+        matchServiceId={matchServiceInfo.id}
+        allowsTextInput={matchServiceInfo.allowsTextInput}
+        items={itemsResponse.items}
+      />
     );
   } else if (isError && error) {
     return (

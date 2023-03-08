@@ -31,6 +31,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
     try:
         text_match_service_instance = spacy_match_service.SpacyTextMatchService(
             id="words",
+            name="English words",
+            description="Common English words encoded using spaCy embeddings",
             words_file="data/popular-english-words.txt",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1907670266377404416",
             deployed_index_id="spacy_common_words",
@@ -44,6 +46,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
     try:
         stackoverflow_questions_match_service_instance = tf_hub_match_service.TFHubMatchService(
             id="stackoverflow_questions",
+            name="StackOverflow",
+            description="StackOverflow questions encoded using sentence-t5. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
             words_file="data/stackoverflow_questions.txt",
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/780081509674516480",
@@ -58,6 +62,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
     try:
         text_to_image_match_service_instance = text_to_image_match_service.TextToImageMatchService(
             id="text_to_image",
+            name="Text to image",
+            description="DiffusionDB images encoded using CLIP. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
             prompts_file="data/text_to_image.txt",
             model_id="clip-vit-base-patch32",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/453570536690155520",

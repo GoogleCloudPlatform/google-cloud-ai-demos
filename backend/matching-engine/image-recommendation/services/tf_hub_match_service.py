@@ -27,6 +27,16 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         return self._id
 
     @property
+    def name(self) -> str:
+        """Name for this service that is shown on the frontend."""
+        return self._name
+
+    @property
+    def description(self) -> str:
+        """Description for this service that is shown on the frontend."""
+        return self._description
+
+    @property
     def allows_text_input(self) -> bool:
         """If true, this service allows text input."""
         return True
@@ -34,12 +44,17 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
     def __init__(
         self,
         id: str,
+        name: str,
+        description: str,
         words_file: str,
         tf_hub_url: str,
         index_endpoint_name: str,
         deployed_index_id: str,
     ) -> None:
         self._id = id
+        self._name = name
+        self._description = description
+
         with open(words_file, "r") as f:
             questions = f.readlines()
             self.questions = [question.strip() for question in questions]

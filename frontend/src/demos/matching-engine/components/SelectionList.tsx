@@ -138,7 +138,7 @@ interface SelectionListProps {
 
 export const SelectionList = ({ items, selectedId, onSelected }: SelectionListProps) => {
   return (
-    <ImageList sx={{ width: '100%', maxHeight: '800px' }} cols={3}>
+    <ImageList sx={{ width: '100%', maxHeight: '800px', marginTop: 0 }} cols={3}>
       {items.map((item) => (
         <ImageListItem key={item.id}>
           <ImageSelectionButton item={item} isSelected={selectedId == item.id} onSelected={onSelected} />

@@ -50,10 +50,15 @@ class GetItemsResponse(BaseModel):
     items: List[match_service.Item]
 
 
-@app.get("/match_registry")
+@app.get("/match-registry")
 async def get_match_registry():
     return [
-        {"id": service.id, "allowsTextInput": service.allows_text_input}
+        {
+            "id": service.id,
+            "name": service.name,
+            "description": service.description,
+            "allowsTextInput": service.allows_text_input,
+        }
         for service in match_service_registry.values()
     ]
 
