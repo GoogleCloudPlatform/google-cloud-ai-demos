@@ -32,9 +32,14 @@ class Item:
 
 class MatchService(abc.ABC, Generic[T]):
     @abc.abstractproperty
-    def id(str) -> str:
+    def id(self) -> str:
         """Unique identifier for this service."""
         pass
+
+    @property
+    def allows_text_input(self) -> bool:
+        """If true, this service allows text input."""
+        return False
 
     @abc.abstractmethod
     def get_all(self, num_items: int = 60) -> List[Item]:

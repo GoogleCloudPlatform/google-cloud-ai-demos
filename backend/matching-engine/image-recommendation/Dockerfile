@@ -32,4 +32,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_md
 RUN python -c "import register_services; register_services.register_services()"
-RUN python -m pytest tests/test_tf_hub_match_service.py
+RUN python -m pytest tests/test_match_service.py

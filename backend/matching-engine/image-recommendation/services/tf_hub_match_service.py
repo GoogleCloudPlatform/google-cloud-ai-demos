@@ -26,6 +26,11 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
     def id(self) -> str:
         return self._id
 
+    @property
+    def allows_text_input(self) -> bool:
+        """If true, this service allows text input."""
+        return True
+
     def __init__(
         self,
         id: str,

@@ -14,7 +14,12 @@
 
 import logging
 
-from services import match_service, spacy_match_service, tf_hub_match_service
+from services import (
+    match_service,
+    spacy_match_service,
+    tf_hub_match_service,
+    text_to_image_match_service,
+)
 
 logger = logging.getLogger(__name__)
 from typing import Dict, List
@@ -27,24 +32,11 @@ def register_services() -> Dict[str, match_service.MatchService]:
         text_match_service_instance = spacy_match_service.SpacyTextMatchService(
             id="words",
             words_file="data/popular-english-words.txt",
-            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/852983528642576384",
-            deployed_index_id="spacy_tree_ah_cosine",
+            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1907670266377404416",
+            deployed_index_id="10000_common_words_spacy",
         )
 
         services.append(text_match_service_instance)
-    except Exception as ex:
-        print(ex)
-        logging.error(ex)
-
-    try:
-        bruteforce_text_match_service_instance = spacy_match_service.SpacyTextMatchService(
-            id="words_bruteforce",
-            words_file="data/popular-english-words.txt",
-            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/8658847582782488576",
-            deployed_index_id="spacy_brute_force_cosine",
-        )
-
-        services.append(bruteforce_text_match_service_instance)
     except Exception as ex:
         print(ex)
         logging.error(ex)
@@ -54,11 +46,25 @@ def register_services() -> Dict[str, match_service.MatchService]:
             id="stackoverflow_questions",
             words_file="data/stackoverflow_questions.txt",
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
-            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/7585020546631335936",
-            deployed_index_id="stack_overflow",
+            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/780081509674516480",
+            deployed_index_id="stack_overflow_questions",
         )
 
         services.append(stackoverflow_questions_match_service_instance)
+    except Exception as ex:
+        print(ex)
+        logging.error(ex)
+
+    try:
+        text_to_image_match_service_instance = text_to_image_match_service.TextToImageMatchService(
+            id="text_to_image",
+            prompts_file="data/text_to_image.txt",
+            model_id="openai/clip-vit-base-patch32",
+            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/453570536690155520",
+            deployed_index_id="image_to_text_diffusiondb",
+        )
+
+        services.append(text_to_image_match_service_instance)
     except Exception as ex:
         print(ex)
         logging.error(ex)
