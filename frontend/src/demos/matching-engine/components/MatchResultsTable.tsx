@@ -76,26 +76,45 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
               </TableCell>
               {result.image ? (
                 <TableCell>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      objectFit: 'cover',
-                      // objectPosition: 'center',
-                      width: '120px',
-                      height: '120px',
-                      display: 'inline-block',
-
-                      // backgroundColor: 'red',
-                      // height: '0',
-                      // paddingBottom: '100%',
-                    }}
-                    src={result.image}
-                    alt={result.text}
-                  />
+                  {(result.url ?? result.image) != null ? (
+                    <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
+                      <CardMedia
+                        component="img"
+                        sx={{
+                          objectFit: 'cover',
+                          width: '120px',
+                          height: '120px',
+                          display: 'inline-block',
+                        }}
+                        src={result.image}
+                        alt={result.text}
+                      />
+                    </a>
+                  ) : (
+                    <CardMedia
+                      component="img"
+                      sx={{
+                        objectFit: 'cover',
+                        width: '120px',
+                        height: '120px',
+                        display: 'inline-block',
+                      }}
+                      src={result.image}
+                      alt={result.text}
+                    />
+                  )}
                 </TableCell>
               ) : (
                 <TableCell component="th" scope="row">
-                  <Typography variant="body1">{result.text}</Typography>
+                  <Typography variant="body1">
+                    {result.url != null ? (
+                      <a href={result.url} target="_blank" rel="noreferrer">
+                        {result.text}
+                      </a>
+                    ) : (
+                      result.text
+                    )}
+                  </Typography>
                 </TableCell>
               )}
               <TableCell align="right">{result.distance.toFixed(1)}</TableCell>

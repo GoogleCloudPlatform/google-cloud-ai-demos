@@ -46,6 +46,7 @@ export async function getMatchServiceInfo(): Promise<MatchServiceInfo[]> {
 export interface MatchResult {
   text: string;
   image?: string;
+  url?: string;
   distance: number;
 }
 
