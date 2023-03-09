@@ -40,10 +40,12 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         model_id: str,
         index_endpoint_name: str,
         deployed_index_id: str,
+        image_directory_uri: str,
     ) -> None:
         self._id = id
         self._name = name
         self._description = description
+        self.image_directory_uri = image_directory_uri
 
         with open(prompts_file, "r") as f:
             prompts = f.readlines()
@@ -77,7 +79,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
 
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
-        return f"https://TODO/{id}"
+        return f"{self.image_directory_uri}/{id}"
 
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         # create transformer-readable tokens

@@ -65,7 +65,7 @@ export const MatchResultsTable = ({ results }: MatchResultsTableProps) => {
         <TableBody>
           {results.map((result, index) => (
             <TableRow
-              key={result.text}
+              key={index}
               sx={{
                 borderBottom: `2px solid ${theme.palette.grey[300]}`,
                 '&:last-child, &:last-child': { borderBottom: 0 },

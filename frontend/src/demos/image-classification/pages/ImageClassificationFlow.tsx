@@ -116,11 +116,11 @@ interface ImageListProps {
 const ImageSelectionList = ({ images, selectedImageId, onImageSelected }: ImageListProps) => {
   return (
     <ImageList sx={{ width: '100%', maxHeight: '800px' }} cols={3}>
-      {images.map((image) => (
+      {images.map((image, index) => (
         <ImageListItem key={image.id}>
           <ImageButton
             focusRipple
-            key={image.title}
+            key={index}
             onClick={() => {
               if (onImageSelected != null) {
                 onImageSelected(image.id);

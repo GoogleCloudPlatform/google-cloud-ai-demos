@@ -68,6 +68,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
             model_id="clip-vit-base-patch32",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/453570536690155520",
             deployed_index_id="image_to_text_diffusiondb",
+            image_directory_uri="https://storage.googleapis.com/ai-demos/text_to_image",
         )
 
         services.append(text_to_image_match_service_instance)

@@ -28,21 +28,12 @@ interface MatchFlowProps {
   items: ItemInfo[];
 }
 
-interface MatchSelectionAndResultsState {
-  selectedIndex: number | undefined;
-  searchQuery: string;
-}
-
 const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAllowed, items }: MatchFlowProps) => {
-  // const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
-  // const [searchQuery, setSearchQuery] = React.useState('');
-  const [matchSelectionAndResultsState, setMatchSelectionAndResultsState] =
-    React.useState<MatchSelectionAndResultsState>({ selectedIndex: undefined, searchQuery: '' });
-
+  const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
+  const [searchQuery, setSearchQuery] = React.useState('');
   const handleSearch = (text: string) => {
     console.log(`handleSearch: ${text}`);
-    // setSearchQuery(text);
-    setMatchSelectionAndResultsState({ selectedIndex: matchSelectionAndResultsState.selectedIndex, searchQuery: '' });
+    setSearchQuery(text);
   };
 
   return (
@@ -55,27 +46,23 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
             <Typography variant="overline">Suggestions</Typography>
             <SelectionList
               items={items}
-              selectedIndex={matchSelectionAndResultsState.selectedIndex}
+              selectedIndex={selectedIndex}
               onSelected={(item: ItemInfo, index: number) => {
-                // if (item.text != null) {
-                // setSearchQuery(item.text);
-                setMatchSelectionAndResultsState({
-                  selectedIndex: index,
-                  searchQuery: item.text ?? '',
-                });
-                // }
+                if (item.text != null) {
+                  setSearchQuery(item.text);
+                }
 
-                // setSelectedIndex(index);
+                setSelectedIndex(index);
               }}
             />
           </Stack>
         </Grid>
         <Grid xs={12} md={4}>
-          {matchSelectionAndResultsState.searchQuery.length > 0 ? (
+          {searchQuery.length > 0 ? (
             <>
               <Typography variant="h6">Nearest neighbors</Typography>
               <br />
-              <MatchResults matchServiceId={matchServiceId} searchQuery={matchSelectionAndResultsState.searchQuery} />
+              <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
             </>
           ) : null}
         </Grid>
