@@ -18,7 +18,7 @@ import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
 import { matchByText, MatchResponse } from 'demos/matching-engine/queries';
 import * as React from 'react';
-import { useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 
 export interface MatchResultsProps {
   matchServiceId: string;
@@ -30,37 +30,30 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
   const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
 
   const {
+    mutate: performMatch,
     isLoading,
     error,
     data: matchResults,
-    isError,
-    isFetching,
-    isFetched,
-    dataUpdatedAt,
-  } = useQuery<MatchResponse, Error>(
-    ['match', matchServiceId, searchQuery],
-    () => {
-      setStartTime(Date.now());
+  } = useMutation<MatchResponse, Error>(() => {
+    setStartTime(Date.now());
 
-      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
+    console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
 
-      if (searchQuery.length > 0) {
-        return matchByText(matchServiceId, searchQuery);
-      } else {
-        throw new Error('No searchQuery provided');
-      }
-    },
-    {
-      // The query will not execute until the jobId exists
-      // enabled: !!selectedId || !!textQuery,
-      refetchOnWindowFocus: false,
+    if (searchQuery.length > 0) {
+      return matchByText(matchServiceId, searchQuery);
+    } else {
+      throw new Error('No searchQuery provided');
     }
-  );
+  });
 
   let latency = 0;
-  if (matchResults != null && !isLoading && !isFetching && startTime != null) {
-    latency = dataUpdatedAt - (startTime as number);
+  if (matchResults != null && !isLoading && startTime != null) {
+    latency = Date.now() - startTime;
   }
+
+  React.useEffect(() => {
+    performMatch();
+  }, [matchServiceId, searchQuery, performMatch]);
 
   if (isLoading) {
     return (
@@ -80,7 +73,7 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
         <MatchResultsTable results={matchResults.results} />
       </Stack>
     );
-  } else if (isError && error != null) {
+  } else if (error != null) {
     return <Alert severity="error">{(error as AxiosError).message}</Alert>;
   } else {
     return <Alert severity="error">Unknown error</Alert>;

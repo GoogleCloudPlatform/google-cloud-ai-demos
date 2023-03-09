@@ -58,7 +58,7 @@ export async function matchById(matchServiceId: string, id: string): Promise<Mat
   return client
     .post(`/match-by-id/${matchServiceId}`, {
       id: id,
-      numNeighbors: 50,
+      numNeighbors: 20,
     })
     .then((response) => response.data);
 }
@@ -67,7 +67,7 @@ export async function matchByText(matchServiceId: string, text: string): Promise
   return client
     .post(`/match-by-text/${matchServiceId}`, {
       text: text,
-      numNeighbors: 50,
+      numNeighbors: 20,
     })
     .then((response) => response.data);
 }

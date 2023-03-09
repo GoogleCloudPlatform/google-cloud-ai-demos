@@ -29,19 +29,24 @@ interface MatchFlowProps {
 }
 
 const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAllowed, items }: MatchFlowProps) => {
+  const [textFieldText, setTextFieldText] = React.useState<string>('');
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
-  const handleSearch = (text: string) => {
-    console.log(`handleSearch: ${text}`);
-    setSearchQuery(text);
-  };
 
   return (
     <Container maxWidth="xl">
       <Grid container spacing={7}>
         <Grid xs={12} md={8}>
           <Typography variant="h3">Search for an item</Typography>
-          {textInputAllowed ? <DebouncedTextField textChanged={handleSearch} /> : null}
+          {textInputAllowed ? (
+            <DebouncedTextField
+              text={textFieldText}
+              setText={setTextFieldText}
+              textChanged={(text: string) => {
+                setSearchQuery(text);
+              }}
+            />
+          ) : null}
           <Stack spacing={0} marginTop={2}>
             <Typography variant="overline">Suggestions</Typography>
             <SelectionList
@@ -49,7 +54,11 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
               selectedIndex={selectedIndex}
               onSelected={(item: ItemInfo, index: number) => {
                 if (item.text != null) {
-                  setSearchQuery(item.text);
+                  if (textInputAllowed) {
+                    setTextFieldText(item.text);
+                  } else {
+                    setSearchQuery(item.text);
+                  }
                 }
 
                 setSelectedIndex(index);
