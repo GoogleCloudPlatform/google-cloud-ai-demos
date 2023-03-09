@@ -71,7 +71,8 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
         return random.sample(
-            [Item(id=word, text=word, image=None) for word in self.prompts], num_items
+            [Item(id=word, text=word, image=None) for word in self.prompts],
+            min(num_items, len(self.prompts)),
         )
 
     def get_by_id(self, id: str) -> Optional[str]:
@@ -87,7 +88,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         text_emb = text_emb.cpu().detach().numpy()
 
         if np.any(text_emb):
-            return text_emb.tolist()
+            return text_emb[0].tolist()
         else:
             return None
 

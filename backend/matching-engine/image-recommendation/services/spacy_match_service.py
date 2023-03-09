@@ -59,7 +59,8 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
         return random.sample(
-            [Item(id=word, text=word, image=None) for word in self.words], num_items
+            [Item(id=word, text=word, image=None) for word in self.words],
+            min(num_items, len(self.words)),
         )
 
     def get_by_id(self, id: str) -> Optional[str]:

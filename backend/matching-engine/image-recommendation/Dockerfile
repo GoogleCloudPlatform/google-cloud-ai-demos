@@ -38,4 +38,4 @@ RUN apt install git-lfs
 RUN git lfs install
 RUN git clone https://huggingface.co/openai/clip-vit-base-patch32
 
-# RUN python -m pytest tests/test_match_service.py
+RUN python -m pytest tests/test_match_service.py

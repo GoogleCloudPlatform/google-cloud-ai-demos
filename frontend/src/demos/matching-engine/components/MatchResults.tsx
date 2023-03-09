@@ -16,7 +16,7 @@
 import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
 import { AxiosError } from 'axios';
 import { MatchResultsTable } from 'demos/matching-engine/components/MatchResultsTable';
-import { matchById, matchByText, MatchResponse } from 'demos/matching-engine/queries';
+import { matchByText, MatchResponse } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
@@ -26,7 +26,7 @@ export interface MatchResultsProps {
   searchQuery: string;
 }
 
-export const MatchResults = ({ matchServiceId, selectedId, searchQuery }: MatchResultsProps) => {
+export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps) => {
   const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
 
   const {
@@ -38,20 +38,16 @@ export const MatchResults = ({ matchServiceId, selectedId, searchQuery }: MatchR
     isFetched,
     dataUpdatedAt,
   } = useQuery<MatchResponse, Error>(
-    ['match', matchServiceId, selectedId, searchQuery],
+    ['match', matchServiceId, searchQuery],
     () => {
       setStartTime(Date.now());
 
-      console.log(
-        `Performing match: matchServiceId = ${matchServiceId}, textQuery = ${searchQuery}, selectedId = ${selectedId}`
-      );
+      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
 
       if (searchQuery.length > 0) {
         return matchByText(matchServiceId, searchQuery);
-      } else if (selectedId != null) {
-        return matchById(matchServiceId, selectedId);
       } else {
-        throw new Error('No selectedId or searchQuery provided');
+        throw new Error('No searchQuery provided');
       }
     },
     {

@@ -24,30 +24,42 @@ from typing import Dict, List
 
 def test_spacy_convert_to_embeddings():
     service_registry = register_services.register_services()
-    embeddings = service_registry["words"].convert_to_embeddings(target="sandwich")
+
+    service = service_registry["words"]
+    items = service.get_all()
+
+    assert len(items) > 0, "No items found"
+
+    embeddings = service.convert_to_embeddings(target="sandwich")
 
     assert embeddings is not None, "No embeddings found"
-
+    assert isinstance(embeddings[0], float), "Embedding value is not a float"
     assert np.any(embeddings), "Empty embeddings found"
 
 
 def test_tf_hub_convert_to_embeddings():
     service_registry = register_services.register_services()
-    embeddings = service_registry["stackoverflow_questions"].convert_to_embeddings(
-        target="Hello world"
-    )
+    service = service_registry["stackoverflow_questions"]
+    items = service.get_all()
+
+    assert len(items) > 0, "No items found"
+
+    embeddings = service.convert_to_embeddings(target="Hello world")
 
     assert embeddings is not None, "No embeddings found"
-
+    assert isinstance(embeddings[0], float), "Embedding value is not a float"
     assert np.any(embeddings), "Empty embeddings found"
 
 
 def test_text_to_image_convert_to_embeddings():
     service_registry = register_services.register_services()
-    embeddings = service_registry["text_to_image"].convert_to_embeddings(
-        target="Hello world"
-    )
+    service = service_registry["text_to_image"]
+    items = service.get_all()
+
+    assert len(items) > 0, "No items found"
+
+    embeddings = service.convert_to_embeddings(target="Hello world")
 
     assert embeddings is not None, "No embeddings found"
-
+    assert isinstance(embeddings[0], float), "Embedding value is not a float"
     assert np.any(embeddings), "Empty embeddings found"

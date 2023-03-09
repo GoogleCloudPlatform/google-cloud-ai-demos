@@ -87,7 +87,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 interface ImageSelectionButtonProps {
   item: ItemInfo;
   isSelected: boolean;
-  onSelected?: (item: ItemInfo) => void;
+  onSelected?: () => void;
 }
 
 export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
@@ -97,7 +97,7 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
       key={item.text}
       onClick={() => {
         if (onSelected != null) {
-          onSelected(item);
+          onSelected();
         }
       }}
     >
@@ -132,16 +132,24 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
 };
 interface SelectionListProps {
   items: ItemInfo[];
-  selectedId?: string;
-  onSelected?: (item: ItemInfo) => void;
+  selectedIndex?: number;
+  onSelected?: (item: ItemInfo, index: number) => void;
 }
 
-export const SelectionList = ({ items, selectedId, onSelected }: SelectionListProps) => {
+export const SelectionList = ({ items, selectedIndex, onSelected }: SelectionListProps) => {
   return (
     <ImageList sx={{ width: '100%', maxHeight: '800px', marginTop: 0 }} cols={3}>
-      {items.map((item) => (
-        <ImageListItem key={item.id}>
-          <ImageSelectionButton item={item} isSelected={selectedId == item.id} onSelected={onSelected} />
+      {items.map((item, index) => (
+        <ImageListItem key={index}>
+          <ImageSelectionButton
+            item={item}
+            isSelected={selectedIndex == index}
+            onSelected={() => {
+              if (onSelected != null) {
+                onSelected(item, index);
+              }
+            }}
+          />
         </ImageListItem>
       ))}
     </ImageList>
