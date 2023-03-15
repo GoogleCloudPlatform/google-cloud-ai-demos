@@ -3,11 +3,11 @@ from typing import List, Optional
 
 import numpy as np
 import spacy
-from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index_endpoint,
-)
+from google.cloud.aiplatform.matching_engine import \
+    matching_engine_index_endpoint
 
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from services.match_service import (Item, MatchResult,
+                                    VertexAIMatchingEngineMatchService)
 
 
 class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):

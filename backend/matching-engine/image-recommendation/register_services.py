@@ -14,12 +14,8 @@
 
 import logging
 
-from services import (
-    match_service,
-    spacy_match_service,
-    tf_hub_match_service,
-    text_to_image_match_service,
-)
+from services import (match_service, spacy_match_service,
+                      text_to_image_match_service, tf_hub_match_service)
 
 logger = logging.getLogger(__name__)
 from typing import Dict, List
@@ -52,6 +48,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/780081509674516480",
             deployed_index_id="stackoverflow_questions",
+            redis_host="10.43.4.5",
+            redis_port="6379",
         )
 
         services.append(stackoverflow_questions_match_service_instance)

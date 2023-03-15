@@ -2,13 +2,10 @@ import abc
 import dataclasses
 import functools
 import logging
-
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index,
-    matching_engine_index_endpoint,
-)
+    matching_engine_index, matching_engine_index_endpoint)
 
 T = TypeVar("T")
 

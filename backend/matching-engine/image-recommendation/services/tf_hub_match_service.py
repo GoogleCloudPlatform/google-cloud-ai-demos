@@ -3,15 +3,16 @@ import random
 from typing import List, Optional
 
 import numpy as np
-from google.cloud import bigquery
-from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index_endpoint,
-)
-
+import redis
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text as text  # Registers the ops.
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from google.cloud import bigquery
+from google.cloud.aiplatform.matching_engine import \
+    matching_engine_index_endpoint
+
+from services.match_service import (Item, MatchResult,
+                                    VertexAIMatchingEngineMatchService)
 
 logger = logging.getLogger(__name__)
 
@@ -50,6 +51,8 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         tf_hub_url: str,
         index_endpoint_name: str,
         deployed_index_id: str,
+        redis_host: str,  # Redis host to get data about a match id
+        redis_port: str,  # Redis port to get data about a match id
     ) -> None:
         self._id = id
         self._name = name
@@ -67,6 +70,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
             )
         )
         self.deployed_index_id = deployed_index_id
+        self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
@@ -94,26 +98,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
 
     def get_by_ids(self, ids: List[str]) -> List[Optional[str]]:
         """Get an item by id."""
-        # Get question from Bigquery
-        ids_string = ",".join(ids)
-        query = f"""
-            SELECT id, title
-            FROM `bigquery-public-data.stackoverflow.posts_questions`
-            WHERE id IN ({ids_string})
-        """
-
-        query_job = client.query(query)
-        rows = query_job.result()
-        df = rows.to_dataframe()
-        df.id = df.id.astype(str)
-
-        # Create a boolean mask for the names in the DataFrame that match the names in the list
-        mask = df["id"].isin(ids)
-
-        # Filter the DataFrame using the mask and preserve the order of the names in the list
-        filtered_df = df[mask].set_index("id").reindex(ids)
-
-        return filtered_df.title.fillna(np.nan).replace([np.nan], [None]).tolist()
+        return [self.redis_client.get(str(id)) for id in ids]
 
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = self.encoder(tf.constant([target]))[0]

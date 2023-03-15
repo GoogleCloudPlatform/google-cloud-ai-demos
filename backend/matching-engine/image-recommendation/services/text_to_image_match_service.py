@@ -2,13 +2,13 @@ import random
 from typing import List, Optional
 
 import numpy as np
-from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index_endpoint,
-)
-
-from transformers import CLIPTokenizerFast, CLIPModel
 import torch
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from google.cloud.aiplatform.matching_engine import \
+    matching_engine_index_endpoint
+from transformers import CLIPModel, CLIPTokenizerFast
+
+from services.match_service import (Item, MatchResult,
+                                    VertexAIMatchingEngineMatchService)
 
 
 class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):

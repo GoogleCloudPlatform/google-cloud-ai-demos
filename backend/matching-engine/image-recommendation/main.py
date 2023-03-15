@@ -20,8 +20,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 
-from services import match_service
 import register_services
+from services import match_service
 
 logger = logging.getLogger(__name__)
 from typing import Any, Dict, List, Optional, Tuple

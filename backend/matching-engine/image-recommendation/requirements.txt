@@ -11,3 +11,4 @@ db-dtypes
 pytest
 transformers
 torch
+redis
