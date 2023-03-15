@@ -15,6 +15,7 @@
  */
 
 import { StyledEngineProvider } from '@mui/material';
+import analytics from 'analytics.js';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
 import {
@@ -25,11 +26,21 @@ import {
 } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { AnalyticsProvider, useAnalytics } from 'use-analytics';
 
 const queryClient = new QueryClient();
 
 const AppRoutes = () => {
+  const location = useLocation();
+  const analytics = useAnalytics();
+
+  React.useEffect(() => {
+    analytics.page({
+      url: location.pathname,
+    });
+  }, [location, analytics]);
+
   return (
     <Routes>
       <Route path="/" element={<DemoSelection />} />
@@ -64,7 +75,9 @@ export const LayoutWithRouter = ({ children }: AppProps) => {
 export default () => {
   return (
     <LayoutWithRouter>
-      <AppRoutes />
+      <AnalyticsProvider instance={analytics}>
+        <AppRoutes />
+      </AnalyticsProvider>
     </LayoutWithRouter>
     // <Introduction />
   );

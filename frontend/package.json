@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@analytics/google-analytics": "^1.0.5",
     "@emotion/react": "^11.10.4",
     "@emotion/style": "^0.8.0",
     "@emotion/styled": "^11.10.4",
@@ -18,6 +19,7 @@
     "@types/node": "^16.11.49",
     "@types/react-dom": "^18.0.6",
     "@types/storybook__react": "^5.2.1",
+    "analytics": "^0.8.1",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
     "color-scheme": "^1.0.1",
@@ -45,6 +47,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "recharts": "^2.1.14",
     "typescript": "^4.7.4",
+    "use-analytics": "^0.0.5",
     "use-debounce": "^9.0.3",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
@@ -105,6 +108,7 @@
     "@types/luxon": "^3.0.1",
     "@types/react": "^18.0.17",
     "@types/react-plotly.js": "^2.5.2",
+    "@types/use-analytics": "^0.0.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "babel-plugin-named-exports-order": "^0.0.2",
