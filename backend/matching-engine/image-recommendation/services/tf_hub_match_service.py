@@ -7,17 +7,11 @@ import redis
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text as text  # Registers the ops.
-from google.cloud import bigquery
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
-from services.match_service import (Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
 
 logger = logging.getLogger(__name__)
-
-
-client = bigquery.Client()
 
 
 class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
@@ -81,20 +75,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
 
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
-        # Get question from Bigquery
-        query = f"""
-            SELECT id, title
-            FROM `bigquery-public-data.stackoverflow.posts_questions` where id = {id}
-        """
-
-        query_job = client.query(query)
-        rows = query_job.result()
-        df = rows.to_dataframe()
-
-        if len(df) > 0:
-            return df.loc[0, "title"]
-        else:
-            return None
+        return self.redis_client.get(str(id))
 
     def get_by_ids(self, ids: List[str]) -> List[Optional[str]]:
         """Get an item by id."""
@@ -116,7 +97,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         return [
             MatchResult(
                 text=item,
-                distance=match.distance,
+                distance=1 - match.distance,
                 url=f"https://stackoverflow.com/questions/{match.id}",
             )
             for item, match in zip(items, matches)

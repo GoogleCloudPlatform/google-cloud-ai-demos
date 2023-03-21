@@ -14,8 +14,12 @@
 
 import logging
 
-from services import (match_service, spacy_match_service,
-                      text_to_image_match_service, tf_hub_match_service)
+from services import (
+    match_service,
+    spacy_match_service,
+    text_to_image_match_service,
+    tf_hub_match_service,
+)
 
 logger = logging.getLogger(__name__)
 from typing import Dict, List
@@ -46,9 +50,9 @@ def register_services() -> Dict[str, match_service.MatchService]:
             description="StackOverflow questions encoded using sentence-t5. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
             words_file="data/stackoverflow_questions.txt",
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
-            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/780081509674516480",
-            deployed_index_id="stackoverflow_questions",
-            redis_host="10.43.4.5",
+            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1537671409491247104",
+            deployed_index_id="tmps78c9is_",
+            redis_host="10.43.4.3",
             redis_port="6379",
         )
 

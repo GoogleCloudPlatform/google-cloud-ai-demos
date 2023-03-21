@@ -10,5 +10,5 @@ pandas
 db-dtypes
 pytest
 transformers
-torch
-redis
+redis[hiredis]
+numpy

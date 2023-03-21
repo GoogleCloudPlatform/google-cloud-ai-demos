@@ -22,10 +22,10 @@ from services import match_service, spacy_match_service, tf_hub_match_service
 logger = logging.getLogger(__name__)
 from typing import Dict, List
 
+service_registry = register_services.register_services()
+
 
 def test_spacy_convert_to_embeddings():
-    service_registry = register_services.register_services()
-
     service = service_registry["words"]
     items = service.get_all()
 
@@ -39,7 +39,6 @@ def test_spacy_convert_to_embeddings():
 
 
 def test_tf_hub_convert_to_embeddings():
-    service_registry = register_services.register_services()
     service = service_registry["stackoverflow_questions"]
     items = service.get_all()
 
@@ -53,7 +52,6 @@ def test_tf_hub_convert_to_embeddings():
 
 
 def test_text_to_image_convert_to_embeddings():
-    service_registry = register_services.register_services()
     service = service_registry["text_to_image"]
     items = service.get_all()
 

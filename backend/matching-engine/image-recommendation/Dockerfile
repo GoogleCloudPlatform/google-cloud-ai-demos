@@ -30,12 +30,16 @@ COPY tests tests
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -m spacy download en_core_web_md
-RUN python -c "import register_services; register_services.register_services()"
 
 # Download clip-vit-base-patch32
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN apt install git-lfs
 RUN git lfs install
-RUN git clone https://huggingface.co/openai/clip-vit-base-patch32
+RUN git clone --depth=1 https://huggingface.co/openai/clip-vit-base-patch32
+
+# Remove large, unused files
+RUN rm clip-vit-base-patch32/flax_model.msgpack
+RUN rm clip-vit-base-patch32/pytorch_model.bin
+RUN rm -rf clip-vit-base-patch32/.git
 
 RUN python -m pytest tests/test_match_service.py
