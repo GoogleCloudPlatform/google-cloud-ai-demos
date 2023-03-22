@@ -47,7 +47,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
         stackoverflow_questions_match_service_instance = tf_hub_match_service.TFHubMatchService(
             id="stackoverflow_questions",
             name="StackOverflow",
-            description="StackOverflow questions encoded using sentence-t5. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
+            description="Python-tagged questions from StackOverflow encoded using sentence-t5. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
             words_file="data/stackoverflow_questions.txt",
             tf_hub_url="https://tfhub.dev/google/sentence-t5/st5-base/1",
             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1537671409491247104",

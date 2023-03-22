@@ -16,8 +16,6 @@ logger = logging.getLogger(__name__)
 
 
 class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
-    reverse_scores: bool = True
-
     @property
     def id(self) -> str:
         return self._id
@@ -99,7 +97,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
             MatchResult(
                 text=item,
                 # There is a bug in matching engine where the negative of DOT_PRODUCT_DISTANCE is returned, instead of the distance itself.
-                distance=1 - match.distance,
+                distance=max(0, 1 - match.distance),
                 url=f"https://stackoverflow.com/questions/{match.id}",
             )
             for item, match in zip(items, matches)

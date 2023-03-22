@@ -84,7 +84,6 @@ class MatchService(abc.ABC, Generic[T]):
 class VertexAIMatchingEngineMatchService(MatchService[T]):
     index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
     deployed_index_id: str
-    reverse_scores: bool = False
 
     def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
         logger.info(f"match(target={target}, num_neighbors={num_neighbors})")
@@ -116,15 +115,7 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
 
         logger.info(f"matches none filtered")
 
-        matches_sorted = sorted(
-            matches_all_nonoptional,
-            key=lambda x: x.distance,
-            reverse=self.reverse_scores,
-        )
-
-        logger.info(f"matches sorted")
-
-        return matches_sorted
+        return matches_all_nonoptional
 
     @functools.lru_cache
     def get_total_index_count(self) -> int:
