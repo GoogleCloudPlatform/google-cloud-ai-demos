@@ -28,32 +28,40 @@ export interface MatchResultsProps {
 
 export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps) => {
   const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
+  const [latency, setLatency] = React.useState<number>(-1);
 
   const {
     mutate: performMatch,
     isLoading,
     error,
     data: matchResults,
-  } = useMutation<MatchResponse, Error>(() => {
-    setStartTime(Date.now());
+  } = useMutation<MatchResponse, Error>(
+    () => {
+      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
 
-    console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
-
-    if (searchQuery.length > 0) {
-      return matchByText(matchServiceId, searchQuery);
-    } else {
-      throw new Error('No searchQuery provided');
+      if (searchQuery.length > 0) {
+        return matchByText(matchServiceId, searchQuery);
+      } else {
+        throw new Error('No searchQuery provided');
+      }
+    },
+    {
+      onMutate: () => {
+        setStartTime(Date.now());
+      },
     }
-  });
-
-  let latency = 0;
-  if (matchResults != null && !isLoading && startTime != null) {
-    latency = Date.now() - startTime;
-  }
+  );
 
   React.useEffect(() => {
     performMatch();
   }, [matchServiceId, searchQuery, performMatch]);
+
+  React.useEffect(() => {
+    // performMatch();
+    if (startTime != null && matchResults != null) {
+      setLatency(Date.now() - startTime);
+    }
+  }, [startTime, matchResults]);
 
   if (isLoading) {
     return (
