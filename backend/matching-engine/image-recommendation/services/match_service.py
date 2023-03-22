@@ -5,7 +5,9 @@ import logging
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index, matching_engine_index_endpoint)
+    matching_engine_index,
+    matching_engine_index_endpoint,
+)
 
 T = TypeVar("T")
 
@@ -134,41 +136,3 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
                 for deployed_index in self.index_endpoint.deployed_indexes
             ]
         )
-
-
-# class ImageMatchService(MatchService[models.Image]):
-#     id = "Images"
-
-#     def __init__(self, index_endpoint_name: str, deployed_index_id: str) -> None:
-#         self.index_endpoint = (
-#             matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
-#                 index_endpoint_name=index_endpoint_name
-#             )
-#         )
-#         self.deployed_index_id = deployed_index_id
-
-#     def get_all(self) -> List[Item]:
-#         """Get all existing ids and items."""
-#         return []
-
-#     def get_by_id(self, id: str) -> Optional[T]:
-#         """Get an item by id."""
-#         return None
-
-#     def convert_to_embeddings(self, target: str) -> List[float]:
-#         return []  # TODO
-
-#     def match(
-#         self, target: models.Image, num_neighbors: int
-#     ) -> List[MatchResult]:
-#         embeddings = self.convert_to_embeddings(target=target)
-
-#         response = self.index_endpoint.match(
-#             deployed_index_id=self.deployed_index_id,
-#             queries=[embeddings],
-#             num_neighbors=num_neighbors,
-#         )
-
-#         matches_all = [match for matches in response for match in matches]
-
-#         return sorted(matches_all, key=lambda x: x.distance, reverse=True)

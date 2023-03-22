@@ -7,6 +7,7 @@ import redis
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text as text  # Registers the ops.
+
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
 from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
@@ -97,6 +98,7 @@ class TFHubMatchService(VertexAIMatchingEngineMatchService[str]):
         return [
             MatchResult(
                 text=item,
+                # There is a bug in matching engine where the negative of DOT_PRODUCT_DISTANCE is returned, instead of the distance itself.
                 distance=1 - match.distance,
                 url=f"https://stackoverflow.com/questions/{match.id}",
             )

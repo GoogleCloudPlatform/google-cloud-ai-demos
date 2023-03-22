@@ -68,8 +68,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             description="DiffusionDB images encoded using CLIP. See https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
             prompts_file="data/text_to_image.txt",
             model_id="clip-vit-base-patch32",
-            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/7800067428838277120",
-            deployed_index_id="tmp25ieunbq",
+            index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3889676314885488640",
+            deployed_index_id="tmpy8lywd0h_filtered",
             image_directory_uri="https://storage.googleapis.com/ai-demos/text_to_image",
         )
 
