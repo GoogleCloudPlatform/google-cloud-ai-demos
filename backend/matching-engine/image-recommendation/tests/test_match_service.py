@@ -17,7 +17,8 @@ import logging
 import numpy as np
 
 import register_services
-from services import match_service, sentence_transformer_service, spacy_match_service
+from services import (match_service, sentence_transformer_service,
+                      spacy_match_service)
 
 logger = logging.getLogger(__name__)
 from typing import Dict, List

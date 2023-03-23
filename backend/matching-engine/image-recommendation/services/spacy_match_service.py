@@ -3,11 +3,19 @@ from typing import List, Optional
 
 import numpy as np
 import spacy
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
+from opentelemetry import trace
+from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-from services.match_service import (Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+
+tracer_provider = TracerProvider()
+cloud_trace_exporter = CloudTraceSpanExporter()
+tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
+trace.set_tracer_provider(tracer_provider)
+tracer = trace.get_tracer(__name__)
 
 
 class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
@@ -56,6 +64,7 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         )
         self.deployed_index_id = deployed_index_id
 
+    @tracer.start_as_current_span("get_all")
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
         return random.sample(
@@ -63,10 +72,12 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
             min(num_items, len(self.words)),
         )
 
+    @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
         return id
 
+    @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = np.array(self.nlp.vocab[target].vector.tolist())
 
@@ -75,6 +86,7 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         else:
             return None
 
+    @tracer.start_as_current_span("convert_match_neighbors_to_result")
     def convert_match_neighbors_to_result(
         self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
     ) -> List[Optional[MatchResult]]:

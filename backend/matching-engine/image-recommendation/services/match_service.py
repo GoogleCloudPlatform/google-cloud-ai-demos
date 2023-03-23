@@ -5,9 +5,18 @@ import logging
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index,
-    matching_engine_index_endpoint,
-)
+    matching_engine_index, matching_engine_index_endpoint)
+from opentelemetry import trace
+from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+tracer_provider = TracerProvider()
+cloud_trace_exporter = CloudTraceSpanExporter()
+tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
+trace.set_tracer_provider(tracer_provider)
+tracer = trace.get_tracer(__name__)
+
 
 T = TypeVar("T")
 
@@ -85,6 +94,7 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
     index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
     deployed_index_id: str
 
+    @tracer.start_as_current_span("match")
     def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
         logger.info(f"match(target={target}, num_neighbors={num_neighbors})")
 
@@ -118,6 +128,7 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
         return matches_all_nonoptional
 
     @functools.lru_cache
+    @tracer.start_as_current_span("get_total_index_count")
     def get_total_index_count(self) -> int:
         return sum(
             [

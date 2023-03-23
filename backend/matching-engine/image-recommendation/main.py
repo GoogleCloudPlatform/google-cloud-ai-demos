@@ -19,8 +19,6 @@ import logging
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-
-
 from opentelemetry import trace
 from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
 from opentelemetry.sdk.trace import TracerProvider
@@ -64,7 +62,7 @@ class GetItemsResponse(BaseModel):
 
 @app.get("/match-registry")
 async def get_match_registry():
-    with tracer.start_span(f"match-registry"):
+    with tracer.start_span(f"/match-registry"):
         return [
             {
                 "id": service.id,

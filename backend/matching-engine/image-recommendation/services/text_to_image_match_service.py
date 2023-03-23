@@ -2,14 +2,23 @@ import random
 from typing import List, Optional
 
 import numpy as np
-from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
-
-from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
-
 import torch
+from google.cloud.aiplatform.matching_engine import \
+    matching_engine_index_endpoint
+from opentelemetry import trace
+from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from transformers import CLIPModel, CLIPTokenizerFast
 
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from services.match_service import (Item, MatchResult,
+                                    VertexAIMatchingEngineMatchService)
+
+tracer_provider = TracerProvider()
+cloud_trace_exporter = CloudTraceSpanExporter()
+tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
+trace.set_tracer_provider(tracer_provider)
+tracer = trace.get_tracer(__name__)
 
 
 class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
@@ -71,6 +80,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         # self.processor = CLIPProcessor.from_pretrained(model_id)
         self.model = CLIPModel.from_pretrained(model_id_or_path).to(device)
 
+    @tracer.start_as_current_span("get_all")
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
         return random.sample(
@@ -78,10 +88,12 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
             min(num_items, len(self.prompts)),
         )
 
+    @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
         return f"{self.image_directory_uri}/{id}"
 
+    @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         # create transformer-readable tokens
         inputs = self.tokenizer(target, return_tensors="pt")
@@ -95,6 +107,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         else:
             return None
 
+    @tracer.start_as_current_span("convert_match_neighbors_to_result")
     def convert_match_neighbors_to_result(
         self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
     ) -> List[Optional[MatchResult]]:
