@@ -161,19 +161,6 @@ const sectionInfos = [
       },
     ],
   },
-  {
-    title: 'Speech-to-text',
-    description:
-      'Accurately convert speech into text with an API powered by the best of Google’s AI research and technology.',
-    scenarios: [
-      {
-        title: 'Chess by voice',
-        description: 'Play chess using your voice',
-        image: retailImage,
-        destination: '/demos/speech-to-text/chess',
-      },
-    ],
-  },
 ];
 
 export default () => {

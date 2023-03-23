@@ -18,12 +18,7 @@ import { StyledEngineProvider } from '@mui/material';
 import analytics from 'analytics.js';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
-import {
-  forecastingDemoInfo,
-  imageClassificationDemoInfo,
-  matchingEngineDemoInfo,
-  speechToTextDemoInfo,
-} from 'DemoInfo';
+import { forecastingDemoInfo, imageClassificationDemoInfo, matchingEngineDemoInfo } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
@@ -51,9 +46,7 @@ const AppRoutes = () => {
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       />
       <Route path="/demos/image-classification" element={<DemoWrapper {...imageClassificationDemoInfo} />} />
-      <Route path="/demos/speech-to-text/chess" element={<DemoWrapper {...speechToTextDemoInfo} />} />
       <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
-      {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
     </Routes>
   );
 };
