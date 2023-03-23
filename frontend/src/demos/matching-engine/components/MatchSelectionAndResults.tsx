@@ -69,7 +69,7 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
         <Grid xs={12} md={4}>
           {searchQuery.length > 0 ? (
             <>
-              <Typography variant="h6">Nearest neighbors</Typography>
+              <Typography variant="h6">Search results</Typography>
               <br />
               <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
             </>
