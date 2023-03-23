@@ -4,7 +4,10 @@ from typing import List, Optional
 import numpy as np
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
-from transformers import TFCLIPModel, AutoTokenizer
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
+
+import torch
+from transformers import CLIPModel, CLIPTokenizerFast
 
 from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
 
@@ -35,7 +38,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         name: str,
         description: str,
         prompts_file: str,
-        model_id: str,
+        model_id_or_path: str,
         index_endpoint_name: str,
         deployed_index_id: str,
         image_directory_uri: str,
@@ -56,10 +59,17 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         )
         self.deployed_index_id = deployed_index_id
 
+        # if you have CUDA or MPS, set it to the active device like this
+        device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else ("mps" if torch.backends.mps.is_available() else "cpu")
+        )
+
         # we initialize a tokenizer, image processor, and the model itself
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.tokenizer = CLIPTokenizerFast.from_pretrained(model_id_or_path)
         # self.processor = CLIPProcessor.from_pretrained(model_id)
-        self.model = TFCLIPModel.from_pretrained(model_id)
+        self.model = CLIPModel.from_pretrained(model_id_or_path).to(device)
 
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""
@@ -74,11 +84,11 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
 
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         # create transformer-readable tokens
-        inputs = self.tokenizer(target, return_tensors="tf")
+        inputs = self.tokenizer(target, return_tensors="pt")
 
         # use CLIP to encode tokens into a meaningful embedding
         text_emb = self.model.get_text_features(**inputs)
-        text_emb = text_emb.cpu().numpy()
+        text_emb = text_emb.cpu().detach().numpy()
 
         if np.any(text_emb):
             return text_emb[0].tolist()
