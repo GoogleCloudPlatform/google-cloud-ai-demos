@@ -15,14 +15,13 @@
  */
 
 import { StyledEngineProvider } from '@mui/material';
-import analytics from 'analytics.js';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
 import { forecastingDemoInfo, imageClassificationDemoInfo, matchingEngineDemoInfo } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { AnalyticsProvider, useAnalytics } from 'use-analytics';
+import { useAnalytics } from 'use-analytics';
 
 const queryClient = new QueryClient();
 
@@ -68,9 +67,7 @@ export const LayoutWithRouter = ({ children }: AppProps) => {
 export default () => {
   return (
     <LayoutWithRouter>
-      <AnalyticsProvider instance={analytics}>
-        <AppRoutes />
-      </AnalyticsProvider>
+      <AppRoutes />
     </LayoutWithRouter>
     // <Introduction />
   );

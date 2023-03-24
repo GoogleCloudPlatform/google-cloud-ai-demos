@@ -1,9 +1,8 @@
-/* example file src/analytics.js */
 import googleAnalytics from '@analytics/google-analytics';
 import Analytics from 'analytics';
 
 const analytics = Analytics({
-  app: 'awesome-app',
+  app: 'ai-demos',
   plugins: [
     googleAnalytics({
       measurementIds: [process.env.REACT_APP_GA_MEASUREMENT_ID],

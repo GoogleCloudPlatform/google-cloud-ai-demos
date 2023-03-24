@@ -16,19 +16,23 @@
 
 import './index.css';
 
+import analytics from 'AnalyticsService';
 import App from 'App';
 import BuiltOnVertexAIWrapper from 'common/components/BuiltOnVertexAIWrapper';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from 'reportWebVitals';
+import { AnalyticsProvider } from 'use-analytics';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <BuiltOnVertexAIWrapper>
-      <App />
-    </BuiltOnVertexAIWrapper>
+    <AnalyticsProvider instance={analytics}>
+      <BuiltOnVertexAIWrapper>
+        <App />
+      </BuiltOnVertexAIWrapper>
+    </AnalyticsProvider>
   </React.StrictMode>
 );
 
