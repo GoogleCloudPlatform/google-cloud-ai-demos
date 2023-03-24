@@ -39,7 +39,7 @@
         {
             "name": "Cloud Run: Build and deploy docker image",
             "request": "launch",
-            "command": "gcloud beta run deploy built-on-vertex-ai-backend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1",
+            "command": "gcloud beta run deploy ai-demos-backend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1",
             "type": "node-terminal"
         },
     ]

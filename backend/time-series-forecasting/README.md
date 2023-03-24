@@ -1,4 +1,4 @@
-# Built on Vertex AI: Time-series Forecasting Backend
+# AI Demos: Time-series Forecasting Backend
 
 This is the backend code for "Built on Vertex AI".
 
