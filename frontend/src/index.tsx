@@ -18,7 +18,7 @@ import './index.css';
 
 import analytics from 'AnalyticsService';
 import App from 'App';
-import BuiltOnVertexAIWrapper from 'common/components/BuiltOnVertexAIWrapper';
+import AIDemosWrapper from 'common/components/BuiltOnVertexAIWrapper';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from 'reportWebVitals';
@@ -29,9 +29,9 @@ root.render(
   <React.StrictMode>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <AnalyticsProvider instance={analytics}>
-      <BuiltOnVertexAIWrapper>
+      <AIDemosWrapper>
         <App />
-      </BuiltOnVertexAIWrapper>
+      </AIDemosWrapper>
     </AnalyticsProvider>
   </React.StrictMode>
 );
