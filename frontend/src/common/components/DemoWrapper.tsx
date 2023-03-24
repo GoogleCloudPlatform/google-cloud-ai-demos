@@ -48,7 +48,7 @@ interface DemoWrapperProps {
 }
 
 const DemoWrapper = ({ initialTabIndex, title, subtitle, sections }: DemoWrapperProps) => {
-  const [tab, setTab] = React.useState<number>(initialTabIndex ?? 0);
+  const [selectedTabIndex, setTab] = React.useState<number>(initialTabIndex ?? 0);
 
   const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: number) => {
     if (newTab !== null) {
@@ -70,7 +70,7 @@ const DemoWrapper = ({ initialTabIndex, title, subtitle, sections }: DemoWrapper
           {subtitle}
         </Typography>
         <Box alignSelf="center">
-          <ToggleButtonGroup color="primary" value={tab} exclusive onChange={handleChange}>
+          <ToggleButtonGroup color="primary" value={selectedTabIndex} exclusive onChange={handleChange}>
             {sections.map((section, index) => (
               <ToggleButton key={index} value={index}>
                 {section.buttonText}
@@ -92,10 +92,10 @@ const DemoWrapper = ({ initialTabIndex, title, subtitle, sections }: DemoWrapper
             paddingRight: 3,
           }}
         >
-          <Typography variant="body2">{sections[tab].title}</Typography>
+          <Typography variant="body2">{sections[selectedTabIndex].title}</Typography>
         </Divider>
         <Box padding={3} marginTop={3}>
-          <DemoTheming>{sections[tab].element}</DemoTheming>
+          <DemoTheming>{sections[selectedTabIndex].element}</DemoTheming>
         </Box>
       </Box>
     </Stack>

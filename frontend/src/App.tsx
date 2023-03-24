@@ -17,14 +17,24 @@
 import { StyledEngineProvider } from '@mui/material';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
-import { forecastingDemoInfo, imageClassificationDemoInfo } from 'DemoInfo';
+import { forecastingDemoInfo, imageClassificationDemoInfo, matchingEngineDemoInfo } from 'DemoInfo';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useAnalytics } from 'use-analytics';
 
 const queryClient = new QueryClient();
 
 const AppRoutes = () => {
+  const location = useLocation();
+  const analytics = useAnalytics();
+
+  React.useEffect(() => {
+    analytics.page({
+      url: location.pathname,
+    });
+  }, [location, analytics]);
+
   return (
     <Routes>
       <Route path="/" element={<DemoSelection />} />
@@ -35,7 +45,7 @@ const AppRoutes = () => {
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       />
       <Route path="/demos/image-classification" element={<DemoWrapper {...imageClassificationDemoInfo} />} />
-      {/* <Route path="/historical_forecasts" element={<ForecastJobs />} /> */}
+      <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
     </Routes>
   );
 };

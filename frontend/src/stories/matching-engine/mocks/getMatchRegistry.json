@@ -1,0 +1,20 @@
+[
+    {
+        "id": "words",
+        "name": "English words",
+        "description": "Common English words encoded using spaCy embeddings",
+        "allowsTextInput": false
+    },
+    {
+        "id": "stackoverflow_questions",
+        "name": "StackOverflow",
+        "description": "StackOverflow questions encoded using sentence-t5.",
+        "allowsTextInput": true
+    },    
+    {
+        "id": "text_to_image",
+        "name": "Text to image",
+        "description": "DiffusionDB images encoded using CLIP.",
+        "allowsTextInput": true
+    }
+]

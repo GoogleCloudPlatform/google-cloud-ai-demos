@@ -1,0 +1,20 @@
+fastapi
+uvicorn[standard]
+google-cloud-aiplatform
+google-cloud-storage
+spacy
+tensorflow
+# tensorflow_hub
+# tensorflow_text
+sentence-transformers
+torch
+pandas
+db-dtypes
+pytest
+transformers
+redis[hiredis]
+numpy
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-gcp-trace
+

@@ -44,7 +44,7 @@ gcloud run deploy built-on-vertex-ai-frontend --source . --region=us-central1 --
 ```
 
 This packages the frontend into an image using the Dockerfile and saves it in the Google Container Registry.
-You can then take this image and deploy it on Google Cloud Run.
+It then deploys the image right away.
 
 #### Option 2. Build a container using Google Cloud Build
 
@@ -53,7 +53,11 @@ gcloud builds submit --tag gcr.io/your-project-name/built-on-vertex-ai-frontend
 ```
 
 This uses the Dockerfile to build the frontend container and save it in the Google Container Registry.
-This can then be deployed to Cloud Run or other platforms.
+This can then be deployed to Cloud Run using the following command:
+
+```
+gcloud run deploy image-processing-frontend --image gcr.io/your-project-name/built-on-vertex-ai-frontend --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --min-instances=0
+```
 
 See [Deploy a Python service to Cloud Run](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service) for more information.
 

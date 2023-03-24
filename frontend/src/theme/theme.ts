@@ -28,6 +28,7 @@ declare module '@mui/material/Typography' {
 }
 
 const theme = createTheme({
+  components: {},
   direction: 'ltr',
   mixins: {
     toolbar: {

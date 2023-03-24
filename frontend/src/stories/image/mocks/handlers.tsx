@@ -20,13 +20,13 @@ import getImageClassificationResultsJSON from './getImageClassificationResults.j
 import getImagesJSON from './getImages.json';
 
 const backendApi = (path: string) => {
-  return new URL(path, process.env.REACT_APP_API_SERVER_IMAGE_CLASSIFICATION).toString();
+  return new URL(path, process.env.REACT_APP_API_SERVER_MATCHING_ENGINE).toString();
 };
 
 export const getImages = rest.get(backendApi('images'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getImagesJSON));
 });
 
-export const getImageClassificationResults = rest.post(backendApi('classify_image'), (req, res, ctx) => {
+export const getImageClassificationResults = rest.post(backendApi('classify-image'), (req, res, ctx) => {
   return res(ctx.status(200), ctx.json(getImageClassificationResultsJSON));
 });
