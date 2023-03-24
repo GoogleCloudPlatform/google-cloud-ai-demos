@@ -114,13 +114,14 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
       <Image>
         <Typography
           component="span"
-          variant={isSelected ? 'h4' : 'h6'}
+          variant="h4"
           color="inherit"
           sx={{
             position: 'relative',
             p: 4,
             pt: 2,
             pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+            fontWeight: isSelected ? 'bold' : 'null',
           }}
         >
           {item.text}

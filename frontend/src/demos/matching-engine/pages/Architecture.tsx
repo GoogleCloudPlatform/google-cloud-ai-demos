@@ -24,7 +24,7 @@ import GitHubButton from 'react-github-btn';
 export default () => (
   <Container maxWidth="xl">
     <Grid container spacing={7}>
-      <Grid xs={12} md={4}>
+      <Grid md={12} lg={4}>
         <Typography variant="h6">Architecture</Typography>
         <Typography variant="body1">
           The demo consists of a React frontend served via nginx and hosted on Cloud Run.
@@ -65,10 +65,13 @@ export default () => (
           Star
         </GitHubButton>
       </Grid>
-      <Grid xs={12} md={8}>
-        {/* <Box padding={7}> */}
-        <SvgIcon component={ArchitectureImage} inheritViewBox sx={{ m: '12px', height: '400px', width: '800px' }} />
-        {/* </Box> */}
+      <Grid md={12} lg={8}>
+        <SvgIcon
+          onClick={() => window.open('demos/matching-engine/static/architecture.svg', '_blank')}
+          component={ArchitectureImage}
+          viewBox="0 0 2240 920"
+          sx={{ minHeight: '500px', width: '100%' }}
+        />
       </Grid>
     </Grid>
   </Container>
