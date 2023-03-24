@@ -30,7 +30,8 @@ In the project directory, you can run:
 3. In this file, add the following with the appropriate value for `<BACKEND_URI>`. Repeat this for each backend service:
 
 ```
-REACT_APP_API_SERVER_TIME_SERIES_FORECASTING=<BACKEND_URI>
+REACT_APP_API_SERVER_TIME_SERIES_FORECASTING=<TIME_SERIES_BACKEND_URI>
+REACT_APP_API_SERVER_MATCHING_ENGINE=<MATCHING_ENGINE_BACKEND_URI>
 ```
 
 TODO: List the other envvars for the other backend services here.
