@@ -74,17 +74,17 @@ async def get_match_registry():
     ]
 
 
-@tracer.start_as_current_span(f"/items/{match_service_id}")
 @app.get("/items/{match_service_id}")
 async def get_items(match_service_id: str):
-    service = match_service_registry.get(match_service_id)
-    if service:
-        return GetItemsResponse(items=service.get_all())
-    else:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Match service not found for id: {match_service_id}",
-        )
+    with tracer.start_as_current_span(f"/items/{match_service_id}"):
+        service = match_service_registry.get(match_service_id)
+        if service:
+            return GetItemsResponse(items=service.get_all())
+        else:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Match service not found for id: {match_service_id}",
+            )
 
 
 class MatchByIdRequest(BaseModel):
