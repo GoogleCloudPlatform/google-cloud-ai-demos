@@ -45,9 +45,8 @@ RUN rm -rf clip-vit-base-patch32/.git
 
 # Download sentence-transformers/sentence-t5-base
 RUN git clone --depth=1 https://huggingface.co/sentence-transformers/sentence-t5-base
-# # Remove large, unused files
-# RUN rm clip-vit-base-patch32/flax_model.msgpack
-# RUN rm clip-vit-base-patch32/pytorch_model.bin
-# RUN rm -rf clip-vit-base-patch32/.git
+# Remove large, unused files
+RUN rm sentence-t5-base/rust_model.ot
+RUN rm -rf sentence-t5-base/.git
 
 RUN python -m pytest tests/test_match_service.py
