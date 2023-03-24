@@ -60,31 +60,31 @@ class GetItemsResponse(BaseModel):
     items: List[match_service.Item]
 
 
+@tracer.start_as_current_span(f"/match-registry")
 @app.get("/match-registry")
 async def get_match_registry():
-    with tracer.start_span(f"/match-registry"):
-        return [
-            {
-                "id": service.id,
-                "name": service.name,
-                "description": service.description,
-                "allowsTextInput": service.allows_text_input,
-            }
-            for service in match_service_registry.values()
-        ]
+    return [
+        {
+            "id": service.id,
+            "name": service.name,
+            "description": service.description,
+            "allowsTextInput": service.allows_text_input,
+        }
+        for service in match_service_registry.values()
+    ]
 
 
+@tracer.start_as_current_span(f"/items/{match_service_id}")
 @app.get("/items/{match_service_id}")
 async def get_items(match_service_id: str):
-    with tracer.start_span(f"/items/{match_service_id}"):
-        service = match_service_registry.get(match_service_id)
-        if service:
-            return GetItemsResponse(items=service.get_all())
-        else:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Match service not found for id: {match_service_id}",
-            )
+    service = match_service_registry.get(match_service_id)
+    if service:
+        return GetItemsResponse(items=service.get_all())
+    else:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Match service not found for id: {match_service_id}",
+        )
 
 
 class MatchByIdRequest(BaseModel):
@@ -107,7 +107,7 @@ class MatchResponse:
 async def match_by_id(
     match_service_id: str, request: MatchByIdRequest
 ) -> MatchResponse:
-    with tracer.start_span(f"/match-by-id/{match_service_id}"):
+    with tracer.start_as_current_span(f"/match-by-id/{match_service_id}"):
         service = match_service_registry.get(match_service_id)
 
         if not service:
@@ -141,7 +141,7 @@ async def match_by_id(
 async def match_by_text(
     match_service_id: str, request: MatchByTextRequest
 ) -> MatchResponse:
-    with tracer.start_span(f"/match-by-text/{match_service_id}"):
+    with tracer.start_as_current_span(f"/match-by-text/{match_service_id}"):
         service = match_service_registry.get(match_service_id)
 
         if not service:
