@@ -72,13 +72,16 @@ export default () => {
             ))}
           </ToggleButtonGroup>
         </Box>
-        <Typography variant="body2" align="center">
+        <Typography variant="body1" align="center">
           {selectedServiceInfo.description}
         </Typography>
         {selectedServiceInfo.code != null ? (
           <Box alignSelf="center">
             <Alert severity="info" sx={{ width: 'fit-content' }}>
-              See code at <a href={selectedServiceInfo.code.url}>{selectedServiceInfo.code.title}</a>
+              See code at{' '}
+              <a href={selectedServiceInfo.code.url} target="_blank" rel="noreferrer">
+                {selectedServiceInfo.code.title}
+              </a>
             </Alert>
           </Box>
         ) : null}
