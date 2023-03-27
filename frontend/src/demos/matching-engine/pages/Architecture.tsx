@@ -44,7 +44,11 @@ export default () => (
         <br />
         <Typography variant="overline">Similarity Search</Typography>
         <Typography variant="body2">
-          The demo uses Matching Engine to do vector similarity search at scale. Matching Engine requires a{' '}
+          The demo uses{' '}
+          <a href="https://cloud.google.com/vertex-ai/docs/matching-engine/overview" target="_blank" rel="noreferrer">
+            Matching Engine
+          </a>{' '}
+          to do vector similarity search at scale. Matching Engine requires a{' '}
           <a href="https://cloud.google.com/vpc/docs/vpc" target="_blank" rel="noreferrer">
             VPC network
           </a>{' '}
@@ -52,6 +56,23 @@ export default () => (
           <a href="https://cloud.google.com/vpc/docs/serverless-vpc-access" target="_blank" rel="noreferrer">
             Serverless VPC connector
           </a>
+        </Typography>
+        <br />
+        <Typography variant="overline">Memorystore</Typography>
+        <Typography variant="body2">
+          <a href="https://cloud.google.com/memorystore/docs/redis/redis-overview" target="_blank" rel="noreferrer">
+            Memorystore
+          </a>{' '}
+          is a low-latency key-value database used to retrieve hydrate data that is retrieved from Matching Engine. For
+          example, given a StackOverflow question id, we use Memorystore to retrieval the question title.
+        </Typography>
+        <br />
+        <Typography variant="overline">Cloud Vision</Typography>
+        <Typography variant="body2">
+          <a href="https://cloud.google.com/vision" target="_blank" rel="noreferrer">
+            Cloud Vision
+          </a>{' '}
+          is used to filter out explicit images for the text-to-image dataset.
         </Typography>
         <br />
         <Typography variant="h6">Deploy</Typography>

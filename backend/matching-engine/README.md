@@ -18,7 +18,15 @@ Run these commands from the same folder as this README.md file.
 
 #### Prerequisite
 
+##### Set up VPC network
+
 Make sure you already have a VPC network set up. See [Create Vertex AI Matching Engine index](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_for_indexing.ipynb) for details.
+
+##### Create Matching Engine indexes and update register_services.py
+
+1. Create embeddings and indexes
+   See [Matching Engine notebooks](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine) for code to convert text and images to embeddings and create indexes.
+2. Update register_services.py to point to your indexes.
 
 #### 1. Build and deploy to Google Cloud Run in one step
 
