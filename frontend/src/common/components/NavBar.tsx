@@ -31,8 +31,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as VertexAIIcon } from 'static/vertex-ai-36-color.svg';
 
-const pages = [
-  { displayName: 'More demos', to: '/' },
+const pages: { displayName: string; to: string }[] = [
+  // { displayName: 'More demos', to: '/' },
   // { displayName: 'Chat with us', to: '/chat' },
 ];
 

@@ -1,4 +1,4 @@
-# AI Demos: Time-series Forecasting Backend
+# AI Demos: Matching Engine Backend
 
 This is the backend code for "Built on Vertex AI".
 
@@ -6,7 +6,6 @@ It uses the following packages:
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Google Vertex AI SDK for Python](https://cloud.google.com/vertex-ai/docs/start/use-vertex-ai-python-sdk#install-vertex-ai-python-sdk)
-- [Google BigQuery SDK for Python](https://github.com/googleapis/python-bigquery)
 
 ## Available Commands
 

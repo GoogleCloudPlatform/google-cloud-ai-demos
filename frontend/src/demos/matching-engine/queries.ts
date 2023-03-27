@@ -37,6 +37,7 @@ export interface MatchServiceInfo {
   name: string;
   description: string;
   allowsTextInput: boolean;
+  code?: { url: string; title: string };
 }
 
 export async function getMatchServiceInfo(): Promise<MatchServiceInfo[]> {

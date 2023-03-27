@@ -25,7 +25,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from sentence_transformers import SentenceTransformer
 
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from services.match_service import CodeInfo, Item, MatchResult, VertexAIMatchingEngineMatchService
 
 tracer_provider = TracerProvider()
 cloud_trace_exporter = CloudTraceSpanExporter()
@@ -56,6 +56,11 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
         """If true, this service allows text input."""
         return True
 
+    @property
+    def code_info(self) -> Optional[CodeInfo]:
+        """Info about code used to generate index."""
+        return self._code_info
+    
     def __init__(
         self,
         id: str,
@@ -67,10 +72,12 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
         deployed_index_id: str,
         redis_host: str,  # Redis host to get data about a match id
         redis_port: str,  # Redis port to get data about a match id
+        code_info: Optional[CodeInfo]
     ) -> None:
         self._id = id
         self._name = name
         self._description = description
+        self._code_info = code_info
 
         with open(words_file, "r") as f:
             questions = f.readlines()

@@ -51,13 +51,16 @@ export default () => {
     }
   };
 
+  const selectedServiceInfo =
+    matchServiceInfos != null && matchServiceInfos.length > 0 ? matchServiceInfos[selectedTabIndex] : null;
+
   if (isLoading) {
     return (
       <Alert icon={<CircularProgress size={3} />} severity="info">
         Loading...
       </Alert>
     );
-  } else if (matchServiceInfos != null && matchServiceInfos.length > 0) {
+  } else if (matchServiceInfos != null && selectedServiceInfo != null) {
     return (
       <Stack spacing={2} flex="none">
         <Box alignSelf="center">
@@ -70,8 +73,15 @@ export default () => {
           </ToggleButtonGroup>
         </Box>
         <Typography variant="body2" align="center">
-          {matchServiceInfos[selectedTabIndex].description}
+          {selectedServiceInfo.description}
         </Typography>
+        {selectedServiceInfo.code != null ? (
+          <Box alignSelf="center">
+            <Alert severity="info" sx={{ width: 'fit-content' }}>
+              See code at <a href={selectedServiceInfo.code.url}>{selectedServiceInfo.code.title}</a>
+            </Alert>
+          </Box>
+        ) : null}
         <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />
       </Stack>
     );

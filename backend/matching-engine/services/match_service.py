@@ -51,6 +51,10 @@ class Item:
     id: Optional[str]
     image: Optional[str]
 
+@dataclasses.dataclass
+class CodeInfo:
+    url: str
+    title: str
 
 class MatchService(abc.ABC, Generic[T]):
     @abc.abstractproperty
@@ -73,6 +77,11 @@ class MatchService(abc.ABC, Generic[T]):
         """If true, this service allows text input."""
         return False
 
+    @property
+    def code_info(self) -> Optional[CodeInfo]:
+        """Info about code used to generate index."""
+        return None
+    
     @abc.abstractmethod
     def get_all(self, num_items: int = 60) -> List[Item]:
         """Get all existing ids and items."""

@@ -25,7 +25,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from transformers import CLIPModel, CLIPTokenizerFast
 
-from services.match_service import (Item, MatchResult,
+from services.match_service import (CodeInfo, Item, MatchResult,
                                     VertexAIMatchingEngineMatchService)
 
 tracer_provider = TracerProvider()
@@ -55,6 +55,11 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         """If true, this service allows text input."""
         return True
 
+    @property
+    def code_info(self) -> Optional[CodeInfo]:
+        """Info about code used to generate index."""
+        return self._code_info
+    
     def __init__(
         self,
         id: str,
@@ -65,11 +70,13 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         index_endpoint_name: str,
         deployed_index_id: str,
         image_directory_uri: str,
+        code_info: Optional[CodeInfo]
     ) -> None:
         self._id = id
         self._name = name
         self._description = description
         self.image_directory_uri = image_directory_uri
+        self._code_info = code_info
 
         with open(prompts_file, "r") as f:
             prompts = f.readlines()

@@ -23,7 +23,7 @@ from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-from services.match_service import Item, MatchResult, VertexAIMatchingEngineMatchService
+from services.match_service import CodeInfo, Item, MatchResult, VertexAIMatchingEngineMatchService
 
 tracer_provider = TracerProvider()
 cloud_trace_exporter = CloudTraceSpanExporter()
@@ -52,6 +52,11 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         """If true, this service allows text input."""
         return False
 
+    @property
+    def code_info(self) -> Optional[CodeInfo]:
+        """Info about code used to generate index."""
+        return self._code_info
+    
     def __init__(
         self,
         id: str,
@@ -60,10 +65,12 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         words_file: str,
         index_endpoint_name: str,
         deployed_index_id: str,
+        code_info: Optional[CodeInfo]
     ) -> None:
         self._id = id
         self._name = name
         self._description = description
+        self._code_info = code_info
 
         with open(words_file, "r") as f:
             words = f.readlines()

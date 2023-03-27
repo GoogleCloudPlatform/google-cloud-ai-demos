@@ -69,6 +69,7 @@ async def get_match_registry():
             "name": service.name,
             "description": service.description,
             "allowsTextInput": service.allows_text_input,
+            "code": service.code_info
         }
         for service in match_service_registry.values()
     ]

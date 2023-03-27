@@ -16,7 +16,7 @@
 # https://hub.docker.com/_/python
 FROM tiangolo/uvicorn-gunicorn:python3.9
 
-WORKDIR app
+WORKDIR /app
 
 COPY requirements.txt .
 COPY main.py .
