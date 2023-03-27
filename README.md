@@ -11,7 +11,7 @@ See the hosted demo at https://ai-demos.dev/
 
 This is the list of demos included.
 
-| Demo                    | Description                                                                                                                                   |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Matching engine         | This live demo showcases a text and image search engine app powered by Vertex AI Matching Engine                                              |
-| Time-series forecasting | This live demo showcases a forecasting app built with React, Material UI, Google Cloud Run, Google Cloud BigQuery and Google Cloud Vertex AI. |
+| Demo                                                                          | Description                                                                                                                                   |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Matching engine](https://ai-demos.dev/demos/matching-engine)                 | This live demo showcases a text and image search engine app powered by Vertex AI Matching Engine                                              |
+| [Time-series forecasting](https://ai-demos.dev/demos/time-series-forecasting) | This live demo showcases a forecasting app built with React, Material UI, Google Cloud Run, Google Cloud BigQuery and Google Cloud Vertex AI. |
