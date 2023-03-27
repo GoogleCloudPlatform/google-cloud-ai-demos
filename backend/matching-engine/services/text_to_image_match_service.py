@@ -90,7 +90,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         self.deployed_index_id = deployed_index_id
 
         # if you have CUDA or MPS, set it to the active device like this
-        device = (
+        self.device = (
             "cuda"
             if torch.cuda.is_available()
             else ("mps" if torch.backends.mps.is_available() else "cpu")
@@ -99,7 +99,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         # we initialize a tokenizer, image processor, and the model itself
         self.tokenizer = CLIPTokenizerFast.from_pretrained(model_id_or_path)
         # self.processor = CLIPProcessor.from_pretrained(model_id)
-        self.model = CLIPModel.from_pretrained(model_id_or_path).to(device)
+        self.model = CLIPModel.from_pretrained(model_id_or_path).to(self.device)
 
     @tracer.start_as_current_span("get_all")
     def get_all(self, num_items: int = 60) -> List[Item]:
@@ -117,7 +117,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
         # create transformer-readable tokens
-        inputs = self.tokenizer(target, return_tensors="pt")
+        inputs = self.tokenizer(target, return_tensors="pt").to(self.device)
 
         # use CLIP to encode tokens into a meaningful embedding
         text_emb = self.model.get_text_features(**inputs)
