@@ -33,7 +33,15 @@ export default () => (
         <Typography variant="overline">Frontend</Typography>
         <Typography variant="body2">
           The frontend is built using React and Material UI. It is served using NGINX. This is then containerized and
-          served on Cloud Run.
+          served on{' '}
+          <a
+            href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cloud Run
+          </a>
+          .
         </Typography>
         <br />
         <Typography variant="overline">Backend</Typography>
@@ -51,10 +59,10 @@ export default () => (
         <Typography variant="h6">Deploy</Typography>
         <Typography variant="body1">See the Github repo for deployment instructions</Typography>
         <GitHubButton
-          href="https://github.com/ivanmkc/forecasting-live-demo-frontend"
+          href="https://github.com/googlecloudplatform/google-cloud-ai-demos"
           data-size="large"
           data-show-count="true"
-          aria-label="Star ivanmkc/forecasting-live-demo-frontend on GitHub"
+          aria-label="Star googlecloudplatform/google-cloud-ai-demos on GitHub"
         >
           Star
         </GitHubButton>

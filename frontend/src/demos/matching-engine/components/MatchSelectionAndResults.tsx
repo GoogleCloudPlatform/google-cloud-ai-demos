@@ -61,6 +61,8 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
                   }
                 }
 
+                setSearchQuery('');
+                setSelectedIndex(undefined);
                 setSelectedIndex(index);
               }}
             />

@@ -33,7 +33,14 @@ export default () => (
         <Typography variant="overline">Frontend</Typography>
         <Typography variant="body2">
           The frontend is built using React and Material UI. It is served using NGINX. This is then containerized and
-          served on Cloud Run.
+          served on{' '}
+          <a
+            href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cloud Run
+          </a>
         </Typography>
         <br />
         <Typography variant="overline">Backend</Typography>
@@ -63,8 +70,8 @@ export default () => (
           <a href="https://cloud.google.com/memorystore/docs/redis/redis-overview" target="_blank" rel="noreferrer">
             Memorystore
           </a>{' '}
-          is a low-latency key-value database used to retrieve hydrate data that is retrieved from Matching Engine. For
-          example, given a StackOverflow question id, we use Memorystore to retrieval the question title.
+          is a low-latency key-value database used to hydrate data that is retrieved from Matching Engine. For example,
+          given a StackOverflow question id, we use Memorystore to retrieve the question title.
         </Typography>
         <br />
         <Typography variant="overline">Cloud Vision</Typography>
