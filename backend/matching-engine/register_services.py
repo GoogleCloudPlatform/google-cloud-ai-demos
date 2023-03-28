@@ -14,16 +14,7 @@
 
 import logging
 import traceback
-from opentelemetry import trace
-from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
-tracer_provider = TracerProvider()
-cloud_trace_exporter = CloudTraceSpanExporter()
-tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
-trace.set_tracer_provider(tracer_provider)
-tracer = trace.get_tracer(__name__)
+import tracer_helper
 
 from services import (
     match_service,
@@ -31,9 +22,11 @@ from services import (
     spacy_match_service,
     text_to_image_match_service,
 )
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
-from typing import Dict, List
+tracer = tracer_helper.get_tracer(__name__)
+
 
 
 @tracer.start_as_current_span("register_services")
@@ -67,8 +60,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
                 description="Python-tagged questions from StackOverflow encoded using sentence-t5.",
                 words_file="data/stackoverflow_questions.txt",
                 sentence_transformer_id_or_path="sentence-t5-base",
-                index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1537671409491247104",
-                deployed_index_id="tmps78c9is_",
+                index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/6289813441297252352",
+                deployed_index_id="tmp9w803to2",
                 redis_host="10.43.4.3",
                 redis_port="6379",
                 code_info=match_service.CodeInfo(url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb", title="Using Vertex AI Matching Engine for StackOverflow Questions")

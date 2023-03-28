@@ -13,30 +13,22 @@
 # limitations under the License.
 
 import dataclasses
-import datetime
 import logging
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from opentelemetry import trace
-from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
-tracer_provider = TracerProvider()
-cloud_trace_exporter = CloudTraceSpanExporter()
-tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
-trace.set_tracer_provider(tracer_provider)
-tracer = trace.get_tracer(__name__)
 
 import register_services
 from services import match_service
 
-logger = logging.getLogger(__name__)
+import tracer_helper
 from typing import Any, Dict, List, Optional, Tuple
 
 from pydantic import BaseModel
+
+logger = logging.getLogger(__name__)
+tracer = tracer_helper.get_tracer(__name__)
 
 app = FastAPI()
 

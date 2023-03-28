@@ -20,21 +20,13 @@ from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
     matching_engine_index, matching_engine_index_endpoint)
-from opentelemetry import trace
-from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-tracer_provider = TracerProvider()
-cloud_trace_exporter = CloudTraceSpanExporter()
-tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
-trace.set_tracer_provider(tracer_provider)
-tracer = trace.get_tracer(__name__)
-
+import tracer_helper
 
 T = TypeVar("T")
 
 logger = logging.getLogger(__name__)
+tracer = tracer_helper.get_tracer(__name__)
 
 
 @dataclasses.dataclass

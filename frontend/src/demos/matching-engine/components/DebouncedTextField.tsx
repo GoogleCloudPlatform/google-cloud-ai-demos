@@ -15,17 +15,16 @@
  */
 
 import TextField from '@mui/material/TextField';
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDebounce } from 'use-debounce';
 
 interface DebouncedTextFieldProps {
-  textChanged: (text: string) => void;
   text: string;
   setText: (text: string) => void;
+  textChanged: (text: string) => void;
 }
 
-const DebouncedTextField = ({ textChanged, text, setText }: DebouncedTextFieldProps) => {
+const DebouncedTextField = ({ text, setText, textChanged }: DebouncedTextFieldProps) => {
   const [debouncedValue] = useDebounce(text, 500);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

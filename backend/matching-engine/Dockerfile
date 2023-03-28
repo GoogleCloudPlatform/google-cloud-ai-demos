@@ -22,6 +22,7 @@ COPY requirements.txt .
 COPY main.py .
 COPY models.py .
 COPY register_services.py .
+COPY tracer_helper .
 COPY data data
 COPY services services
 COPY tests tests

@@ -18,19 +18,10 @@ from typing import List, Optional
 import numpy as np
 import spacy
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
-from opentelemetry import trace
-from opentelemetry.exporter.cloud_trace import CloudTraceSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
 from services.match_service import CodeInfo, Item, MatchResult, VertexAIMatchingEngineMatchService
 
-tracer_provider = TracerProvider()
-cloud_trace_exporter = CloudTraceSpanExporter()
-tracer_provider.add_span_processor(BatchSpanProcessor(cloud_trace_exporter))
-trace.set_tracer_provider(tracer_provider)
-tracer = trace.get_tracer(__name__)
-
+import tracer_helper
+tracer = tracer_helper.get_tracer(__name__)
 
 class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     @property

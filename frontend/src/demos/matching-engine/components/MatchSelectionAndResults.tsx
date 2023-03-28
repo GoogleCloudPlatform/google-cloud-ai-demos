@@ -33,6 +33,11 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
 
+  React.useEffect(() => {
+    setTextFieldText('');
+    setSelectedIndex(undefined);
+  }, [matchServiceId]);
+
   return (
     <Container maxWidth="xl">
       <Grid container spacing={7}>
@@ -61,8 +66,6 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
                   }
                 }
 
-                setSearchQuery('');
-                setSelectedIndex(undefined);
                 setSelectedIndex(index);
               }}
             />
