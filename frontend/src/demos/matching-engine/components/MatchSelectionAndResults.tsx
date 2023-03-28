@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, AlertTitle, CircularProgress, Container, Stack, Typography } from '@mui/material';
+import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import DebouncedTextField from 'demos/matching-engine/components/DebouncedTextField';
 import { MatchResults } from 'demos/matching-engine/components/MatchResults';
 import { SelectionList } from 'demos/matching-engine/components/SelectionList';
 import { getItems, ItemInfo, ItemInfosResponse, MatchServiceInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
+import { useDebounce } from 'use-debounce';
 
 interface MatchFlowProps {
   matchServiceId: string;
@@ -32,11 +32,18 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
   const [textFieldText, setTextFieldText] = React.useState<string>('');
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [debouncedValue] = useDebounce(textFieldText, 500);
 
   React.useEffect(() => {
     setTextFieldText('');
+    setSearchQuery('');
     setSelectedIndex(undefined);
   }, [matchServiceId]);
+
+  React.useEffect(() => {
+    console.log(`setSearchQuery(${debouncedValue});`);
+    setSearchQuery(debouncedValue);
+  }, [debouncedValue, setSearchQuery]);
 
   return (
     <Container maxWidth="xl">
@@ -44,12 +51,16 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
         <Grid xs={12} md={8}>
           <Typography variant="h3">Search for an item</Typography>
           {textInputAllowed ? (
-            <DebouncedTextField
-              text={textFieldText}
-              setText={setTextFieldText}
-              textChanged={(text: string) => {
-                setSearchQuery(text);
+            <TextField
+              label="Search"
+              value={textFieldText}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                const newText = event.target.value;
+                setTextFieldText(newText);
               }}
+              fullWidth
+              disabled={false}
+              helperText="Type a search query here"
             />
           ) : null}
           <Stack spacing={0} marginTop={2}>
@@ -72,13 +83,9 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
           </Stack>
         </Grid>
         <Grid xs={12} md={4}>
-          {searchQuery.length > 0 ? (
-            <>
-              <Typography variant="h6">Search results</Typography>
-              <br />
-              <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
-            </>
-          ) : null}
+          <Typography variant="h6">Search results</Typography>
+          <br />
+          <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
         </Grid>
       </Grid>
     </Container>

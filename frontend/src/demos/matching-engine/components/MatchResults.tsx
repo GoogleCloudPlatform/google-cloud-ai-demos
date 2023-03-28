@@ -35,14 +35,14 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
     isLoading,
     error,
     data: matchResults,
-  } = useMutation<MatchResponse, Error>(
-    () => {
-      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${searchQuery}`);
+  } = useMutation<MatchResponse, Error, string>(
+    (query: string) => {
+      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${query}`);
 
-      if (searchQuery.length > 0) {
-        return matchByText(matchServiceId, searchQuery);
+      if (query.length > 0) {
+        return matchByText(matchServiceId, query);
       } else {
-        throw new Error('No searchQuery provided');
+        throw new Error('No query provided');
       }
     },
     {
@@ -53,8 +53,8 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
   );
 
   React.useEffect(() => {
-    performMatch();
-  }, [matchServiceId, searchQuery, performMatch]);
+    performMatch(searchQuery);
+  }, [searchQuery, performMatch]);
 
   React.useEffect(() => {
     // performMatch();
@@ -82,7 +82,7 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
       </Stack>
     );
   } else if (error != null) {
-    return <Alert severity="error">{(error as AxiosError).message}</Alert>;
+    return <Alert severity="info">{(error as AxiosError).message}</Alert>;
   } else {
     return <Alert severity="error">Unknown error</Alert>;
   }
