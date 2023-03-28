@@ -71,7 +71,7 @@ export default () => (
             Memorystore
           </a>{' '}
           is a low-latency key-value database used to hydrate data that is retrieved from Matching Engine. For example,
-          given a StackOverflow question id, we use Memorystore to retrieve the question title.
+          given a StackOverflow question id, Memorystore is used to retrieve the question title.
         </Typography>
         <br />
         <Typography variant="overline">Cloud Vision</Typography>
