@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-import * as React from "react";
-import { StyledEngineProvider } from "@mui/material";
-import { QueryClient, QueryClientProvider } from "react-query";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
-import { useAnalytics } from "use-analytics";
+import * as React from 'react';
+import { StyledEngineProvider } from '@mui/material';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useAnalytics } from 'use-analytics';
 
-import DemoWrapper from "common/components/DemoWrapper";
-import DemoSelection from "common/pages/DemoSelection";
-import { forecastingDemoInfo, matchingEngineDemoInfo } from "DemoInfo";
+import DemoWrapper from 'common/components/DemoWrapper';
+import DemoSelection from 'common/pages/DemoSelection';
+import { forecastingDemoInfo, matchingEngineDemoInfo } from 'DemoInfo';
 
 const queryClient = new QueryClient();
 
@@ -45,18 +40,12 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<DemoSelection />} />
       <Route path="/demos" element={<DemoSelection />} />
-      <Route
-        path="/demos/time-series-forecasting"
-        element={<DemoWrapper {...forecastingDemoInfo} />}
-      />
+      <Route path="/demos/time-series-forecasting" element={<DemoWrapper {...forecastingDemoInfo} />} />
       <Route
         path="/demos/time-series-forecasting/new-forecast"
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       />
-      <Route
-        path="/demos/matching-engine"
-        element={<DemoWrapper {...matchingEngineDemoInfo} />}
-      />
+      <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
     </Routes>
   );
 };
@@ -69,9 +58,7 @@ export const LayoutWithRouter = ({ children }: AppProps) => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <StyledEngineProvider injectFirst>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       </StyledEngineProvider>
     </Router>
   );
