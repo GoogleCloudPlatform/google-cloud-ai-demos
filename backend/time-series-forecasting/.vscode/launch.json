@@ -33,13 +33,13 @@
         {
             "name": "Cloud Build: Build docker image",
             "request": "launch",
-            "command": "gcloud builds submit --tag gcr.io/python-docs-samples-tests/forecasting-live-demo-backend --timeout=86400s",
+            "command": "gcloud builds submit --tag gcr.io/python-docs-samples-tests/backend-time-series-forecasting --timeout=86400s",
             "type": "node-terminal",
         },
         {
             "name": "Cloud Run: Build and deploy docker image",
             "request": "launch",
-            "command": "gcloud beta run deploy ai-demos-backend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1",
+            "command": "gcloud beta run deploy backend-time-series-forecasting --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --session-affinity --min-instances=1",
             "type": "node-terminal"
         },
     ]
