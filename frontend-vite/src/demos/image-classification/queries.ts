@@ -17,9 +17,8 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: process.env.REACT_APP_API_SERVER_MATCHING_ENGINE,
+  baseURL: import.meta.env.VITE_API_SERVER_MATCHING_ENGINE,
 });
-
 export interface ImageInfo {
   id: string;
   img: string;

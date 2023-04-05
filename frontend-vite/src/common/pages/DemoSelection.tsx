@@ -27,7 +27,7 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import CustomCard from 'common/components/CustomCard';
-import retailImage from 'demos/time-series-forecasting/static/retail.jpeg';
+import retailImage from 'common/static/retail.jpeg';
 import * as React from 'react';
 
 interface ScenarioCardProps {

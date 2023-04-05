@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-import * as React from 'react';
 import { StyledEngineProvider } from '@mui/material';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { useAnalytics } from 'use-analytics';
-
+import analytics from 'AnalyticsService';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
-import { forecastingDemoInfo, matchingEngineDemoInfo } from 'DemoInfo';
+import { matchingEngineDemoInfo } from 'DemoInfo';
+import * as React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
 const AppRoutes = () => {
   const location = useLocation();
-  const analytics = useAnalytics();
 
   React.useEffect(() => {
     analytics.page({
@@ -40,11 +38,11 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<DemoSelection />} />
       <Route path="/demos" element={<DemoSelection />} />
-      <Route path="/demos/time-series-forecasting" element={<DemoWrapper {...forecastingDemoInfo} />} />
+      {/* <Route path="/demos/time-series-forecasting" element={<DemoWrapper {...forecastingDemoInfo} />} />
       <Route
         path="/demos/time-series-forecasting/new-forecast"
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
-      />
+      /> */}
       <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
     </Routes>
   );
@@ -56,7 +54,7 @@ interface AppProps {
 
 export const LayoutWithRouter = ({ children }: AppProps) => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <StyledEngineProvider injectFirst>
         <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
       </StyledEngineProvider>

@@ -1,11 +1,11 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2023 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,21 +14,17 @@
  * limitations under the License.
  */
 
-export default {
-  retail: {
-    createBQMLModel: `CREATE OR REPLACE MODEL \`my_retail_dataset.forecast_model\`
-    OPTIONS
-    (MODEL_TYPE = 'ARIMA_PLUS',
-    TIME_SERIES_TIMESTAMP_COL = 'date',
-    TIME_SERIES_DATA_COL = 'sales',
-    TIME_SERIES_ID_COL = 'product_at_store',
-    HORIZON = 240
-    ) AS
-    SELECT
-    date,
-    sales,
-    product_at_store
-    FROM
-    \`my_retail_dataset.sales_table\`;`,
-  },
-};
+import googleAnalytics from '@analytics/google-analytics';
+import Analytics from 'analytics';
+
+const analytics = Analytics({
+  app: 'ai-demos',
+  plugins: [
+    googleAnalytics({
+      measurementIds: [import.meta.env.VITE_GA_MEASUREMENT_ID],
+    }),
+  ],
+});
+
+/* export the instance for usage in your app */
+export default analytics;
