@@ -32,7 +32,7 @@ const AppRoutes = () => {
     analytics.page({
       url: location.pathname,
     });
-  }, [location, analytics]);
+  }, [location]);
 
   return (
     <Routes>
