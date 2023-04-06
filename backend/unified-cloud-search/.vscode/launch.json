@@ -1,0 +1,60 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Add licenses",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "docker run -it -v ${PWD}:/src ghcr.io/google/addlicense src",
+        },
+        {
+            "name": "Start local server (uvicorn)",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload",
+                "--port=8000"
+            ],
+            "justMyCode": true,
+        },
+        {
+            "name": "Cloud Build: Build docker image",
+            "request": "launch",
+            "command": "gcloud builds submit --tag gcr.io/plated-life-378620/backend-matching-engine --timeout=86400s --disk-size=100 --machine-type=n1-highcpu-32",
+            "type": "node-terminal",
+        },
+        {
+            "name": "Cloud Run: Deploy docker image",
+            "request": "launch",
+            "command": "gcloud run deploy backend-matching-engine --image gcr.io/plated-life-378620/backend-matching-engine:latest --region=us-central1 --platform=managed --cpu=8 --memory=32G --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Cloud Run: Build and deploy docker image",
+            "request": "launch",
+            "command": "gcloud run deploy backend-matching-engine --source . --region=us-central1 --platform=managed --cpu=8 --memory=32G --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
+            "type": "node-terminal"
+        },
+        {
+            "name": "Run tests",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "module": "pytest",
+            "args": ["-sv", "tests"]
+          },
+    ]
+}
