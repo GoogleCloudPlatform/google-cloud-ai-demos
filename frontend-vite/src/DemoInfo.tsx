@@ -19,6 +19,8 @@ import { Container } from '@mui/system';
 import ImageClassificationFlow from 'demos/image-classification/pages/ImageClassificationFlow';
 import MatchingEngineArchitecture from 'demos/matching-engine/pages/Architecture';
 import MatchingEngineFlow from 'demos/matching-engine/pages/MatchingEngineFlow';
+import UnifiedCloudSearchFlow from 'demos/unified-cloud-search/pages/UnifiedCloudSearchFlow';
+import UnifiedCloudSearchArchitecture from 'demos/unified-cloud-search/pages/Architecture';
 // import ForecastingArchitecture from 'demos/time-series-forecasting/pages/ForecastingArchitecture';
 // import ForecastingExamples from 'demos/time-series-forecasting/pages/ForecastingExamples';
 // import NewForecastFlow from 'demos/time-series-forecasting/pages/new-forecast/NewForecastFlow';
@@ -103,6 +105,24 @@ export const matchingEngineDemoInfo = {
       buttonText: 'How we built it',
       title: 'This shows the architecture for the demo web app',
       element: <MatchingEngineArchitecture />,
+    },
+  ],
+};
+
+export const unifiedCloudSearchDemoInfo = {
+  title: 'Unified Cloud Search',
+  subtitle:
+    'Unified Cloud Search ... TODO',
+  sections: [
+    {
+      buttonText: 'Try the demo',
+      title: 'Search for a thing ... TODO',
+      element: <UnifiedCloudSearchFlow />,
+    },
+    {
+      buttonText: 'How we built it',
+      title: 'This shows the architecture for the demo web app',
+      element: <UnifiedCloudSearchArchitecture />,
     },
   ],
 };

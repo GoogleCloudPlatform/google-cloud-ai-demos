@@ -148,10 +148,23 @@ const sectionInfos = [
       "Vertex AI Matching Engine provides the industry's leading high-scale low latency vector database (a.k.a, vector similarity-matching or approximate nearest neighbor service).",
     scenarios: [
       {
-        title: 'Similarity search',
+        title: 'Vector similarity search',
         description: 'Search for similar items based on a text or image prompt',
         image: retailImage,
         destination: '/demos/matching-engine',
+      },
+    ],
+  },
+  {
+    title: 'Unified Cloud Seaarch',
+    description:
+      "Unified Cloud Seaarch lets you search for things ... TODO",
+    scenarios: [
+      {
+        title: 'Semantic search engine',
+        description: 'Search for semantically similar items based on a text query',
+        image: retailImage,
+        destination: '/demos/unified-cloud-search',
       },
     ],
   },

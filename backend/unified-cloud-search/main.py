@@ -14,7 +14,7 @@
 
 import dataclasses
 import logging
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict, List
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -46,12 +46,12 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
-class GetItemsResponse(BaseModel):
+class GetSuggestionsResponse(BaseModel):
     items: List[search_service.Item]
 
 
-@tracer.start_as_current_span(f"/match-registry")
-@app.get("/match-registry")
+@tracer.start_as_current_span(f"/search-registry")
+@app.get("/search-registry")
 async def get_search_registry():
     return [
         {
@@ -65,12 +65,12 @@ async def get_search_registry():
     ]
 
 
-@app.get("/items/{search_service_id}")
+@app.get("/suggestions/{search_service_id}")
 async def get_suggestions(search_service_id: str):
-    with tracer.start_as_current_span(f"/items/{search_service_id}"):
+    with tracer.start_as_current_span(f"/suggestions/{search_service_id}"):
         service = search_service_registry.get(search_service_id)
         if service:
-            return GetItemsResponse(items=service.get_suggestions())
+            return GetSuggestionsResponse(items=service.get_suggestions())
         else:
             raise HTTPException(
                 status_code=400,
@@ -84,22 +84,22 @@ class SearchByTextRequest(BaseModel):
 
 
 @dataclasses.dataclass
-class MatchResponse:
+class SearchByTextResponse:
     totalIndexCount: int
     results: List[search_service.SearchResult]
 
 
-@app.post("/match-by-text/{search_service_id}")
-async def match_by_text(
+@app.post("/search-by-text/{search_service_id}")
+async def search_by_text(
     search_service_id: str, request: SearchByTextRequest
-) -> MatchResponse:
-    with tracer.start_as_current_span(f"/match-by-text/{search_service_id}"):
+) -> SearchByTextResponse:
+    with tracer.start_as_current_span(f"/search-by-text/{search_service_id}"):
         service = search_service_registry.get(search_service_id)
 
         if not service:
             raise HTTPException(
                 status_code=400,
-                detail=f"Match service not found for id: {search_service_id}",
+                detail=f"Search service not found for id: {search_service_id}",
             )
 
         try:
@@ -107,11 +107,11 @@ async def match_by_text(
                 query=request.text, num_neighbors=request.numNeighbors
             )
 
-            return MatchResponse(
+            return SearchByTextResponse(
                 totalIndexCount=service.get_total_index_count(), results=results
             )
         except Exception as ex:
             logger.error(ex)
             raise HTTPException(
-                status_code=500, detail=f"There was an error getting matches"
+                status_code=500, detail=f"There was an error getting results."
             )
