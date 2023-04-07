@@ -16,7 +16,7 @@
 
 import palette from './palette';
 
-const Typography = (fontFamily) => ({
+const Typography = (fontFamily: string) => ({
   htmlFontSize: 16,
   fontFamily,
   fontWeightLight: 300,

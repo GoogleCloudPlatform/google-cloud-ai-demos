@@ -26,6 +26,7 @@
     "react/prop-types": "off",
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
+    "@typescript-eslint/ban-ts-ignore": "off",
     "unused-imports/no-unused-vars": [
       "warn",
       {

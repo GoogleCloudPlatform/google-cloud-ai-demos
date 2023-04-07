@@ -28,13 +28,12 @@ interface CustomCardProps {
   title?: React.ReactNode | string;
 }
 
-const CustomCard = ({ avatar, children, action, subheader, sx = {}, title, ...others }: CustomCardProps) => {
+const CustomCard = ({ avatar, children, action, subheader, sx = {}, title }: CustomCardProps) => {
   const theme = useTheme();
 
   return (
     <Card
       elevation={0}
-      {...others}
       sx={{
         ...sx,
         border: '1px solid',
