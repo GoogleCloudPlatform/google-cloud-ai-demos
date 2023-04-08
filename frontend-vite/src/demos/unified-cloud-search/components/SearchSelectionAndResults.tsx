@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { SearchResults } from './SearchResults';
-import { SelectionList } from './SelectionList';
+import { SuggestionsList } from './SuggestionsList';
 import { getSuggestions, SuggestionInfo, SuggestionsInfosResponse, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
@@ -62,7 +62,7 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
         ) : null}
         <div className="mt-2">
           <h6 className="text-sm text-gray-500">Suggestions</h6>
-          <SelectionList
+          <SuggestionsList
             items={items}
             selectedIndex={selectedIndex}
             onSelected={(item: SuggestionInfo, index: number) => {

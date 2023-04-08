@@ -22,30 +22,38 @@ interface SearchResultsTableProps {
 export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
   return (
     <div className="border-2 border-gray-300 rounded-lg">
-      <table className="table w-full">
+      <table className="table-normal mx-auto">
         <thead className="border-b-2 border-gray-300">
           <tr>
             <th className="text-sm font-medium uppercase">Rank</th>
             <th className="text-sm font-medium uppercase">Item</th>
             <th className="text-sm font-medium uppercase">Description</th>
-            <th className="text-sm font-medium uppercase text-right">Distance</th>
+            {/* <th className="text-sm font-medium uppercase text-right">Distance</th> */}
           </tr>
         </thead>
         <tbody>
           {results.map((result, index) => (
             <tr
               key={index}
-              className={`border-b-2 border-gray-300 ${index === results.length - 1 ? 'border-none' : ''}`}
+              className={`border-b-2 border-gray-300 max-w-xs ${index === results.length - 1 ? 'border-none' : ''}`}
             >
               <td className="text-sm font-medium uppercase">{index + 1}</td>
               {result.image ? (
                 <td>
                   {(result.url ?? result.image) != null ? (
                     <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
-                      <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.title} />
+                      <img
+                        className="object-cover max-w-24 max-h-24 inline-block"
+                        src={result.image}
+                        alt={result.title}
+                      />
                     </a>
                   ) : (
-                    <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.title} />
+                    <img
+                      className="object-cover max-w-24 max-h-24 inline-block"
+                      src={result.image}
+                      alt={result.title}
+                    />
                   )}
                 </td>
               ) : (
@@ -59,10 +67,10 @@ export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
                   )}
                 </td>
               )}
-              <td>
+              <td className="">
                 <span className="text-base">{result.description}</span>
               </td>
-              <td className="text-right">{result.distance.toFixed(2)}</td>
+              {/* <td className="text-right">{result.distance.toFixed(2)}</td> */}
             </tr>
           ))}
         </tbody>

@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getSearchServiceInfo, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
+import { getSearchServiceInfo, SearchServiceInfo } from '../queries';
 
-import SearchSelectionAndResults from '../components/SearchSelectionAndResults';
 import Alert from 'common/components/Alert';
+import SearchSelectionAndResults from '../components/SearchSelectionAndResults';
 
 export default () => {
   const {

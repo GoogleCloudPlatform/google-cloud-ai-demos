@@ -32,15 +32,15 @@ def register_services() -> Dict[str, search_service.SearchService]:
         with tracer.start_as_current_span("text_search_service_instance init"):
             text_search_service_instance = mercari_search_service.MoviesSearchService(
                 id="test",
-                name="English words",
-                description="Test",
+                name="Movies",
+                description="Movie database",
                 words_file="data/popular-english-words.txt",
                 project_id="36070612387",
                 location="global",
                 datastore_id="movie-test",
                 code_info=search_service.CodeInfo(
-                    url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_for_indexing.ipynb",
-                    title="Create Vertex AI Matching Engine index",
+                    url="TODO",
+                    title="Create movie search engine",
                 ),
             )
 

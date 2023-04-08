@@ -46,13 +46,13 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
   );
 };
 
-interface SelectionListProps {
+interface Props {
   items: SuggestionInfo[];
   selectedIndex?: number;
   onSelected?: (item: SuggestionInfo, index: number) => void;
 }
 
-export const SelectionList = ({ items, selectedIndex, onSelected }: SelectionListProps) => {
+export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => {
   return (
     <div className="grid grid-cols-3 gap-1 w-full max-h-[800px] mt-0">
       {items.map((item, index) => (
