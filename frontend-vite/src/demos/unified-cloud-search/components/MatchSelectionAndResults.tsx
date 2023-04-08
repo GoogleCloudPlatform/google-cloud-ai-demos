@@ -17,7 +17,7 @@ import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typog
 import Grid from '@mui/material/Unstable_Grid2';
 import { MatchResults } from './MatchResults';
 import { SelectionList } from './SelectionList';
-import { getItems, ItemInfo, ItemInfosResponse, MatchServiceInfo } from '../queries';
+import { getItems, ItemInfo, ItemInfosResponse, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
@@ -92,7 +92,7 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
   );
 };
 
-export default ({ matchServiceInfo }: { matchServiceInfo: MatchServiceInfo }) => {
+export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) => {
   const {
     isLoading,
     error,

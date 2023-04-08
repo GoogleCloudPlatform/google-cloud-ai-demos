@@ -15,7 +15,7 @@
  */
 import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
 import { AxiosError } from 'axios';
-import { MatchResultsTable } from './MatchResultsTable';
+import { SearchResultsTable } from './SearchResultsTable';
 import { matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
@@ -78,7 +78,7 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
             matchResults.totalIndexCount
           } items in ${latency.toFixed(0)} ms.`}
         </Typography>
-        <MatchResultsTable results={matchResults.results} />
+        <SearchResultsTable results={matchResults.results} />
       </Stack>
     );
   } else if (error != null) {

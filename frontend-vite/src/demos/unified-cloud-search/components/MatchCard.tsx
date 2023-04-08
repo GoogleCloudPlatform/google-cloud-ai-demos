@@ -15,10 +15,9 @@
  */
 import { CardContent, CardMedia, Typography } from '@mui/material';
 import CustomCard from 'common/components/CustomCard';
-import { MatchResult } from '../queries';
-import * as React from 'react';
+import { SearchResult } from '../queries';
 
-export const MatchCard = ({ image, distance }: MatchResult) => {
+export const MatchCard = ({ image, distance }: SearchResult) => {
   return (
     <CustomCard
       sx={{

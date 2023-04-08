@@ -13,21 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  Alert,
-  AlertTitle,
-  Box,
-  CircularProgress,
-  Stack,
-  ToggleButton,
-  ToggleButtonGroup,
-  Typography,
-} from '@mui/material';
-import { getMatchServiceInfo, MatchServiceInfo } from '../queries';
+import { getSearchServiceInfo, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
 import MatchSelectionAndResults from '../components/MatchSelectionAndResults';
+import Alert from 'common/components/Alert';
 
 export default () => {
   const {
@@ -35,17 +26,16 @@ export default () => {
     error,
     data: matchServiceInfos,
     isError,
-  } = useQuery<MatchServiceInfo[], Error>(
+  } = useQuery<SearchServiceInfo[], Error>(
     ['getMatchServiceInfo'],
     () => {
-      return getMatchServiceInfo();
+      return getSearchServiceInfo();
     },
     { refetchOnWindowFocus: false }
   );
 
-  // Selected tab state
   const [selectedTabIndex, setTab] = React.useState<number>(0);
-  const handleChange = (event: React.MouseEvent<HTMLElement>, newTab: number) => {
+  const handleChange = (newTab: number) => {
     if (newTab !== null) {
       setTab(newTab);
     }
@@ -55,46 +45,39 @@ export default () => {
     matchServiceInfos != null && matchServiceInfos.length > 0 ? matchServiceInfos[selectedTabIndex] : null;
 
   if (isLoading) {
-    return (
-      <Alert icon={<CircularProgress size={3} />} severity="info">
-        Loading...
-      </Alert>
-    );
+    return <Alert mode="info" title="Loading..." className="w-fit" />;
   } else if (matchServiceInfos != null && selectedServiceInfo != null) {
     return (
-      <Stack spacing={2} flex="none">
-        <Box alignSelf="center">
-          <ToggleButtonGroup color="primary" value={selectedTabIndex} exclusive onChange={handleChange}>
+      <div className="flex flex-col gap-2">
+        <div className="self-center">
+          <div className="btn-group">
             {matchServiceInfos.map((matchServiceInfo, index) => (
-              <ToggleButton key={index} value={index}>
+              <button
+                key={index}
+                className={`btn ${selectedTabIndex === index ? 'btn-primary' : ''}`}
+                onClick={() => handleChange(index)}
+              >
                 {matchServiceInfo.name}
-              </ToggleButton>
+              </button>
             ))}
-          </ToggleButtonGroup>
-        </Box>
-        <Typography variant="body1" align="center">
-          {selectedServiceInfo.description}
-        </Typography>
+          </div>
+        </div>
+        <div className="text-center text-2lx py-4">{selectedServiceInfo.description}</div>
         {selectedServiceInfo.code != null ? (
-          <Box alignSelf="center">
-            <Alert severity="info" sx={{ width: 'fit-content' }}>
+          <div className="self-center">
+            <Alert mode="info">
               See code at{' '}
-              <a href={selectedServiceInfo.code.url} target="_blank" rel="noreferrer">
+              <a className="link" href={selectedServiceInfo.code.url} target="_blank" rel="noreferrer">
                 {selectedServiceInfo.code.title}
               </a>
             </Alert>
-          </Box>
+          </div>
         ) : null}
         <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />
-      </Stack>
+      </div>
     );
   } else if (isError && error) {
-    return (
-      <Alert icon={<CircularProgress size={3} />} severity="error">
-        <AlertTitle>Could not load match service info</AlertTitle>
-        {error.message}
-      </Alert>
-    );
+    return <Alert mode="error" title="Could not load match service info" subtitle={error.message} />;
   } else {
     return null;
   }

@@ -16,7 +16,7 @@
 
 import axios from 'axios';
 
-const client = axios.create({ baseURL: import.meta.env.VITE_API_SERVER_MATCHING_ENGINE });
+const client = axios.create({ baseURL: import.meta.env.VITE_API_SERVER_UNIFIED_CLOUD_SEARCH });
 export interface ItemInfo {
   id?: string;
   img?: string;
@@ -31,7 +31,7 @@ export async function getItems(match_service_id: string): Promise<ItemInfosRespo
   return client.get(`items/${match_service_id}`).then((response) => response.data);
 }
 
-export interface MatchServiceInfo {
+export interface SearchServiceInfo {
   id: string;
   name: string;
   description: string;
@@ -39,11 +39,11 @@ export interface MatchServiceInfo {
   code?: { url: string; title: string };
 }
 
-export async function getMatchServiceInfo(): Promise<MatchServiceInfo[]> {
+export async function getSearchServiceInfo(): Promise<SearchServiceInfo[]> {
   return client.get(`match-registry`).then((response) => response.data);
 }
 
-export interface MatchResult {
+export interface SearchResult {
   text: string;
   image?: string;
   url?: string;
@@ -52,7 +52,7 @@ export interface MatchResult {
 
 export interface MatchResponse {
   totalIndexCount: number;
-  results: MatchResult[];
+  results: SearchResult[];
 }
 
 export async function matchById(matchServiceId: string, id: string): Promise<MatchResponse> {
