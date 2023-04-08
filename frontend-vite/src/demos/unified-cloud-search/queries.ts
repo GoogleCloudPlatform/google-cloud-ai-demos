@@ -17,34 +17,34 @@
 import axios from 'axios';
 
 const client = axios.create({ baseURL: import.meta.env.VITE_API_SERVER_UNIFIED_CLOUD_SEARCH });
-export interface ItemInfo {
+export interface SuggestionInfo {
   id?: string;
   img?: string;
   text?: string;
 }
 
-export interface ItemInfosResponse {
-  items: ItemInfo[];
+export interface SuggestionsInfosResponse {
+  items: SuggestionInfo[];
 }
 
-export async function getItems(match_service_id: string): Promise<ItemInfosResponse> {
-  return client.get(`items/${match_service_id}`).then((response) => response.data);
+export async function getSuggestions(service_id: string): Promise<SuggestionsInfosResponse> {
+  return client.get(`suggestions/${service_id}`).then((response) => response.data);
 }
 
 export interface SearchServiceInfo {
   id: string;
   name: string;
   description: string;
-  allowsTextInput: boolean;
   code?: { url: string; title: string };
 }
 
 export async function getSearchServiceInfo(): Promise<SearchServiceInfo[]> {
-  return client.get(`match-registry`).then((response) => response.data);
+  return client.get(`search-registry`).then((response) => response.data);
 }
 
 export interface SearchResult {
-  text: string;
+  title: string;
+  description: string;
   image?: string;
   url?: string;
   distance: number;
@@ -57,7 +57,7 @@ export interface MatchResponse {
 
 export async function matchByText(serviceId: string, text: string): Promise<MatchResponse> {
   return client
-    .post(`/match-by-text/${serviceId}`, {
+    .post(`/search-by-text/${serviceId}`, {
       text: text,
       numNeighbors: 20,
     })

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { ItemInfo } from '../queries';
+import { SuggestionInfo } from '../queries';
 import clsx from 'clsx';
 
 interface ImageSelectionButtonProps {
-  item: ItemInfo;
+  item: SuggestionInfo;
   isSelected: boolean;
   onSelected?: () => void;
 }
@@ -47,9 +47,9 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
 };
 
 interface SelectionListProps {
-  items: ItemInfo[];
+  items: SuggestionInfo[];
   selectedIndex?: number;
-  onSelected?: (item: ItemInfo, index: number) => void;
+  onSelected?: (item: SuggestionInfo, index: number) => void;
 }
 
 export const SelectionList = ({ items, selectedIndex, onSelected }: SelectionListProps) => {

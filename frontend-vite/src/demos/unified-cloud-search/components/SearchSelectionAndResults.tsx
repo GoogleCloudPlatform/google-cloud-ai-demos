@@ -15,7 +15,7 @@
  */
 import { SearchResults } from './SearchResults';
 import { SelectionList } from './SelectionList';
-import { getItems, ItemInfo, ItemInfosResponse, SearchServiceInfo } from '../queries';
+import { getSuggestions, SuggestionInfo, SuggestionsInfosResponse, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
@@ -24,7 +24,7 @@ import Alert from 'common/components/Alert';
 interface MatchFlowProps {
   serviceId: string;
   allowsTextInput: boolean;
-  items: ItemInfo[];
+  items: SuggestionInfo[];
 }
 
 const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFlowProps) => {
@@ -44,47 +44,59 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
     setSearchQuery(debouncedValue);
   }, [debouncedValue, setSearchQuery]);
 
+  const renderRecommendations = () => {
+    return (
+      <div>
+        <h3 className="text-3xl">Search for an item</h3>
+        {allowsTextInput ? (
+          <input
+            type="text"
+            className="input input-bordered w-full mt-2"
+            placeholder="Search"
+            value={textFieldText}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              const newText = event.target.value;
+              setTextFieldText(newText);
+            }}
+          />
+        ) : null}
+        <div className="mt-2">
+          <h6 className="text-sm text-gray-500">Suggestions</h6>
+          <SelectionList
+            items={items}
+            selectedIndex={selectedIndex}
+            onSelected={(item: SuggestionInfo, index: number) => {
+              if (item.text != null) {
+                if (allowsTextInput) {
+                  setTextFieldText(item.text);
+                } else {
+                  setSearchQuery(item.text);
+                }
+              }
+
+              setSelectedIndex(index);
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
+
+  const renderSearchResults = () => {
+    return (
+      <div>
+        <h6 className="text-xl">Search results</h6>
+        <br />
+        <SearchResults serviceId={serviceId} searchQuery={searchQuery} />
+      </div>
+    );
+  };
+
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-        <div>
-          <h3 className="text-3xl">Search for an item</h3>
-          {allowsTextInput ? (
-            <input
-              type="text"
-              className="input input-bordered w-full mt-2"
-              placeholder="Search"
-              value={textFieldText}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                const newText = event.target.value;
-                setTextFieldText(newText);
-              }}
-            />
-          ) : null}
-          <div className="mt-2">
-            <h6 className="text-sm text-gray-500">Suggestions</h6>
-            <SelectionList
-              items={items}
-              selectedIndex={selectedIndex}
-              onSelected={(item: ItemInfo, index: number) => {
-                if (item.text != null) {
-                  if (allowsTextInput) {
-                    setTextFieldText(item.text);
-                  } else {
-                    setSearchQuery(item.text);
-                  }
-                }
-
-                setSelectedIndex(index);
-              }}
-            />
-          </div>
-        </div>
-        <div>
-          <h6 className="text-xl">Search results</h6>
-          <br />
-          <SearchResults serviceId={serviceId} searchQuery={searchQuery} />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {renderRecommendations()}
+        {renderSearchResults()}
       </div>
     </div>
   );
@@ -96,10 +108,10 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(
+  } = useQuery<SuggestionsInfosResponse, Error>(
     ['getItems', matchServiceInfo.id],
     () => {
-      return getItems(matchServiceInfo.id);
+      return getSuggestions(matchServiceInfo.id);
     },
     { refetchOnWindowFocus: false }
   );
@@ -108,11 +120,7 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
     return <Alert mode="loading" title="Loading..." />;
   } else if (itemsResponse != null && itemsResponse.items != null) {
     return (
-      <MatchSelectionAndResults
-        serviceId={matchServiceInfo.id}
-        allowsTextInput={matchServiceInfo.allowsTextInput}
-        items={itemsResponse.items}
-      />
+      <MatchSelectionAndResults serviceId={matchServiceInfo.id} allowsTextInput={true} items={itemsResponse.items} />
     );
   } else if (isError && error) {
     return (

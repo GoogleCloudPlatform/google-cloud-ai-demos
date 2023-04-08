@@ -30,7 +30,7 @@ def register_services() -> Dict[str, search_service.SearchService]:
 
     try:
         with tracer.start_as_current_span("text_search_service_instance init"):
-            text_search_service_instance = mercari_search_service.MercariSearchService(
+            text_search_service_instance = mercari_search_service.MoviesSearchService(
                 id="test",
                 name="English words",
                 description="Test",

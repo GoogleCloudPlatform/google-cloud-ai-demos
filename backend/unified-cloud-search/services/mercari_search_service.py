@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
 
 
-class MercariSearchService(unified_cloud_search_service.UnifiedCloudSearchService):
+class MoviesSearchService(unified_cloud_search_service.UnifiedCloudSearchService):
     def convert_to_search_result(
         self, results: List[Dict[str, Any]]
     ) -> List[Optional[search_service.SearchResult]]:

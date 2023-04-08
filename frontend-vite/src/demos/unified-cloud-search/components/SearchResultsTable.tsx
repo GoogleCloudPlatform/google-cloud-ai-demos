@@ -27,6 +27,7 @@ export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
           <tr>
             <th className="text-sm font-medium uppercase">Rank</th>
             <th className="text-sm font-medium uppercase">Item</th>
+            <th className="text-sm font-medium uppercase">Description</th>
             <th className="text-sm font-medium uppercase text-right">Distance</th>
           </tr>
         </thead>
@@ -41,23 +42,26 @@ export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
                 <td>
                   {(result.url ?? result.image) != null ? (
                     <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
-                      <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.text} />
+                      <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.title} />
                     </a>
                   ) : (
-                    <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.text} />
+                    <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.title} />
                   )}
                 </td>
               ) : (
                 <td>
                   {result.url != null ? (
                     <a href={result.url} target="_blank" rel="noreferrer" className="text-base">
-                      {result.text}
+                      {result.title}
                     </a>
                   ) : (
-                    <span className="text-base">{result.text}</span>
+                    <span className="text-base">{result.title}</span>
                   )}
                 </td>
               )}
+              <td>
+                <span className="text-base">{result.description}</span>
+              </td>
               <td className="text-right">{result.distance.toFixed(2)}</td>
             </tr>
           ))}

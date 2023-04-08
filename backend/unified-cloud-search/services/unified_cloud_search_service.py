@@ -127,17 +127,22 @@ class UnifiedCloudSearchService(SearchService[str]):
             json=json_data,
         )
 
-        matches_all = self.convert_to_search_result(results=response.json()["results"])
+        if response.status_code == 200:
+            matches_all = self.convert_to_search_result(
+                results=response.json()["results"]
+            )
 
-        logger.info(f"matches converted")
+            logger.info(f"matches converted")
 
-        matches_all_nonoptional: List[SearchResult] = [
-            match for match in matches_all if match is not None
-        ]
+            matches_all_nonoptional: List[SearchResult] = [
+                match for match in matches_all if match is not None
+            ]
 
-        logger.info(f"matches none filtered")
+            logger.info(f"matches none filtered")
 
-        return matches_all_nonoptional
+            return matches_all_nonoptional
+        else:
+            raise RuntimeError("Error retrieving search results")
 
     @tracer.start_as_current_span("get_total_index_count")
     def get_total_index_count(self) -> int:
