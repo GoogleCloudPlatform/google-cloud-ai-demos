@@ -13,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
-import { AxiosError } from 'axios';
 import { SearchResultsTable } from './SearchResultsTable';
 import { matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
+import Alert from 'common/components/Alert';
 
 export interface MatchResultsProps {
-  matchServiceId: string;
+  serviceId: string;
   selectedId?: string;
   searchQuery: string;
 }
 
-export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps) => {
-  const [startTime, setStartTime] = React.useState<number | null>(null); // Initialize the startTime variable
+export const SearchResults = ({ serviceId, searchQuery }: MatchResultsProps) => {
+  const [startTime, setStartTime] = React.useState<number | null>(null);
   const [latency, setLatency] = React.useState<number>(-1);
 
   const {
@@ -37,10 +36,10 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
     data: matchResults,
   } = useMutation<MatchResponse, Error, string>(
     (query: string) => {
-      console.log(`Performing match: matchServiceId = ${matchServiceId}, searchQuery = ${query}`);
+      console.log(`Performing match: serviceId = ${serviceId}, searchQuery = ${query}`);
 
       if (query.length > 0) {
-        return matchByText(matchServiceId, query);
+        return matchByText(serviceId, query);
       } else {
         throw new Error('No query provided');
       }
@@ -57,33 +56,28 @@ export const MatchResults = ({ matchServiceId, searchQuery }: MatchResultsProps)
   }, [searchQuery, performMatch]);
 
   React.useEffect(() => {
-    // performMatch();
     if (startTime != null && matchResults != null) {
       setLatency(Date.now() - startTime);
     }
   }, [startTime, matchResults]);
 
   if (isLoading) {
-    return (
-      <Alert icon={<CircularProgress size={3} />} severity="info">
-        Loading...
-      </Alert>
-    );
+    return <Alert mode="loading" title="Loading..." />;
   } else if (matchResults != null) {
     return (
-      <Stack spacing={2}>
-        <Typography variant="body1">These are the closest matches for your selected item.</Typography>
-        <Typography variant="subtitle2">
+      <div className="space-y-2">
+        <p className="text-base">These are the closest matches for your selected item.</p>
+        <p className="text-sm text-gray-600">
           {`${matchResults.results.length} results retrieved from a total of ${
             matchResults.totalIndexCount
           } items in ${latency.toFixed(0)} ms.`}
-        </Typography>
+        </p>
         <SearchResultsTable results={matchResults.results} />
-      </Stack>
+      </div>
     );
   } else if (error != null) {
-    return <Alert severity="info">{(error as AxiosError).message}</Alert>;
+    return <Alert mode="error" title="Error" subtitle={(error as Error).message} />;
   } else {
-    return <Alert severity="error">Unknown error</Alert>;
+    return <Alert mode="error" title="Unknown error" />;
   }
 };

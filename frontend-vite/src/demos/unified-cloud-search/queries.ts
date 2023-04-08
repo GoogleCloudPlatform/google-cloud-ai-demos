@@ -55,18 +55,9 @@ export interface MatchResponse {
   results: SearchResult[];
 }
 
-export async function matchById(matchServiceId: string, id: string): Promise<MatchResponse> {
+export async function matchByText(serviceId: string, text: string): Promise<MatchResponse> {
   return client
-    .post(`/match-by-id/${matchServiceId}`, {
-      id: id,
-      numNeighbors: 20,
-    })
-    .then((response) => response.data);
-}
-
-export async function matchByText(matchServiceId: string, text: string): Promise<MatchResponse> {
-  return client
-    .post(`/match-by-text/${matchServiceId}`, {
+    .post(`/match-by-text/${serviceId}`, {
       text: text,
       numNeighbors: 20,
     })

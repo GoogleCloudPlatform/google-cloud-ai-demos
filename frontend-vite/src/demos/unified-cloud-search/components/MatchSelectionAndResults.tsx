@@ -15,7 +15,7 @@
  */
 import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import { MatchResults } from './MatchResults';
+import { SearchResults } from './SearchResults';
 import { SelectionList } from './SelectionList';
 import { getItems, ItemInfo, ItemInfosResponse, SearchServiceInfo } from '../queries';
 import * as React from 'react';
@@ -23,12 +23,16 @@ import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
 
 interface MatchFlowProps {
-  matchServiceId: string;
+  serviceId: string;
   allowsTextInput: boolean;
   items: ItemInfo[];
 }
 
-const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAllowed, items }: MatchFlowProps) => {
+const MatchSelectionAndResults = ({
+  serviceId: serviceId,
+  allowsTextInput: textInputAllowed,
+  items,
+}: MatchFlowProps) => {
   const [textFieldText, setTextFieldText] = React.useState<string>('');
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -38,7 +42,7 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
     setTextFieldText('');
     setSearchQuery('');
     setSelectedIndex(undefined);
-  }, [matchServiceId]);
+  }, [serviceId]);
 
   React.useEffect(() => {
     console.log(`setSearchQuery(${debouncedValue});`);
@@ -85,7 +89,7 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
         <Grid xs={12} md={4}>
           <Typography variant="h6">Search results</Typography>
           <br />
-          <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
+          <SearchResults serviceId={serviceId} searchQuery={searchQuery} />
         </Grid>
       </Grid>
     </Container>
@@ -115,7 +119,7 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
   } else if (itemsResponse != null && itemsResponse.items != null) {
     return (
       <MatchSelectionAndResults
-        matchServiceId={matchServiceInfo.id}
+        serviceId={matchServiceInfo.id}
         allowsTextInput={matchServiceInfo.allowsTextInput}
         items={itemsResponse.items}
       />
