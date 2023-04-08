@@ -14,75 +14,8 @@
  * limitations under the License.
  */
 
-import { Typography } from '@mui/material';
-import ButtonBase from '@mui/material/ButtonBase';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import { styled } from '@mui/material/styles';
 import { ItemInfo } from '../queries';
-import * as React from 'react';
-
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
-  height: 200,
-  [theme.breakpoints.down('sm')]: {
-    width: '100% !important', // Overrides inline-style
-    height: 100,
-  },
-  '&:hover, &.Mui-focusVisible': {
-    zIndex: 1,
-    '& .MuiImageBackdrop-root': {
-      opacity: 0.15,
-    },
-    '& .MuiImageMarked-root': {
-      opacity: 0,
-    },
-  },
-}));
-
-const ImageSrc = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center 40%',
-  backgroundColor: theme.palette.secondary.light,
-}));
-
-const Image = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.common.white,
-}));
-
-const ImageBackdrop = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundColor: theme.palette.common.black,
-  opacity: 0.4,
-  transition: theme.transitions.create('opacity'),
-}));
-
-const ImageMarked = styled('span')(({ theme }) => ({
-  height: 3,
-  width: 50,
-  backgroundColor: theme.palette.common.white,
-  position: 'absolute',
-  bottom: -2,
-  left: 'calc(50% - 25px)',
-  transition: theme.transitions.create('opacity'),
-}));
+import clsx from 'clsx';
 
 interface ImageSelectionButtonProps {
   item: ItemInfo;
@@ -92,45 +25,27 @@ interface ImageSelectionButtonProps {
 
 export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
   return (
-    <ImageButton
-      focusRipple
-      key={item.text}
+    <button
+      className={`relative h-48 w-full focus:z-10 ${isSelected ? 'bg-neutral-400' : 'bg-neutral-300'}`}
       onClick={() => {
         if (onSelected != null) {
           onSelected();
         }
       }}
     >
-      <ImageSrc
+      <span
+        className={`absolute inset-0 bg-center bg-cover`}
         style={{
-          backgroundImage: item.img != null ? `url(${item.img}?w=164&h=164&fit=crop&auto=format)` : undefined,
+          backgroundImage: item.img != null ? `url(${item.img})` : undefined,
         }}
-      />
-      {isSelected ? (
-        <ImageBackdrop className="MuiImageBackdrop-root" style={{ opacity: 0.9 }} />
-      ) : (
-        <ImageBackdrop className="MuiImageBackdrop-root" />
-      )}
-      <Image>
-        <Typography
-          component="span"
-          variant="h4"
-          color="inherit"
-          sx={{
-            position: 'relative',
-            p: 4,
-            pt: 2,
-            pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-            fontWeight: isSelected ? 'bold' : 'null',
-          }}
-        >
-          {item.text}
-          {isSelected ? <ImageMarked className="MuiImageMarked-root" /> : null}
-        </Typography>
-      </Image>
-    </ImageButton>
+      ></span>
+      <span className={`absolute inset-0 flex items-center justify-center  ${isSelected ? 'font-bold' : ''}`}>
+        <span className={clsx('relative p-4 pt-2 pb-2 text-neutral-700', { link: isSelected })}>{item.text}</span>
+      </span>
+    </button>
   );
 };
+
 interface SelectionListProps {
   items: ItemInfo[];
   selectedIndex?: number;
@@ -139,20 +54,20 @@ interface SelectionListProps {
 
 export const SelectionList = ({ items, selectedIndex, onSelected }: SelectionListProps) => {
   return (
-    <ImageList sx={{ width: '100%', maxHeight: '800px', marginTop: 0 }} cols={3}>
+    <div className="grid grid-cols-3 gap-1 w-full max-h-[800px] mt-0">
       {items.map((item, index) => (
-        <ImageListItem key={index}>
+        <div key={index}>
           <ImageSelectionButton
             item={item}
-            isSelected={selectedIndex == index}
+            isSelected={selectedIndex === index}
             onSelected={() => {
               if (onSelected != null) {
                 onSelected(item, index);
               }
             }}
           />
-        </ImageListItem>
+        </div>
       ))}
-    </ImageList>
+    </div>
   );
 };

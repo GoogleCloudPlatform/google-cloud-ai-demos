@@ -17,7 +17,7 @@ import { getSearchServiceInfo, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
-import MatchSelectionAndResults from '../components/MatchSelectionAndResults';
+import SearchSelectionAndResults from '../components/SearchSelectionAndResults';
 import Alert from 'common/components/Alert';
 
 export default () => {
@@ -73,7 +73,7 @@ export default () => {
             </Alert>
           </div>
         ) : null}
-        <MatchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />
+        <SearchSelectionAndResults matchServiceInfo={matchServiceInfos[selectedTabIndex]} />
       </div>
     );
   } else if (isError && error) {

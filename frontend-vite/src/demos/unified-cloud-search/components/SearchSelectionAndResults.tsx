@@ -19,6 +19,7 @@ import { getItems, ItemInfo, ItemInfosResponse, SearchServiceInfo } from '../que
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
+import Alert from 'common/components/Alert';
 
 interface MatchFlowProps {
   serviceId: string;
@@ -104,12 +105,7 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
   );
 
   if (isLoading) {
-    return (
-      <div className="alert alert-info flex items-center">
-        <div className="loader mr-2" />
-        Loading...
-      </div>
-    );
+    return <Alert mode="loading" title="Loading..." />;
   } else if (itemsResponse != null && itemsResponse.items != null) {
     return (
       <MatchSelectionAndResults

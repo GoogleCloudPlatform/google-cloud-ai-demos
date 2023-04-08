@@ -13,115 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  CardMedia,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-  useTheme,
-} from '@mui/material';
 import { SearchResult } from '../queries';
-import * as React from 'react';
+
 interface SearchResultsTableProps {
   results: SearchResult[];
 }
 
 export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
-  const theme = useTheme();
-
   return (
-    <TableContainer
-      sx={{
-        border: '2px solid',
-        borderRadius: 2,
-        borderColor: theme.palette.grey[300],
-        '& pre': {
-          m: 0,
-          p: '16px !important',
-          fontFamily: theme.typography.fontFamily,
-          fontSize: '0.75rem',
-        },
-        boxShadow: null,
-      }}
-    >
-      <Table>
-        <TableHead sx={{ borderBottom: `2px solid ${theme.palette.grey[300]}` }}>
-          <TableRow>
-            <TableCell>
-              <Typography variant="overline">Rank</Typography>
-            </TableCell>
-            <TableCell>
-              <Typography variant="overline">Item</Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography variant="overline">Distance</Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    <div className="border-2 border-gray-300 rounded-lg">
+      <table className="table w-full">
+        <thead className="border-b-2 border-gray-300">
+          <tr>
+            <th className="text-sm font-medium uppercase">Rank</th>
+            <th className="text-sm font-medium uppercase">Item</th>
+            <th className="text-sm font-medium uppercase text-right">Distance</th>
+          </tr>
+        </thead>
+        <tbody>
           {results.map((result, index) => (
-            <TableRow
+            <tr
               key={index}
-              sx={{
-                borderBottom: `2px solid ${theme.palette.grey[300]}`,
-                '&:last-child, &:last-child': { borderBottom: 0 },
-              }}
+              className={`border-b-2 border-gray-300 ${index === results.length - 1 ? 'border-none' : ''}`}
             >
-              <TableCell>
-                <Typography variant="overline">{index + 1}</Typography>
-              </TableCell>
+              <td className="text-sm font-medium uppercase">{index + 1}</td>
               {result.image ? (
-                <TableCell>
+                <td>
                   {(result.url ?? result.image) != null ? (
                     <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
-                      <CardMedia
-                        component="img"
-                        sx={{
-                          objectFit: 'cover',
-                          width: '120px',
-                          height: '120px',
-                          display: 'inline-block',
-                        }}
-                        src={result.image}
-                        alt={result.text}
-                      />
+                      <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.text} />
                     </a>
                   ) : (
-                    <CardMedia
-                      component="img"
-                      sx={{
-                        objectFit: 'cover',
-                        width: '120px',
-                        height: '120px',
-                        display: 'inline-block',
-                      }}
-                      src={result.image}
-                      alt={result.text}
-                    />
+                    <img className="object-cover w-24 h-24 inline-block" src={result.image} alt={result.text} />
                   )}
-                </TableCell>
+                </td>
               ) : (
-                <TableCell component="th" scope="row">
-                  <Typography variant="body1">
-                    {result.url != null ? (
-                      <a href={result.url} target="_blank" rel="noreferrer">
-                        {result.text}
-                      </a>
-                    ) : (
-                      result.text
-                    )}
-                  </Typography>
-                </TableCell>
+                <td>
+                  {result.url != null ? (
+                    <a href={result.url} target="_blank" rel="noreferrer" className="text-base">
+                      {result.text}
+                    </a>
+                  ) : (
+                    <span className="text-base">{result.text}</span>
+                  )}
+                </td>
               )}
-              <TableCell align="right">{result.distance.toFixed(2)}</TableCell>
-            </TableRow>
+              <td className="text-right">{result.distance.toFixed(2)}</td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </tbody>
+      </table>
+    </div>
   );
 };
