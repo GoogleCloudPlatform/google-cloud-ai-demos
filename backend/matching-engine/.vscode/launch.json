@@ -39,13 +39,13 @@
         {
             "name": "Cloud Run: Deploy docker image",
             "request": "launch",
-            "command": "gcloud run deploy backend-matching-engine --image gcr.io/vertex-ai-samples/backend-matching-engine:latest --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
+            "command": "gcloud run deploy backend-matching-engine --image gcr.io/vertex-ai-samples/backend-matching-engine:latest --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --update-env-vars TIMEOUT=0",
             "type": "node-terminal"
         },
         {
             "name": "Cloud Run: Build and deploy docker image",
             "request": "launch",
-            "command": "gcloud run deploy backend-matching-engine --source . --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
+            "command": "gcloud run deploy backend-matching-engine --source . --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --update-env-vars TIMEOUT=0",
             "type": "node-terminal"
         },
         {
