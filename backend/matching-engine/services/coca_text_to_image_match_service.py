@@ -13,16 +13,21 @@
 # limitations under the License.
 
 import random
-import subprocess
-from typing import List, Optional
+from typing import Dict, List, Optional
 
+import google.auth
+import google.auth.transport.requests
+import redis
 import requests
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
 import tracer_helper
-from services.match_service import (CodeInfo, Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import (
+    CodeInfo,
+    Item,
+    MatchResult,
+    VertexAIMatchingEngineMatchService,
+)
 
 tracer = tracer_helper.get_tracer(__name__)
 
@@ -64,7 +69,7 @@ def encode_texts_to_embeddings_with_retry(
         raise RuntimeError("Error getting embedding.")
 
 
-class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
+class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, str]]):
     @property
     def id(self) -> str:
         return self._id
@@ -99,7 +104,9 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         deployed_index_id: str,
         image_directory_uri: str,
         api_key: str,
-        code_info: Optional[CodeInfo],
+        redis_host: str,  # Redis host to get data about a match id
+        redis_port: int,  # Redis port to get data about a match id
+        code_info: Optional[CodeInfo] = None,
     ) -> None:
         self._id = id
         self._name = name
@@ -118,6 +125,7 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
             )
         )
         self.deployed_index_id = deployed_index_id
+        self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
     @tracer.start_as_current_span("get_suggestions")
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
@@ -128,15 +136,28 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         )
 
     @tracer.start_as_current_span("get_by_id")
-    def get_by_id(self, id: str) -> Optional[str]:
+    def get_by_id(self, id: str) -> Optional[Dict[str, str]]:
         """Get an item by id."""
-        return f"{self.image_directory_uri}/{id}"
+        retrieved = self.redis_client.hgetall(str(id))
+
+        if retrieved is not None:
+            # Convert the byte strings to regular strings
+            return {key.decode(): value.decode() for key, value in retrieved.items()}
+        else:
+            return None
 
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
-        access_token = subprocess.run(
-            "gcloud auth print-access-token", shell=True, capture_output=True, text=True
-        ).stdout.strip()
+        # Get default access token
+        creds, _ = google.auth.default()
+        # creds.valid is False, and creds.token is None
+        # Need to refresh credentials to populate those
+        auth_req = google.auth.transport.requests.Request()
+        creds.refresh(auth_req)
+        access_token = creds.token
+
+        if access_token is None or len(access_token) == 0:
+            raise RuntimeError("No access token found")
 
         return encode_texts_to_embeddings_with_retry(
             access_token=access_token, api_key=self.api_key, text=[target]
@@ -148,7 +169,9 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     ) -> List[Optional[MatchResult]]:
         items = [self.get_by_id(match.id) for match in matches]
         return [
-            MatchResult(text=None, distance=match.distance, image=item)
+            MatchResult(
+                text=item["name"], distance=match.distance, image=item["img_url"]
+            )
             if item is not None
             else None
             for item, match in zip(items, matches)

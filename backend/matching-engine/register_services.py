@@ -18,13 +18,10 @@ import traceback
 from typing import Dict, List
 
 import tracer_helper
-from services import (
-    # coca_text_to_image_match_service,
+from services import (  # sentence_transformer_service,; spacy_match_service,; text_to_image_match_service,
+    coca_text_to_image_match_service,
     match_service,
     palm_text_match_service,
-    # sentence_transformer_service,
-    # spacy_match_service,
-    # text_to_image_match_service,
 )
 
 logger = logging.getLogger(__name__)
@@ -112,7 +109,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
                 index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/6886593168481976320",
                 deployed_index_id="stack_overflow_07c9",
                 redis_host="10.20.4.3",
-                redis_port="6379",
+                redis_port=6379,
             )
 
             services.append(palm_text_match_service_instance)
@@ -120,31 +117,34 @@ def register_services() -> Dict[str, match_service.MatchService]:
         traceback.print_exc()
         logging.error(ex)
 
-    # API_KEY = os.environ.get("GCP_API_KEY")
+    API_KEY = os.environ.get("GCP_API_KEY")
 
-    # if API_KEY is not None:
-    #     try:
-    #         with tracer.start_as_current_span(
-    #             "coca_text_to_image_match_service_instance init"
-    #         ):
-    #             coca_text_to_image_match_service_instance = coca_text_to_image_match_service.CocaTextToImageMatchService(
-    #                 id="text_to_image_coca",
-    #                 name="Text to image",
-    #                 description="DiffusionDB images encoded using CoCa.",
-    #                 prompts_file="data/text_to_image.txt",
-    #                 index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/3889676314885488640",
-    #                 deployed_index_id="tmpy8lywd0h_filtered",
-    #                 image_directory_uri="https://storage.googleapis.com/vertex-ai-samples/coca_text_to_image",
-    #                 api_key=API_KEY,
-    #                 code_info=match_service.CodeInfo(
-    #                     url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
-    #                     title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
-    #                 ),
-    #             )
+    if API_KEY is not None:
+        try:
+            with tracer.start_as_current_span(
+                "coca_text_to_image_match_service_instance init"
+            ):
+                coca_text_to_image_match_service_instance = coca_text_to_image_match_service.CocaTextToImageMatchService(
+                    id="text_to_image_coca",
+                    name="Text to image",
+                    description="DiffusionDB images encoded using CoCa.",
+                    prompts_file="data/text_to_image.txt",
+                    index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/3889676314885488640",
+                    deployed_index_id="tmpy8lywd0h_filtered",
+                    image_directory_uri="https://storage.googleapis.com/vertex-ai-samples/coca_text_to_image",
+                    api_key=API_KEY,
+                    redis_host="10.20.4.11",
+                    redis_port=6379,
+                    code_info=None,
+                    # code_info=match_service.CodeInfo(
+                    #     url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
+                    #     title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
+                    # ),
+                )
 
-    #             services.append(coca_text_to_image_match_service_instance)
-    #     except Exception as ex:
-    #         traceback.print_exc()
-    #         logging.error(ex)
+                services.append(coca_text_to_image_match_service_instance)
+        except Exception as ex:
+            traceback.print_exc()
+            logging.error(ex)
 
     return {service.id: service for service in services}

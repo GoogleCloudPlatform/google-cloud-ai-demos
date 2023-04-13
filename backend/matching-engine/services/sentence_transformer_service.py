@@ -18,13 +18,16 @@ from typing import List, Optional
 
 import numpy as np
 import redis
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 from sentence_transformers import SentenceTransformer
 
 import tracer_helper
-from services.match_service import (CodeInfo, Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import (
+    CodeInfo,
+    Item,
+    MatchResult,
+    VertexAIMatchingEngineMatchService,
+)
 
 logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
@@ -65,8 +68,8 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
         index_endpoint_name: str,
         deployed_index_id: str,
         redis_host: str,  # Redis host to get data about a match id
-        redis_port: str,  # Redis port to get data about a match id
-        code_info: Optional[CodeInfo],
+        redis_port: int,  # Redis port to get data about a match id
+        code_info: Optional[CodeInfo] = None,
     ) -> None:
         self._id = id
         self._name = name
@@ -98,12 +101,12 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
     @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
-        return self.redis_client.get(str(id))
+        return str(self.redis_client.get(str(id)))
 
     @tracer.start_as_current_span("get_by_ids")
     def get_by_ids(self, ids: List[str]) -> List[Optional[str]]:
         """Get an item by id."""
-        return [self.redis_client.get(str(id)) for id in ids]
+        return [str(self.redis_client.get(str(id))) for id in ids]
 
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
