@@ -76,7 +76,7 @@ export const SearchResults = ({ serviceId, searchQuery }: SearchResultsProps) =>
       </div>
     );
   } else if (error != null) {
-    return <Alert mode="error" title="Error" subtitle={(error as Error).message} />;
+    return <Alert mode="info" title="Info" subtitle={(error as Error).message} />;
   } else {
     return <Alert mode="error" title="Unknown error" />;
   }

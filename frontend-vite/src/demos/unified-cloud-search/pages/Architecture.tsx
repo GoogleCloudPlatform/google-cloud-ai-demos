@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import * as React from 'react';
 import { ReactComponent as ArchitectureImage } from 'demos/unified-cloud-search/static/architecture.svg';
 import GitHubButton from 'react-github-btn';
 

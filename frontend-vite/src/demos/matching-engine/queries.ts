@@ -27,7 +27,7 @@ export interface SuggestionInfosResponse {
   items: SuggestionInfo[];
 }
 
-export async function getItems(match_service_id: string): Promise<SuggestionInfosResponse> {
+export async function getSuggestions(match_service_id: string): Promise<SuggestionInfosResponse> {
   return client.get(`items/${match_service_id}`).then((response) => response.data);
 }
 
