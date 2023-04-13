@@ -15,7 +15,7 @@
 import logging
 import traceback
 from typing import Dict, List
-from services import mercari_search_service
+from services import search_services
 
 import tracer_helper
 from services import search_service
@@ -28,23 +28,45 @@ tracer = tracer_helper.get_tracer(__name__)
 def register_services() -> Dict[str, search_service.SearchService]:
     services: List[search_service.SearchService] = []
 
+    # try:
+    #     with tracer.start_as_current_span("text_search_service_instance init"):
+    #         movies_search_service_instance = search_services.MoviesSearchService(
+    #             id="movies",
+    #             name="Movies",
+    #             description="Movie database",
+    #             words_file="data/popular-english-words.txt",
+    #             project_id="36070612387",
+    #             location="global",
+    #             datastore_id="movie-test",
+    #             code_info=search_service.CodeInfo(
+    #                 url="TODO",
+    #                 title="Create movie search engine",
+    #             ),
+    #             is_staging=True,
+    #         )
+
+    #         services.append(movies_search_service_instance)
+    # except Exception as ex:
+    #     traceback.print_exc()
+    #     logging.error(ex)
+
     try:
         with tracer.start_as_current_span("text_search_service_instance init"):
-            text_search_service_instance = mercari_search_service.MoviesSearchService(
-                id="test",
-                name="Movies",
-                description="Movie database",
+            mercari_search_service_instance = search_services.MercariSearchService(
+                id="mercari",
+                name="Mercari",
+                description="Mercari database",
                 words_file="data/popular-english-words.txt",
-                project_id="36070612387",
+                project_id="471602922801",
                 location="global",
-                datastore_id="movie-test",
+                datastore_id="mercari_1680915352787",
                 code_info=search_service.CodeInfo(
                     url="TODO",
-                    title="Create movie search engine",
+                    title="Create retail search engine",
                 ),
             )
 
-            services.append(text_search_service_instance)
+            services.append(mercari_search_service_instance)
     except Exception as ex:
         traceback.print_exc()
         logging.error(ex)

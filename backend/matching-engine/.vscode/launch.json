@@ -33,13 +33,13 @@
         {
             "name": "Cloud Build: Build docker image",
             "request": "launch",
-            "command": "gcloud builds submit --tag gcr.io/plated-life-378620/backend-matching-engine --timeout=86400s --disk-size=100 --machine-type=n1-highcpu-32",
+            "command": "gcloud builds submit --tag gcr.io/vertex-ai-samples/backend-matching-engine --timeout=86400s --disk-size=100 --machine-type=n1-highcpu-32",
             "type": "node-terminal",
         },
         {
             "name": "Cloud Run: Deploy docker image",
             "request": "launch",
-            "command": "gcloud run deploy backend-matching-engine --image gcr.io/plated-life-378620/backend-matching-engine:latest --region=us-central1 --platform=managed --cpu=8 --memory=32G --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
+            "command": "gcloud run deploy backend-matching-engine --image gcr.io/vertex-ai-samples/backend-matching-engine:latest --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --set-env-vars TIMEOUT=0",
             "type": "node-terminal"
         },
         {

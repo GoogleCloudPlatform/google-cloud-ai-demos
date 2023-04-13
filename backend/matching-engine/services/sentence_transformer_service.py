@@ -18,12 +18,13 @@ from typing import List, Optional
 
 import numpy as np
 import redis
-from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import \
+    matching_engine_index_endpoint
 from sentence_transformers import SentenceTransformer
 
-from services.match_service import CodeInfo, Item, MatchResult, VertexAIMatchingEngineMatchService
-
 import tracer_helper
+from services.match_service import (CodeInfo, Item, MatchResult,
+                                    VertexAIMatchingEngineMatchService)
 
 logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
@@ -53,7 +54,7 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
     def code_info(self) -> Optional[CodeInfo]:
         """Info about code used to generate index."""
         return self._code_info
-    
+
     def __init__(
         self,
         id: str,
@@ -65,7 +66,7 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
         deployed_index_id: str,
         redis_host: str,  # Redis host to get data about a match id
         redis_port: str,  # Redis port to get data about a match id
-        code_info: Optional[CodeInfo]
+        code_info: Optional[CodeInfo],
     ) -> None:
         self._id = id
         self._name = name
@@ -86,9 +87,9 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
         self.deployed_index_id = deployed_index_id
         self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
-    @tracer.start_as_current_span("get_all")
-    def get_all(self, num_items: int = 60) -> List[Item]:
-        """Get all existing ids and items."""
+    @tracer.start_as_current_span("get_suggestions")
+    def get_suggestions(self, num_items: int = 60) -> List[Item]:
+        """Get suggestions for search queries."""
         return random.sample(
             [Item(id=None, text=word, image=None) for word in self.questions],
             min(num_items, len(self.questions)),

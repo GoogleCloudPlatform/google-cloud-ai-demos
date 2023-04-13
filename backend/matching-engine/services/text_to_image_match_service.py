@@ -21,10 +21,10 @@ from google.cloud.aiplatform.matching_engine import \
     matching_engine_index_endpoint
 from transformers import CLIPModel, CLIPTokenizerFast
 
+import tracer_helper
 from services.match_service import (CodeInfo, Item, MatchResult,
                                     VertexAIMatchingEngineMatchService)
 
-import tracer_helper
 tracer = tracer_helper.get_tracer(__name__)
 
 
@@ -52,7 +52,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     def code_info(self) -> Optional[CodeInfo]:
         """Info about code used to generate index."""
         return self._code_info
-    
+
     def __init__(
         self,
         id: str,
@@ -63,7 +63,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         index_endpoint_name: str,
         deployed_index_id: str,
         image_directory_uri: str,
-        code_info: Optional[CodeInfo]
+        code_info: Optional[CodeInfo],
     ) -> None:
         self._id = id
         self._name = name
@@ -94,9 +94,9 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         # self.processor = CLIPProcessor.from_pretrained(model_id)
         self.model = CLIPModel.from_pretrained(model_id_or_path).to(self.device)
 
-    @tracer.start_as_current_span("get_all")
-    def get_all(self, num_items: int = 60) -> List[Item]:
-        """Get all existing ids and items."""
+    @tracer.start_as_current_span("get_suggestions")
+    def get_suggestions(self, num_items: int = 60) -> List[Item]:
+        """Get suggestions for search queries."""
         return random.sample(
             [Item(id=word, text=word, image=None) for word in self.prompts],
             min(num_items, len(self.prompts)),

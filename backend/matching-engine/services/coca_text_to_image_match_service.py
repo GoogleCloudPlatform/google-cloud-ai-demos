@@ -13,10 +13,10 @@
 # limitations under the License.
 
 import random
+import subprocess
 from typing import List, Optional
 
-import numpy as np
-import spacy
+import requests
 from google.cloud.aiplatform.matching_engine import \
     matching_engine_index_endpoint
 
@@ -27,7 +27,44 @@ from services.match_service import (CodeInfo, Item, MatchResult,
 tracer = tracer_helper.get_tracer(__name__)
 
 
-class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
+def encode_texts_to_embeddings_with_retry(
+    access_token: str, api_key: str, text: List[str]
+) -> List[List[float]]:
+    headers = {
+        "Authorization": "Bearer " + access_token,
+    }
+
+    json_data = {
+        "requests": [
+            {
+                "image": {
+                    "source": {
+                        "imageUri": "https://fileinfo.com/img/ss/xl/jpeg_43.png"  # dummy image
+                    }
+                },
+                "features": [{"type": "IMAGE_EMBEDDING"}],
+                "imageContext": {"imageEmbeddingParams": {"contextualTexts": text}},
+            }
+        ]
+    }
+
+    response = requests.post(
+        f"https://us-vision.googleapis.com/v1/images:annotate?key={api_key}",
+        headers=headers,
+        json=json_data,
+    )
+
+    try:
+        return response.json()["responses"][0]["imageEmbeddingVector"][
+            "contextualTextEmbeddingVectors"
+        ]
+    except Exception as ex:
+        # print(f"{ex}:{response.json()}")
+        print(ex)
+        raise RuntimeError("Error getting embedding.")
+
+
+class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     @property
     def id(self) -> str:
         return self._id
@@ -45,7 +82,7 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     @property
     def allows_text_input(self) -> bool:
         """If true, this service allows text input."""
-        return False
+        return True
 
     @property
     def code_info(self) -> Optional[CodeInfo]:
@@ -57,21 +94,23 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         id: str,
         name: str,
         description: str,
-        words_file: str,
+        prompts_file: str,
         index_endpoint_name: str,
         deployed_index_id: str,
+        image_directory_uri: str,
+        api_key: str,
         code_info: Optional[CodeInfo],
     ) -> None:
         self._id = id
         self._name = name
         self._description = description
+        self.image_directory_uri = image_directory_uri
         self._code_info = code_info
+        self.api_key = api_key
 
-        with open(words_file, "r") as f:
-            words = f.readlines()
-            self.words = [word.strip() for word in words]
-
-        self.nlp = spacy.load("en_core_web_md")
+        with open(prompts_file, "r") as f:
+            prompts = f.readlines()
+            self.prompts = [prompt.strip() for prompt in prompts]
 
         self.index_endpoint = (
             matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
@@ -84,23 +123,24 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
         """Get suggestions for search queries."""
         return random.sample(
-            [Item(id=word, text=word, image=None) for word in self.words],
-            min(num_items, len(self.words)),
+            [Item(id=word, text=word, image=None) for word in self.prompts],
+            min(num_items, len(self.prompts)),
         )
 
     @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
-        return id
+        return f"{self.image_directory_uri}/{id}"
 
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
-        vector = np.array(self.nlp.vocab[target].vector.tolist())
+        access_token = subprocess.run(
+            "gcloud auth print-access-token", shell=True, capture_output=True, text=True
+        ).stdout.strip()
 
-        if np.any(vector):
-            return vector.tolist()
-        else:
-            return None
+        return encode_texts_to_embeddings_with_retry(
+            access_token=access_token, api_key=self.api_key, text=[target]
+        )[0]
 
     @tracer.start_as_current_span("convert_match_neighbors_to_result")
     def convert_match_neighbors_to_result(
@@ -108,7 +148,7 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     ) -> List[Optional[MatchResult]]:
         items = [self.get_by_id(match.id) for match in matches]
         return [
-            MatchResult(text=item, distance=match.distance)
+            MatchResult(text=None, distance=match.distance, image=item)
             if item is not None
             else None
             for item, match in zip(items, matches)

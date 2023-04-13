@@ -13,9 +13,8 @@
 # limitations under the License.
 
 
-import dataclasses
 import logging
-from typing import Any, Dict, Generic, List, Optional, Tuple, TypeVar
+from typing import Any, Dict, List, Optional
 from services import unified_cloud_search_service
 from services import search_service
 
@@ -37,4 +36,20 @@ class MoviesSearchService(unified_cloud_search_service.UnifiedCloudSearchService
                 distance=0,
             )
             for result in results
+        ]
+
+
+class MercariSearchService(unified_cloud_search_service.UnifiedCloudSearchService):
+    def convert_to_search_result(
+        self, results: List[Dict[str, Any]]
+    ) -> List[Optional[search_service.SearchResult]]:
+        struct_datas = [result["document"]["structData"] for result in results]
+        return [
+            search_service.SearchResult(
+                description=struct_data["name"],
+                url=struct_data["url"],
+                image=struct_data.get("img_url"),
+                distance=0,
+            )
+            for struct_data in struct_datas
         ]

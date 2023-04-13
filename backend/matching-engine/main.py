@@ -14,18 +14,16 @@
 
 import dataclasses
 import logging
+from typing import Any, Dict, List, Optional, Tuple
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from pydantic import BaseModel
 
 import register_services
-from services import match_service
-
 import tracer_helper
-from typing import Any, Dict, List, Optional, Tuple
-
-from pydantic import BaseModel
+from services import match_service
 
 logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
@@ -61,7 +59,7 @@ async def get_match_registry():
             "name": service.name,
             "description": service.description,
             "allowsTextInput": service.allows_text_input,
-            "code": service.code_info
+            "code": service.code_info,
         }
         for service in match_service_registry.values()
     ]
@@ -72,7 +70,7 @@ async def get_items(match_service_id: str):
     with tracer.start_as_current_span(f"/items/{match_service_id}"):
         service = match_service_registry.get(match_service_id)
         if service:
-            return GetItemsResponse(items=service.get_all())
+            return GetItemsResponse(items=service.get_suggestions())
         else:
             raise HTTPException(
                 status_code=400,

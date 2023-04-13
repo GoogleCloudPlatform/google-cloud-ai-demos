@@ -2,13 +2,13 @@ fastapi
 uvicorn[standard]
 google-cloud-aiplatform
 google-cloud-storage
-spacy
-sentence-transformers
-torch
+# spacy
+# sentence-transformers
+# torch
 pandas
 db-dtypes
 pytest
-transformers
+# transformers
 redis[hiredis]
 numpy
 opentelemetry-api

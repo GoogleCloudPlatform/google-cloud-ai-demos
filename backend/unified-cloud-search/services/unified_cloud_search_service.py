@@ -28,16 +28,13 @@ from services.search_service import CodeInfo, Item, SearchResult, SearchService
 logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
 
-access_token = subprocess.run(
-    "gcloud auth print-access-token", shell=True, capture_output=True, text=True
-).stdout.strip()
-
 
 class UnifiedCloudSearchService(SearchService[str]):
     project_id: str
     location: str
     datastore_id: str
     deployed_index_id: str
+    is_staging: bool
 
     @property
     def id(self) -> str:
@@ -78,7 +75,8 @@ class UnifiedCloudSearchService(SearchService[str]):
         project_id: str,
         location: str,
         datastore_id: str,
-        code_info: Optional[CodeInfo],
+        is_staging: bool = False,
+        code_info: Optional[CodeInfo] = None,
     ) -> None:
         self._id = id
         self._name = name
@@ -92,6 +90,7 @@ class UnifiedCloudSearchService(SearchService[str]):
         self.project_id = project_id
         self.location = location
         self.datastore_id = datastore_id
+        self.is_staging = is_staging
 
     @tracer.start_as_current_span("get_all")
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
@@ -110,6 +109,11 @@ class UnifiedCloudSearchService(SearchService[str]):
     def search(self, query: str, num_neighbors: int) -> List[SearchResult]:
         logger.info(f"index_endpoint.match completed")
 
+        # Retrieve latest access token
+        access_token = subprocess.run(
+            "gcloud auth print-access-token", shell=True, capture_output=True, text=True
+        ).stdout.strip()
+
         headers = {
             "Authorization": f"Bearer {access_token}",
             "Content-Type": "application/json",
@@ -121,8 +125,14 @@ class UnifiedCloudSearchService(SearchService[str]):
             "offset": 0,
         }
 
+        url = (
+            f"https://discoveryengine.googleapis.com/v1alpha/projects/{self.project_id}/locations/{self.location}/collections/default_collection/dataStores/{self.datastore_id}/servingConfigs/default_search:search"
+            if not self.is_staging
+            else f"https://staging-discoveryengine.sandbox.googleapis.com/v1alpha/projects/{self.project_id}/locations/{self.location}/collections/default_collection/dataStores/{self.datastore_id}/servingConfigs/default_config:search"
+        )
+
         response = requests.post(
-            f"https://staging-discoveryengine.sandbox.googleapis.com/v1alpha/projects/{self.project_id}/locations/{self.location}/collections/default_collection/dataStores/{self.datastore_id}/servingConfigs/default_config:search",
+            url,
             headers=headers,
             json=json_data,
         )
