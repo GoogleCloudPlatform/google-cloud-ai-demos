@@ -101,12 +101,16 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
     @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""
-        return str(self.redis_client.get(str(id)))
+        item = self.redis_client.get(str(id))
+
+        return item.decode() if item is not None else None
 
     @tracer.start_as_current_span("get_by_ids")
     def get_by_ids(self, ids: List[str]) -> List[Optional[str]]:
         """Get an item by id."""
-        return [str(self.redis_client.get(str(id))) for id in ids]
+        items = [self.redis_client.get(str(id)) for id in ids]
+
+        return [item.decode() if item is not None else None for item in items]
 
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
