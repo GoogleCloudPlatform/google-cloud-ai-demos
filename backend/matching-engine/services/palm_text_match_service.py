@@ -19,7 +19,10 @@ from typing import List, Optional
 import redis
 import requests
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
+import google.auth
+import google.auth.transport.requests
 
+import logging
 import tracer_helper
 from services.match_service import (
     CodeInfo,
@@ -28,6 +31,7 @@ from services.match_service import (
     VertexAIMatchingEngineMatchService,
 )
 
+logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
 
 
@@ -56,6 +60,10 @@ def encode_texts_to_embeddings(
         headers=headers,
         json=json_data,
     )
+
+    if response.status_code != 200:
+        logging.error(f"access_token: {access_token}")
+        logging.error(response.json())
 
     return [
         prediction["embeddings"]["values"]
@@ -137,9 +145,16 @@ class PalmTextMatchService(VertexAIMatchingEngineMatchService[str]):
 
     @tracer.start_as_current_span("convert_to_embeddings")
     def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
-        access_token = subprocess.run(
-            "gcloud auth print-access-token", shell=True, capture_output=True, text=True
-        ).stdout.strip()
+        # Get default access token
+        creds, _ = google.auth.default()
+        # creds.valid is False, and creds.token is None
+        # Need to refresh credentials to populate those
+        auth_req = google.auth.transport.requests.Request()
+        creds.refresh(auth_req)
+        access_token = creds.token
+
+        if access_token is None or len(access_token) == 0:
+            raise RuntimeError("No access token found")
 
         return encode_texts_to_embeddings(
             access_token=access_token, sentences=[target]
