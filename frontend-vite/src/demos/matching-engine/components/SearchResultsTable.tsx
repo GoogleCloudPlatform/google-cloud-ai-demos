@@ -20,14 +20,16 @@ interface SearchResultsTableProps {
 }
 
 export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
+  const hasNonEmptyDescriptions = results.some((result) => result.description && result.description.length > 0);
+
   return (
     <div className="border-2 border-gray-300 rounded-lg">
-      <table className="table-normal mx-auto">
+      <table className="table-normal w-full">
         <thead className="border-b-2 border-gray-300">
           <tr>
-            <th className="text-sm font-medium uppercase">Rank</th>
-            <th className="text-sm font-medium uppercase">Item</th>
-            <th className="text-sm font-medium uppercase">Description</th>
+            <th className="text-sm font-medium uppercase text-left">Rank</th>
+            <th className="text-sm font-medium uppercase text-left bg-neutral-200">Item</th>
+            {hasNonEmptyDescriptions && <th className="text-sm font-medium uppercase text-left">Description</th>}
             {/* <th className="text-sm font-medium uppercase text-right">Distance</th> */}
           </tr>
         </thead>
@@ -35,37 +37,45 @@ export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
           {results.map((result, index) => (
             <tr
               key={index}
-              className={`border-b-2 border-gray-300 max-w-xs ${index === results.length - 1 ? 'border-none' : ''}`}
+              className={`border-b-2 border-gray-300 ${index === results.length - 1 ? 'border-none' : ''}`}
             >
               <td className="text-sm font-medium uppercase">{index + 1}</td>
-              {result.image ? (
-                <td>
-                  {(result.url ?? result.image) != null ? (
-                    <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
+              <td className="bg-neutral-200">
+                {result.image ? (
+                  <>
+                    {(result.url ?? result.image) != null ? (
+                      <a href={result.url ?? result.image} target="_blank" rel="noreferrer">
+                        <img
+                          className="object-cover max-w-24 max-h-24 inline-block"
+                          src={result.image}
+                          alt={result.title}
+                        />
+                      </a>
+                    ) : (
                       <img
                         className="object-cover max-w-24 max-h-24 inline-block"
                         src={result.image}
-                        alt={result.text}
+                        alt={result.title}
                       />
-                    </a>
-                  ) : (
-                    <img className="object-cover max-w-24 max-h-24 inline-block" src={result.image} alt={result.text} />
-                  )}
-                </td>
-              ) : (
-                <td>
-                  {result.url != null ? (
-                    <a href={result.url} target="_blank" rel="noreferrer" className="text-base">
-                      {result.text}
-                    </a>
-                  ) : (
-                    <span className="text-base">{result.text}</span>
-                  )}
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {result.url != null ? (
+                      <a href={result.url} target="_blank" rel="noreferrer" className="text-base">
+                        {result.title}
+                      </a>
+                    ) : (
+                      <span className="text-base">{result.title}</span>
+                    )}
+                  </>
+                )}
+              </td>
+              {hasNonEmptyDescriptions && (
+                <td className="">
+                  <span className="text-base">{result.description}</span>
                 </td>
               )}
-              <td className="">
-                <span className="text-base">{result.description}</span>
-              </td>
               {/* <td className="text-right">{result.distance.toFixed(2)}</td> */}
             </tr>
           ))}

@@ -84,7 +84,7 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
 
   const renderSearchResults = () => {
     return (
-      <div>
+      <div className="flex flex-col">
         <h6 className="text-xl">Search results</h6>
         <br />
         <SearchResults serviceId={serviceId} searchQuery={searchQuery} />
@@ -93,11 +93,9 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {renderRecommendations()}
-        {renderSearchResults()}
-      </div>
+    <div className="flex flex-col">
+      {renderRecommendations()}
+      {renderSearchResults()}
     </div>
   );
 };

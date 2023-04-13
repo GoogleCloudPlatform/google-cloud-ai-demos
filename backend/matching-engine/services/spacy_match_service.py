@@ -17,12 +17,15 @@ from typing import List, Optional
 
 import numpy as np
 import spacy
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
 import tracer_helper
-from services.match_service import (CodeInfo, Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import (
+    CodeInfo,
+    Item,
+    MatchResult,
+    VertexAIMatchingEngineMatchService,
+)
 
 tracer = tracer_helper.get_tracer(__name__)
 
@@ -108,7 +111,7 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
     ) -> List[Optional[MatchResult]]:
         items = [self.get_by_id(match.id) for match in matches]
         return [
-            MatchResult(text=item, distance=match.distance)
+            MatchResult(title=item, distance=match.distance)
             if item is not None
             else None
             for item, match in zip(items, matches)

@@ -44,7 +44,7 @@ export async function getMatchServiceInfo(): Promise<SearchServiceInfo[]> {
 }
 
 export interface SearchResult {
-  text: string;
+  title: string;
   description?: string;
   image?: string;
   url?: string;
@@ -60,7 +60,7 @@ export async function matchByText(matchServiceId: string, text: string): Promise
   return client
     .post(`/match-by-text/${matchServiceId}`, {
       text: text,
-      numNeighbors: 20,
+      numNeighbors: 50,
     })
     .then((response) => response.data);
 }

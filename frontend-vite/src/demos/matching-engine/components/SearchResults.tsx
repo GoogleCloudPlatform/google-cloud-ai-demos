@@ -18,6 +18,7 @@ import { matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
 import Alert from 'common/components/Alert';
+import SearchResultsGrid from './SearchResultsGrid';
 
 export interface SearchResultsProps {
   serviceId: string;
@@ -72,7 +73,8 @@ export const SearchResults = ({ serviceId, searchQuery }: SearchResultsProps) =>
             matchResults.totalIndexCount
           } items in ${latency.toFixed(0)} ms.`}
         </p>
-        <SearchResultsTable results={matchResults.results} />
+        {/* <SearchResultsTable results={matchResults.results} /> */}
+        <SearchResultsGrid results={matchResults.results} />
       </div>
     );
   } else if (error != null) {

@@ -19,7 +19,9 @@ import logging
 from typing import Any, Generic, List, Optional, Tuple, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
-    matching_engine_index, matching_engine_index_endpoint)
+    matching_engine_index,
+    matching_engine_index_endpoint,
+)
 
 import tracer_helper
 
@@ -32,7 +34,8 @@ tracer = tracer_helper.get_tracer(__name__)
 @dataclasses.dataclass
 class MatchResult:
     distance: float
-    text: Optional[str] = None
+    title: Optional[str] = None
+    description: Optional[str] = None
     url: Optional[str] = None
     image: Optional[str] = None
 

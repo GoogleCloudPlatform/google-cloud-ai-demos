@@ -17,13 +17,16 @@ from typing import List, Optional
 
 import numpy as np
 import torch
-from google.cloud.aiplatform.matching_engine import \
-    matching_engine_index_endpoint
+from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 from transformers import CLIPModel, CLIPTokenizerFast
 
 import tracer_helper
-from services.match_service import (CodeInfo, Item, MatchResult,
-                                    VertexAIMatchingEngineMatchService)
+from services.match_service import (
+    CodeInfo,
+    Item,
+    MatchResult,
+    VertexAIMatchingEngineMatchService,
+)
 
 tracer = tracer_helper.get_tracer(__name__)
 
@@ -127,7 +130,7 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
     ) -> List[Optional[MatchResult]]:
         items = [self.get_by_id(match.id) for match in matches]
         return [
-            MatchResult(text=None, distance=match.distance, image=item)
+            MatchResult(title=None, distance=match.distance, image=item)
             if item is not None
             else None
             for item, match in zip(items, matches)

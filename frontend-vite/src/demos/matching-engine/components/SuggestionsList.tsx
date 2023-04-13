@@ -56,7 +56,7 @@ interface Props {
 export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => {
   return (
     <div className="grid grid-cols-3 gap-1 w-full max-h-[800px] mt-0">
-      {items.map((item, index) => (
+      {/* {items.map((item, index) => (
         <div key={index}>
           <ImageSelectionButton
             item={item}
@@ -68,7 +68,7 @@ export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => 
             }}
           />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
