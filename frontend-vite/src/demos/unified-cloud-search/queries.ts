@@ -23,11 +23,11 @@ export interface SuggestionInfo {
   text?: string;
 }
 
-export interface SuggestionsInfosResponse {
+export interface SuggestionInfosResponse {
   items: SuggestionInfo[];
 }
 
-export async function getSuggestions(service_id: string): Promise<SuggestionsInfosResponse> {
+export async function getSuggestions(service_id: string): Promise<SuggestionInfosResponse> {
   return client.get(`suggestions/${service_id}`).then((response) => response.data);
 }
 

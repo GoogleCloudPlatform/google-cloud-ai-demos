@@ -19,7 +19,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { styled } from '@mui/material/styles';
-import { ItemInfo } from 'demos/matching-engine/queries';
+import { SuggestionInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
@@ -85,7 +85,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 }));
 
 interface ImageSelectionButtonProps {
-  item: ItemInfo;
+  item: SuggestionInfo;
   isSelected: boolean;
   onSelected?: () => void;
 }
@@ -132,9 +132,9 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
   );
 };
 interface SelectionListProps {
-  items: ItemInfo[];
+  items: SuggestionInfo[];
   selectedIndex?: number;
-  onSelected?: (item: ItemInfo, index: number) => void;
+  onSelected?: (item: SuggestionInfo, index: number) => void;
 }
 
 export const SelectionList = ({ items, selectedIndex, onSelected }: SelectionListProps) => {

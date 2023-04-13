@@ -23,7 +23,7 @@ import {
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
-import { getMatchServiceInfo, MatchServiceInfo } from 'demos/matching-engine/queries';
+import { getMatchServiceInfo, SearchServiceInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 
@@ -35,7 +35,7 @@ export default () => {
     error,
     data: matchServiceInfos,
     isError,
-  } = useQuery<MatchServiceInfo[], Error>(
+  } = useQuery<SearchServiceInfo[], Error>(
     ['getMatchServiceInfo'],
     () => {
       return getMatchServiceInfo();

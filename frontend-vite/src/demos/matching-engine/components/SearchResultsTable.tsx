@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { SearchResult } from '../queries';
-import * as React from 'react';
 
 interface SearchResultsTableProps {
   results: SearchResult[];
@@ -46,25 +45,21 @@ export const SearchResultsTable = ({ results }: SearchResultsTableProps) => {
                       <img
                         className="object-cover max-w-24 max-h-24 inline-block"
                         src={result.image}
-                        alt={result.title}
+                        alt={result.text}
                       />
                     </a>
                   ) : (
-                    <img
-                      className="object-cover max-w-24 max-h-24 inline-block"
-                      src={result.image}
-                      alt={result.title}
-                    />
+                    <img className="object-cover max-w-24 max-h-24 inline-block" src={result.image} alt={result.text} />
                   )}
                 </td>
               ) : (
                 <td>
                   {result.url != null ? (
                     <a href={result.url} target="_blank" rel="noreferrer" className="text-base">
-                      {result.title}
+                      {result.text}
                     </a>
                   ) : (
-                    <span className="text-base">{result.title}</span>
+                    <span className="text-base">{result.text}</span>
                   )}
                 </td>
               )}

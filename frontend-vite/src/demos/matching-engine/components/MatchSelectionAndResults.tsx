@@ -15,9 +15,9 @@
  */
 import { Alert, AlertTitle, CircularProgress, Container, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-import { MatchResults } from 'demos/matching-engine/components/MatchResults';
+import { SearchResults } from 'demos/matching-engine/components/SearchResults';
 import { SelectionList } from 'demos/matching-engine/components/SelectionList';
-import { getItems, ItemInfo, ItemInfosResponse, MatchServiceInfo } from 'demos/matching-engine/queries';
+import { getItems, SuggestionInfo, SuggestionInfosResponse, SearchServiceInfo } from 'demos/matching-engine/queries';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
@@ -25,7 +25,7 @@ import { useDebounce } from 'use-debounce';
 interface MatchFlowProps {
   matchServiceId: string;
   allowsTextInput: boolean;
-  items: ItemInfo[];
+  items: SuggestionInfo[];
 }
 
 const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAllowed, items }: MatchFlowProps) => {
@@ -68,7 +68,7 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
             <SelectionList
               items={items}
               selectedIndex={selectedIndex}
-              onSelected={(item: ItemInfo, index: number) => {
+              onSelected={(item: SuggestionInfo, index: number) => {
                 if (item.text != null) {
                   if (textInputAllowed) {
                     setTextFieldText(item.text);
@@ -85,20 +85,20 @@ const MatchSelectionAndResults = ({ matchServiceId, allowsTextInput: textInputAl
         <Grid xs={12} md={4}>
           <Typography variant="h6">Search results</Typography>
           <br />
-          <MatchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
+          <SearchResults matchServiceId={matchServiceId} searchQuery={searchQuery} />
         </Grid>
       </Grid>
     </Container>
   );
 };
 
-export default ({ matchServiceInfo }: { matchServiceInfo: MatchServiceInfo }) => {
+export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) => {
   const {
     isLoading,
     error,
     data: itemsResponse,
     isError,
-  } = useQuery<ItemInfosResponse, Error>(
+  } = useQuery<SuggestionInfosResponse, Error>(
     ['getItems', matchServiceInfo.id],
     () => {
       return getItems(matchServiceInfo.id);

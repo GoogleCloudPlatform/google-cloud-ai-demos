@@ -17,21 +17,21 @@
 import axios from 'axios';
 
 const client = axios.create({ baseURL: import.meta.env.VITE_API_SERVER_MATCHING_ENGINE });
-export interface ItemInfo {
+export interface SuggestionInfo {
   id?: string;
   img?: string;
   text?: string;
 }
 
-export interface ItemInfosResponse {
-  items: ItemInfo[];
+export interface SuggestionInfosResponse {
+  items: SuggestionInfo[];
 }
 
-export async function getItems(match_service_id: string): Promise<ItemInfosResponse> {
+export async function getItems(match_service_id: string): Promise<SuggestionInfosResponse> {
   return client.get(`items/${match_service_id}`).then((response) => response.data);
 }
 
-export interface MatchServiceInfo {
+export interface SearchServiceInfo {
   id: string;
   name: string;
   description: string;
@@ -39,12 +39,13 @@ export interface MatchServiceInfo {
   code?: { url: string; title: string };
 }
 
-export async function getMatchServiceInfo(): Promise<MatchServiceInfo[]> {
+export async function getMatchServiceInfo(): Promise<SearchServiceInfo[]> {
   return client.get(`match-registry`).then((response) => response.data);
 }
 
-export interface MatchResult {
+export interface SearchResult {
   text: string;
+  description?: string;
   image?: string;
   url?: string;
   distance: number;
@@ -52,16 +53,7 @@ export interface MatchResult {
 
 export interface MatchResponse {
   totalIndexCount: number;
-  results: MatchResult[];
-}
-
-export async function matchById(matchServiceId: string, id: string): Promise<MatchResponse> {
-  return client
-    .post(`/match-by-id/${matchServiceId}`, {
-      id: id,
-      numNeighbors: 20,
-    })
-    .then((response) => response.data);
+  results: SearchResult[];
 }
 
 export async function matchByText(matchServiceId: string, text: string): Promise<MatchResponse> {
