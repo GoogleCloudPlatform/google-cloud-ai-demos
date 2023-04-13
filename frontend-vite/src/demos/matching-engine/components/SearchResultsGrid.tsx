@@ -24,24 +24,21 @@ interface ImageSelectionButtonProps {
 
 export const ImageSelectionButton = ({ item, onSelected }: ImageSelectionButtonProps) => {
   return (
-    <div className="flex flex-col gap-4">
-      <button
-        className={`relative h-48 w-full focus:z-10 bg-neutral-300`}
-        onClick={() => {
-          if (onSelected != null) {
-            onSelected(item);
-          }
-        }}
-      >
-        <span
-          className={`absolute inset-0 bg-center bg-cover`}
-          style={{
-            backgroundImage: item.image != null ? `url(${item.image})` : undefined,
-          }}
-        ></span>
-      </button>
-      <div>{item.title}</div>
-    </div>
+    <button
+      className="relative w-full h-full justify-end overflow-hidden bg-gray-300 "
+      onClick={() => {
+        if (onSelected != null) {
+          onSelected(item);
+        }
+      }}
+    >
+      <div className="flex flex-col p-4 w-full h-full gap-4">
+        {item.image && (
+          <img src={item.image} alt={item.title} className="inset-0 h-48 object-cover object-center w-full" />
+        )}
+        <div className="text-left font-medium">{item.title}</div>
+      </div>
+    </button>
   );
 };
 
@@ -51,9 +48,9 @@ interface Props {
 
 export default ({ results }: Props) => {
   return (
-    <div className="grid grid-cols-3 gap-4 w-full max-h-[800px] mt-0">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 w-full mt-0 gap-2">
       {results.map((item, index) => (
-        <div className="bg-white border-neutral-200 border-2 p-4" key={index}>
+        <div className="aspect-w-1 aspect-h-1" key={index}>
           <ImageSelectionButton item={item} onSelected={(result) => window.open(result.url, '_blank')} />
         </div>
       ))}
