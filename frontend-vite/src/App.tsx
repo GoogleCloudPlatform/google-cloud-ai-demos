@@ -19,6 +19,7 @@ import analytics from 'AnalyticsService';
 import DemoWrapper from 'common/components/DemoWrapper';
 import DemoSelection from 'common/pages/DemoSelection';
 import { matchingEngineDemoInfo, unifiedCloudSearchDemoInfo } from 'DemoInfo';
+import MatchingEngineFlow from 'demos/matching-engine/pages/MatchingEngineFlow';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
@@ -45,6 +46,7 @@ const AppRoutes = () => {
       /> */}
       <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
       <Route path="/demos/unified-cloud-search" element={<DemoWrapper {...unifiedCloudSearchDemoInfo} />} />
+      <Route path="/demos/coca-demo" element={<MatchingEngineFlow />} />
     </Routes>
   );
 };

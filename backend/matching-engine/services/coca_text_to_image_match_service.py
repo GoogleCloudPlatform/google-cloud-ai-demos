@@ -170,7 +170,9 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         items = [self.get_by_id(match.id) for match in matches]
         return [
             MatchResult(
-                text=item["name"], distance=match.distance, image=item["img_url"]
+                text=item["name"],
+                distance=max(0, 1 - match.distance),
+                image=item["img_url"],
             )
             if item is not None
             else None

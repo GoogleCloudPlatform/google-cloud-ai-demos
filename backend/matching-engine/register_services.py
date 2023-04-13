@@ -127,7 +127,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
             ):
                 coca_text_to_image_match_service_instance = coca_text_to_image_match_service.CocaTextToImageMatchService(
                     id="text_to_image_coca",
-                    name="Text to image",
+                    name="Mercari images (CoCa)",
                     description="Mercari product images encoded using CoCa.",
                     prompts_file="data/mercari_products.txt",
                     index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/135415852076892160",
