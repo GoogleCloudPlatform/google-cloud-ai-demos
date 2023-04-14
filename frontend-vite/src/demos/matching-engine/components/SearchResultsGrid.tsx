@@ -18,11 +18,12 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 interface ImageSelectionButtonProps {
+  index: number;
   item: SearchResult;
   onSelected?: (result: SearchResult) => void;
 }
 
-export const ImageSelectionButton = ({ item, onSelected }: ImageSelectionButtonProps) => {
+export const ImageSelectionButton = ({ index, item, onSelected }: ImageSelectionButtonProps) => {
   return (
     <button
       className="relative w-full h-full justify-end overflow-hidden bg-gray-300 "
@@ -32,10 +33,11 @@ export const ImageSelectionButton = ({ item, onSelected }: ImageSelectionButtonP
         }
       }}
     >
-      <div className="flex flex-col p-4 w-full h-full gap-4">
+      <div className="flex flex-col p-4 w-full h-full gap-2">
         {item.image && (
-          <img src={item.image} alt={item.title} className="inset-0 h-48 object-cover object-center w-full" />
+          <img src={item.image} alt={item.title} className="inset-0 h-48 object-cover object-center w-full mb-4" />
         )}
+        <div className="text-left text-sm font-extralight">#{index}</div>
         <div className="text-left font-medium">{item.title}</div>
       </div>
     </button>
@@ -51,7 +53,7 @@ export default ({ results }: Props) => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 w-full mt-0 gap-2">
       {results.map((item, index) => (
         <div className="aspect-w-1 aspect-h-1" key={index}>
-          <ImageSelectionButton item={item} onSelected={(result) => window.open(result.url, '_blank')} />
+          <ImageSelectionButton index={index} item={item} onSelected={(result) => window.open(result.url, '_blank')} />
         </div>
       ))}
     </div>

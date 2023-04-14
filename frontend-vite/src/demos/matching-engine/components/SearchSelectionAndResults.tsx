@@ -20,14 +20,19 @@ import * as React from 'react';
 import { useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
 import Alert from 'common/components/Alert';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
+import { Button } from '@mui/material';
 
 interface MatchFlowProps {
   serviceId: string;
   allowsTextInput: boolean;
-  items: SuggestionInfo[];
+  suggestions: SuggestionInfo[];
+  refetchSuggestions?: () => void;
 }
 
-const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFlowProps) => {
+const NUM_ITEMS = 3;
+
+const MatchSelectionAndResults = ({ serviceId, allowsTextInput, suggestions, refetchSuggestions }: MatchFlowProps) => {
   const [textFieldText, setTextFieldText] = React.useState<string>('');
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -60,23 +65,35 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
             }}
           />
         ) : null}
-        <div className="mt-2">
+        <div className="mt-4">
           <h6 className="text-sm text-gray-500">Suggestions</h6>
-          <SuggestionsList
-            items={items}
-            selectedIndex={selectedIndex}
-            onSelected={(item: SuggestionInfo, index: number) => {
-              if (item.text != null) {
-                if (allowsTextInput) {
-                  setTextFieldText(item.text);
-                } else {
-                  setSearchQuery(item.text);
+          <div className="flex flex-row gap-4">
+            <SuggestionsList
+              items={suggestions.slice(0, NUM_ITEMS)}
+              selectedIndex={selectedIndex}
+              onSelected={(item: SuggestionInfo, index: number) => {
+                if (item.text != null) {
+                  if (allowsTextInput) {
+                    setTextFieldText(item.text);
+                  } else {
+                    setSearchQuery(item.text);
+                  }
                 }
-              }
 
-              setSelectedIndex(index);
-            }}
-          />
+                setSelectedIndex(index);
+              }}
+            />
+            {refetchSuggestions && (
+              <Button
+                className="btn border-none aspect-square h-16 hover:bg-primt text-white px-4 py-4 flex items-center justify-center"
+                onClick={() => {
+                  refetchSuggestions();
+                }}
+              >
+                <ArrowPathIcon className="h-6 w-6" />
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -84,16 +101,15 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, items }: MatchFl
 
   const renderSearchResults = () => {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-2">
         <h6 className="text-xl">Search results</h6>
-        <br />
         <SearchResults serviceId={serviceId} searchQuery={searchQuery} />
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-8">
       {renderRecommendations()}
       {renderSearchResults()}
     </div>
@@ -104,8 +120,9 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
   const {
     isLoading,
     error,
-    data: itemsResponse,
+    data: suggestionsResponse,
     isError,
+    refetch: refetchSuggestions,
   } = useQuery<SuggestionInfosResponse, Error>(
     ['getItems', matchServiceInfo.id],
     () => {
@@ -116,9 +133,14 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
 
   if (isLoading) {
     return <Alert mode="loading" title="Loading..." />;
-  } else if (itemsResponse != null && itemsResponse.items != null) {
+  } else if (suggestionsResponse != null && suggestionsResponse.items != null) {
     return (
-      <MatchSelectionAndResults serviceId={matchServiceInfo.id} allowsTextInput={true} items={itemsResponse.items} />
+      <MatchSelectionAndResults
+        serviceId={matchServiceInfo.id}
+        allowsTextInput={true}
+        suggestions={suggestionsResponse.items}
+        refetchSuggestions={refetchSuggestions}
+      />
     );
   } else if (isError && error) {
     return (

@@ -24,9 +24,10 @@ export interface SearchResultsProps {
   serviceId: string;
   selectedId?: string;
   searchQuery: string;
+  showLatency?: boolean;
 }
 
-export const SearchResults = ({ serviceId, searchQuery }: SearchResultsProps) => {
+export const SearchResults = ({ serviceId, searchQuery, showLatency = false }: SearchResultsProps) => {
   const [startTime, setStartTime] = React.useState<number | null>(null);
   const [latency, setLatency] = React.useState<number>(-1);
 
@@ -67,11 +68,10 @@ export const SearchResults = ({ serviceId, searchQuery }: SearchResultsProps) =>
   } else if (matchResults != null) {
     return (
       <div className="space-y-2">
-        <p className="text-base">These are the closest matches for your selected item.</p>
-        <p className="text-sm text-gray-600">
-          {`${matchResults.results.length} results retrieved from a total of ${
-            matchResults.totalIndexCount
-          } items in ${latency.toFixed(0)} ms.`}
+        <p className="text-base text-gray-600">
+          <span className="font-bold">{matchResults.results.length}</span> results retrieved from a total of{' '}
+          <span className="font-bold">{matchResults.totalIndexCount}</span>{' '}
+          {`items${showLatency ? ` in ${latency.toFixed(0)} ms.` : ''}`}
         </p>
         {/* <SearchResultsTable results={matchResults.results} /> */}
         <SearchResultsGrid results={matchResults.results} />

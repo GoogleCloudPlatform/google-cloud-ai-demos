@@ -27,7 +27,7 @@ interface ImageSelectionButtonProps {
 export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
   return (
     <button
-      className={`relative h-48 w-full focus:z-10 ${isSelected ? 'bg-neutral-400' : 'bg-neutral-300'}`}
+      className={`relative h-24 w-full focus:z-10 ${isSelected ? 'bg-neutral-400' : 'bg-neutral-300'}`}
       onClick={() => {
         if (onSelected != null) {
           onSelected();
@@ -55,8 +55,8 @@ interface Props {
 
 export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => {
   return (
-    <div className="grid grid-cols-3 gap-1 w-full max-h-[800px] mt-0">
-      {/* {items.map((item, index) => (
+    <div className="grid grid-cols-3 gap-1 w-full mt-0">
+      {items.map((item, index) => (
         <div key={index}>
           <ImageSelectionButton
             item={item}
@@ -68,7 +68,7 @@ export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => 
             }}
           />
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };

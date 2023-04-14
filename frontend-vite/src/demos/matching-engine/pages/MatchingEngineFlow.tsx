@@ -48,7 +48,7 @@ export default () => {
     return <Alert mode="info" title="Loading..." className="w-fit" />;
   } else if (matchServiceInfos != null && selectedServiceInfo != null) {
     return (
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 p-8">
         <div className="self-center">
           <div className="btn-group">
             {matchServiceInfos.map((matchServiceInfo, index) => (
