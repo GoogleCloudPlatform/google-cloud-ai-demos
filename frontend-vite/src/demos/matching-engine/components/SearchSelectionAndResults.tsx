@@ -56,8 +56,8 @@ const MatchSelectionAndResults = ({ serviceId, allowsTextInput, suggestions, ref
         {allowsTextInput ? (
           <input
             type="text"
-            className="input input-bordered w-full mt-2"
-            placeholder="Search"
+            className="input input-bordered w-full mt-2 text-2xl px-4 py-8"
+            placeholder="Type a search query"
             value={textFieldText}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const newText = event.target.value;
