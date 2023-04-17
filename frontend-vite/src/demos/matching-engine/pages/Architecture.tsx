@@ -113,7 +113,7 @@ export default () => (
       <div className="col-span-12 lg:col-span-8">
         <div className="flex">
           <ArchitectureImage
-            onClick={() => window.open('demos/matching-engine/static/architecture.svg', '_blank')}
+            // onClick={() => window.open('demos/matching-engine/static/architecture.svg', '_blank')}
             className="h-96"
           />
         </div>

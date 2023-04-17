@@ -13,6 +13,14 @@ export default {
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
-    themes: ['emerald'],
+    themes: [
+      {
+        garden: {
+          ...require('daisyui/src/colors/themes')['[data-theme=garden]'],
+          // primary: 'blue',
+          // 'primary-focus': 'mediumblue',
+        },
+      },
+    ],
   },
 };
