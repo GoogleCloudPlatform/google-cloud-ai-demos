@@ -16,7 +16,7 @@ import abc
 import dataclasses
 import functools
 import logging
-from typing import Any, Generic, List, Optional, Tuple, TypeVar
+from typing import Generic, List, Optional, TypeVar
 
 from google.cloud.aiplatform.matching_engine import (
     matching_engine_index,
@@ -75,9 +75,25 @@ class MatchService(abc.ABC, Generic[T]):
         return False
 
     @property
+    def allows_image_input(self) -> bool:
+        """If true, this service allows text input."""
+        return False
+
+    @property
     def code_info(self) -> Optional[CodeInfo]:
         """Info about code used to generate index."""
         return None
+
+    def convert_image_to_embeddings(
+        self, image_file_local_path: str
+    ) -> Optional[List[float]]:
+        """Convert a given item to an embedding representation."""
+        raise NotImplementedError()
+
+    def match_by_image(
+        self, image_file_local_path: str, num_neighbors: int
+    ) -> List[MatchResult]:
+        raise NotImplementedError()
 
     @abc.abstractmethod
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
@@ -95,7 +111,7 @@ class MatchService(abc.ABC, Generic[T]):
         pass
 
     @abc.abstractmethod
-    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+    def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         """Convert a given item to an embedding representation."""
         pass
 
@@ -106,7 +122,7 @@ class MatchService(abc.ABC, Generic[T]):
         pass
 
     @abc.abstractmethod
-    def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
+    def match_by_text(self, target: str, num_neighbors: int) -> List[MatchResult]:
         pass
 
 
@@ -114,12 +130,10 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
     index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
     deployed_index_id: str
 
-    @tracer.start_as_current_span("match")
-    def match(self, target: str, num_neighbors: int) -> List[MatchResult]:
-        logger.info(f"match(target={target}, num_neighbors={num_neighbors})")
-
-        embeddings = self.convert_to_embeddings(target=target)
-
+    @tracer.start_as_current_span("match_by_embeddings")
+    def match_by_embeddings(
+        self, embeddings: List[float], num_neighbors: int
+    ) -> List[MatchResult]:
         if embeddings is None:
             raise ValueError("Embeddings could not be generated for: {target}")
 
@@ -146,6 +160,40 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
         logger.info(f"matches none filtered")
 
         return matches_all_nonoptional
+
+    @tracer.start_as_current_span("match_by_text")
+    def match_by_text(self, target: str, num_neighbors: int) -> List[MatchResult]:
+        logger.info(f"match_by_text(target={target}, num_neighbors={num_neighbors})")
+
+        embeddings = self.convert_text_to_embeddings(target=target)
+
+        if embeddings is None:
+            raise ValueError("Embeddings could not be generated for: {target}")
+
+        return self.match_by_embeddings(
+            embeddings=embeddings, num_neighbors=num_neighbors
+        )
+
+    @tracer.start_as_current_span("match_by_image")
+    def match_by_image(
+        self, image_file_local_path: str, num_neighbors: int
+    ) -> List[MatchResult]:
+        logger.info(
+            f"match_by_image(target={image_file_local_path}, num_neighbors={num_neighbors})"
+        )
+
+        embeddings = self.convert_image_to_embeddings(
+            image_file_local_path=image_file_local_path
+        )
+
+        if embeddings is None:
+            raise ValueError(
+                "Embeddings could not be generated for: {image_file_local_path}"
+            )
+
+        return self.match_by_embeddings(
+            embeddings=embeddings, num_neighbors=num_neighbors
+        )
 
     @functools.lru_cache
     @tracer.start_as_current_span("get_total_index_count")

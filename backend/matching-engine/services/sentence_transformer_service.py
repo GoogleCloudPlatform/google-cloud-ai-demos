@@ -112,8 +112,8 @@ class SentenceTransformerMatchService(VertexAIMatchingEngineMatchService[str]):
 
         return [item.decode() if item is not None else None for item in items]
 
-    @tracer.start_as_current_span("convert_to_embeddings")
-    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+    @tracer.start_as_current_span("convert_text_to_embeddings")
+    def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = self.encoder.encode(target)
 
         if np.any(vector):

@@ -110,8 +110,8 @@ class TextToImageMatchService(VertexAIMatchingEngineMatchService[str]):
         """Get an item by id."""
         return f"{self.image_directory_uri}/{id}"
 
-    @tracer.start_as_current_span("convert_to_embeddings")
-    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+    @tracer.start_as_current_span("convert_text_to_embeddings")
+    def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         # create transformer-readable tokens
         inputs = self.tokenizer(target, return_tensors="pt").to(self.device)
 

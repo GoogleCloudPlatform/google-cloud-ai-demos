@@ -14,4 +14,4 @@ numpy
 opentelemetry-api
 opentelemetry-sdk
 opentelemetry-exporter-gcp-trace
-
+python-multipart

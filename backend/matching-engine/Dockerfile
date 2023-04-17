@@ -23,6 +23,7 @@ COPY main.py .
 COPY models.py .
 COPY register_services.py .
 COPY tracer_helper.py .
+COPY storage_helper.py .
 COPY data data
 COPY services services
 COPY tests tests

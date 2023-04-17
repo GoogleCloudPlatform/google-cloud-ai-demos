@@ -13,10 +13,10 @@
 # limitations under the License.
 
 import logging
-import os
 import traceback
 from typing import Dict, List
 
+import constants
 import tracer_helper
 from services import (  # sentence_transformer_service,; spacy_match_service,; text_to_image_match_service,
     coca_text_to_image_match_service,
@@ -117,10 +117,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
         traceback.print_exc()
         logging.error(ex)
 
-    API_KEY = os.environ.get("GCP_API_KEY")
-    logger.error("GCP_API_KEY not set")
-
-    if API_KEY is not None:
+    if constants.API_KEY is not None:
         try:
             with tracer.start_as_current_span(
                 "coca_text_to_image_match_service_instance init"
@@ -133,7 +130,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
                     index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/135415852076892160",
                     deployed_index_id="deployed_index_ecbd",
                     image_directory_uri="https://storage.googleapis.com/vertex-ai-samples/coca_text_to_image",
-                    api_key=API_KEY,
+                    api_key=constants.API_KEY,
                     redis_host="10.20.4.11",
                     redis_port=6379,
                     code_info=None,

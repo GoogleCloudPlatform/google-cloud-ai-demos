@@ -14,9 +14,11 @@
 
 import dataclasses
 import logging
+import shutil
+import tempfile
 from typing import Any, Dict, List, Optional, Tuple
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel
@@ -111,7 +113,9 @@ async def match_by_id(
 
         if item is not None:
             try:
-                results = service.match(target=item, num_neighbors=request.numNeighbors)
+                results = service.match_by_text(
+                    target=item, num_neighbors=request.numNeighbors
+                )
             except Exception as ex:
                 logger.error(ex)
                 raise HTTPException(
@@ -142,7 +146,7 @@ async def match_by_text(
             )
 
         try:
-            results = service.match(
+            results = service.match_by_text(
                 target=request.text, num_neighbors=request.numNeighbors
             )
 
@@ -154,3 +158,47 @@ async def match_by_text(
             raise HTTPException(
                 status_code=500, detail=f"There was an error getting matches"
             )
+
+
+class MatchByImageRequest(BaseModel):
+    image: UploadFile
+    numNeighbors: int = 10
+
+
+@app.post("/match-by-image/{match_service_id}")
+async def match_by_image(
+    match_service_id: str, request: MatchByImageRequest
+) -> MatchResponse:
+    with tracer.start_as_current_span(f"/match-by-image/{match_service_id}"):
+        service = match_service_registry.get(match_service_id)
+
+        if not service:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Match service not found for id: {match_service_id}",
+            )
+
+        if request.image.filename is None:
+            raise HTTPException(
+                status_code=400,
+                detail=f"No image uploaded",
+            )
+
+        try:
+            with tempfile.NamedTemporaryFile() as f:
+                shutil.copyfileobj(request.image.file, f)
+                results = service.match_by_image(
+                    image_file_local_path=f.name,
+                    num_neighbors=request.numNeighbors,
+                )
+
+                return MatchResponse(
+                    totalIndexCount=service.get_total_index_count(), results=results
+                )
+        except Exception as ex:
+            logger.error(ex)
+            raise HTTPException(
+                status_code=500, detail=f"There was an error getting matches"
+            )
+        finally:
+            request.image.file.close()

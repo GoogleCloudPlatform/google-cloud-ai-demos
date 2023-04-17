@@ -91,6 +91,11 @@ class PalmTextMatchService(VertexAIMatchingEngineMatchService[str]):
         return True
 
     @property
+    def allows_image_upload(self) -> bool:
+        """If true, this service allows text input."""
+        return True
+
+    @property
     def code_info(self) -> Optional[CodeInfo]:
         """Info about code used to generate index."""
         return self._code_info
@@ -146,8 +151,8 @@ class PalmTextMatchService(VertexAIMatchingEngineMatchService[str]):
 
         return [item.decode() if item is not None else None for item in items]
 
-    @tracer.start_as_current_span("convert_to_embeddings")
-    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+    @tracer.start_as_current_span("convert_text_to_embeddings")
+    def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         # Get default access token
         creds, _ = google.auth.default()
         # creds.valid is False, and creds.token is None

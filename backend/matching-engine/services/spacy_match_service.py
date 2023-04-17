@@ -96,8 +96,8 @@ class SpacyTextMatchService(VertexAIMatchingEngineMatchService[str]):
         """Get an item by id."""
         return id
 
-    @tracer.start_as_current_span("convert_to_embeddings")
-    def convert_to_embeddings(self, target: str) -> Optional[List[float]]:
+    @tracer.start_as_current_span("convert_text_to_embeddings")
+    def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         vector = np.array(self.nlp.vocab[target].vector.tolist())
 
         if np.any(vector):
