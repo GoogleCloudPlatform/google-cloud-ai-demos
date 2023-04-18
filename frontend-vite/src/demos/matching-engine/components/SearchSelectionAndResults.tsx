@@ -101,7 +101,7 @@ const MatchSelectionAndResults = ({
         allowsImageInput && (
           <div className="flex flex-col gap-4 border-l-4 p-4 rounded-md">
             <h3 className="text-3xl">Search by image</h3>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-col items-center">
                 <div className="flex-1 flex-col items-baseline space-y-2">
                   <label className="font-extralight">Choose a file</label>

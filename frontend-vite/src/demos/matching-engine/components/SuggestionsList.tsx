@@ -27,7 +27,11 @@ interface ImageSelectionButtonProps {
 export const SuggestionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
   return (
     <button
-      className={`relative h-24 w-full focus:z-10 ${isSelected ? 'bg-neutral-400' : 'bg-neutral-300'}`}
+      className={clsx(
+        'relative w-full focus:z-10 hover:bg-gray-400',
+        isSelected ? 'bg-neutral-500' : 'bg-neutral-300',
+        item.image != null ? 'h-60' : 'h-24'
+      )}
       onClick={() => {
         if (onSelected != null) {
           onSelected();
@@ -35,7 +39,7 @@ export const SuggestionButton = ({ item, isSelected, onSelected }: ImageSelectio
       }}
     >
       <span
-        className={clsx('absolute inset-0 bg-center bg-cover')}
+        className={clsx('absolute inset-0 bg-center bg-cover m-4')}
         style={{
           backgroundImage: item.image != null ? `url(${item.image})` : undefined,
         }}
