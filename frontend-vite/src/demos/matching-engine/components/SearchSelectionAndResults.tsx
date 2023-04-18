@@ -51,79 +51,98 @@ const MatchSelectionAndResults = ({
   const [selectedIndex, setSelectedIndex] = React.useState<number | undefined>(undefined);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [debouncedValue] = useDebounce(textFieldText, 500);
+
+  // The user selected image file.
   const [imageFile, setImageFile] = React.useState<File | null>(null);
+
+  // Path to the image file. Used to display the user selected image.
+  const [imageFilePath, setImageFilePath] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setTextFieldText('');
     setSearchQuery('');
+    setImageFile(null);
+    setImageFilePath(null);
     setSelectedIndex(undefined);
   }, [serviceId]);
 
   React.useEffect(() => {
     console.log(`setSearchQuery(${debouncedValue});`);
     setSearchQuery(debouncedValue);
+    setImageFile(null);
+    setImageFilePath(null);
   }, [debouncedValue, setSearchQuery]);
-
-  // const annotateImageByFileMutation = useMutation<MatchResponse, Error, File>((file: File) => {
-  //   return matchByImage(, file);
-  // });
 
   const renderTextSearch = () => {
     {
-      return allowsTextInput ? (
-        <input
-          type="text"
-          className="input input-bordered w-full mt-2 text-2xl px-4 py-8"
-          placeholder="Type a search query"
-          value={textFieldText}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            const newText = event.target.value;
-            setTextFieldText(newText);
-          }}
-        />
-      ) : null;
+      return (
+        <div className="flex flex-col gap-4 border-l-4 p-8 rounded-md">
+          <h3 className="text-3xl">Search by text</h3>
+          {allowsTextInput ? (
+            <input
+              type="text"
+              className="input input-bordered w-full mt-2 text-2xl px-4 py-8"
+              placeholder="Type a search query"
+              value={textFieldText}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                const newText = event.target.value;
+                setTextFieldText(newText);
+              }}
+            />
+          ) : null}
+        </div>
+      );
     }
   };
+
   const renderImageUpload = () => {
     {
-      return allowsImageInput ? (
-        <div className="flex flex-col items-start">
-          <div className="flex-1 flex-col items-baseline space-y-2">
-            <label className="font-extralight">Choose a file</label>
-            <input
-              type="file"
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                const files = event.target.files;
-                if (files && files.length > 0) {
-                  handleFileChange(files[0]);
-                }
-              }}
-              className="w-full file-input input-bordered max-w-md"
-            />
+      return (
+        <div className="flex flex-col gap-4 border-l-4 p-8 rounded-md">
+          <h3 className="text-3xl">Search by image</h3>
+          <div className="flex flex-col gap-2">
+            {allowsImageInput ? (
+              <div className="flex flex-col items-center">
+                <div className="flex-1 flex-col items-baseline space-y-2">
+                  <label className="font-extralight">Choose a file</label>
+                  <input
+                    type="file"
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                      const files = event.target.files;
+                      if (files && files.length > 0) {
+                        handleFileChange(files[0]);
+                      }
+                    }}
+                    className="w-full file-input input-bordered max-w-md"
+                  />
+                </div>
+              </div>
+            ) : null}
+            {imageFilePath && (
+              <div className="flex flex-col items-center">
+                <img src={imageFilePath} className="border-2 p-8 object-contain h-48" />
+              </div>
+            )}
           </div>
         </div>
-      ) : null;
+      );
     }
   };
 
   const handleFileChange = (file: File | null) => {
     console.log('handleFileChange');
     if (file != null) {
+      setSearchQuery('');
       setImageFile(file);
 
-      // // Reset upload results
-      // annotateImageByFileMutation.reset();
-
-      // // Get the file url and save it to state
-      // const reader = new FileReader();
-      // reader.onload = (event) => {
-      //   if (event.target?.result != null) {
-      //     setSelectedFileURL(event.target.result as string);
-      //   }
-      // };
-      // reader.readAsDataURL(file);
-
-      // annotateImageByFileMutation.mutate(file);
+      // Get the file url and save it to state
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result != null) {
+          setImageFilePath(event.target.result as string);
+        }
+      };
+      reader.readAsDataURL(file);
     } else {
       setImageFile(null);
     }
@@ -131,8 +150,7 @@ const MatchSelectionAndResults = ({
 
   const renderRecommendations = () => {
     return (
-      <div>
-        <h3 className="text-3xl">Search for an item</h3>
+      <div className="flex flex-col gap-8">
         {renderTextSearch()}
         {renderImageUpload()}
         <div className="mt-4">
@@ -173,8 +191,9 @@ const MatchSelectionAndResults = ({
     return (
       <div className="flex flex-col gap-2">
         <h6 className="text-xl">Search results</h6>
-        {/* <SearchResultsForTextQuery serviceId={serviceId} searchQuery={searchQuery} /> */}
-        <SearchResultsForImageQuery serviceId={serviceId} image={imageFile ?? undefined} />
+
+        {searchQuery && <SearchResultsForTextQuery serviceId={serviceId} searchQuery={searchQuery} />}
+        {imageFile && <SearchResultsForImageQuery serviceId={serviceId} image={imageFile} />}
       </div>
     );
   };
