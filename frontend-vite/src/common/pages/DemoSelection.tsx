@@ -157,7 +157,7 @@ const sectionInfos = [
   },
   {
     title: 'Unified Cloud Search',
-    description: 'Unified Cloud Seaarch lets you search for things ... TODO',
+    description: 'Unified Cloud Search lets you search for things ... TODO',
     scenarios: [
       {
         title: 'Semantic search engine',

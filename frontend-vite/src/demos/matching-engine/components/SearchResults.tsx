@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 import { SearchResultsTable } from './SearchResultsTable';
-import { matchByText, MatchResponse } from '../queries';
+import { matchByImage, matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
 import Alert from 'common/components/Alert';
 import SearchResultsGrid from './SearchResultsGrid';
+import { MatchResultsProps } from 'demos/unified-cloud-search/components/SearchResults';
 
-export interface SearchResultsProps {
+export interface SearchResultsForTextQueryProps {
   serviceId: string;
-  selectedId?: string;
   searchQuery: string;
   showLatency?: boolean;
 }
 
-export const SearchResults = ({ serviceId, searchQuery, showLatency = false }: SearchResultsProps) => {
+export const SearchResultsForTextQuery = ({
+  serviceId,
+  searchQuery,
+  showLatency = false,
+}: SearchResultsForTextQueryProps) => {
   const [startTime, setStartTime] = React.useState<number | null>(null);
   const [latency, setLatency] = React.useState<number>(-1);
 
@@ -63,6 +67,80 @@ export const SearchResults = ({ serviceId, searchQuery, showLatency = false }: S
     }
   }, [startTime, matchResults]);
 
+  return (
+    <SearchResults
+      isLoading={isLoading}
+      matchResults={matchResults}
+      error={error ?? undefined}
+      latency={showLatency ? latency : undefined}
+    />
+  );
+};
+
+export interface SearchResultsForImageQueryProps {
+  serviceId: string;
+  image?: File;
+  showLatency?: boolean;
+}
+
+export const SearchResultsForImageQuery = ({
+  serviceId,
+  image,
+  showLatency = false,
+}: SearchResultsForImageQueryProps) => {
+  const [startTime, setStartTime] = React.useState<number | null>(null);
+  const [latency, setLatency] = React.useState<number>(-1);
+
+  const {
+    mutate: performMatch,
+    isLoading,
+    error,
+    data: matchResults,
+  } = useMutation<MatchResponse, Error, File | undefined>(
+    (image?: File) => {
+      if (image && image.size > 0) {
+        console.log(`Performing match: serviceId = ${serviceId}, image = ${image.name}`);
+
+        return matchByImage(serviceId, image);
+      } else {
+        throw new Error('No image provided');
+      }
+    },
+    {
+      onMutate: () => {
+        setStartTime(Date.now());
+      },
+    }
+  );
+
+  React.useEffect(() => {
+    performMatch(image);
+  }, [image, performMatch]);
+
+  React.useEffect(() => {
+    if (startTime != null && matchResults != null) {
+      setLatency(Date.now() - startTime);
+    }
+  }, [startTime, matchResults]);
+
+  return (
+    <SearchResults
+      isLoading={isLoading}
+      matchResults={matchResults}
+      error={error ?? undefined}
+      latency={showLatency ? latency : undefined}
+    />
+  );
+};
+
+export interface SearchResultsProps {
+  isLoading: boolean;
+  matchResults?: MatchResponse;
+  error?: Error;
+  latency?: number;
+}
+
+export const SearchResults = ({ isLoading, matchResults, error, latency }: SearchResultsProps) => {
   if (isLoading) {
     return <Alert mode="loading" title="Loading..." />;
   } else if (matchResults != null) {
@@ -71,7 +149,7 @@ export const SearchResults = ({ serviceId, searchQuery, showLatency = false }: S
         <p className="text-base text-gray-600">
           <span className="font-bold">{matchResults.results.length}</span> results retrieved from a total of{' '}
           <span className="font-bold">{matchResults.totalIndexCount}</span>{' '}
-          {`items${showLatency ? ` in ${latency.toFixed(0)} ms.` : ''}`}
+          {`items${latency ? ` in ${latency.toFixed(0)} ms.` : ''}`}
         </p>
         {/* <SearchResultsTable results={matchResults.results} /> */}
         <SearchResultsGrid results={matchResults.results} />

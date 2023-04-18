@@ -64,3 +64,17 @@ export async function matchByText(matchServiceId: string, text: string): Promise
     })
     .then((response) => response.data);
 }
+
+
+
+export async function matchByImage(
+  matchServiceId: string,
+  file: File,
+): Promise<MatchResponse> {
+  const formData = new FormData();
+  formData.append("image", file);
+  formData.append("numNeighbors", "60");
+  return client
+    .post(`/match-by-image/${matchServiceId}`, formData)
+    .then((response) => response.data);
+}

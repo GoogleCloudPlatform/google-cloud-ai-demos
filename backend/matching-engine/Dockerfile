@@ -19,6 +19,7 @@ FROM tiangolo/uvicorn-gunicorn:python3.9
 WORKDIR /app
 
 COPY requirements.txt .
+COPY constants.py .
 COPY main.py .
 COPY models.py .
 COPY register_services.py .

@@ -1,4 +1,6 @@
+from pathlib import Path
 from typing import Optional, Tuple
+
 from google.cloud import storage
 import os
 
@@ -40,33 +42,16 @@ def extract_bucket_and_prefix_from_gcs_path(gcs_path: str) -> Tuple[str, Optiona
 def upload_blob(source_file_name: str, bucket_name: str, destination_blob_name: str):
     """Uploads a file to the bucket."""
 
+    bucket_name, blob_name = extract_bucket_and_prefix_from_gcs_path(
+        f"{bucket_name}/{destination_blob_name}/{Path(source_file_name).stem}"
+    )
+
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
+    blob = bucket.blob(blob_name)
 
     blob.upload_from_filename(source_file_name)
 
-    destination_file_name = os.path.join("gs://", bucket_name, destination_blob_name)
-
-    return destination_file_name
-
-
-def upload_file(source_file_name: str, destination_file_name: str):
-    """Uploads a file to the bucket."""
-
-    """
-        # Upload to bucket
-        bucket, prefix = utils.extract_bucket_and_prefix_from_gcs_path(destination_file_name)
-    """
-
-    bucket_name, destination_blob_name = extract_bucket_and_prefix_from_gcs_path(
-        destination_file_name
-    )
-
-    destination_file_name = upload_blob(
-        bucket_name=bucket_name,
-        source_file_name=source_file_name,
-        destination_blob_name=destination_blob_name,
-    )
+    destination_file_name = os.path.join("gs://", bucket_name, blob_name or "")
 
     return destination_file_name

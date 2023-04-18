@@ -16,9 +16,9 @@ import dataclasses
 import logging
 import shutil
 import tempfile
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Annotated, Any, Dict, List, Optional, Tuple
 
-from fastapi import FastAPI, HTTPException, UploadFile
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel
@@ -167,7 +167,7 @@ class MatchByImageRequest(BaseModel):
 
 @app.post("/match-by-image/{match_service_id}")
 async def match_by_image(
-    match_service_id: str, request: MatchByImageRequest
+    match_service_id: str, image: UploadFile, numNeighbors: int = 10
 ) -> MatchResponse:
     with tracer.start_as_current_span(f"/match-by-image/{match_service_id}"):
         service = match_service_registry.get(match_service_id)
@@ -178,7 +178,7 @@ async def match_by_image(
                 detail=f"Match service not found for id: {match_service_id}",
             )
 
-        if request.image.filename is None:
+        if image.filename is None:
             raise HTTPException(
                 status_code=400,
                 detail=f"No image uploaded",
@@ -186,10 +186,10 @@ async def match_by_image(
 
         try:
             with tempfile.NamedTemporaryFile() as f:
-                shutil.copyfileobj(request.image.file, f)
+                shutil.copyfileobj(image.file, f)
                 results = service.match_by_image(
                     image_file_local_path=f.name,
-                    num_neighbors=request.numNeighbors,
+                    num_neighbors=numNeighbors,
                 )
 
                 return MatchResponse(
@@ -201,4 +201,4 @@ async def match_by_image(
                 status_code=500, detail=f"There was an error getting matches"
             )
         finally:
-            request.image.file.close()
+            image.file.close()
