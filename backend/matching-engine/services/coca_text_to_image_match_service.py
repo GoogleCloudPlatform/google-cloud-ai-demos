@@ -14,7 +14,6 @@
 
 import random
 from typing import Dict, List, Optional
-from fastapi import UploadFile
 
 import google.auth
 import google.auth.transport.requests
@@ -141,7 +140,12 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
     @property
     def allows_text_input(self) -> bool:
         """If true, this service allows text input."""
-        return True
+        return self._allows_text_input
+
+    @property
+    def allows_image_input(self) -> bool:
+        """If true, this service allows image input."""
+        return self._allows_image_input
 
     @property
     def code_info(self) -> Optional[CodeInfo]:
@@ -154,6 +158,8 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         name: str,
         description: str,
         prompts_file: str,
+        allows_text_input: bool,
+        allows_image_input: bool,
         index_endpoint_name: str,
         deployed_index_id: str,
         image_directory_uri: str,
@@ -168,6 +174,8 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         self.image_directory_uri = image_directory_uri
         self._code_info = code_info
         self.api_key = api_key
+        self._allows_text_input = allows_text_input
+        self._allows_image_input = allows_image_input
 
         with open(prompts_file, "r") as f:
             prompts = f.readlines()

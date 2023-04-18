@@ -76,9 +76,9 @@ const MatchSelectionAndResults = ({
   const renderTextSearch = () => {
     {
       return (
-        <div className="flex flex-col gap-4 border-l-4 p-8 rounded-md">
-          <h3 className="text-3xl">Search by text</h3>
-          {allowsTextInput ? (
+        allowsTextInput && (
+          <div className="flex flex-col gap-4 border-l-4 p-4 rounded-md">
+            <h3 className="text-3xl">Search by text</h3>
             <input
               type="text"
               className="input input-bordered w-full mt-2 text-2xl px-4 py-8"
@@ -89,8 +89,8 @@ const MatchSelectionAndResults = ({
                 setTextFieldText(newText);
               }}
             />
-          ) : null}
-        </div>
+          </div>
+        )
       );
     }
   };
@@ -98,10 +98,10 @@ const MatchSelectionAndResults = ({
   const renderImageUpload = () => {
     {
       return (
-        <div className="flex flex-col gap-4 border-l-4 p-8 rounded-md">
-          <h3 className="text-3xl">Search by image</h3>
-          <div className="flex flex-col gap-2">
-            {allowsImageInput ? (
+        allowsImageInput && (
+          <div className="flex flex-col gap-4 border-l-4 p-4 rounded-md">
+            <h3 className="text-3xl">Search by image</h3>
+            <div className="flex flex-col gap-2">
               <div className="flex flex-col items-center">
                 <div className="flex-1 flex-col items-baseline space-y-2">
                   <label className="font-extralight">Choose a file</label>
@@ -117,14 +117,14 @@ const MatchSelectionAndResults = ({
                   />
                 </div>
               </div>
-            ) : null}
-            {imageFilePath && (
-              <div className="flex flex-col items-center">
-                <img src={imageFilePath} className="border-2 p-8 object-contain h-48" />
-              </div>
-            )}
+              {imageFilePath && (
+                <div className="flex flex-col items-center">
+                  <img src={imageFilePath} className="border-2 p-8 object-contain h-48" />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )
       );
     }
   };
@@ -227,8 +227,8 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
     return (
       <MatchSelectionAndResults
         serviceId={matchServiceInfo.id}
-        allowsTextInput={true}
-        allowsImageInput={true}
+        allowsTextInput={matchServiceInfo.allowsTextInput}
+        allowsImageInput={matchServiceInfo.allowsImageInput}
         suggestions={suggestionsResponse.items}
         refetchSuggestions={refetchSuggestions}
       />

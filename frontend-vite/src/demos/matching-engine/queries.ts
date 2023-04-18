@@ -36,6 +36,7 @@ export interface SearchServiceInfo {
   name: string;
   description: string;
   allowsTextInput: boolean;
+  allowsImageInput: boolean;
   code?: { url: string; title: string };
 }
 
