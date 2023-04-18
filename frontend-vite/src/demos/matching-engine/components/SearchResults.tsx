@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { SearchResultsTable } from './SearchResultsTable';
-import { matchByImage, matchByText, MatchResponse } from '../queries';
+import { matchByImage, matchByImageCombined, matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
 import Alert from 'common/components/Alert';
@@ -79,7 +79,7 @@ export const SearchResultsForTextQuery = ({
 
 export interface SearchResultsForImageQueryProps {
   serviceId: string;
-  image?: File;
+  image?: File | string;
   showLatency?: boolean;
 }
 
@@ -96,12 +96,12 @@ export const SearchResultsForImageQuery = ({
     isLoading,
     error,
     data: matchResults,
-  } = useMutation<MatchResponse, Error, File | undefined>(
-    (image?: File) => {
-      if (image && image.size > 0) {
-        console.log(`Performing match: serviceId = ${serviceId}, image = ${image.name}`);
+  } = useMutation<MatchResponse, Error, File | string | undefined>(
+    (image?: File | string) => {
+      if (image != null) {
+        console.log(`Performing match: serviceId = ${serviceId}`);
 
-        return matchByImage(serviceId, image);
+        return matchByImageCombined(serviceId, image);
       } else {
         throw new Error('No image provided');
       }

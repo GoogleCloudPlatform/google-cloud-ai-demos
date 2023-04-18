@@ -45,7 +45,7 @@ export default () => {
     matchServiceInfos != null && matchServiceInfos.length > 0 ? matchServiceInfos[selectedTabIndex] : null;
 
   if (isLoading) {
-    return <Alert mode="info" title="Loading..." className="w-fit" />;
+    return <Alert mode="info" title="Loading..." />;
   } else if (matchServiceInfos != null && selectedServiceInfo != null) {
     return (
       <div className="flex flex-col gap-2 p-8">

@@ -95,6 +95,11 @@ class MatchService(abc.ABC, Generic[T]):
     ) -> List[MatchResult]:
         raise NotImplementedError()
 
+    def match_by_image_remote(
+        self, image_file_remote_path: str, num_neighbors: int
+    ) -> List[MatchResult]:
+        raise NotImplementedError()
+
     @abc.abstractmethod
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
         """Get suggestions for search queries."""
@@ -184,6 +189,27 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
 
         embeddings = self.convert_image_to_embeddings(
             image_file_local_path=image_file_local_path
+        )
+
+        if embeddings is None:
+            raise ValueError(
+                "Embeddings could not be generated for: {image_file_local_path}"
+            )
+
+        return self.match_by_embeddings(
+            embeddings=embeddings, num_neighbors=num_neighbors
+        )
+
+    @tracer.start_as_current_span("match_by_image_remote")
+    def match_by_image_remote(
+        self, image_file_remote_path: str, num_neighbors: int
+    ) -> List[MatchResult]:
+        logger.info(
+            f"match_by_image(target={image_file_remote_path}, num_neighbors={num_neighbors})"
+        )
+
+        embeddings = self.convert_image_to_embeddings_remote(
+            image_file_remote_path=image_file_remote_path
         )
 
         if embeddings is None:

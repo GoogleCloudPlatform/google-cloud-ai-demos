@@ -161,11 +161,6 @@ async def match_by_text(
             )
 
 
-class MatchByImageRequest(BaseModel):
-    image: UploadFile
-    numNeighbors: int = 10
-
-
 @app.post("/match-by-image/{match_service_id}")
 async def match_by_image(
     match_service_id: str, image: UploadFile, numNeighbors: int = 10
@@ -203,3 +198,39 @@ async def match_by_image(
             )
         finally:
             image.file.close()
+
+
+class MatchByImageUrlRequest(BaseModel):
+    imageUrl: str
+    numNeighbors: int = 10
+
+
+@app.post("/match-by-image-url/{match_service_id}")
+async def match_by_image_url(
+    match_service_id: str, request: MatchByImageUrlRequest
+) -> MatchResponse:
+    with tracer.start_as_current_span(f"/match-by-image-url/{match_service_id}"):
+        service = match_service_registry.get(match_service_id)
+
+        if not service:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Match service not found for id: {match_service_id}",
+            )
+
+        try:
+            # Use remote image url
+            results = service.match_by_image_remote(
+                image_file_remote_path=request.imageUrl,
+                num_neighbors=request.numNeighbors,
+            )
+
+            return MatchResponse(
+                totalIndexCount=service.get_total_index_count(), results=results
+            )
+
+        except Exception as ex:
+            logger.error(ex)
+            raise HTTPException(
+                status_code=500, detail=f"There was an error getting matches"
+            )

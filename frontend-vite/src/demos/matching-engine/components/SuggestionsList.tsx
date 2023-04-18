@@ -24,7 +24,7 @@ interface ImageSelectionButtonProps {
   onSelected?: () => void;
 }
 
-export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
+export const SuggestionButton = ({ item, isSelected, onSelected }: ImageSelectionButtonProps) => {
   return (
     <button
       className={`relative h-24 w-full focus:z-10 ${isSelected ? 'bg-neutral-400' : 'bg-neutral-300'}`}
@@ -35,9 +35,9 @@ export const ImageSelectionButton = ({ item, isSelected, onSelected }: ImageSele
       }}
     >
       <span
-        className={`absolute inset-0 bg-center bg-cover`}
+        className={clsx('absolute inset-0 bg-center bg-cover')}
         style={{
-          backgroundImage: item.img != null ? `url(${item.img})` : undefined,
+          backgroundImage: item.image != null ? `url(${item.image})` : undefined,
         }}
       ></span>
       <span className={`absolute inset-0 flex items-center justify-center  ${isSelected ? 'font-bold' : ''}`}>
@@ -58,7 +58,7 @@ export const SuggestionsList = ({ items, selectedIndex, onSelected }: Props) => 
     <div className="grid grid-cols-3 gap-1 w-full mt-0">
       {items.map((item, index) => (
         <div key={index}>
-          <ImageSelectionButton
+          <SuggestionButton
             item={item}
             isSelected={selectedIndex === index}
             onSelected={() => {

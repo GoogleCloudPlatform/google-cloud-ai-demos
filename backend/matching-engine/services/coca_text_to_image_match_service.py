@@ -157,7 +157,6 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         id: str,
         name: str,
         description: str,
-        prompts_file: str,
         allows_text_input: bool,
         allows_image_input: bool,
         index_endpoint_name: str,
@@ -166,6 +165,8 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         api_key: str,
         redis_host: str,  # Redis host to get data about a match id
         redis_port: int,  # Redis port to get data about a match id
+        prompts_texts_file: Optional[str] = None,
+        prompt_images_file: Optional[str] = None,
         code_info: Optional[CodeInfo] = None,
     ) -> None:
         self._id = id
@@ -177,9 +178,19 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         self._allows_text_input = allows_text_input
         self._allows_image_input = allows_image_input
 
-        with open(prompts_file, "r") as f:
-            prompts = f.readlines()
-            self.prompts = [prompt.strip() for prompt in prompts]
+        if prompts_texts_file:
+            with open(prompts_texts_file, "r") as f:
+                prompts = f.readlines()
+                self.prompt_texts = [prompt.strip() for prompt in prompts]
+        else:
+            self.prompt_texts = []
+
+        if prompt_images_file:
+            with open(prompt_images_file, "r") as f:
+                prompt_images = f.readlines()
+                self.prompt_images = [prompt.strip() for prompt in prompt_images]
+        else:
+            self.prompt_images = []
 
         self.index_endpoint = (
             matching_engine_index_endpoint.MatchingEngineIndexEndpoint(
@@ -192,9 +203,25 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
     @tracer.start_as_current_span("get_suggestions")
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
         """Get suggestions for search queries."""
+        text_prompts = (
+            [Item(id=word, text=word, image=None) for word in self.prompt_texts]
+            if self.allows_text_input
+            else []
+        )
+        image_prompts = (
+            [
+                Item(id=image_url, text="", image=image_url)
+                for image_url in self.prompt_images
+            ]
+            if self.allows_image_input
+            else []
+        )
+
+        prompts = text_prompts + image_prompts
+
         return random.sample(
-            [Item(id=word, text=word, image=None) for word in self.prompts],
-            min(num_items, len(self.prompts)),
+            prompts,
+            min(num_items, len(prompts)),
         )
 
     @tracer.start_as_current_span("get_by_id")
@@ -234,6 +261,20 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
 
         return encode_images_to_embeddings(
             access_token=access_token, api_key=self.api_key, image_uris=[image_uri]
+        )[0]
+
+    @tracer.start_as_current_span("convert_image_to_embeddings_remote")
+    def convert_image_to_embeddings_remote(
+        self, image_file_remote_path: str
+    ) -> Optional[List[float]]:
+        """Convert a given item to an embedding representation."""
+        # Get default access token
+        access_token = get_access_token()
+
+        return encode_images_to_embeddings(
+            access_token=access_token,
+            api_key=self.api_key,
+            image_uris=[image_file_remote_path],
         )[0]
 
     @tracer.start_as_current_span("convert_match_neighbors_to_result")

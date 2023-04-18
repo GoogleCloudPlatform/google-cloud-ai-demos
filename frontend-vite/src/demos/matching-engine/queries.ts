@@ -19,7 +19,7 @@ import axios from 'axios';
 const client = axios.create({ baseURL: import.meta.env.VITE_API_SERVER_MATCHING_ENGINE });
 export interface SuggestionInfo {
   id?: string;
-  img?: string;
+  image?: string;
   text?: string;
 }
 
@@ -71,11 +71,43 @@ export async function matchByText(matchServiceId: string, text: string): Promise
 export async function matchByImage(
   matchServiceId: string,
   file: File,
+  numNeighbors: number
 ): Promise<MatchResponse> {
+  console.log("matchByImage", matchServiceId)
+
   const formData = new FormData();
   formData.append("image", file);
-  formData.append("numNeighbors", "60");
+  formData.append("numNeighbors", numNeighbors.toString());
+
   return client
     .post(`/match-by-image/${matchServiceId}`, formData)
     .then((response) => response.data);
+}
+
+export async function matchByImageUrl(
+  matchServiceId: string,
+  imageUrl: string,
+  numNeighbors: number
+): Promise<MatchResponse> {
+  console.log("matchByImageUrl", matchServiceId)
+
+  return client
+    .post(`/match-by-image-url/${matchServiceId}`, {imageUrl, numNeighbors})
+    .then((response) => response.data);
+}
+
+export async function matchByImageCombined(
+  matchServiceId: string,
+  file: File | string,
+  numNeighbors: number = 60,
+): Promise<MatchResponse> {
+  console.log("matchByImageCombined", matchServiceId)
+
+  if (file instanceof File) {
+    return matchByImage(matchServiceId, file, numNeighbors)
+  } else if (typeof file === "string") {
+    return matchByImageUrl(matchServiceId, file, numNeighbors)
+  } else {
+    throw Error("File is not the right format")
+  }
 }

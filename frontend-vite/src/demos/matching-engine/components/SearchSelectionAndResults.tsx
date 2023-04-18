@@ -53,7 +53,7 @@ const MatchSelectionAndResults = ({
   const [debouncedValue] = useDebounce(textFieldText, 500);
 
   // The user selected image file.
-  const [imageFile, setImageFile] = React.useState<File | null>(null);
+  const [imageFile, setImageFile] = React.useState<File | string | null>(null);
 
   // Path to the image file. Used to display the user selected image.
   const [imageFilePath, setImageFilePath] = React.useState<string | null>(null);
@@ -129,20 +129,25 @@ const MatchSelectionAndResults = ({
     }
   };
 
-  const handleFileChange = (file: File | null) => {
+  const handleFileChange = (file: File | string | null) => {
     console.log('handleFileChange');
     if (file != null) {
       setSearchQuery('');
       setImageFile(file);
 
-      // Get the file url and save it to state
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result != null) {
-          setImageFilePath(event.target.result as string);
-        }
-      };
-      reader.readAsDataURL(file);
+      if (file instanceof File) {
+        // Get the file url and save it to state
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          if (event.target?.result != null) {
+            setImageFilePath(event.target.result as string);
+          }
+        };
+        reader.readAsDataURL(file);
+      } else if (typeof file === 'string') {
+        setImageFile(file);
+        setImageFilePath(file);
+      }
     } else {
       setImageFile(null);
     }
@@ -160,12 +165,12 @@ const MatchSelectionAndResults = ({
               items={suggestions.slice(0, NUM_ITEMS)}
               selectedIndex={selectedIndex}
               onSelected={(item: SuggestionInfo, index: number) => {
-                if (item.text != null) {
-                  if (allowsTextInput) {
-                    setTextFieldText(item.text);
-                  } else {
-                    setSearchQuery(item.text);
-                  }
+                if (allowsTextInput && item.text) {
+                  setTextFieldText(item.text);
+                } else if (allowsImageInput && item.image) {
+                  setImageFile(item.image);
+                } else if (item.text) {
+                  setSearchQuery(item.text);
                 }
 
                 setSelectedIndex(index);
@@ -238,7 +243,7 @@ export default ({ matchServiceInfo }: { matchServiceInfo: SearchServiceInfo }) =
       <div className="alert alert-error flex items-center">
         <div className="loader mr-2" />
         <div>
-          <h3 className="alert-title">Could not load images</h3>
+          <h3 className="alert-title">Could not load suggestions</h3>
           {error.message}
         </div>
       </div>
