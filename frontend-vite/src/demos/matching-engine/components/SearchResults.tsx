@@ -148,7 +148,7 @@ export const SearchResults = ({ isLoading, matchResults, error, latency }: Searc
       <div className="space-y-2">
         <p className="text-base text-gray-600">
           <span className="font-bold">{matchResults.results.length}</span> results retrieved from a total of{' '}
-          <span className="font-bold">{matchResults.totalIndexCount}</span>{' '}
+          <span className="font-bold">{matchResults.totalIndexCount.toLocaleString('en-US')}</span>{' '}
           {`items${latency ? ` in ${latency.toFixed(0)} ms.` : ''}`}
         </p>
         {/* <SearchResultsTable results={matchResults.results} /> */}

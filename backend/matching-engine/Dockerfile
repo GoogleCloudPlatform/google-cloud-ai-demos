@@ -32,6 +32,11 @@ COPY tests tests
 # Install dependencies.
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+# Private SDK
+COPY google_cloud_aiplatform-1.25.dev20230502+language.models-py2.py3-none-any.whl .
+RUN pip install google_cloud_aiplatform-1.25.dev20230502+language.models-py2.py3-none-any.whl "shapely<2.0.0" "protobuf==3.19.6" --force-reinstall
+
 # RUN python -m spacy download en_core_web_md
 
 # # Download git lfs

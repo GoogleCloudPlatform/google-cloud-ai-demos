@@ -19,7 +19,6 @@ import numpy as np
 import register_services
 
 logger = logging.getLogger(__name__)
-from typing import Dict, List
 
 service_registry = register_services.register_services()
 
@@ -76,14 +75,27 @@ def test_palm_stack_overflow_convert_to_embeddings():
     assert np.any(embeddings), "Empty embeddings found"
 
 
-# def test_coca_text_to_image_convert_to_embeddings():
-#     service = service_registry["text_to_image_coca"]
-#     items = service.get_suggestions()
+def test_coca_text_to_image_convert_to_embeddings():
+    service = service_registry["text_to_image_coca"]
+    items = service.get_suggestions()
 
-#     assert len(items) > 0, "No items found"
+    assert len(items) > 0, "No items found"
 
-#     embeddings = service.convert_to_embeddings(target="Hello world")
+    embeddings = service.convert_text_to_embeddings(target="Hello world")
 
-#     assert embeddings is not None, "No embeddings found"
-#     assert isinstance(embeddings[0], float), "Embedding value is not a float"
-#     assert np.any(embeddings), "Empty embeddings found"
+    assert embeddings is not None, "No embeddings found"
+    assert isinstance(embeddings[0], float), "Embedding value is not a float"
+    assert np.any(embeddings), "Empty embeddings found"
+
+
+def test_coca_text_to_image_convert_to_embeddings():
+    service = service_registry["text_to_image_rooms"]
+    items = service.get_suggestions()
+
+    assert len(items) > 0, "No items found"
+
+    embeddings = service.convert_text_to_embeddings(target="Hello world")
+
+    assert embeddings is not None, "No embeddings found"
+    assert isinstance(embeddings[0], float), "Embedding value is not a float"
+    assert np.any(embeddings), "Empty embeddings found"

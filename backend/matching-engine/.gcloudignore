@@ -1,4 +1,5 @@
 env
+env2
 
 # ignore all . files but include . folders
 .*

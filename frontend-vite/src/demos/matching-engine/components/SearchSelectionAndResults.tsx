@@ -101,8 +101,8 @@ const MatchSelectionAndResults = ({
         allowsImageInput && (
           <div className="flex flex-col gap-4 border-l-4 p-4 rounded-md">
             <h3 className="text-3xl">Search by image</h3>
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col items-center">
+            <div className="text-center justify-center">
+              <div className="flex flex-row gap-8">
                 <div className="flex-1 flex-col items-baseline space-y-2">
                   <label className="font-extralight">Choose a file</label>
                   <input
@@ -114,6 +114,19 @@ const MatchSelectionAndResults = ({
                       }
                     }}
                     className="w-full file-input input-bordered max-w-md"
+                  />
+                </div>
+                <div className="flex-1 flex-col items-baseline space-y-2">
+                  <label className="font-extralight">Paste a link</label>
+                  <input
+                    type="text"
+                    className="w-full input input-bordered max-w-md"
+                    placeholder="Type a search query"
+                    value={textFieldText}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                      const newText = event.target.value;
+                      setTextFieldText(newText);
+                    }}
                   />
                 </div>
               </div>
@@ -180,6 +193,7 @@ const MatchSelectionAndResults = ({
               <Button
                 className="btn border-none aspect-square h-16 hover:bg-primt text-white px-4 py-4 flex items-center justify-center"
                 onClick={() => {
+                  setSelectedIndex(undefined);
                   refetchSuggestions();
                 }}
               >

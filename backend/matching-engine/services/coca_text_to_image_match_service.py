@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import random
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, TypeVar
 
 import google.auth
 import google.auth.transport.requests
@@ -21,7 +21,6 @@ import redis
 import requests
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
 
-import constants
 import storage_helper
 import tracer_helper
 from services.match_service import (
@@ -122,7 +121,10 @@ def get_access_token() -> str:
     return access_token
 
 
-class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, str]]):
+T = TypeVar("T")
+
+
+class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
     @property
     def id(self) -> str:
         return self._id
@@ -161,10 +163,8 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         allows_image_input: bool,
         index_endpoint_name: str,
         deployed_index_id: str,
-        image_directory_uri: str,
         api_key: str,
-        redis_host: str,  # Redis host to get data about a match id
-        redis_port: int,  # Redis port to get data about a match id
+        gcs_bucket: str,
         prompts_texts_file: Optional[str] = None,
         prompt_images_file: Optional[str] = None,
         code_info: Optional[CodeInfo] = None,
@@ -172,11 +172,11 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         self._id = id
         self._name = name
         self._description = description
-        self.image_directory_uri = image_directory_uri
         self._code_info = code_info
         self.api_key = api_key
         self._allows_text_input = allows_text_input
         self._allows_image_input = allows_image_input
+        self.gcs_bucket = gcs_bucket
 
         if prompts_texts_file:
             with open(prompts_texts_file, "r") as f:
@@ -198,7 +198,6 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
             )
         )
         self.deployed_index_id = deployed_index_id
-        self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
     @tracer.start_as_current_span("get_suggestions")
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
@@ -224,17 +223,6 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
             min(num_items, len(prompts)),
         )
 
-    @tracer.start_as_current_span("get_by_id")
-    def get_by_id(self, id: str) -> Optional[Dict[str, str]]:
-        """Get an item by id."""
-        retrieved = self.redis_client.hgetall(str(id))
-
-        if retrieved is not None:
-            # Convert the byte strings to regular strings
-            return {key.decode(): value.decode() for key, value in retrieved.items()}
-        else:
-            return None
-
     @tracer.start_as_current_span("convert_text_to_embeddings")
     def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
         # Get default access token
@@ -255,7 +243,7 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
         # Upload image file
         image_uri = storage_helper.upload_blob(
             source_file_name=image_file_local_path,
-            bucket_name=constants.GCS_BUCKET,
+            bucket_name=self.gcs_bucket,
             destination_blob_name=DESTINATION_BLOB_NAME,
         )
 
@@ -277,6 +265,52 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
             image_uris=[image_file_remote_path],
         )[0]
 
+
+class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]):
+    def __init__(
+        self,
+        id: str,
+        name: str,
+        description: str,
+        allows_text_input: bool,
+        allows_image_input: bool,
+        index_endpoint_name: str,
+        deployed_index_id: str,
+        api_key: str,
+        redis_host: str,  # Redis host to get data about a match id
+        redis_port: int,  # Redis port to get data about a match id
+        gcs_bucket: str,
+        prompts_texts_file: Optional[str] = None,
+        prompt_images_file: Optional[str] = None,
+        code_info: Optional[CodeInfo] = None,
+    ) -> None:
+        super().__init__(
+            id=id,
+            name=name,
+            description=description,
+            code_info=code_info,
+            api_key=api_key,
+            allows_text_input=allows_text_input,
+            allows_image_input=allows_image_input,
+            gcs_bucket=gcs_bucket,
+            prompts_texts_file=prompts_texts_file,
+            prompt_images_file=prompt_images_file,
+            index_endpoint_name=index_endpoint_name,
+            deployed_index_id=deployed_index_id,
+        )
+        self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
+
+    @tracer.start_as_current_span("get_by_id")
+    def get_by_id(self, id: str) -> Optional[Dict[str, str]]:
+        """Get an item by id."""
+        retrieved = self.redis_client.hgetall(str(id))
+
+        if retrieved is not None:
+            # Convert the byte strings to regular strings
+            return {key.decode(): value.decode() for key, value in retrieved.items()}
+        else:
+            return None
+
     @tracer.start_as_current_span("convert_match_neighbors_to_result")
     def convert_match_neighbors_to_result(
         self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
@@ -289,6 +323,32 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[Dict[str, s
                 distance=max(0, 1 - match.distance),
                 url=item["url"],
                 image=item["img_url"],
+            )
+            if item is not None
+            else None
+            for item, match in zip(items, matches)
+        ]
+
+
+class RoomsTextToImageMatchService(CocaTextToImageMatchService[str]):
+    @tracer.start_as_current_span("get_by_id")
+    def get_by_id(self, id: str) -> Optional[str]:
+        """Get an item by id."""
+
+        return id
+
+    @tracer.start_as_current_span("convert_match_neighbors_to_result")
+    def convert_match_neighbors_to_result(
+        self, matches: List[matching_engine_index_endpoint.MatchNeighbor]
+    ) -> List[Optional[MatchResult]]:
+        items = [self.get_by_id(match.id) for match in matches]
+        return [
+            MatchResult(
+                title=None,
+                description=None,
+                distance=max(0, 1 - match.distance),
+                url=None,
+                image=f"https://storage.googleapis.com/ai-demos-us-central1/interior_images/mit_indoor/{item}",
             )
             if item is not None
             else None

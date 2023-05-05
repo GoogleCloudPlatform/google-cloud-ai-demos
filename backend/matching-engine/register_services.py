@@ -18,7 +18,7 @@ from typing import Dict, List
 
 import constants
 import tracer_helper
-from services import (  # sentence_transformer_service,; spacy_match_service,; text_to_image_match_service,
+from services import (
     coca_text_to_image_match_service,
     match_service,
     palm_text_match_service,
@@ -104,11 +104,11 @@ def register_services() -> Dict[str, match_service.MatchService]:
             palm_text_match_service_instance = palm_text_match_service.PalmTextMatchService(
                 id="stackoverflow_questions_palm",
                 name="StackOverflow (PaLM)",
-                description="Python-tagged questions from StackOverflow encoded using PaLM.",
+                description="Questions from StackOverflow encoded using PaLM.",
                 words_file="data/stackoverflow_questions.txt",
-                index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/6886593168481976320",
-                deployed_index_id="stack_overflow_07c9",
-                redis_host="10.20.4.3",
+                index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3325512500627111936",
+                deployed_index_id="stack_overflow_8M_ba50",
+                redis_host="10.43.4.19",
                 redis_port=6379,
             )
 
@@ -117,23 +117,23 @@ def register_services() -> Dict[str, match_service.MatchService]:
         traceback.print_exc()
         logging.error(ex)
 
-    if constants.API_KEY is not None:
+    if constants.API_KEY is not None and constants.GCS_BUCKET is not None:
         try:
             with tracer.start_as_current_span(
                 "coca_text_to_image_match_service_instance init"
             ):
-                coca_text_to_image_match_service_instance = coca_text_to_image_match_service.CocaTextToImageMatchService(
+                coca_text_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
                     id="text_to_image_coca",
                     name="Mercari text-to-image (CoCa)",
                     description="Mercari product images encoded using CoCa.",
                     prompts_texts_file="data/mercari_products.txt",
                     allows_text_input=True,
                     allows_image_input=False,
-                    index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/135415852076892160",
-                    deployed_index_id="deployed_index_ecbd",
-                    image_directory_uri="https://storage.googleapis.com/vertex-ai-samples/coca_text_to_image",
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3421213992708734976",
+                    deployed_index_id="deployed_index_9420",
                     api_key=constants.API_KEY,
-                    redis_host="10.20.4.11",
+                    gcs_bucket=constants.GCS_BUCKET,
+                    redis_host="10.43.4.11",
                     redis_port=6379,
                     code_info=None,
                     # code_info=match_service.CodeInfo(
@@ -151,18 +151,18 @@ def register_services() -> Dict[str, match_service.MatchService]:
             with tracer.start_as_current_span(
                 "coca_image_to_image_match_service_instance init"
             ):
-                coca_image_to_image_match_service_instance = coca_text_to_image_match_service.CocaTextToImageMatchService(
+                coca_image_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
                     id="image_to_image_coca",
                     name="Mercari image-to-image (CoCa)",
                     description="Mercari product images encoded using CoCa.",
                     prompt_images_file="data/mercari_product_images.txt",
                     allows_text_input=False,
                     allows_image_input=True,
-                    index_endpoint_name="projects/471602922801/locations/us-central1/indexEndpoints/135415852076892160",
-                    deployed_index_id="deployed_index_ecbd",
-                    image_directory_uri="https://storage.googleapis.com/vertex-ai-samples/coca_text_to_image",
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3421213992708734976",
+                    deployed_index_id="deployed_index_9420",
                     api_key=constants.API_KEY,
-                    redis_host="10.20.4.11",
+                    gcs_bucket=constants.GCS_BUCKET,
+                    redis_host="10.43.4.11",
                     redis_port=6379,
                     code_info=None,
                 )
@@ -172,4 +172,49 @@ def register_services() -> Dict[str, match_service.MatchService]:
             traceback.print_exc()
             logging.error(ex)
 
+        try:
+            with tracer.start_as_current_span(
+                "rooms_text_to_image_match_service_instance init"
+            ):
+                rooms_text_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
+                    id="text_to_image_rooms",
+                    name="Rooms text-to-image (CoCa)",
+                    description="Room images encoded using CoCa.",
+                    prompts_texts_file="data/room_interior_descriptions.txt",
+                    allows_text_input=True,
+                    allows_image_input=False,
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/2385104603436810240",
+                    deployed_index_id="deployed_index_1ac7",
+                    api_key=constants.API_KEY,
+                    gcs_bucket=constants.GCS_BUCKET,
+                    code_info=None,
+                )
+
+                services.append(rooms_text_to_image_match_service_instance)
+        except Exception as ex:
+            traceback.print_exc()
+            logging.error(ex)
+
+        try:
+            with tracer.start_as_current_span(
+                "rooms_image_to_image_match_service_instance init"
+            ):
+                rooms_image_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
+                    id="image_to_image_rooms",
+                    name="Rooms image-to-image (CoCa)",
+                    description="Room interior images encoded using CoCa.",
+                    prompt_images_file="data/room_interior_images.txt",
+                    allows_text_input=False,
+                    allows_image_input=True,
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/2385104603436810240",
+                    deployed_index_id="deployed_index_1ac7",
+                    api_key=constants.API_KEY,
+                    gcs_bucket=constants.GCS_BUCKET,
+                    code_info=None,
+                )
+
+                services.append(rooms_image_to_image_match_service_instance)
+        except Exception as ex:
+            traceback.print_exc()
+            logging.error(ex)
     return {service.id: service for service in services}

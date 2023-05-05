@@ -26,7 +26,6 @@ import { AnalyticsProvider } from 'use-analytics';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <AnalyticsProvider instance={analytics}>
       <AIDemosWrapper>
         <App />
