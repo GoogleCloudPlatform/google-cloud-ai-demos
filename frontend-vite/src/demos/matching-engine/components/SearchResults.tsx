@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SearchResultsTable } from './SearchResultsTable';
-import { matchByImage, matchByImageCombined, matchByText, MatchResponse } from '../queries';
+import { matchByImageCombined, matchByText, MatchResponse } from '../queries';
 import * as React from 'react';
 import { useMutation } from 'react-query';
 import Alert from 'common/components/Alert';
 import SearchResultsGrid from './SearchResultsGrid';
-import { MatchResultsProps } from 'demos/unified-cloud-search/components/SearchResults';
 
 export interface SearchResultsForTextQueryProps {
   serviceId: string;

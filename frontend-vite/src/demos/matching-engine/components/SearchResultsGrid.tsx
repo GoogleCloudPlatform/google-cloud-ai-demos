@@ -53,7 +53,15 @@ export default ({ results }: Props) => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 w-full mt-0 gap-2">
       {results.map((item, index) => (
         <div className="aspect-w-1 aspect-h-1" key={index}>
-          <ImageSelectionButton index={index} item={item} onSelected={(result) => window.open(result.url, '_blank')} />
+          <ImageSelectionButton
+            index={index}
+            item={item}
+            onSelected={(result) => {
+              if (result.url ?? result.image) {
+                window.open(result.url ?? result.image, '_blank');
+              }
+            }}
+          />
         </div>
       ))}
     </div>
