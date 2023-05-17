@@ -87,9 +87,9 @@ export const imageClassificationDemoInfo = {
 };
 
 export const matchingEngineDemoInfo = {
-  title: 'Vertex AI Matching Engine',
+  title: 'Vertex AI Embeddings API + Matching Engine demo',
   subtitle:
-    'Vertex AI Matching Engine provides high-scale low latency vector database (a.k.a, vector similarity-matching or approximate nearest neighbor service). Matching Engine provides tooling to build use cases that match semantically similar items.',
+    'This demo features fast and scalable semantic search implemented with Vertex AI Embeddings API and Matching Engine. Embeddings API uses Large Language Models (LLMs) to generate embeddings representing text and image semantics, and Matching Engine provides a fully managed, high-scale, low latency vector database (a.k.a, approximate nearest neighbor search).',
   sections: [
     // {
     //   buttonText: 'Learn about Vertex AI Matching Engine',
@@ -111,8 +111,7 @@ export const matchingEngineDemoInfo = {
 
 export const unifiedCloudSearchDemoInfo = {
   title: 'Unified Cloud Search',
-  subtitle:
-    'Unified Cloud Search ... TODO',
+  subtitle: 'Unified Cloud Search ... TODO',
   sections: [
     {
       buttonText: 'Try the demo',

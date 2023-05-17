@@ -15,7 +15,7 @@
  */
 
 import * as React from 'react';
-import { ReactComponent as ArchitectureImage } from 'demos/unified-cloud-search/static/architecture.svg';
+import { ReactComponent as ArchitectureImage } from 'demos/matching-engine/static/architecture.svg';
 import GitHubButton from 'react-github-btn';
 
 export default () => (
@@ -54,24 +54,7 @@ export default () => (
             >
               Matching Engine
             </a>{' '}
-            to do vector similarity search at scale. Matching Engine requires a{' '}
-            <a
-              href="https://cloud.google.com/vpc/docs/vpc"
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              VPC network
-            </a>{' '}
-            to perform search. Cloud Run connects to the VPC network by using a{' '}
-            <a
-              href="https://cloud.google.com/vpc/docs/serverless-vpc-access"
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 hover:text-blue-700"
-            >
-              Serverless VPC connector
-            </a>
+            to do vector similarity search at scale.
           </p>
           <span className="uppercase text-xs">Memorystore</span>
           <p className="text-sm">

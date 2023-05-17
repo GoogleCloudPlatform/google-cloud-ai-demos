@@ -46,7 +46,6 @@ const AppRoutes = () => {
       /> */}
       <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
       <Route path="/demos/unified-cloud-search" element={<DemoWrapper {...unifiedCloudSearchDemoInfo} />} />
-      <Route path="/demos/coca-demo" element={<MatchingEngineFlow />} />
     </Routes>
   );
 };

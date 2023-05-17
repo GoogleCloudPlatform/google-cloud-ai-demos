@@ -103,8 +103,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
         with tracer.start_as_current_span("palm_text_match_service_instance init"):
             palm_text_match_service_instance = palm_text_match_service.PalmTextMatchService(
                 id="stackoverflow_questions_palm",
-                name="StackOverflow (PaLM)",
-                description="Questions from StackOverflow encoded using PaLM.",
+                name="StackOverflow (Text)",
+                description="Questions from StackOverflow encoded using Vertex Text Embeddings.",
                 words_file="data/stackoverflow_questions.txt",
                 index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3325512500627111936",
                 deployed_index_id="stack_overflow_8M_ba50",
@@ -124,8 +124,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             ):
                 coca_text_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
                     id="text_to_image_coca",
-                    name="Mercari text-to-image (CoCa)",
-                    description="Mercari product images encoded using CoCa.",
+                    name="Mercari text-to-image",
+                    description="Mercari product images encoded using Vertex Image Embeddings.",
                     prompts_texts_file="data/mercari_products.txt",
                     allows_text_input=True,
                     allows_image_input=False,
@@ -153,8 +153,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             ):
                 coca_image_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
                     id="image_to_image_coca",
-                    name="Mercari image-to-image (CoCa)",
-                    description="Mercari product images encoded using CoCa.",
+                    name="Mercari image-to-image",
+                    description="Mercari product images encoded using Vertex Image Embeddings.",
                     prompt_images_file="data/mercari_product_images.txt",
                     allows_text_input=False,
                     allows_image_input=True,
@@ -178,8 +178,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             ):
                 rooms_text_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
                     id="text_to_image_rooms",
-                    name="Rooms text-to-image (CoCa)",
-                    description="Room images encoded using CoCa.",
+                    name="Rooms text-to-image",
+                    description="Room images encoded using Vertex Image Embeddings.",
                     prompts_texts_file="data/room_interior_descriptions.txt",
                     allows_text_input=True,
                     allows_image_input=False,
@@ -201,8 +201,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
             ):
                 rooms_image_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
                     id="image_to_image_rooms",
-                    name="Rooms image-to-image (CoCa)",
-                    description="Room interior images encoded using CoCa.",
+                    name="Rooms image-to-image",
+                    description="Room interior images encoded using Vertex Image Embeddings.",
                     prompt_images_file="data/room_interior_images.txt",
                     allows_text_input=False,
                     allows_image_input=True,

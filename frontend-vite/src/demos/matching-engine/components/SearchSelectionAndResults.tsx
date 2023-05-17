@@ -15,14 +15,7 @@
  */
 import { SearchResultsForTextQuery, SearchResultsForImageQuery } from './SearchResults';
 import { SuggestionsList } from './SuggestionsList';
-import {
-  getSuggestions,
-  SuggestionInfo,
-  SuggestionInfosResponse,
-  SearchServiceInfo,
-  MatchResponse,
-  matchByImage,
-} from '../queries';
+import { getSuggestions, SuggestionInfo, SuggestionInfosResponse, SearchServiceInfo } from '../queries';
 import * as React from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { useDebounce } from 'use-debounce';
@@ -104,8 +97,8 @@ const MatchSelectionAndResults = ({
             <div className="text-center justify-center">
               <div className="flex flex-row gap-8">
                 <div className="flex-1 flex-col items-baseline space-y-2">
-                  <label className="font-extralight">Choose a file</label>
                   <input
+                    key={imageFile?.toString()}
                     type="file"
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                       const files = event.target.files;
@@ -116,19 +109,19 @@ const MatchSelectionAndResults = ({
                     className="w-full file-input input-bordered max-w-md"
                   />
                 </div>
-                <div className="flex-1 flex-col items-baseline space-y-2">
+                {/* <div className="flex-1 flex-col items-baseline space-y-2">
                   <label className="font-extralight">Paste a link</label>
                   <input
                     type="text"
                     className="w-full input input-bordered max-w-md"
                     placeholder="Type a search query"
-                    value={textFieldText}
+                    value={typeof imageFile === 'string' ? imageFile : ''}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                       const newText = event.target.value;
-                      setTextFieldText(newText);
+                      setImageFile(newText);
                     }}
                   />
-                </div>
+                </div> */}
               </div>
               {imageFilePath && (
                 <div className="flex flex-col items-center">
