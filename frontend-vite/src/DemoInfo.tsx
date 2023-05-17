@@ -89,7 +89,7 @@ export const imageClassificationDemoInfo = {
 export const matchingEngineDemoInfo = {
   title: 'Vertex AI Embeddings API + Matching Engine demo',
   subtitle:
-    'This demo features fast and scalable semantic search implemented with (Vertex AI Embeddings API)[https://cloud.google.com/model-garden] and (Matching Engine)[https://cloud.google.com/vertex-ai/docs/matching-engine/overview]. Embeddings API uses Large Language Models (LLMs) to generate embeddings representing text and image semantics, and Matching Engine provides a fully managed, high-scale, low latency vector database (a.k.a, approximate nearest neighbor search).',
+    'This demo features fast and scalable semantic search implemented with [Vertex AI Embeddings API](https://cloud.google.com/model-garden) and [Matching Engine](https://cloud.google.com/vertex-ai/docs/matching-engine/overview). Embeddings API uses Large Language Models (LLMs) to generate embeddings representing text and image semantics, and Matching Engine provides a fully managed, high-scale, low latency vector database (a.k.a, approximate nearest neighbor search).',
   sections: [
     // {
     //   buttonText: 'Learn about Vertex AI Matching Engine',

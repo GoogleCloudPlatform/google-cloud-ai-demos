@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import ReactMarkdown from 'react-markdown';
 
 interface DemoThemingProps {
   children: React.ReactNode;
@@ -40,7 +41,9 @@ const DemoWrapper = ({ initialTabIndex, title, subtitle, sections }: DemoWrapper
       <div className="flex flex-col space-y-8 p-4 mb-6 items-center justify-center">
         <article className="prose">
           <h1 className="text-center">{title}</h1>
-          <p className="text-center">{subtitle}</p>
+          <p className="text-center">
+            <ReactMarkdown linkTarget="_blank" children={subtitle} />
+          </p>
         </article>
         <div className="self-center">
           <div className="btn-group">
