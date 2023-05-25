@@ -32,29 +32,3 @@ COPY tests tests
 # Install dependencies.
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-
-# Private SDK
-COPY google_cloud_aiplatform-1.25.dev20230502+language.models-py2.py3-none-any.whl .
-RUN pip install google_cloud_aiplatform-1.25.dev20230502+language.models-py2.py3-none-any.whl "shapely<2.0.0" "protobuf==3.19.6" --force-reinstall
-
-# RUN python -m spacy download en_core_web_md
-
-# # Download git lfs
-# RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-# RUN apt install git-lfs
-# RUN git lfs install
-
-# # Download clip-vit-base-patch32
-# RUN git clone --depth=1 https://huggingface.co/openai/clip-vit-base-patch32
-# # Remove large, unused files
-# RUN rm clip-vit-base-patch32/flax_model.msgpack
-# RUN rm clip-vit-base-patch32/tf_model.h5
-# RUN rm -rf clip-vit-base-patch32/.git
-
-# # Download sentence-transformers/sentence-t5-base
-# RUN git clone --depth=1 https://huggingface.co/sentence-transformers/sentence-t5-base
-# # Remove large, unused files
-# RUN rm sentence-t5-base/rust_model.ot
-# RUN rm -rf sentence-t5-base/.git
-
-# RUN python -m pytest tests/test_match_service.py

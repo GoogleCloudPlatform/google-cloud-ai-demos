@@ -37,15 +37,16 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<DemoSelection />} />
-      <Route path="/demos" element={<DemoSelection />} />
+      {/* <Route path="/" element={<DemoSelection />} />
+      <Route path="/demos" element={<DemoSelection />} /> */}
       {/* <Route path="/demos/time-series-forecasting" element={<DemoWrapper {...forecastingDemoInfo} />} />
       <Route
         path="/demos/time-series-forecasting/new-forecast"
         element={<DemoWrapper {...forecastingDemoInfo} initialTabIndex={1} />}
       /> */}
+      <Route path="/" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
       <Route path="/demos/matching-engine" element={<DemoWrapper {...matchingEngineDemoInfo} />} />
-      <Route path="/demos/unified-cloud-search" element={<DemoWrapper {...unifiedCloudSearchDemoInfo} />} />
+      {/* <Route path="/demos/unified-cloud-search" element={<DemoWrapper {...unifiedCloudSearchDemoInfo} />} /> */}
     </Routes>
   );
 };

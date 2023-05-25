@@ -84,7 +84,7 @@ def test_palm_stack_overflow_convert_to_embeddings():
 #     embeddings = service.convert_text_to_embeddings(target="Hello world")
 
 #     assert embeddings is not None, "No embeddings found"
-#     assert isinstance(embeddings[0], float), "Embedding value is not a float"
+#     assert isinstance(embeddings[0], float), "Embedding valune is not a float"
 #     assert np.any(embeddings), "Empty embeddings found"
 
 

@@ -30,7 +30,8 @@ from services.match_service import (
     VertexAIMatchingEngineMatchService,
 )
 
-from google.cloud.aiplatform.private_preview.language_models import TextEmbeddingModel
+# Load the "Vertex AI Embeddings for Text" model
+from vertexai.preview.language_models import TextEmbeddingModel
 
 logger = logging.getLogger(__name__)
 tracer = tracer_helper.get_tracer(__name__)
@@ -95,7 +96,7 @@ class PalmTextMatchService(VertexAIMatchingEngineMatchService[Dict[str, str]]):
         self.deployed_index_id = deployed_index_id
         self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
         self.model: TextEmbeddingModel = TextEmbeddingModel.from_pretrained(
-            "textembedding-gecko-001"
+            "textembedding-gecko@001"
         )
 
     @tracer.start_as_current_span("get_suggestions")
