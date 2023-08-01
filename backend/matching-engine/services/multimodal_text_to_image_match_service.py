@@ -20,6 +20,7 @@ import google.auth.transport.requests
 import redis
 import requests
 from google.cloud.aiplatform.matching_engine import matching_engine_index_endpoint
+from services.multimodal_embedding_client import MultimodalEmbeddingPredictionClient
 
 import storage_helper
 import tracer_helper
@@ -32,78 +33,7 @@ from services.match_service import (
 
 tracer = tracer_helper.get_tracer(__name__)
 
-DESTINATION_BLOB_NAME = "coca_text_to_image"
-
-
-def encode_images_to_embeddings(
-    access_token: str, api_key: str, image_uris: List[str]
-) -> List[List[float]]:
-    headers = {
-        "Authorization": "Bearer " + access_token,
-    }
-
-    json_data = {
-        "requests": [
-            {
-                "image": {"source": {"imageUri": image_uri}},
-                "features": [{"type": "IMAGE_EMBEDDING"}],
-            }
-            for image_uri in image_uris
-        ]
-    }
-
-    response = requests.post(
-        f"https://us-vision.googleapis.com/v1/images:annotate?key={api_key}",
-        headers=headers,
-        json=json_data,
-    )
-
-    try:
-        return [
-            image_response["imageEmbeddingVector"]["imageEmbeddingVector"]
-            for image_response in response.json()["responses"]
-        ]
-    except Exception as ex:
-        # print(response.json())
-        print(f"{ex}:{response.json()}")
-        raise RuntimeError("Error getting embedding.")
-
-
-def encode_texts_to_embeddings(
-    access_token: str, api_key: str, text: List[str]
-) -> List[List[float]]:
-    headers = {
-        "Authorization": "Bearer " + access_token,
-    }
-
-    json_data = {
-        "requests": [
-            {
-                "image": {
-                    "source": {
-                        "imageUri": "https://fileinfo.com/img/ss/xl/jpeg_43.png"  # dummy image
-                    }
-                },
-                "features": [{"type": "IMAGE_EMBEDDING"}],
-                "imageContext": {"imageEmbeddingParams": {"contextualTexts": text}},
-            }
-        ]
-    }
-
-    response = requests.post(
-        f"https://us-vision.googleapis.com/v1/images:annotate?key={api_key}",
-        headers=headers,
-        json=json_data,
-    )
-
-    try:
-        return response.json()["responses"][0]["imageEmbeddingVector"][
-            "contextualTextEmbeddingVectors"
-        ]
-    except Exception as ex:
-        # print(f"{ex}:{response.json()}")
-        print(ex)
-        raise RuntimeError("Error getting embedding.")
+DESTINATION_BLOB_NAME = "multimodal_text_to_image"
 
 
 def get_access_token() -> str:
@@ -124,7 +54,7 @@ def get_access_token() -> str:
 T = TypeVar("T")
 
 
-class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
+class MultimodalTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
     @property
     def id(self) -> str:
         return self._id
@@ -163,8 +93,9 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
         allows_image_input: bool,
         index_endpoint_name: str,
         deployed_index_id: str,
-        api_key: str,
+        project_id: str,
         gcs_bucket: str,
+        is_public_index_endpoint: bool,
         prompts_texts_file: Optional[str] = None,
         prompt_images_file: Optional[str] = None,
         code_info: Optional[CodeInfo] = None,
@@ -173,7 +104,7 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
         self._name = name
         self._description = description
         self._code_info = code_info
-        self.api_key = api_key
+        self.project_id = project_id
         self._allows_text_input = allows_text_input
         self._allows_image_input = allows_image_input
         self.gcs_bucket = gcs_bucket
@@ -198,6 +129,8 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
             )
         )
         self.deployed_index_id = deployed_index_id
+        self.client = MultimodalEmbeddingPredictionClient(project_id=self.project_id)
+        self.is_public_index_endpoint = is_public_index_endpoint
 
     @tracer.start_as_current_span("get_suggestions")
     def get_suggestions(self, num_items: int = 60) -> List[Item]:
@@ -223,23 +156,29 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
             min(num_items, len(prompts)),
         )
 
+    def encode_image_to_embeddings(self, image_uri: str) -> List[float]:
+        try:
+            return self.client.get_embedding(
+                text=None, image_file=image_uri
+            ).image_embedding
+        except Exception as ex:
+            raise RuntimeError("Error getting embedding.")
+
+    def encode_text_to_embeddings(self, text: str) -> List[float]:
+        try:
+            return self.client.get_embedding(text=text, image_file=None).text_embedding
+        except Exception as ex:
+            raise RuntimeError("Error getting embedding.")
+
     @tracer.start_as_current_span("convert_text_to_embeddings")
     def convert_text_to_embeddings(self, target: str) -> Optional[List[float]]:
-        # Get default access token
-        access_token = get_access_token()
-
-        return encode_texts_to_embeddings(
-            access_token=access_token, api_key=self.api_key, text=[target]
-        )[0]
+        return self.encode_text_to_embeddings(text=target)
 
     @tracer.start_as_current_span("convert_image_to_embeddings")
     def convert_image_to_embeddings(
         self, image_file_local_path: str
     ) -> Optional[List[float]]:
         """Convert a given item to an embedding representation."""
-        # Get default access token
-        access_token = get_access_token()
-
         # Upload image file
         image_uri = storage_helper.upload_blob(
             source_file_name=image_file_local_path,
@@ -247,26 +186,19 @@ class CocaTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
             destination_blob_name=DESTINATION_BLOB_NAME,
         )
 
-        return encode_images_to_embeddings(
-            access_token=access_token, api_key=self.api_key, image_uris=[image_uri]
-        )[0]
+        return self.encode_image_to_embeddings(image_uri=image_uri)
 
     @tracer.start_as_current_span("convert_image_to_embeddings_remote")
     def convert_image_to_embeddings_remote(
         self, image_file_remote_path: str
     ) -> Optional[List[float]]:
         """Convert a given item to an embedding representation."""
-        # Get default access token
-        access_token = get_access_token()
-
-        return encode_images_to_embeddings(
-            access_token=access_token,
-            api_key=self.api_key,
-            image_uris=[image_file_remote_path],
-        )[0]
+        return self.encode_image_to_embeddings(
+            image_uri=image_file_remote_path,
+        )
 
 
-class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]):
+class MercariTextToImageMatchService(MultimodalTextToImageMatchService[Dict[str, str]]):
     def __init__(
         self,
         id: str,
@@ -276,10 +208,11 @@ class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]
         allows_image_input: bool,
         index_endpoint_name: str,
         deployed_index_id: str,
-        api_key: str,
+        project_id: str,
         redis_host: str,  # Redis host to get data about a match id
         redis_port: int,  # Redis port to get data about a match id
         gcs_bucket: str,
+        is_public_index_endpoint: bool,
         prompts_texts_file: Optional[str] = None,
         prompt_images_file: Optional[str] = None,
         code_info: Optional[CodeInfo] = None,
@@ -289,7 +222,7 @@ class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]
             name=name,
             description=description,
             code_info=code_info,
-            api_key=api_key,
+            project_id=project_id,
             allows_text_input=allows_text_input,
             allows_image_input=allows_image_input,
             gcs_bucket=gcs_bucket,
@@ -297,6 +230,7 @@ class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]
             prompt_images_file=prompt_images_file,
             index_endpoint_name=index_endpoint_name,
             deployed_index_id=deployed_index_id,
+            is_public_index_endpoint=is_public_index_endpoint,
         )
         self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
@@ -330,7 +264,7 @@ class MercariTextToImageMatchService(CocaTextToImageMatchService[Dict[str, str]]
         ]
 
 
-class RoomsTextToImageMatchService(CocaTextToImageMatchService[str]):
+class RoomsTextToImageMatchService(MultimodalTextToImageMatchService[str]):
     @tracer.start_as_current_span("get_by_id")
     def get_by_id(self, id: str) -> Optional[str]:
         """Get an item by id."""

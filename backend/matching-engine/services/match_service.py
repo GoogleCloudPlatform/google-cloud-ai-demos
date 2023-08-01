@@ -90,6 +90,12 @@ class MatchService(abc.ABC, Generic[T]):
         """Convert a given item to an embedding representation."""
         raise NotImplementedError()
 
+    def convert_image_to_embeddings_remote(
+        self, image_file_remote_path: str
+    ) -> Optional[List[float]]:
+        """Convert a given item to an embedding representation."""
+        raise NotImplementedError()
+
     def match_by_image(
         self, image_file_local_path: str, num_neighbors: int
     ) -> List[MatchResult]:
@@ -134,6 +140,7 @@ class MatchService(abc.ABC, Generic[T]):
 class VertexAIMatchingEngineMatchService(MatchService[T]):
     index_endpoint: matching_engine_index_endpoint.MatchingEngineIndexEndpoint
     deployed_index_id: str
+    is_public_index_endpoint: bool = True
 
     @tracer.start_as_current_span("match_by_embeddings")
     def match_by_embeddings(
@@ -144,11 +151,18 @@ class VertexAIMatchingEngineMatchService(MatchService[T]):
 
         logger.info(f"len(embeddings) = {len(embeddings)}")
 
-        response = self.index_endpoint.match(
-            deployed_index_id=self.deployed_index_id,
-            queries=[embeddings],
-            num_neighbors=num_neighbors,
-        )
+        if self.is_public_index_endpoint:
+            response = self.index_endpoint.find_neighbors(
+                deployed_index_id=self.deployed_index_id,
+                queries=[embeddings],
+                num_neighbors=num_neighbors,
+            )
+        else:
+            response = self.index_endpoint.match(
+                deployed_index_id=self.deployed_index_id,
+                queries=[embeddings],
+                num_neighbors=num_neighbors,
+            )
 
         logger.info(f"index_endpoint.match completed")
 

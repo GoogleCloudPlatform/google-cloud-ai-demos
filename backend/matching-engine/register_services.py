@@ -19,7 +19,7 @@ from typing import Dict, List
 import constants
 import tracer_helper
 from services import (
-    coca_text_to_image_match_service,
+    multimodal_text_to_image_match_service,
     match_service,
     palm_text_match_service,
 )
@@ -32,73 +32,6 @@ tracer = tracer_helper.get_tracer(__name__)
 def register_services() -> Dict[str, match_service.MatchService]:
     services: List[match_service.MatchService] = []
 
-    # try:
-    #     with tracer.start_as_current_span("text_match_service_instance init"):
-    #         text_match_service_instance = spacy_match_service.SpacyTextMatchService(
-    #             id="words",
-    #             name="English words",
-    #             description="Common English words encoded using spaCy embeddings",
-    #             words_file="data/popular-english-words.txt",
-    #             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/1907670266377404416",
-    #             deployed_index_id="spacy_common_words",
-    #             code_info=match_service.CodeInfo(
-    #                 url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_for_indexing.ipynb",
-    #                 title="Create Vertex AI Matching Engine index",
-    #             ),
-    #         )
-
-    #         services.append(text_match_service_instance)
-    # except Exception as ex:
-    #     traceback.print_exc()
-    #     logging.error(ex)
-
-    # try:
-    #     with tracer.start_as_current_span(
-    #         "stackoverflow_questions_match_service_instance init"
-    #     ):
-    #         stackoverflow_questions_match_service_instance = sentence_transformer_service.SentenceTransformerMatchService(
-    #             id="stackoverflow_questions",
-    #             name="StackOverflow",
-    #             description="Python-tagged questions from StackOverflow encoded using sentence-t5.",
-    #             words_file="data/stackoverflow_questions.txt",
-    #             sentence_transformer_id_or_path="sentence-t5-base",
-    #             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/6289813441297252352",
-    #             deployed_index_id="tmp9w803to2",
-    #             redis_host="10.43.4.3",
-    #             redis_port="6379",
-    #             code_info=match_service.CodeInfo(
-    #                 url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings.ipynb",
-    #                 title="Using Vertex AI Matching Engine for StackOverflow Questions",
-    #             ),
-    #         )
-
-    #         services.append(stackoverflow_questions_match_service_instance)
-    # except Exception as ex:
-    #     traceback.print_exc()
-    #     logging.error(ex)
-
-    # try:
-    #     with tracer.start_as_current_span("text_to_image_match_service_instance init"):
-    #         text_to_image_match_service_instance = text_to_image_match_service.TextToImageMatchService(
-    #             id="text_to_image",
-    #             name="Text to image",
-    #             description="DiffusionDB images encoded using CLIP.",
-    #             prompts_file="data/text_to_image.txt",
-    #             model_id_or_path="clip-vit-base-patch32",
-    #             index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3889676314885488640",
-    #             deployed_index_id="tmpy8lywd0h_filtered",
-    #             image_directory_uri="https://storage.googleapis.com/ai-demos/text_to_image",
-    #             code_info=match_service.CodeInfo(
-    #                 url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
-    #                 title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
-    #             ),
-    #         )
-
-    #         services.append(text_to_image_match_service_instance)
-    # except Exception as ex:
-    #     traceback.print_exc()
-    #     logging.error(ex)
-
     try:
         with tracer.start_as_current_span("palm_text_match_service_instance init"):
             palm_text_match_service_instance = palm_text_match_service.PalmTextMatchService(
@@ -106,10 +39,14 @@ def register_services() -> Dict[str, match_service.MatchService]:
                 name="StackOverflow (Text)",
                 description="Questions from StackOverflow encoded using Vertex Text Embeddings.",
                 words_file="data/stackoverflow_questions.txt",
-                index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3325512500627111936",
-                deployed_index_id="stack_overflow_8M_ba50",
-                redis_host="10.43.4.19",
+                index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/7332062503498678272",
+                deployed_index_id="deployed_index_id_unique_public",
+                redis_host="10.203.141.107",
                 redis_port=6379,
+                code_info=match_service.CodeInfo(
+                    url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings_vertex.ipynb",
+                    title="Using Vertex AI Matching Engine and Vertex AI Embeddings for Text",
+                ),
             )
 
             services.append(palm_text_match_service_instance)
@@ -117,104 +54,61 @@ def register_services() -> Dict[str, match_service.MatchService]:
         traceback.print_exc()
         logging.error(ex)
 
-    # if constants.API_KEY is not None and constants.GCS_BUCKET is not None:
-    #     try:
-    #         with tracer.start_as_current_span(
-    #             "coca_text_to_image_match_service_instance init"
-    #         ):
-    #             coca_text_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
-    #                 id="text_to_image_coca",
-    #                 name="Mercari text-to-image",
-    #                 description="Mercari product images encoded using Vertex Image Embeddings.",
-    #                 prompts_texts_file="data/mercari_products.txt",
-    #                 allows_text_input=True,
-    #                 allows_image_input=False,
-    #                 index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3421213992708734976",
-    #                 deployed_index_id="deployed_index_9420",
-    #                 api_key=constants.API_KEY,
-    #                 gcs_bucket=constants.GCS_BUCKET,
-    #                 redis_host="10.43.4.11",
-    #                 redis_port=6379,
-    #                 code_info=None,
-    #                 # code_info=match_service.CodeInfo(
-    #                 #     url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
-    #                 #     title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
-    #                 # ),
-    #             )
+    if constants.GCP_PROJECT_ID is not None and constants.GCS_BUCKET is not None:
+        try:
+            with tracer.start_as_current_span(
+                "multimodal_text_to_image_match_service_instance init"
+            ):
+                multimodal_text_to_image_match_service_instance = multimodal_text_to_image_match_service.MercariTextToImageMatchService(
+                    id="text_to_image_multimodal",
+                    name="Mercari text-to-image",
+                    description="Mercari product images encoded using Vertex Multimodal Embeddings.",
+                    prompts_texts_file="data/mercari_products.txt",
+                    allows_text_input=True,
+                    allows_image_input=False,
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3663880607005409280",
+                    deployed_index_id="deployed_index_1f11",
+                    is_public_index_endpoint=True,
+                    project_id=constants.GCP_PROJECT_ID,
+                    gcs_bucket=constants.GCS_BUCKET,
+                    redis_host="10.217.194.235",
+                    redis_port=6379,
+                    code_info=None,
+                    # code_info=match_service.CodeInfo(
+                    #     url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
+                    #     title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
+                    # ),
+                )
 
-    #             services.append(coca_text_to_image_match_service_instance)
-    #     except Exception as ex:
-    #         traceback.print_exc()
-    #         logging.error(ex)
+                services.append(multimodal_text_to_image_match_service_instance)
+        except Exception as ex:
+            traceback.print_exc()
+            logging.error(ex)
 
-    #     try:
-    #         with tracer.start_as_current_span(
-    #             "coca_image_to_image_match_service_instance init"
-    #         ):
-    #             coca_image_to_image_match_service_instance = coca_text_to_image_match_service.MercariTextToImageMatchService(
-    #                 id="image_to_image_coca",
-    #                 name="Mercari image-to-image",
-    #                 description="Mercari product images encoded using Vertex Image Embeddings.",
-    #                 prompt_images_file="data/mercari_product_images.txt",
-    #                 allows_text_input=False,
-    #                 allows_image_input=True,
-    #                 index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3421213992708734976",
-    #                 deployed_index_id="deployed_index_9420",
-    #                 api_key=constants.API_KEY,
-    #                 gcs_bucket=constants.GCS_BUCKET,
-    #                 redis_host="10.43.4.11",
-    #                 redis_port=6379,
-    #                 code_info=None,
-    #             )
+        try:
+            with tracer.start_as_current_span(
+                "multimodal_image_to_image_match_service_instance init"
+            ):
+                multimodal_image_to_image_match_service_instance = multimodal_text_to_image_match_service.MercariTextToImageMatchService(
+                    id="image_to_image_multimodal",
+                    name="Mercari image-to-image",
+                    description="Mercari product images encoded using Vertex Multimodal Embeddings.",
+                    prompt_images_file="data/mercari_product_images.txt",
+                    allows_text_input=False,
+                    allows_image_input=True,
+                    index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/3663880607005409280",
+                    deployed_index_id="deployed_index_1f11",
+                    is_public_index_endpoint=True,
+                    project_id=constants.GCP_PROJECT_ID,
+                    gcs_bucket=constants.GCS_BUCKET,
+                    redis_host="10.217.194.235",
+                    redis_port=6379,
+                    code_info=None,
+                )
 
-    #             services.append(coca_image_to_image_match_service_instance)
-    #     except Exception as ex:
-    #         traceback.print_exc()
-    #         logging.error(ex)
+                services.append(multimodal_image_to_image_match_service_instance)
+        except Exception as ex:
+            traceback.print_exc()
+            logging.error(ex)
 
-    #     try:
-    #         with tracer.start_as_current_span(
-    #             "rooms_text_to_image_match_service_instance init"
-    #         ):
-    #             rooms_text_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
-    #                 id="text_to_image_rooms",
-    #                 name="Rooms text-to-image",
-    #                 description="Room images encoded using Vertex Image Embeddings.",
-    #                 prompts_texts_file="data/room_interior_descriptions.txt",
-    #                 allows_text_input=True,
-    #                 allows_image_input=False,
-    #                 index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/2385104603436810240",
-    #                 deployed_index_id="deployed_index_1ac7",
-    #                 api_key=constants.API_KEY,
-    #                 gcs_bucket=constants.GCS_BUCKET,
-    #                 code_info=None,
-    #             )
-
-    #             services.append(rooms_text_to_image_match_service_instance)
-    #     except Exception as ex:
-    #         traceback.print_exc()
-    #         logging.error(ex)
-
-    #     try:
-    #         with tracer.start_as_current_span(
-    #             "rooms_image_to_image_match_service_instance init"
-    #         ):
-    #             rooms_image_to_image_match_service_instance = coca_text_to_image_match_service.RoomsTextToImageMatchService(
-    #                 id="image_to_image_rooms",
-    #                 name="Rooms image-to-image",
-    #                 description="Room interior images encoded using Vertex Image Embeddings.",
-    #                 prompt_images_file="data/room_interior_images.txt",
-    #                 allows_text_input=False,
-    #                 allows_image_input=True,
-    #                 index_endpoint_name="projects/782921078983/locations/us-central1/indexEndpoints/2385104603436810240",
-    #                 deployed_index_id="deployed_index_1ac7",
-    #                 api_key=constants.API_KEY,
-    #                 gcs_bucket=constants.GCS_BUCKET,
-    #                 code_info=None,
-    #             )
-
-    #             services.append(rooms_image_to_image_match_service_instance)
-    #     except Exception as ex:
-    #         traceback.print_exc()
-    #         logging.error(ex)
     return {service.id: service for service in services}
