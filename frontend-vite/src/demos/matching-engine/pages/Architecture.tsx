@@ -19,9 +19,9 @@ import { ReactComponent as ArchitectureImage } from 'demos/matching-engine/stati
 import GitHubButton from 'react-github-btn';
 
 export default () => (
-  <div className="container mx-auto max-w-7xl">
+  <div className="container mx-auto">
     <div className="grid grid-cols-12 gap-7">
-      <div className="col-span-12 lg:col-span-4">
+      <div className="col-span-12 lg:col-span-6">
         <article className="prose">
           <h6 className="text-lg font-semibold">Architecture</h6>
           <p className="text-base">The demo consists of a React frontend served via nginx and hosted on Cloud Run.</p>
@@ -42,6 +42,28 @@ export default () => (
           <p className="text-sm">
             The backend is a Python app served using FastAPI. It uses a threadpool to handle multiple training requests
             in parallel. This is then containerized and deployed on Cloud Run.
+          </p>
+          <span className="uppercase text-xs">Embeddings</span>
+          <p className="text-sm">
+            The demo uses Vertex AI{' '}
+            <a
+              href="https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/text-embeddings"
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-500 hover:text-blue-700"
+            >
+              Embeddings API for Text
+            </a>{' '}
+            for generating embeddings for the Stack Overflow questions, and{' '}
+            <a
+              href="https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-multimodal-embeddings"
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-500 hover:text-blue-700"
+            >
+              Multimodal Embeddings
+            </a>{' '}
+            for item images and text queries.
           </p>
           <span className="uppercase text-xs">Similarity Search</span>
           <p className="text-sm">
@@ -93,11 +115,11 @@ export default () => (
           </GitHubButton>
         </article>
       </div>
-      <div className="col-span-12 lg:col-span-8">
+      <div className="col-span-12 lg:col-span-6">
         <div className="flex">
           <ArchitectureImage
-            // onClick={() => window.open('demos/matching-engine/static/architecture.svg', '_blank')}
-            className="h-96"
+          // onClick={() => window.open('demos/matching-engine/static/architecture.svg', '_blank')}
+          // className="h-96"
           />
         </div>
       </div>

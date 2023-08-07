@@ -186,7 +186,10 @@ class MultimodalTextToImageMatchService(VertexAIMatchingEngineMatchService[T]):
             destination_blob_name=DESTINATION_BLOB_NAME,
         )
 
-        return self.encode_image_to_embeddings(image_uri=image_uri)
+        # Convert GCS path to HTTP path
+        image_uri_http = f"https://storage.googleapis.com/{image_uri[5:]}"
+
+        return self.encode_image_to_embeddings(image_uri=image_uri_http)
 
     @tracer.start_as_current_span("convert_image_to_embeddings_remote")
     def convert_image_to_embeddings_remote(
