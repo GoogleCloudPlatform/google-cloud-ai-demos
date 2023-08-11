@@ -54,7 +54,7 @@
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "recharts": "^2.1.14",
-    "storybook": "^6.5.16",
+    "storybook": "^7.2.3",
     "typescript": "^4.7.4",
     "use-analytics": "^0.0.5",
     "use-debounce": "^9.0.3",
