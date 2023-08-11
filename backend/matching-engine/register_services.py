@@ -62,7 +62,7 @@ def register_services() -> Dict[str, match_service.MatchService]:
                 multimodal_text_to_image_match_service_instance = multimodal_text_to_image_match_service.MercariTextToImageMatchService(
                     id="text_to_image_multimodal",
                     name="Mercari text-to-image",
-                    description="Mercari product images encoded using Vertex Multimodal Embeddings.",
+                    description="Mercari product images encoded using Vertex AI Multimodal Embeddings.",
                     prompts_texts_file="data/mercari_products.txt",
                     allows_text_input=True,
                     allows_image_input=False,
@@ -73,11 +73,10 @@ def register_services() -> Dict[str, match_service.MatchService]:
                     gcs_bucket=constants.GCS_BUCKET,
                     redis_host="10.217.194.235",
                     redis_port=6379,
-                    code_info=None,
-                    # code_info=match_service.CodeInfo(
-                    #     url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_text_to_image_embeddings.ipynb",
-                    #     title="Using Vertex AI Matching Engine for Text-to-Image Embeddings",
-                    # ),
+                    code_info=match_service.CodeInfo(
+                        url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_multimodal_embeddings.ipynb",
+                        title="Using Vertex AI Multimodal Embeddings and Matching Engine",
+                    ),
                 )
 
                 services.append(multimodal_text_to_image_match_service_instance)
@@ -103,7 +102,10 @@ def register_services() -> Dict[str, match_service.MatchService]:
                     gcs_bucket=constants.GCS_BUCKET,
                     redis_host="10.217.194.235",
                     redis_port=6379,
-                    code_info=None,
+                    code_info=match_service.CodeInfo(
+                        url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_multimodal_embeddings.ipynb",
+                        title="Using Vertex AI Multimodal Embeddings and Matching Engine",
+                    ),
                 )
 
                 services.append(multimodal_image_to_image_match_service_instance)

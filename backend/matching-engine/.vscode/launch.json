@@ -39,13 +39,13 @@
         {
             "name": "Cloud Run: Deploy docker image (public)",
             "request": "launch",
-            "command": "gcloud run deploy backend-matching-engine --image gcr.io/plated-life-378620/backend-matching-engine-palm:latest --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --update-env-vars TIMEOUT=0",
+            "command": "gcloud run deploy backend-matching-engine --image gcr.io/plated-life-378620/backend-matching-engine-palm:latest --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=default-connector --update-env-vars TIMEOUT=0",
             "type": "node-terminal"
         },
         {
             "name": "Cloud Run: Build and deploy docker image(public)",
             "request": "launch",
-            "command": "gcloud run deploy backend-matching-engine --source . --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=matching-engine-connector --update-env-vars TIMEOUT=0",
+            "command": "gcloud run deploy backend-matching-engine --source . --region=us-central1 --platform=managed --timeout=3600 --allow-unauthenticated --min-instances=1 --vpc-connector=default-connector --update-env-vars TIMEOUT=0",
             "type": "node-terminal"
         },
         {
