@@ -120,7 +120,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^5.0.0",
     "msw": "^0.47.3",
     "msw-storybook-addon": "^1.7.0",
     "path-to-regexp": "^6.2.1",
