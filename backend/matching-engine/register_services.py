@@ -44,8 +44,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
                 redis_host="10.203.141.107",
                 redis_port=6379,
                 code_info=match_service.CodeInfo(
-                    url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_stack_overflow_embeddings_vertex.ipynb",
-                    title="Using Vertex AI Matching Engine and Vertex AI Embeddings for Text",
+                    url="https://github.com/GoogleCloudPlatform/generative-ai/tree/main/embeddings",
+                    title="Using Vertex AI Vector Search and Vertex AI Embeddings for Text",
                 ),
             )
 
@@ -74,8 +74,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
                     redis_host="10.217.194.235",
                     redis_port=6379,
                     code_info=match_service.CodeInfo(
-                        url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_multimodal_embeddings.ipynb",
-                        title="Using Vertex AI Multimodal Embeddings and Matching Engine",
+                        url="https://github.com/GoogleCloudPlatform/generative-ai/tree/main/embeddings",
+                        title="Using Vertex AI Vector Search and Vertex AI Embeddings for Text",
                     ),
                 )
 
@@ -103,8 +103,8 @@ def register_services() -> Dict[str, match_service.MatchService]:
                     redis_host="10.217.194.235",
                     redis_port=6379,
                     code_info=match_service.CodeInfo(
-                        url="https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/matching_engine/sdk_matching_engine_create_multimodal_embeddings.ipynb",
-                        title="Using Vertex AI Multimodal Embeddings and Matching Engine",
+                        url="https://github.com/GoogleCloudPlatform/generative-ai/tree/main/embeddings",
+                        title="Using Vertex AI Vector Search and Vertex AI Embeddings for Text",
                     ),
                 )
 

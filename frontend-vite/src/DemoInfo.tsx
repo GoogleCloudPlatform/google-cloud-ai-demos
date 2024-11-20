@@ -87,12 +87,12 @@ export const imageClassificationDemoInfo = {
 };
 
 export const matchingEngineDemoInfo = {
-  title: 'Vertex AI Multimodal Embeddings API + Matching Engine demo',
+  title: 'Vertex AI Multimodal Embeddings API + Vector Search demo',
   subtitle:
-    'This demo features fast and scalable semantic search implemented with Vertex AI [Embeddings API for Text](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/text-embeddings), [Multimodal Embeddings](https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-multimodal-embeddings) and [Matching Engine](https://cloud.google.com/vertex-ai/docs/matching-engine/overview). Embeddings API uses Large Language Models (LLMs) to generate embeddings representing text and image semantics, and Matching Engine provides a fully managed, high-scale, low latency vector database (a.k.a, approximate nearest neighbor search).',
+    'This demo features fast and scalable semantic search implemented with Vertex AI [Embeddings API for Text](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/text-embeddings), [Multimodal Embeddings](https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-multimodal-embeddings) and [Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview). Embeddings API uses Large Language Models (LLMs) to generate embeddings representing text and image semantics, and Vector Search provides a fully managed, high-scale, low latency vector database (a.k.a, approximate nearest neighbor search).',
   sections: [
     // {
-    //   buttonText: 'Learn about Vertex AI Matching Engine',
+    //   buttonText: 'Learn about Vertex AI Vector Search',
     //   title: 'Follow along these scenarios to see how matching engine is used in a variety of industries',
     //   element: <ExplanationFlow />,
     // },
@@ -100,11 +100,6 @@ export const matchingEngineDemoInfo = {
       buttonText: 'Try the demo',
       title: 'Get the closest matches based on your selected item.',
       element: <MatchingEngineFlow />,
-    },
-    {
-      buttonText: 'How we built it',
-      title: 'This shows the architecture for the demo web app',
-      element: <MatchingEngineArchitecture />,
     },
   ],
 };

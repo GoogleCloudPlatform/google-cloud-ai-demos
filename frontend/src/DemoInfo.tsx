@@ -99,10 +99,5 @@ export const matchingEngineDemoInfo = {
       title: 'Get the closest matches based on your selected item.',
       element: <MatchingEngineFlow />,
     },
-    {
-      buttonText: 'How we built it',
-      title: 'This shows the architecture for the demo web app',
-      element: <MatchingEngineArchitecture />,
-    },
   ],
 };
