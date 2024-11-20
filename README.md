@@ -15,3 +15,7 @@ This is the list of demos included.
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Matching engine](https://ai-demos.dev/demos/matching-engine) | This live demo showcases a text and image search engine app powered by Vertex AI Matching Engine                                              |
 | Time-series forecasting                                       | This live demo showcases a forecasting app built with React, Material UI, Google Cloud Run, Google Cloud BigQuery and Google Cloud Vertex AI. |
+
+## Deploy
+
+# gcloud beta run deploy ai-demos-frontend --source . --region=us-central1 --platform=managed --cpu=2 --memory=8G --timeout=3600 --allow-unauthenticated --min-instances=1
