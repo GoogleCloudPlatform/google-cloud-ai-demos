@@ -32,7 +32,7 @@
     "daisyui": "^2.51.5",
     "eslint-import-resolver-typescript": "^3.4.2",
     "eslint-plugin-simple-import-sort": "^8.0.0",
-    "http-proxy-middleware": "^2.0.6",
+    "http-proxy-middleware": "^3.0.7",
     "install": "^0.13.0",
     "is-plain-object": "^5.0.0",
     "luxon": "^3.0.4",
